@@ -20,7 +20,7 @@ public abstract class DataConstants {
     protected static final String USER_TYPE = "userType";
 
     // Student Constants
-    protected static final String STUDENT_FILE_NAME = "AdvisingSoftware/Json/students.json";
+    protected static final String STUDENT_FILE_NAME = "application/src/main/java/AdvisingSoftware/Json/students.json";
     protected static final String STUDENT_CLASS = "class";
     protected static final String STUDENT_MAJOR = "major";
     protected static final String STUDENT_APP_AREA = "applicationArea";
@@ -32,16 +32,16 @@ public abstract class DataConstants {
     protected static final String STUDENT_ADVISOR_NOTES = "advisorNotes";
 
     // Advisor Constants
-    protected static final String ADVISOR_FILE_NAME = "AdvisingSoftware/Json/advisors.json";
+    protected static final String ADVISOR_FILE_NAME = "application/src/main/java/AdvisingSoftware/Json/advisors.json";
     protected static final String ADVISOR_LIST_OF_ADVISEES = "listOfAdivsees";
     protected static final String ADVISOR_LIST_OF_FAILING_STUDENTS = "listOfFailingStudents";
 
     // Admin Constants
-    protected static final String ADMIN_FILE_NAME = "AdvisingSoftware/Json/admins.json";
+    protected static final String ADMIN_FILE_NAME = "application/src/main/java/AdvisingSoftware/Json/admins.json";
     protected static final String ADMIN_CHANGES_MADE = "changesMade";
 
     // Course Constants
-    protected static final String COURSE_FILE_NAME = "AdvisingSoftware/Json/courses.json";
+    protected static final String COURSE_FILE_NAME = "application/src/main/java/AdvisingSoftware/Json/courses.json";
     protected static final String COURSE_ID = "id";
     protected static final String COURSE_NAME = "name";
     protected static final String COURSE_CODE = "code";
@@ -56,7 +56,7 @@ public abstract class DataConstants {
     protected static final String COURSE_YEAR = "year";
 
     // Major Constants
-    protected static final String MAJOR_FILE_NAME = "AdvisingSoftware/Json/majors.json";
+    protected static final String MAJOR_FILE_NAME = "application/src/main/java/AdvisingSoftware/Json/majors.json";
     protected static final String MAJOR_UUID = "id";
     protected static final String MAJOR_NAME = "major";
     protected static final String MAJOR_SEMESTER_1 = "semester 1";

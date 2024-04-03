@@ -1,0 +1,47 @@
+{
+  "minGradHours": 90,
+  "caroCoreHours": 30,
+  "minTotalHours": 125,
+  "minGPA": 2.0,
+  "major": "Computer Science",
+  "id": "f4ac0c04-d20f-4274-b068-bfb98613d772",
+  "courses": {
+    "semester 1": ["ENGL101", "MATH141", "CSCE145", "CSCE190", "AIU", "GFL"],
+    "semester 2": [
+      "ENGL102",
+      "MATH142",
+      "CHEM111",
+      "CHEM111L",
+      "CSCE146",
+      "CSCE215"
+    ],
+    "semester 3": [
+      "CSCE211",
+      "CSCE240",
+      "MATH374",
+      "CHEM112",
+      "CHEM112L",
+      "SPCH140"
+    ],
+    "semester 4": [
+      "CSCE212",
+      "CSCE247",
+      "MATH241",
+      "GSS",
+      "SCI",
+      "SCI-L",
+      "GFL"
+    ],
+    "semester 5": [
+      "CSCE311",
+      "CSCE330",
+      "CSCE350",
+      "CSCE390",
+      "ENGL462",
+      "AAE"
+    ],
+    "semester 6": ["CSCE416", "ME", "STAT509", "CLAS220", "AAE"],
+    "semester 7": ["CSCE490", "CSCE355", "MATH344", "MATH344L", "ME", "AAE"],
+    "semester 8": ["CSCE492", "ME", "MUSC110", "POLI101", "GHS"]
+  }
+}

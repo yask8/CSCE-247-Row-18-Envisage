@@ -1,8 +1,12 @@
 package envisage;
 
 import java.io.IOException;
+
+import AdvisingSoftware.Facade;
+import AdvisingSoftware.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class LogInController {
@@ -17,19 +21,7 @@ public class LogInController {
     private Button studentLoginButton;
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-    }
-
-    @FXML
-    private void loginStudent() throws IOException {
-        String email = studentEmailTextField.getText();
-        String password = studentPasswordTextField.getText();
-
-        // Validate the Login for student here for testing assume all credentials are valid
-        // Valid and set the stage
-        App.setRoot("studentDashboard");
-    }
+    private Label studentInvalidLabel;
 
     @FXML
     private TextField adminEmailTextField;
@@ -39,16 +31,9 @@ public class LogInController {
 
     @FXML
     private Button adminLoginButton;
-
+    
     @FXML
-    private void loginAdmin() throws IOException {
-        String email = adminEmailTextField.getText();
-        String password = adminPasswordTextField.getText();
-
-        // Validate the Login for admin here for testing assume all credentials are valid
-        // Valid and set the stage
-        App.setRoot("adminDashboard");
-    }
+    private Label adminInvalidLabel;
 
     @FXML
     private TextField advisorEmailTextField;
@@ -60,12 +45,59 @@ public class LogInController {
     private Button advisorLoginButton;
 
     @FXML
+    private Label advisorInvalidLabel;
+
+    @FXML
+    private void switchToSecondary() throws IOException {
+        App.setRoot("secondary");
+    }
+
+    @FXML
+    private void loginStudent() throws IOException {
+        String email = studentEmailTextField.getText();
+        String password = studentPasswordTextField.getText();
+    
+        Facade facade = new Facade();
+        User loggedInUser = facade.login(email, password);
+    
+        if (loggedInUser != null && loggedInUser.getUserType().equals("STUDENT")) {
+            App.setRoot("studentDashboard");
+        } else {
+            studentInvalidLabel.setText("Invalid login credentials or user is not a student.");
+            studentInvalidLabel.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void loginAdmin() throws IOException {
+        String email = adminEmailTextField.getText();
+        String password = adminPasswordTextField.getText();
+
+        Facade facade = new Facade();
+        User loggedInUser = facade.login(email, password);
+
+        if (loggedInUser != null && loggedInUser.getUserType().equals("ADMIN")) {
+ 
+            App.setRoot("adminDashboard");
+        } else {
+            adminInvalidLabel.setText("Invalid login credentials or user is not a Admin.");
+            adminInvalidLabel.setVisible(true);
+        }
+    }
+
+    @FXML
     private void loginAdvisor() throws IOException {
         String email = advisorEmailTextField.getText();
         String password = advisorPasswordTextField.getText();
 
-        // Validate the Login for advisor here for testing assume all credentials are valid
-        // Valid and set the stage
-        App.setRoot("advisorDashboard");
+        Facade facade = new Facade();
+        User loggedInUser = facade.login(email, password);
+
+        if (loggedInUser != null && loggedInUser.getUserType().equals("ADVISOR")) {
+            App.setRoot("advisorDashboard");
+        } else {
+            advisorInvalidLabel.setText("Invalid login credentials or user is not a Admin.");
+            advisorInvalidLabel.setVisible(true);
+        }
     }
 }
