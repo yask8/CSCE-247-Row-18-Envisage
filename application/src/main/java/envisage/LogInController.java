@@ -26,8 +26,7 @@ public class LogInController {
         String email = studentEmailTextField.getText();
         String password = studentPasswordTextField.getText();
 
-        // Validate the Login for student here for testing assume all credentials are
-        // valid
+        // Validate the Login for student here for testing assume all credentials are valid
         // Valid and set the stage
         App.setRoot("studentDashboard");
     }
@@ -46,8 +45,7 @@ public class LogInController {
         String email = adminEmailTextField.getText();
         String password = adminPasswordTextField.getText();
 
-        // Validate the Login for admin here for testing assume all credentials are
-        // valid
+        // Validate the Login for admin here for testing assume all credentials are valid
         // Valid and set the stage
         App.setRoot("adminDashboard");
     }
@@ -66,8 +64,7 @@ public class LogInController {
         String email = advisorEmailTextField.getText();
         String password = advisorPasswordTextField.getText();
 
-        // Validate the Login for advisor here for testing assume all credentials are
-        // valid
+        // Validate the Login for advisor here for testing assume all credentials are valid
         // Valid and set the stage
         App.setRoot("advisorDashboard");
     }

@@ -44,7 +44,7 @@
                      <children>
                         <TextField fx:id="studentEmailTextField" layoutX="52.0" layoutY="65.0" prefHeight="25.0" prefWidth="496.0" promptText="Enter Email" />
                         <TextField fx:id="studentPasswordTextField" layoutX="52.0" layoutY="105.0" prefHeight="25.0" prefWidth="496.0" promptText="Enter Password" />
-                        <Button fx:id="studentLoginButton" layoutX="225.0" layoutY="155.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Login" />
+                        <Button fx:id="studentLoginButton" layoutX="225.0" layoutY="155.0" mnemonicParsing="false" onAction="#loginStudent" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="449.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
                      </children>
                   </AnchorPane>
@@ -56,7 +56,7 @@
                      <children>
                         <TextField fx:id="advisorEmailTextField" layoutX="52.0" layoutY="65.0" prefHeight="25.0" prefWidth="496.0" promptText="Enter Email" />
                         <TextField fx:id="advisorPasswordTextField" layoutX="52.0" layoutY="105.0" prefHeight="25.0" prefWidth="496.0" promptText="Enter Password" />
-                        <Button fx:id="advisorLoginButton" layoutX="225.0" layoutY="155.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Login" />
+                        <Button fx:id="advisorLoginButton" layoutX="225.0" layoutY="155.0" mnemonicParsing="false" onAction="#loginAdvisor" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="449.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
                      </children>
                   </AnchorPane>
@@ -68,7 +68,7 @@
                      <children>
                         <TextField fx:id="adminEmailTextField" layoutX="52.0" layoutY="65.0" prefHeight="25.0" prefWidth="496.0" promptText="Enter Email" />
                         <TextField fx:id="adminPasswordTextField" layoutX="52.0" layoutY="105.0" prefHeight="25.0" prefWidth="496.0" promptText="Enter Password" />
-                        <Button fx:id="adminLoginButton" layoutX="225.0" layoutY="155.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Login" />
+                        <Button fx:id="adminLoginButton" layoutX="225.0" layoutY="155.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="449.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
                      </children>
                   </AnchorPane>
