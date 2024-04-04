@@ -46,7 +46,7 @@
                         <TextField fx:id="studentPasswordTextField" layoutX="29.0" layoutY="103.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
                         <Button fx:id="studentLoginButton" layoutX="204.0" layoutY="146.0" mnemonicParsing="false" onAction="#loginStudent" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="428.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
-                        <Label fx:id="studentInvalidLabel" layoutX="29.0" layoutY="14.0" prefHeight="20.0" prefWidth="500.0" visible="false" />
+                        <Label fx:id="studentInvalidLabel" contentDisplay="CENTER" layoutX="29.0" layoutY="34.0" prefHeight="20.0" prefWidth="500.0" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
                </content>
@@ -59,7 +59,7 @@
                         <TextField fx:id="advisorPasswordTextField" layoutX="29.0" layoutY="103.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
                         <Button fx:id="advisorLoginButton" layoutX="204.0" layoutY="146.0" mnemonicParsing="false" onAction="#loginAdvisor" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="428.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
-                        <Label fx:id="advisorInvalidLabel" layoutX="29.0" layoutY="14.0" prefHeight="20.0" prefWidth="500.0" visible="false" />
+                        <Label fx:id="advisorInvalidLabel" contentDisplay="CENTER" layoutX="27.0" layoutY="34.0" prefHeight="20.0" prefWidth="500.0" textAlignment="CENTER" visible="false" />
                      </children>
                   </AnchorPane>
                </content>
@@ -72,7 +72,7 @@
                         <TextField fx:id="adminPasswordTextField" layoutX="29.0" layoutY="103.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
                         <Button fx:id="adminLoginButton" layoutX="204.0" layoutY="146.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="428.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
-                        <Label fx:id="adminInvalidLabel" layoutX="29.0" layoutY="14.0" prefHeight="20.0" prefWidth="500.0" visible="false" />
+                        <Label fx:id="adminInvalidLabel" alignment="CENTER" layoutX="29.0" layoutY="34.0" prefHeight="20.0" prefWidth="500.0" textAlignment="CENTER" visible="false" />
                      </children>
                   </AnchorPane>
                </content>

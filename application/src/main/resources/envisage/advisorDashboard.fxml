@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="AdvisingDashboard" prefHeight="400.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisingDashboardController">
+<AnchorPane fx:id="advisorDashboard" prefHeight="400.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisingDashboardController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="159.0" layoutX="17.0" layoutY="78.0" stroke="BLACK" strokeType="INSIDE" width="602.0" />
         <Label layoutX="10" layoutY="10" text="Welcome Michael!">

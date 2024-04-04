@@ -1,7 +1,7 @@
 package envisage;
 import javafx.fxml.FXML;
 
-public class AdvisingDashboardController {
+public class AdvisorDashboardController {
 
     @FXML
     private void viewAdvisingProfile() {
