@@ -8,9 +8,6 @@ import javafx.scene.layout.AnchorPane;
 public class AdvisingDashboardController {
 
     @FXML
-    private AnchorPane AdvisingDashboard;
-
-    @FXML
     private Button adviseStudentButton;
 
     @FXML
@@ -18,6 +15,9 @@ public class AdvisingDashboardController {
 
     @FXML
     private Button advisingProfileButton;
+
+    @FXML
+    private AnchorPane advisorDashboard;
 
     @FXML
     private Button listOfAdviseesButton;
@@ -45,5 +45,12 @@ public class AdvisingDashboardController {
 
     @FXML
     void viewListOfAdvisees(ActionEvent event) {
+
     }
+
+    @FXML
+    void viewMajorMaps(ActionEvent event) {
+
+    }
+
 }
