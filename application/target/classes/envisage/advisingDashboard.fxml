@@ -43,6 +43,6 @@
       <Text layoutX="18.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 80% In Progress" wrappingWidth="254.53466796875" />
       <Text layoutX="18.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 10% Complete" wrappingWidth="254.53466796875" />
       <Text layoutX="18.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 10% Incomplete" wrappingWidth="254.53466796875" />
-      <Button layoutX="433.0" layoutY="317.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="188.0" text="Add/Remove Advisee Student" />
+      <Button fx:id="adviseStudentButton1" layoutX="433.0" layoutY="317.0" mnemonicParsing="false" onAction="#adviseStudent" prefHeight="36.0" prefWidth="188.0" />
     </children>
 </AnchorPane>
