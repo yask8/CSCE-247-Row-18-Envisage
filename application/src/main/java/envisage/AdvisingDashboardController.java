@@ -57,32 +57,51 @@ public class AdvisingDashboardController {
     private Button viewMajorMapsButton;
 
     @FXML
-    private void AddOrRemoveAdvisee(MouseEvent event) {
+    void AddOrRemoveAdvisee(MouseEvent event) {
 
     }
 
     @FXML
-    private void adviseStudent(MouseEvent event) {
+    void adviseStudent(MouseEvent event) {
 
     }
 
     @FXML
-    private void lookupStudent(MouseEvent event) {
+    void lookupStudent(MouseEvent event) {
 
     }
 
     @FXML
-    private void viewAdvisingProfile(MouseEvent event) {
+    void viewAdvisingProfile(MouseEvent event) {
 
     }
 
     @FXML
-    private void viewListOfAdvisees(MouseEvent event) {
+    void viewListOfAdvisees(MouseEvent event) {
 
     }
 
     @FXML
-    private void viewMajorMaps(MouseEvent event) {
+    void viewMajorMaps(MouseEvent event) {
 
     }
+
+    @FXML
+    void initialize() {
+        assert AddOrRemoveAdviseeButton != null : "fx:id=\"AddOrRemoveAdviseeButton\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert TextField3 != null : "fx:id=\"TextField3\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert TextField4 != null : "fx:id=\"TextField4\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert adviseStudentButton != null : "fx:id=\"adviseStudentButton\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert advisingProfileButton != null : "fx:id=\"advisingProfileButton\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert advisorDashboard != null : "fx:id=\"advisorDashboard\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert listOfAdviseesButton != null : "fx:id=\"listOfAdviseesButton\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert studentLookupButton != null : "fx:id=\"studentLookupButton\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert textField1 != null : "fx:id=\"textField1\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert textField2 != null : "fx:id=\"textField2\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert textField5 != null : "fx:id=\"textField5\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert textField6 != null : "fx:id=\"textField6\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+        assert viewMajorMapsButton != null : "fx:id=\"viewMajorMapsButton\" was not injected: check your FXML file 'advisingDashboard.fxml'.";
+
+    }
+
 }
