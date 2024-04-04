@@ -36,7 +36,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Text fill="#222020" layoutX="356.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="! 10 New Risk of Failures" underline="true" wrappingWidth="188.0" />
+      <Text fill="#222020" layoutX="356.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="188.0" />
       <Text layoutX="356.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next Appointment: 04/21/24" wrappingWidth="172.7294921875" />
       <Text layoutX="354.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appt. Type: Virtual" wrappingWidth="148.0" />
       <ProgressBar layoutX="18.0" layoutY="111.0" prefHeight="20.0" prefWidth="255.0" progress="0.81" />
@@ -51,5 +51,6 @@
       <Text fx:id="textField5" layoutX="244.0" layoutY="340.0" onDragDetected="#lookupStudent" onMouseClicked="#lookupStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Lookup" />
       <Text fx:id="textField6" layoutX="450.0" layoutY="340.0" onMouseClicked="#AddOrRemoveAdvisee" strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Remove Advisees" />
       <Text fx:id="textField1" layoutX="36.0" layoutY="278.0" onDragDetected="#viewAdvisingProfile" onMouseClicked="#viewAdvisingProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisor Profile" />
+      <Text fx:id="ViewRiskOfFailureButton" layoutX="356.0" layoutY="126.0" onMouseClicked="#ViewRiskOfFailure" strokeType="OUTSIDE" strokeWidth="0.0" text="! 10 New Risk Of Failure" />
     </children>
 </AnchorPane>
