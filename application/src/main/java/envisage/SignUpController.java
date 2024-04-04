@@ -125,11 +125,9 @@ public class SignUpController {
 
     @FXML
     private void checkIfConfirmPasswordMatchesPassword(){
-        if(!studentConfirmPasswordTextField.equals(studentPasswordTextField) ||
-           !advisorConfirmPasswordTextField.equals(advisorPasswordTextField) ||
-           !adminConfirmPasswordTextField.equals(adminPasswordTextField)){
-
-           }
+        if(!studentConfirmPasswordTextField.getText().equals(studentPasswordTextField.getText())){
+            studentInvalidLabel.setText("Passwords do not match.");
+        }
     }
 
 }
