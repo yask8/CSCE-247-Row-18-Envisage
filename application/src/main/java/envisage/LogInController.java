@@ -2,8 +2,8 @@ package envisage;
 
 import java.io.IOException;
 
-import AdvisingSoftware.Facade;
-import AdvisingSoftware.User;
+import AdvisingSoftware.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -48,12 +48,12 @@ public class LogInController {
     private Label advisorInvalidLabel;
 
     @FXML
-    private void switchToSecondary() throws IOException {
+    private void switchToSecondary(ActionEvent event) throws IOException {
         App.setRoot("secondary");
     }
 
     @FXML
-    private void loginStudent() throws IOException {
+    private void loginStudent(ActionEvent event) throws IOException {
         String email = studentEmailTextField.getText();
         String password = studentPasswordTextField.getText();
     
@@ -69,7 +69,7 @@ public class LogInController {
     }
 
     @FXML
-    private void loginAdmin() throws IOException {
+    private void loginAdmin(ActionEvent event) throws IOException {
         String email = adminEmailTextField.getText();
         String password = adminPasswordTextField.getText();
 
@@ -86,7 +86,7 @@ public class LogInController {
     }
 
     @FXML
-    private void loginAdvisor() throws IOException {
+    private void loginAdvisor(ActionEvent event) throws IOException {
         String email = advisorEmailTextField.getText();
         String password = advisorPasswordTextField.getText();
 
@@ -96,7 +96,7 @@ public class LogInController {
         if (loggedInUser != null && loggedInUser.getUserType().equals("ADVISOR")) {
             App.setRoot("advisorDashboard");
         } else {
-            advisorInvalidLabel.setText("Invalid login credentials or user is not a Admin.");
+            advisorInvalidLabel.setText("Invalid login credentials or user is not a Advisor.");
             advisorInvalidLabel.setVisible(true);
         }
     }
