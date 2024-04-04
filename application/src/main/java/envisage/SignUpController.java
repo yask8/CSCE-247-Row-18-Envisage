@@ -107,7 +107,7 @@ public class SignUpController {
         String email = studentEmailTextField.getText();
         String password = studentPasswordTextField.getText();
 
-        Facade facade = new Facade();
+        Facade facade = Facade.getInstance();
         checkIfConfirmPasswordMatchesPassword();
         facade.signUpStudent(firstName, lastName, email, password);
 

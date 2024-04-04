@@ -59,7 +59,7 @@ public class AdvisingDashboardController {
     @FXML
     private Button viewMajorMapsButton;
 
-    private Facade facade = new Facade();
+    private Facade facade = Facade.getInstance();
 
     @FXML
     private void AddOrRemoveAdvisee(MouseEvent event) {
