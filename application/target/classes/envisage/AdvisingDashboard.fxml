@@ -19,12 +19,12 @@
             <Font name="System Bold Italic" size="21.0" />
          </font></Label>
         <VBox layoutX="50" layoutY="50" spacing="10" />
-         <Button fx:id="advisingProfileButton" layoutX="18.0" layoutY="256.0" onAction="#viewAdvisingProfile" prefHeight="36.0" prefWidth="200.0" text="Advising Profile" />
-         <Button fx:id="adviseStudentButton" layoutX="226.0" layoutY="256.0" onAction="#adviseStudent" prefHeight="36.0" prefWidth="200.0" text="Advise Student" />
-         <Button fx:id="viewMajorMapsButton" layoutX="434.0" layoutY="256.0" onAction="#viewMajorMaps" prefHeight="36.0" prefWidth="188.0" text="View Major Maps" />
-         <Button fx:id="listOfAdviseesButton" layoutX="18.0" layoutY="315.0" onAction="#viewListOfAdvisees" prefHeight="36.0" prefWidth="200.0" text="List of Advisees" />
-         <Button fx:id="studentLookupButton" layoutX="228.0" layoutY="315.0" onAction="#lookupStudent" prefHeight="36.0" prefWidth="200.0" text="Student Lookup" />
-      <Button fx:id="adviseStudentButton1" layoutX="434.0" layoutY="315.0" onAction="#adviseStudent" prefHeight="36.0" prefWidth="188.0" text="Add/Remove Advisee" />
+         <Button fx:id="advisingProfileButton" layoutX="18.0" layoutY="256.0" onAction="#viewAdvisingProfile" prefHeight="36.0" prefWidth="200.0" />
+         <Button fx:id="adviseStudentButton" layoutX="226.0" layoutY="256.0" onAction="#adviseStudent" prefHeight="36.0" prefWidth="200.0" />
+         <Button fx:id="viewMajorMapsButton" layoutX="434.0" layoutY="256.0" onAction="#viewMajorMaps" prefHeight="36.0" prefWidth="188.0" />
+         <Button fx:id="listOfAdviseesButton" layoutX="18.0" layoutY="315.0" onAction="#viewListOfAdvisees" prefHeight="36.0" prefWidth="200.0" />
+         <Button fx:id="studentLookupButton" layoutX="228.0" layoutY="315.0" onAction="#lookupStudent" prefHeight="36.0" prefWidth="200.0" />
+         <Button fx:id="Add/RemoveAdviseeButton" layoutX="228.0" layoutY="315.0" onAction="#Add/RemoveAdvisee" prefHeight="36.0" prefWidth="200.0" />
       <TextFlow layoutX="234.0" layoutY="50.0">
          <children>
             <ButtonBar />
@@ -44,5 +44,6 @@
       <Text layoutX="18.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 80% In Progress" wrappingWidth="254.53466796875" />
       <Text layoutX="18.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 10% Complete" wrappingWidth="254.53466796875" />
       <Text layoutX="18.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 10% Incomplete" wrappingWidth="254.53466796875" />
+      <Button layoutX="434.0" layoutY="315.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="188.0" text="Add/Remove Advisee" />
     </children>
 </AnchorPane>
