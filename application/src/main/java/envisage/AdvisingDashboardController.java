@@ -1,6 +1,8 @@
 package envisage;
 
+import AdvisingSoftware.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import java.util.UUID;
 
 public class AdvisingDashboardController {
 
@@ -56,34 +59,70 @@ public class AdvisingDashboardController {
     @FXML
     private Button viewMajorMapsButton;
 
-    @FXML
-    void AddOrRemoveAdvisee(MouseEvent event) {
+    private Facade facade = new Facade();
 
+    @FXML
+    private void AddOrRemoveAdvisee(MouseEvent event) {
+        // Perform action to add or remove advisees
+        ArrayList<UUID> advisees = facade.getListOfAdvisees();
+        // Use the advisees list for further actions if needed
+        System.out.println("List of Advisees: " + advisees);
     }
 
     @FXML
-    void adviseStudent(MouseEvent event) {
-
+    private void adviseStudent(MouseEvent event) {
+        // Perform action to advise a student
+        UUID advisorId = facade.getCurrentUserId();
+        UUID studentId = null; // You need to set the student ID
+        String noteContent = "Advice for the student."; // Add your advice content
+        facade.addNoteToStudentAdvisor(advisorId, studentId, noteContent);
+        System.out.println("Advised student with ID: " + studentId);
     }
 
     @FXML
-    void lookupStudent(MouseEvent event) {
-
+    private void lookupStudent(MouseEvent event) {
+        // Perform action to lookup a student
+        UUID studentId = null; // You need to set the student ID to lookup
+        Student student = facade.getStudentByAdvisor(facade.getCurrentUserId(), studentId);
+        if (student != null) {
+            System.out.println("Student Found: " + student.getFirstName() + " " + student.getLastName());
+            System.out.println("Major: " + student.getMajor());
+        } else {
+            System.out.println("Student not found.");
+        }
     }
 
     @FXML
-    void viewAdvisingProfile(MouseEvent event) {
-
+    private void viewAdvisingProfile(MouseEvent event) {
+        // Perform action to view advising profile
+        if (facade.getUser().getUserType().equals("ADVISOR")) {
+            Advisor advisor = (Advisor) facade.getUser();
+            System.out.println("Advising Profile for: " + advisor.getFirstName() + " " + advisor.getLastName());
+            System.out.println("Advisees: " + advisor.getListOfAdvisees());
+            System.out.println("Changes Made: " + facade.getAdminChangesMade());
+        } else {
+            System.out.println("Not an advisor.");
+        }
     }
 
     @FXML
-    void viewListOfAdvisees(MouseEvent event) {
-
+    private void viewListOfAdvisees(MouseEvent event) {
+        // Perform action to view list of advisees
+        ArrayList<UUID> advisees = facade.getListOfAdvisees();
+        System.out.println("List of Advisees: " + advisees);
     }
 
     @FXML
-    void viewMajorMaps(MouseEvent event) {
-
+    private void viewMajorMaps(MouseEvent event) {
+        // Perform action to view major maps
+        String majorName = "Computer Science"; // You need to set the major name
+        MajorMap majorMap = facade.getMajorMap(majorName);
+        if (majorMap != null) {
+            System.out.println("Major Map for " + majorName + ":");
+            System.out.println(majorMap.toString());
+        } else {
+            System.out.println("Major Map not found for " + majorName);
+        }
     }
 
     @FXML
