@@ -57,32 +57,32 @@ public class AdvisingDashboardController {
     private Button viewMajorMapsButton;
 
     @FXML
-    void AddOrRemoveAdvisee(MouseEvent event) {
+    private void AddOrRemoveAdvisee(MouseEvent event) {
 
     }
 
     @FXML
-    void adviseStudent(MouseEvent event) {
+    private void adviseStudent(MouseEvent event) {
 
     }
 
     @FXML
-    void lookupStudent(MouseEvent event) {
+    private void lookupStudent(MouseEvent event) {
 
     }
 
     @FXML
-    void viewAdvisingProfile(MouseEvent event) {
+    private void viewAdvisingProfile(MouseEvent event) {
 
     }
 
     @FXML
-    void viewListOfAdvisees(MouseEvent event) {
+    private void viewListOfAdvisees(MouseEvent event) {
 
     }
 
     @FXML
-    void viewMajorMaps(MouseEvent event) {
+    private void viewMajorMaps(MouseEvent event) {
 
     }
 }
