@@ -8,8 +8,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class LogInController {
+
+
+    @FXML
+    private Label aboutLabel;
 
     @FXML
     private TextField studentEmailTextField;
@@ -48,8 +53,8 @@ public class LogInController {
     private Label advisorInvalidLabel;
 
     @FXML
-    private void switchToSecondary(ActionEvent event) throws IOException {
-        App.setRoot("secondary");
+    void setStageAbout(MouseEvent event) throws IOException {
+        App.setRoot("About");
     }
 
     @FXML
@@ -57,7 +62,7 @@ public class LogInController {
         String email = studentEmailTextField.getText();
         String password = studentPasswordTextField.getText();
     
-        Facade facade = new Facade();
+        Facade facade = Facade.getInstance();
         User loggedInUser = facade.login(email, password);
     
         if (loggedInUser != null && loggedInUser.getUserType().equals("STUDENT")) {
@@ -73,14 +78,13 @@ public class LogInController {
         String email = adminEmailTextField.getText();
         String password = adminPasswordTextField.getText();
 
-        Facade facade = new Facade();
+        Facade facade = Facade.getInstance();
         User loggedInUser = facade.login(email, password);
 
         if (loggedInUser != null && loggedInUser.getUserType().equals("ADMIN")) {
- 
             App.setRoot("adminDashboard");
         } else {
-            adminInvalidLabel.setText("Invalid login credentials or user is not a Admin.");
+            adminInvalidLabel.setText("Invalid login credentials or user is not an admin.");
             adminInvalidLabel.setVisible(true);
         }
     }
@@ -90,13 +94,13 @@ public class LogInController {
         String email = advisorEmailTextField.getText();
         String password = advisorPasswordTextField.getText();
 
-        Facade facade = new Facade();
+        Facade facade = Facade.getInstance();
         User loggedInUser = facade.login(email, password);
 
         if (loggedInUser != null && loggedInUser.getUserType().equals("ADVISOR")) {
             App.setRoot("advisorDashboard");
         } else {
-            advisorInvalidLabel.setText("Invalid login credentials or user is not a Advisor.");
+            advisorInvalidLabel.setText("Invalid login credentials or user is not an advisor.");
             advisorInvalidLabel.setVisible(true);
         }
     }

@@ -10,7 +10,7 @@ public class Driver {
   private Facade facade;
 
   Driver() {
-    facade = new Facade();
+    facade = Facade.getInstance();
   }
 
   public void run() {
