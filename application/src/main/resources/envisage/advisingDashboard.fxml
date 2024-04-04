@@ -43,13 +43,13 @@
       <Text layoutX="18.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 80% In Progress" wrappingWidth="254.53466796875" />
       <Text layoutX="18.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 10% Complete" wrappingWidth="254.53466796875" />
       <Text layoutX="18.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 10% Incomplete" wrappingWidth="254.53466796875" />
-      <Button fx:id="adviseStudentButton1" layoutX="433.0" layoutY="317.0" mnemonicParsing="false" onAction="#adviseStudent1" prefHeight="36.0" prefWidth="188.0" />
+      <Button fx:id="AddOrRemoveAdviseeButton" layoutX="433.0" layoutY="317.0" mnemonicParsing="false" onAction="#AddOrRemoveAdvisee" prefHeight="36.0" prefWidth="188.0" />
       <Text layoutX="36.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="textField2" layoutX="244.0" layoutY="279.0" onDragDetected="#adviseStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Advise Student" />
-      <Text fx:id="TextField3" layoutX="450.0" layoutY="279.0" onDragDetected="#viewMajorMaps" strokeType="OUTSIDE" strokeWidth="0.0" text="View Major Maps" />
-      <Text fx:id="TextField4" layoutX="36.0" layoutY="340.0" onDragDetected="#viewListOfAdvisees" strokeType="OUTSIDE" strokeWidth="0.0" text="List Of Advisees" />
-      <Text fx:id="textField5" layoutX="244.0" layoutY="340.0" onDragDetected="#lookupStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Lookup" />
-      <Text fx:id="textField6" layoutX="450.0" layoutY="340.0" onDragDetected="#adviseStudent1" strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Remove Advisees" />
-      <Text fx:id="textField1" layoutX="36.0" layoutY="278.0" onDragDetected="#viewAdvisingProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisor Profile" />
+      <Text fx:id="textField2" layoutX="244.0" layoutY="279.0" onDragDetected="#adviseStudent" onMouseClicked="#adviseStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Advise Student" />
+      <Text fx:id="TextField3" layoutX="450.0" layoutY="279.0" onDragDetected="#viewMajorMaps" onMouseClicked="#viewMajorMaps" strokeType="OUTSIDE" strokeWidth="0.0" text="View Major Maps" />
+      <Text fx:id="TextField4" layoutX="36.0" layoutY="340.0" onDragDetected="#viewListOfAdvisees" onMouseClicked="#viewListOfAdvisees" strokeType="OUTSIDE" strokeWidth="0.0" text="List Of Advisees" />
+      <Text fx:id="textField5" layoutX="244.0" layoutY="340.0" onDragDetected="#lookupStudent" onMouseClicked="#lookupStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Lookup" />
+      <Text fx:id="textField6" layoutX="450.0" layoutY="340.0" onMouseClicked="#AddOrRemoveAdvisee" strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Remove Advisees" />
+      <Text fx:id="textField1" layoutX="36.0" layoutY="278.0" onDragDetected="#viewAdvisingProfile" onMouseClicked="#viewAdvisingProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisor Profile" />
     </children>
 </AnchorPane>

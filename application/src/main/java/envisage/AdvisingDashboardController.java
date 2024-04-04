@@ -18,6 +18,9 @@ public class AdvisingDashboardController {
     private URL location;
 
     @FXML
+    private Button AddOrRemoveAdviseeButton;
+
+    @FXML
     private Text TextField3;
 
     @FXML
@@ -25,9 +28,6 @@ public class AdvisingDashboardController {
 
     @FXML
     private Button adviseStudentButton;
-
-    @FXML
-    private Button adviseStudentButton1;
 
     @FXML
     private Button advisingProfileButton;
@@ -57,12 +57,12 @@ public class AdvisingDashboardController {
     private Button viewMajorMapsButton;
 
     @FXML
-    void adviseStudent(MouseEvent event) {
+    void AddOrRemoveAdvisee(MouseEvent event) {
 
     }
 
     @FXML
-    void adviseStudent1(MouseEvent event) {
+    void adviseStudent(MouseEvent event) {
 
     }
 
