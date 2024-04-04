@@ -5,43 +5,50 @@ import java.util.UUID;
 
 /**
  * The Facade
- * @author Garrett Spillman (@Spillmag), Lia Zhao (@zhaolia9), Stephon Johnson (@stephonj), Yasmine Kennedy (@yask8), Owen Shumate (@oshumate)
+ * 
+ * @author Garrett Spillman (@Spillmag), Lia Zhao (@zhaolia9), Stephon Johnson
+ *         (@stephonj), Yasmine Kennedy (@yask8), Owen Shumate (@oshumate)
  *
  **/
 
 public class Facade {
 
-  /**
-   * Attriubtes
-   */
+  private static Facade instance;
+
+  // Attributes
   private CourseList courseList;
   private UserList userList;
   private User user;
   private MajorList majorList;
 
-  /**
-   * Facade Constructor
-   */
-  public Facade() {
+  // Private constructor
+  private Facade() {
     this.courseList = CourseList.getInstance();
     this.userList = UserList.getInstance();
     this.majorList = MajorList.getInstance();
+  }
+
+  // Get the instance
+  public static Facade getInstance() {
+    if (instance == null) {
+      instance = new Facade();
+    }
+    return instance;
   }
 
   public User login(String email, String password) {
     User loggedInUser = userList.getUserByLoginInfo(email, password);
 
     if (loggedInUser != null && loggedInUser.getPassword().equals(password)) {
-        this.user = loggedInUser;
-        getStudentGPA();
+      this.user = loggedInUser;
+      getStudentGPA();
     } else {
-        // If user is null or passwords don't match, set user to null
-        this.user = null;
+      // If user is null or passwords don't match, set user to null
+      this.user = null;
     }
 
     return this.user;
-}
-
+  }
 
   /**
    * Signs out the currently logged-in user and saves any changes made during the
@@ -97,11 +104,10 @@ public class Facade {
    * @param password  The password of the student.
    */
   public void signUpStudent(
-    String firstName,
-    String lastName,
-    String email,
-    String password
-  ) {
+      String firstName,
+      String lastName,
+      String email,
+      String password) {
     if (userList.signUp(firstName, lastName, email, password, "STUDENT")) {
       login(email, password);
     } else {
@@ -118,11 +124,10 @@ public class Facade {
    * @param password  The password of the administrator.
    */
   public void signUpAdmin(
-    String firstName,
-    String lastName,
-    String email,
-    String password
-  ) {
+      String firstName,
+      String lastName,
+      String email,
+      String password) {
     if (userList.signUp(firstName, lastName, email, password, "ADMIN")) {
       login(email, password);
     } else {
@@ -139,11 +144,10 @@ public class Facade {
    * @param password  The password of the advisor.
    */
   public void signUpAdvisor(
-    String firstName,
-    String lastName,
-    String email,
-    String password
-  ) {
+      String firstName,
+      String lastName,
+      String email,
+      String password) {
     if (userList.signUp(firstName, lastName, email, password, "ADVISOR")) {
       login(email, password);
     } else {
@@ -154,11 +158,9 @@ public class Facade {
   public void displayProgressStudent() {
     if (user.getUserType().equals("STUDENT")) {
       System.out.println(
-        ((Student) user).displayProgressStudent(
-            getStudentCompletedCourses(),
-            getCourses()
-          )
-      );
+          ((Student) user).displayProgressStudent(
+              getStudentCompletedCourses(),
+              getCourses()));
     }
   }
 
@@ -173,29 +175,29 @@ public class Facade {
   }
 
   /**
- * Displays information about all the courses in the provided list.
- *
- * @param courseList The list of courses to display.
- */
-public void displayAllCourses(ArrayList<Course> courseList) {
-  if (courseList == null) {
+   * Displays information about all the courses in the provided list.
+   *
+   * @param courseList The list of courses to display.
+   */
+  public void displayAllCourses(ArrayList<Course> courseList) {
+    if (courseList == null) {
       System.out.println("Invalid input: course list is null.");
       return;
-  }
+    }
 
-  System.out.println("Courses Available:");
-  if (courseList.isEmpty()) {
+    System.out.println("Courses Available:");
+    if (courseList.isEmpty()) {
       System.out.println("No courses available.");
-  } else {
+    } else {
       for (Course course : courseList) {
-          System.out.println(course.toString());
+        System.out.println(course.toString());
       }
+    }
   }
-}
-
 
   /**
    * shows courses that fall under given code category
+   * 
    * @param courseCode String code
    */
   public void showCoursesByCode(String courseCode) {
@@ -378,6 +380,7 @@ public void displayAllCourses(ArrayList<Course> courseList) {
 
   /**
    * sets up application area for student
+   * 
    * @param xappArea String application area name
    */
   public void setAppArea(String xappArea) {
@@ -444,6 +447,7 @@ public void displayAllCourses(ArrayList<Course> courseList) {
 
   /**
    * Gets a student user by ID if the logged-in user is an advisor.
+   * 
    * @param UUID advisorID
    * @param UUID studentId The ID of the student to retrieve.
    * @return The student user if found, or null if not found or if the logged-in
@@ -459,15 +463,15 @@ public void displayAllCourses(ArrayList<Course> courseList) {
 
   /**
    * adds note to Student from Advisor
-   * @param advisorId UUID Advisor's uscID
-   * @param studentId UUID Student's uscID
+   * 
+   * @param advisorId   UUID Advisor's uscID
+   * @param studentId   UUID Student's uscID
    * @param noteContent String contents of the note
    */
   public void addNoteToStudentAdvisor(
-    UUID advisorId,
-    UUID studentId,
-    String noteContent
-  ) {
+      UUID advisorId,
+      UUID studentId,
+      String noteContent) {
     Advisor advisor = userList.getAdvisorById(advisorId);
     if (advisor != null) {
       advisor.addNoteToStudentAdvisor(studentId, noteContent, userList);
