@@ -107,14 +107,7 @@ public class SignUpController implements Initializable {
         }
     }
 
-    private boolean checkIfConfirmPasswordMatchesPassword() {
-        boolean matches = true;
-        if (!passwordCheckTextField.getText().equals(passwordTextField.getText())) {
-            errorMessageLabel.setText("Passwords do not match.");
-            matches = false;
-        }
-        return matches;
-    }
+    // Extra Screen Features Section
     @FXML
     private void showHiddenPassword(ActionEvent event){
         // Password TextField
@@ -142,6 +135,17 @@ public class SignUpController implements Initializable {
         }
     }
 
+    // Helper Methods Section
+    private boolean checkIfConfirmPasswordMatchesPassword() {
+        boolean matches = true;
+        if (!passwordCheckTextField.getText().equals(passwordTextField.getText())) {
+            errorMessageLabel.setText("Passwords do not match.");
+            matches = false;
+        }
+        return matches;
+    }
+
+    // Transition Section --> Switching Screens
     @FXML
     void setStageLogin(MouseEvent event) throws IOException {
         App.setRoot("LogIn");
@@ -150,4 +154,5 @@ public class SignUpController implements Initializable {
     void setStageAbout(MouseEvent event) throws IOException {
         App.setRoot("About");
     }
+    
 }
