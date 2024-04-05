@@ -3,9 +3,12 @@ package envisage;
 import AdvisingSoftware.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -51,7 +54,24 @@ public class AdvisingDashboardController {
     private Text textField6;
 
     @FXML
+    private Text signOut;
+
+    @FXML
+    private Text welcomeText;
     private Facade facade = Facade.getInstance();
+    private User user;
+
+    @FXML
+    public void initialize() {
+        facade = Facade.getInstance();
+        user = facade.getUser();
+        if (user instanceof Advisor) {
+            Advisor advisor = (Advisor) user;
+            welcomeText.setText("Welcome, " + advisor.getFirstName() + " " + advisor.getLastName());
+        } else {
+            welcomeText.setText("Welcome, Advisor");
+        }
+    }
 
     @FXML
     private void AddOrRemoveAdvisee(ActionEvent event) {
@@ -142,6 +162,16 @@ public class AdvisingDashboardController {
             viewMajorMapsButton.setText("Major Map for " + majorName + ":\n" + majorMap.toString());
         } else {
             viewMajorMapsButton.setText("Major Map not found for " + majorName);
+        }
+    }
+
+   @FXML
+    void signOut(ActionEvent event) {
+        try {
+            Facade.getInstance().signOut();
+            App.setRoot("LogIn");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
