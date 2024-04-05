@@ -7,6 +7,7 @@ package envisage;
 import java.io.IOException;
 
 import AdvisingSoftware.*;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,6 +33,9 @@ public class SignUpController implements Initializable {
     private Label aboutLabel;
 
     @FXML
+    private Label errorMessageLabel;
+
+    @FXML
     private TextField emailTextField;
 
     @FXML
@@ -50,18 +54,31 @@ public class SignUpController implements Initializable {
     private TextField passwordTextField;
 
     @FXML
+    private PasswordField hiddenCheckPassword;
+
+    @FXML
+    private PasswordField hiddenPassword;
+
+    @FXML
+    private CheckBox passwordCheckBox;
+
+    @FXML
+    private CheckBox checkPasswordCheckBox;
+
+    @FXML
     private ChoiceBox<String> roleTypeChoiceBox;
 
     @FXML
     private Button signUpButton;
 
     @FXML
-    private AnchorPane singUp;
+    private AnchorPane signUp;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         ObservableList<String> roleOptions = FXCollections.observableArrayList("Student", "Advisor", "Admin");
         roleTypeChoiceBox.setItems(roleOptions);
+        passwordTextField.setVisible(false);
     }
 
     @FXML
@@ -93,11 +110,38 @@ public class SignUpController implements Initializable {
     private boolean checkIfConfirmPasswordMatchesPassword() {
         boolean matches = true;
         if (!passwordCheckTextField.getText().equals(passwordTextField.getText())) {
+            errorMessageLabel.setText("Passwords do not match.");
             matches = false;
-            // Set error message
         }
         return matches;
     }
+    @FXML
+    private void showHiddenPassword(ActionEvent event){
+        // Password TextField
+        if(passwordCheckBox.isSelected()){
+            passwordTextField.setText(hiddenPassword.getText());
+            passwordTextField.setVisible(true);
+            hiddenPassword.setVisible(false);
+            return;
+        } else {
+            hiddenPassword.setText(passwordTextField.getText());
+            hiddenPassword.setVisible(true);
+            passwordTextField.setVisible(false);
+        }
+
+        // Confirm Password TextField
+        if(checkPasswordCheckBox.isSelected()){
+            passwordCheckTextField.setText(hiddenCheckPassword.getText());
+            passwordCheckTextField.setVisible(true);
+            hiddenCheckPassword.setVisible(false);
+            return;
+        } else {
+            hiddenCheckPassword.setText(passwordCheckTextField.getText());
+            hiddenCheckPassword.setVisible(true);
+            passwordCheckTextField.setVisible(false);
+        }
+    }
+
     @FXML
     void setStageLogin(MouseEvent event) throws IOException {
         App.setRoot("LogIn");

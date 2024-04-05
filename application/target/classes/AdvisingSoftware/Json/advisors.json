@@ -1,1 +1,24 @@
-[{"firstName":"Michael","lastName":"Flanagan","password":"philly$Gr33n","uscID":"af593075-ea9e-4ed7-be74-4604863b702b","listOfFailingStudents":[],"userType":"ADVISOR","listOfAdivsees":[],"email":"FlanaganMichael@gmail.com"},{"firstName":"Osbert","lastName":"Odden","password":"h3110m0m!2","uscID":"f4ddd8f8-20a8-48f6-8ac3-b838a68a2af5","listOfFailingStudents":[],"userType":"ADVISOR","listOfAdivsees":["8420ecb4-9f3c-4fc2-8e62-3707a9a4ab3c"],"email":"osberto@mailbox.sc.edu"}]
+[
+    {
+        "firstName": "Michael",
+        "lastName": "Flanagan",
+        "password": "philly$Gr33n",
+        "uscID": "af593075-ea9e-4ed7-be74-4604863b702b",
+        "listOfFailingStudents": [],
+        "userType": "ADVISOR",
+        "listOfAdivsees": [],
+        "email": "FlanaganMichael@gmail.com"
+    },
+    {
+        "firstName": "Osbert",
+        "lastName": "Odden",
+        "password": "h3110m0m!2",
+        "uscID": "f4ddd8f8-20a8-48f6-8ac3-b838a68a2af5",
+        "listOfFailingStudents": [],
+        "userType": "ADVISOR",
+        "listOfAdivsees": [
+            "8420ecb4-9f3c-4fc2-8e62-3707a9a4ab3c"
+        ],
+        "email": "osberto@mailbox.sc.edu"
+    }
+]
