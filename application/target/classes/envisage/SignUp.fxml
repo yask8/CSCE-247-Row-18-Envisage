@@ -1,87 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="signUp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.SignUpController">
    <children>
-      <TabPane layoutX="43.0" layoutY="35.0" prefHeight="342.0" prefWidth="514.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab fx:id="studentSignUpTab" text="Student">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="studentFirstNameTextField" layoutX="162.0" layoutY="37.0" promptText="Enter First Name" />
-                        <TextField fx:id="studentLastNameTextField" layoutX="163.0" layoutY="71.0" promptText="Enter Last Name" />
-                        <TextField fx:id="studentEmailTextField" layoutX="163.0" layoutY="109.0" promptText="Enter Email" />
-                        <TextField fx:id="studentPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" visible="false" />
-                        <TextField fx:id="studentConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" visible="false" />
-                        <Button fx:id="studentSignUpButton" layoutX="207.0" layoutY="221.0" mnemonicParsing="false" text="Sign Up" />
-                        <Label fx:id="studentInvalidLabel" layoutX="164.0" layoutY="203.0" prefHeight="18.0" prefWidth="150.0" />
-                        <CheckBox fx:id="studentShowPasswordCheckBox" layoutX="323.0" layoutY="148.0" mnemonicParsing="false" text="Show Password" />
-                        <CheckBox fx:id="studentShowConfirmPasswordCheckBox" layoutX="323.0" layoutY="181.0" mnemonicParsing="false" text="Show Password" />
-                        <PasswordField fx:id="studentHiddenPassword" layoutX="164.0" layoutY="144.0" promptText="Enter Password" />
-                        <PasswordField fx:id="studentConfirmPasswordHidden" layoutX="165.0" layoutY="177.0" promptText="Confirm Password" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab fx:id="advisorSignUpTab" text="Advisor">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="advisorFirstNameTextField" layoutX="162.0" layoutY="37.0" promptText="Enter First Name" />
-                        <TextField fx:id="advisorLastNameTextField" layoutX="163.0" layoutY="71.0" promptText="Enter Last Name" />
-                        <TextField fx:id="advisorEmailTextField" layoutX="163.0" layoutY="109.0" promptText="Enter Email" />
-                        <TextField fx:id="advisorPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" visible="false" />
-                        <TextField fx:id="advisorConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" visible="false" />
-                        <Button fx:id="advisorSignUpButton" layoutX="207.0" layoutY="221.0" mnemonicParsing="false" text="Sign Up" />
-                        <Label fx:id="advisorInvalidLabel" layoutX="164.0" layoutY="203.0" prefHeight="18.0" prefWidth="150.0" />
-                        <CheckBox fx:id="advisorShowConfirmedPasswordCheckBox" layoutX="323.0" layoutY="181.0" mnemonicParsing="false" text="Show Password" />
-                        <CheckBox fx:id="advisorShowPasswordCheckBox" layoutX="323.0" layoutY="148.0" mnemonicParsing="false" text="Show Password" />
-                        <PasswordField fx:id="advisorHiddenPassword" layoutX="164.0" layoutY="144.0" promptText="Enter Password" />
-                        <PasswordField fx:id="advisorConfirmPasswordHidden" layoutX="165.0" layoutY="177.0" promptText="Confirm Password" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="adminSignUpTab" text="Admin">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextField fx:id="adminFirstNameTextField" layoutX="162.0" layoutY="37.0" promptText="Enter First Name" />
-                        <TextField fx:id="adminLastNameTextField" layoutX="163.0" layoutY="71.0" promptText="Enter Last Name" />
-                        <TextField fx:id="adminEmailTextField" layoutX="163.0" layoutY="109.0" promptText="Enter Email" />
-                        <TextField fx:id="adminPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" visible="false" />
-                        <TextField fx:id="adminConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" visible="false" />
-                        <Button fx:id="adminSignUpButton" layoutX="207.0" layoutY="221.0" mnemonicParsing="false" text="Sign Up" />
-                        <Label fx:id="adminInvalidLabel" layoutX="164.0" layoutY="203.0" prefHeight="18.0" prefWidth="150.0" />
-                        <CheckBox fx:id="adminShowPasswordCheckBox" layoutX="323.0" layoutY="148.0" mnemonicParsing="false" text="Show Password" textFill="#2b2929" />
-                        <CheckBox fx:id="adminShowConfirmedPasswordCheckBox" layoutX="323.0" layoutY="181.0" mnemonicParsing="false" text="Show Password" />
-                        <PasswordField fx:id="adminPasswordHidden" layoutX="164.0" layoutY="144.0" promptText="Enter Password" />
-                        <PasswordField fx:id="adminConfirmPasswordHidden" layoutX="165.0" layoutY="177.0" promptText="Confirm Password" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-      <ToolBar layoutX="43.0" prefHeight="40.0" prefWidth="514.0">
-        <items>
-          <Button fx:id="signUpLabel" mnemonicParsing="false" text="Sign Up" />
-            <Button fx:id="faqLabel" mnemonicParsing="false" text="FAQ" />
-            <Button fx:id="aboutLabel" mnemonicParsing="false" text="About" />
-            <Button fx:id="universityPartnersLabel" mnemonicParsing="false" text="University Partners" />
-        </items>
+      <ToolBar prefHeight="40.0" prefWidth="640.0">
+         <items>
+            <Label fx:id="loginLabel" onMouseClicked="#setStageLogin" text="Login">
+               <padding>
+                  <Insets left="10.0" right="25.0" />
+               </padding>
+            </Label>
+            <Label text="FAQ">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </Label>
+            <Label fx:id="aboutLabel" onMouseClicked="#setStageAbout" text="About">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </Label>
+            <Label text="University Partners">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </Label>
+         </items>
       </ToolBar>
-      <Circle fill="DODGERBLUE" layoutX="27.0" layoutY="20.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="firstNameTextField" layoutX="220.0" layoutY="100.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter First Name" />
+      <TextField fx:id="lastNameTextField" layoutX="220.0" layoutY="135.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Last Name" />
+      <TextField fx:id="emailTextField" layoutX="220.0" layoutY="170.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Email" />
+      <TextField fx:id="passwordTextField" layoutX="220.0" layoutY="205.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Password" />
+      <TextField fx:id="passwordCheckTextField" layoutX="220.0" layoutY="240.0" prefHeight="25.0" prefWidth="200.0" promptText="Confirm Password" />
+      <ChoiceBox fx:id="roleTypeChoiceBox" layoutX="220.0" layoutY="275.0" prefHeight="25.0" prefWidth="200.0" />
+      <Button fx:id="signUpButton" layoutX="270.0" layoutY="313.0" mnemonicParsing="false" onAction="#signUpUser" prefWidth="100.0" text="Sign up" />
    </children>
 </AnchorPane>

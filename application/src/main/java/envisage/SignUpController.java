@@ -7,219 +7,103 @@ package envisage;
 import java.io.IOException;
 
 import AdvisingSoftware.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-public class SignUpController {
-
-    @FXML
-    private Button aboutLabel;
+public class SignUpController implements Initializable {
 
     @FXML
-    private TextField adminConfirmPasswordTextField;
+    private Label aboutLabel;
 
     @FXML
-    private TextField adminEmailTextField;
+    private TextField emailTextField;
 
     @FXML
-    private TextField adminFirstNameTextField;
+    private TextField firstNameTextField;
 
     @FXML
-    private TextField adminLastNameTextField;
+    private TextField lastNameTextField;
 
     @FXML
-    private TextField adminPasswordTextField;
+    private Label loginLabel;
 
     @FXML
-    private Button adminSignUpButton;
+    private TextField passwordCheckTextField;
 
     @FXML
-    private Tab adminSignUpTab;
+    private TextField passwordTextField;
 
     @FXML
-    private Label adminInvalidLabel;
+    private ChoiceBox<String> roleTypeChoiceBox;
 
     @FXML
-    private PasswordField adminConfirmPasswordHidden;
-
-    @FXML 
-    private PasswordField adminPasswordHidden;
+    private Button signUpButton;
 
     @FXML
-    private CheckBox adminShowConfirmedPasswordCheckBox;
+    private AnchorPane singUp;
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        ObservableList<String> roleOptions = FXCollections.observableArrayList("Student", "Advisor", "Admin");
+        roleTypeChoiceBox.setItems(roleOptions);
+    }
 
     @FXML
-    private CheckBox adminShowPasswordCheckBox;
-
-    @FXML
-    private TextField advisorConfirmPasswordTextField;
-
-    @FXML
-    private TextField advisorEmailTextField;
-
-    @FXML
-    private TextField advisorFirstNameTextField;
-
-    @FXML
-    private TextField advisorLastNameTextField;
-
-    @FXML
-    private TextField advisorPasswordTextField;
-
-    @FXML
-    private Button advisorSignUpButton;
-
-    @FXML
-    private Tab advisorSignUpTab;
-
-    @FXML
-    private Label advisorInvalidLabel;
-
-    @FXML
-    private PasswordField advisorConfirmPasswordHidden;
-
-    @FXML 
-    private PasswordField advisorPasswordHidden;
-
-    @FXML
-    private CheckBox advisorShowConfirmedPasswordCheckBox;
-
-    @FXML
-    private CheckBox advisorShowPasswordCheckBox;
-
-    @FXML
-    private Button faqLabel;
-
-    @FXML
-    private Button signUpLabel;
-
-    @FXML
-    private TextField studentConfirmPasswordTextField;
-
-    @FXML
-    private TextField studentEmailTextField;
-
-    @FXML
-    private TextField studentFirstNameTextField;
-
-    @FXML
-    private TextField studentLastNameTextField;
-
-    @FXML
-    private TextField studentPasswordTextField;
-
-    @FXML
-    private Button studentSignUpButton;
-
-    @FXML
-    private Tab studentSignUpTab;
-
-    @FXML
-    private Label studentInvalidLabel;
-
-    @FXML
-    private PasswordField studentConfirmPasswordHidden;
-
-    @FXML 
-    private PasswordField studentPasswordHidden;
-
-    @FXML
-    private CheckBox studentShowConfirmedPasswordCheckBox;
-
-    @FXML
-    private CheckBox studentShowPasswordCheckBox;
-
-    @FXML
-    private Button universityPartnersLabel;
-
-    @FXML
-    private void signingUpStudent(){
-        String firstName = studentFirstNameTextField.getText();
-        String lastName = studentLastNameTextField.getText();
-        String email = studentEmailTextField.getText();
-        String password = studentPasswordTextField.getText();
+    private void signUpUser() {
+        String firstName = firstNameTextField.getText();
+        String lastName = lastNameTextField.getText();
+        String email = emailTextField.getText();
+        String password = passwordTextField.getText();
+        String roleType = roleTypeChoiceBox.getValue().toString();
 
         Facade facade = Facade.getInstance();
-        if(checkIfConfirmPasswordMatchesPassword() != false) {
-            facade.signUpStudent(firstName, lastName, email, password);
-        }
-
-    }
-
-    @FXML
-    private void signingUpAdvisor(){
-        String firstName = advisorFirstNameTextField.getText();
-        String lastName = advisorLastNameTextField.getText();
-        String email = advisorEmailTextField.getText();
-        String password = advisorPasswordTextField.getText();
-
-        Facade facade = Facade.getInstance();
-        if(checkIfConfirmPasswordMatchesPassword() != false) {
-            facade.signUpAdvisor(firstName, lastName, email, password);
+        if (checkIfConfirmPasswordMatchesPassword()) {
+            switch (roleType) {
+                case "Student":
+                    facade.signUpStudent(firstName, lastName, email, password);
+                    break;
+                case "Advisor":
+                    facade.signUpAdvisor(firstName, lastName, email, password);
+                    break;
+                case "Admin":
+                    facade.signUpAdmin(firstName, lastName, email, password);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
-    @FXML
-    private void signingUpAdmin(){
-        String firstName = adminFirstNameTextField.getText();
-        String lastName = adminLastNameTextField.getText();
-        String email = adminEmailTextField.getText();
-        String password = adminPasswordTextField.getText();
-
-        Facade facade = Facade.getInstance();
-        if(checkIfConfirmPasswordMatchesPassword() != false) {
-            facade.signUpAdmin(firstName, lastName, email, password);
-        }
-    }
-
-    @FXML
-    private void showStudentHiddenPassword(ActionEvent event){
-        if(studentShowPasswordCheckBox.isSelected()){
-            studentPasswordTextField.setText(studentPasswordHidden.getText());
-        }
-    }
-
-    @FXML
-    private void showAdvisorHiddenPassword(ActionEvent event){
-
-    }
-
-    @FXML
-    private void showAdminHiddenPassword(ActionEvent event){
-
-    }
-
-    @FXML
-    private boolean checkIfConfirmPasswordMatchesPassword(){
+    private boolean checkIfConfirmPasswordMatchesPassword() {
         boolean matches = true;
-        if(!studentConfirmPasswordTextField.getText().equals(studentPasswordTextField.getText())){
+        if (!passwordCheckTextField.getText().equals(passwordTextField.getText())) {
             matches = false;
-            studentInvalidLabel.setText("Passwords do not match.");
-            studentInvalidLabel.setVisible(true);
-            
-        }
-        if(!advisorConfirmPasswordTextField.getText().equals(advisorPasswordTextField.getText())){
-            matches = false;
-            advisorInvalidLabel.setText("Passwords do not match.");
-            advisorInvalidLabel.setVisible(true);
-        }
-        if(!adminConfirmPasswordTextField.getText().equals(adminPasswordTextField.getText())){
-            matches = false;
-            adminInvalidLabel.setText("Passwords do not match.");
-            adminInvalidLabel.setVisible(true);
+            // Set error message
         }
         return matches;
     }
-
+    @FXML
+    void setStageLogin(MouseEvent event) throws IOException {
+        App.setRoot("LogIn");
+    }
+    @FXML
+    void setStageAbout(MouseEvent event) throws IOException {
+        App.setRoot("About");
+    }
 }
