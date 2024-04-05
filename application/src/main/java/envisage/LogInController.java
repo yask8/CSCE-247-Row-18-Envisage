@@ -104,4 +104,9 @@ public class LogInController {
             advisorInvalidLabel.setVisible(true);
         }
     }
+    @FXML
+    void setStageSignIn(MouseEvent event) throws IOException {
+        App.setRoot("SignIn");
+    }
+
 }
