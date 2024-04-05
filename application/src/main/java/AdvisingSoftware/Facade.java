@@ -536,4 +536,10 @@ public String getStudentAppArea() {
       return null;
     }
   }
+  public void removeStudent(UUID studentId) {
+    if (user != null && user.getUserType().equals("ADVISOR")) {
+        Advisor advisor = (Advisor) user;
+        advisor.removeStudent(studentId);
+    }
+}
 }
