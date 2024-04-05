@@ -66,10 +66,30 @@ public class AdvisingDashboardController {
     private Facade facade = Facade.getInstance();
     
     @FXML
-    private void AddOrRemoveAdvisee(MouseEvent event) {
-        ArrayList<UUID> advisees = facade.getListOfAdvisees();
-        System.out.println("List of Advisees: " + advisees);
+private void AddOrRemoveAdvisee(MouseEvent event) {
+    // Get the current list of advisees
+    ArrayList<UUID> advisees = facade.getListOfAdvisees();
+    System.out.println("Current List of Advisees: " + advisees);
+
+    // For demonstration purposes, let's assume we have a studentId to add or remove
+    UUID studentIdToAddOrRemove = UUID.randomUUID();  // Replace with the actual studentId
+
+    // Check if the student is already an advisee
+    if (advisees.contains(studentIdToAddOrRemove)) {
+        // Student is already an advisee, so remove them
+        facade.removeStudent(studentIdToAddOrRemove);
+        System.out.println("Removed student with ID: " + studentIdToAddOrRemove);
+    } else {
+        // Student is not an advisee, so add them
+        facade.addStudent(studentIdToAddOrRemove);
+        System.out.println("Added student with ID: " + studentIdToAddOrRemove);
     }
+
+    // Get the updated list of advisees after addition or removal
+    advisees = facade.getListOfAdvisees();
+    System.out.println("Updated List of Advisees: " + advisees);
+}
+
 
     @FXML
     void ViewRiskOfFailure(MouseEvent event) {

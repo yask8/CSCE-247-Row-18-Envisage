@@ -541,5 +541,12 @@ public String getStudentAppArea() {
         Advisor advisor = (Advisor) user;
         advisor.removeStudent(studentId);
     }
+  }
+  public boolean addStudent(UUID studentId) {
+    if (user != null && user.getUserType().equals("ADVISOR")) {
+        Advisor advisor = (Advisor) user;
+        return advisor.addStudentToListOfAdvisees(studentId);
+    }
+    return false;
 }
 }
