@@ -48,7 +48,7 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="adminFirstNameTextField" layoutX="162.0" layoutY="37.0" promptText="Enter First Name" />
-                        <TextField fx:id="adminLastNameTexField" layoutX="163.0" layoutY="71.0" promptText="Enter Last Name" />
+                        <TextField fx:id="adminLastNameTextField" layoutX="163.0" layoutY="71.0" promptText="Enter Last Name" />
                         <TextField fx:id="adminEmailTextField" layoutX="163.0" layoutY="109.0" promptText="Enter Email" />
                         <TextField fx:id="adminPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" />
                         <TextField fx:id="adminConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" />

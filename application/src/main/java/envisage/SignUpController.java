@@ -29,7 +29,7 @@ public class SignUpController {
     private TextField adminFirstNameTextField;
 
     @FXML
-    private TextField adminLastNameTexField;
+    private TextField adminLastNameTextField;
 
     @FXML
     private TextField adminPasswordTextField;
@@ -108,26 +108,58 @@ public class SignUpController {
         String password = studentPasswordTextField.getText();
 
         Facade facade = Facade.getInstance();
-        checkIfConfirmPasswordMatchesPassword();
-        facade.signUpStudent(firstName, lastName, email, password);
+        if(checkIfConfirmPasswordMatchesPassword() != false) {
+            facade.signUpStudent(firstName, lastName, email, password);
+        }
 
     }
 
     @FXML
     private void signingUpAdvisor(){
+        String firstName = advisorFirstNameTextField.getText();
+        String lastName = advisorLastNameTextField.getText();
+        String email = advisorEmailTextField.getText();
+        String password = advisorPasswordTextField.getText();
 
+        Facade facade = Facade.getInstance();
+        if(checkIfConfirmPasswordMatchesPassword() != false) {
+            facade.signUpAdvisor(firstName, lastName, email, password);
+        }
     }
 
     @FXML
     private void signingUpAdmin(){
+        String firstName = adminFirstNameTextField.getText();
+        String lastName = adminLastNameTextField.getText();
+        String email = adminEmailTextField.getText();
+        String password = adminPasswordTextField.getText();
 
+        Facade facade = Facade.getInstance();
+        if(checkIfConfirmPasswordMatchesPassword() != false) {
+            facade.signUpAdmin(firstName, lastName, email, password);
+        }
     }
 
     @FXML
-    private void checkIfConfirmPasswordMatchesPassword(){
+    private boolean checkIfConfirmPasswordMatchesPassword(){
+        boolean matches = true;
         if(!studentConfirmPasswordTextField.getText().equals(studentPasswordTextField.getText())){
+            matches = false;
             studentInvalidLabel.setText("Passwords do not match.");
+            studentInvalidLabel.setVisible(true);
+            
         }
+        if(!advisorConfirmPasswordTextField.getText().equals(advisorPasswordTextField.getText())){
+            matches = false;
+            advisorInvalidLabel.setText("Passwords do not match.");
+            advisorInvalidLabel.setVisible(true);
+        }
+        if(!adminConfirmPasswordTextField.getText().equals(adminPasswordTextField.getText())){
+            matches = false;
+            adminInvalidLabel.setText("Passwords do not match.");
+            adminInvalidLabel.setVisible(true);
+        }
+        return matches;
     }
 
 }
