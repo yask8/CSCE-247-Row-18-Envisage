@@ -2,7 +2,9 @@
 
 <?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.ToolBar?>
@@ -20,10 +22,14 @@
                         <TextField fx:id="studentFirstNameTextField" layoutX="162.0" layoutY="37.0" promptText="Enter First Name" />
                         <TextField fx:id="studentLastNameTextField" layoutX="163.0" layoutY="71.0" promptText="Enter Last Name" />
                         <TextField fx:id="studentEmailTextField" layoutX="163.0" layoutY="109.0" promptText="Enter Email" />
-                        <TextField fx:id="studentPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" />
-                        <TextField fx:id="studentConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" />
+                        <TextField fx:id="studentPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" visible="false" />
+                        <TextField fx:id="studentConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" visible="false" />
                         <Button fx:id="studentSignUpButton" layoutX="207.0" layoutY="221.0" mnemonicParsing="false" text="Sign Up" />
                         <Label fx:id="studentInvalidLabel" layoutX="164.0" layoutY="203.0" prefHeight="18.0" prefWidth="150.0" />
+                        <CheckBox fx:id="studentShowPasswordCheckBox" layoutX="323.0" layoutY="148.0" mnemonicParsing="false" text="Show Password" />
+                        <CheckBox fx:id="studentShowConfirmPasswordCheckBox" layoutX="323.0" layoutY="181.0" mnemonicParsing="false" text="Show Password" />
+                        <PasswordField fx:id="studentHiddenPassword" layoutX="164.0" layoutY="144.0" promptText="Enter Password" />
+                        <PasswordField fx:id="studentConfirmPasswordHidden" layoutX="165.0" layoutY="177.0" promptText="Confirm Password" />
                      </children>
                   </AnchorPane>
             </content>
@@ -35,10 +41,14 @@
                         <TextField fx:id="advisorFirstNameTextField" layoutX="162.0" layoutY="37.0" promptText="Enter First Name" />
                         <TextField fx:id="advisorLastNameTextField" layoutX="163.0" layoutY="71.0" promptText="Enter Last Name" />
                         <TextField fx:id="advisorEmailTextField" layoutX="163.0" layoutY="109.0" promptText="Enter Email" />
-                        <TextField fx:id="advisorPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" />
-                        <TextField fx:id="advisorConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" />
+                        <TextField fx:id="advisorPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" visible="false" />
+                        <TextField fx:id="advisorConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" visible="false" />
                         <Button fx:id="advisorSignUpButton" layoutX="207.0" layoutY="221.0" mnemonicParsing="false" text="Sign Up" />
                         <Label fx:id="advisorInvalidLabel" layoutX="164.0" layoutY="203.0" prefHeight="18.0" prefWidth="150.0" />
+                        <CheckBox fx:id="advisorShowConfirmedPasswordCheckBox" layoutX="323.0" layoutY="181.0" mnemonicParsing="false" text="Show Password" />
+                        <CheckBox fx:id="advisorShowPasswordCheckBox" layoutX="323.0" layoutY="148.0" mnemonicParsing="false" text="Show Password" />
+                        <PasswordField fx:id="advisorHiddenPassword" layoutX="164.0" layoutY="144.0" promptText="Enter Password" />
+                        <PasswordField fx:id="advisorConfirmPasswordHidden" layoutX="165.0" layoutY="177.0" promptText="Confirm Password" />
                      </children>
                   </AnchorPane>
                </content>
@@ -50,10 +60,14 @@
                         <TextField fx:id="adminFirstNameTextField" layoutX="162.0" layoutY="37.0" promptText="Enter First Name" />
                         <TextField fx:id="adminLastNameTextField" layoutX="163.0" layoutY="71.0" promptText="Enter Last Name" />
                         <TextField fx:id="adminEmailTextField" layoutX="163.0" layoutY="109.0" promptText="Enter Email" />
-                        <TextField fx:id="adminPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" />
-                        <TextField fx:id="adminConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" />
+                        <TextField fx:id="adminPasswordTextField" layoutX="163.0" layoutY="144.0" promptText="Enter Password" visible="false" />
+                        <TextField fx:id="adminConfirmPasswordTextField" layoutX="164.0" layoutY="177.0" promptText="Confirm Password" visible="false" />
                         <Button fx:id="adminSignUpButton" layoutX="207.0" layoutY="221.0" mnemonicParsing="false" text="Sign Up" />
                         <Label fx:id="adminInvalidLabel" layoutX="164.0" layoutY="203.0" prefHeight="18.0" prefWidth="150.0" />
+                        <CheckBox fx:id="adminShowPasswordCheckBox" layoutX="323.0" layoutY="148.0" mnemonicParsing="false" text="Show Password" textFill="#2b2929" />
+                        <CheckBox fx:id="adminShowConfirmedPasswordCheckBox" layoutX="323.0" layoutY="181.0" mnemonicParsing="false" text="Show Password" />
+                        <PasswordField fx:id="adminPasswordHidden" layoutX="164.0" layoutY="144.0" promptText="Enter Password" />
+                        <PasswordField fx:id="adminConfirmPasswordHidden" layoutX="165.0" layoutY="177.0" promptText="Confirm Password" />
                      </children>
                   </AnchorPane>
                </content>

@@ -13,6 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.CheckBox;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 public class SignUpController {
 
@@ -44,6 +51,18 @@ public class SignUpController {
     private Label adminInvalidLabel;
 
     @FXML
+    private PasswordField adminConfirmPasswordHidden;
+
+    @FXML 
+    private PasswordField adminPasswordHidden;
+
+    @FXML
+    private CheckBox adminShowConfirmedPasswordCheckBox;
+
+    @FXML
+    private CheckBox adminShowPasswordCheckBox;
+
+    @FXML
     private TextField advisorConfirmPasswordTextField;
 
     @FXML
@@ -66,6 +85,18 @@ public class SignUpController {
 
     @FXML
     private Label advisorInvalidLabel;
+
+    @FXML
+    private PasswordField advisorConfirmPasswordHidden;
+
+    @FXML 
+    private PasswordField advisorPasswordHidden;
+
+    @FXML
+    private CheckBox advisorShowConfirmedPasswordCheckBox;
+
+    @FXML
+    private CheckBox advisorShowPasswordCheckBox;
 
     @FXML
     private Button faqLabel;
@@ -96,6 +127,18 @@ public class SignUpController {
 
     @FXML
     private Label studentInvalidLabel;
+
+    @FXML
+    private PasswordField studentConfirmPasswordHidden;
+
+    @FXML 
+    private PasswordField studentPasswordHidden;
+
+    @FXML
+    private CheckBox studentShowConfirmedPasswordCheckBox;
+
+    @FXML
+    private CheckBox studentShowPasswordCheckBox;
 
     @FXML
     private Button universityPartnersLabel;
@@ -138,6 +181,23 @@ public class SignUpController {
         if(checkIfConfirmPasswordMatchesPassword() != false) {
             facade.signUpAdmin(firstName, lastName, email, password);
         }
+    }
+
+    @FXML
+    private void showStudentHiddenPassword(ActionEvent event){
+        if(studentShowPasswordCheckBox.isSelected()){
+            studentPasswordTextField.setText(studentPasswordHidden.getText());
+        }
+    }
+
+    @FXML
+    private void showAdvisorHiddenPassword(ActionEvent event){
+
+    }
+
+    @FXML
+    private void showAdminHiddenPassword(ActionEvent event){
+
     }
 
     @FXML
