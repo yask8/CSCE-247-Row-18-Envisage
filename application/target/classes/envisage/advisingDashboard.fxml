@@ -49,7 +49,7 @@
       <Text fx:id="TextField3" layoutX="450.0" layoutY="279.0" onDragDetected="#viewMajorMaps" onMouseClicked="#viewMajorMaps" strokeType="OUTSIDE" strokeWidth="0.0" text="View Major Maps" />
       <Text fx:id="TextField4" layoutX="36.0" layoutY="340.0" onDragDetected="#viewListOfAdvisees" onMouseClicked="#viewListOfAdvisees" strokeType="OUTSIDE" strokeWidth="0.0" text="List Of Advisees" />
       <Text fx:id="textField5" layoutX="244.0" layoutY="340.0" onDragDetected="#lookupStudent" onMouseClicked="#lookupStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Lookup" />
-      <Text fx:id="textField6" layoutX="450.0" layoutY="340.0" onMouseClicked="#AddOrRemoveAdvisee" strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Remove Advisees" />
+      <Text fx:id="textField6" layoutX="450.0" layoutY="340.0" onDragDetected="#AddOrRemoveAdvisee" onMouseClicked="#AddOrRemoveAdvisee" strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Remove Advisees" />
       <Text fx:id="textField1" layoutX="36.0" layoutY="278.0" onDragDetected="#viewAdvisingProfile" onMouseClicked="#viewAdvisingProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisor Profile" />
       <Text fx:id="ViewRiskOfFailureButton" layoutX="356.0" layoutY="126.0" onMouseClicked="#ViewRiskOfFailure" strokeType="OUTSIDE" strokeWidth="0.0" text="! 10 New Risk Of Failure" />
     </children>
