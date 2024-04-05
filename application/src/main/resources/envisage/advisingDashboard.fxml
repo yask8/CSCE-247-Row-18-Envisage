@@ -52,5 +52,7 @@
       <Text fx:id="textField6" layoutX="450.0" layoutY="340.0" onDragDetected="#AddOrRemoveAdvisee" onMouseClicked="#AddOrRemoveAdvisee" strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Remove Advisees" />
       <Text fx:id="textField1" layoutX="36.0" layoutY="278.0" onDragDetected="#viewAdvisingProfile" onMouseClicked="#viewAdvisingProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisor Profile" />
       <Text fx:id="ViewRiskOfFailureButton" layoutX="356.0" layoutY="126.0" onMouseClicked="#ViewRiskOfFailure" strokeType="OUTSIDE" strokeWidth="0.0" text="! 10 New Risk Of Failure" />
+      <Button fx:id="SignOutButton" layoutX="548.0" layoutY="362.0" mnemonicParsing="false" onAction="#signOut" prefHeight="24.0" prefWidth="74.0" />
+      <Text fx:id="signOut" layoutX="560.0" layoutY="378.0" onDragDetected="#signOut" onMouseClicked="#signOut" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out" />
     </children>
 </AnchorPane>
