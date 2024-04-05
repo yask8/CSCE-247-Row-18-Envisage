@@ -297,6 +297,21 @@ public class Facade {
   }
 
   /**
+ * Gets the application area of the logged-in student.
+ *
+ * Returns null if the logged-in user is not a student.
+ *
+ * @return The application area of the logged-in student.
+ */
+public String getStudentAppArea() {
+  if (user.getUserType().equals("STUDENT")) {
+      return ((Student) user).getApplicationArea();
+  } else {
+      return null;
+  }
+}
+
+  /**
    * Gets the GPA of the logged-in student.
    *
    * Returns -1.0 if the logged-in user is not a student.

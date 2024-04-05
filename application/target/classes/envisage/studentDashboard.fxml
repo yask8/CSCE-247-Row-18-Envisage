@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="studentDashboard" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentDashboardController">
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+         <Button fx:id="studentProfileButton" layoutX="20.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Student Profile" />
+         <Button fx:id="scheduleAptButton" layoutX="225.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Scheudle Advsing Appointment" />
+         <Button fx:id="viewMajorMapButton" layoutX="430.0" layoutY="260.0" onAction="#viewMajorMap" prefHeight="40.0" prefWidth="190.0" text="View Major Map" />
+         <Button fx:id="viewCurrentCoursesButton" layoutX="20.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Current Courses" />
+         <Button fx:id="coursePlannerButton" layoutX="225.0" layoutY="310.0" onAction="#goToCoursePlanner" prefHeight="40.0" prefWidth="190.0" text="Course Planner" />
+      <Button fx:id="printCoursePlannerButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" onAction="#printCoursePlanner" prefHeight="40.0" prefWidth="190.0" text="Print Course Planner" />
+      <Text layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Dashboard">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+       <PieChart fx:id="progressPieChart" layoutX="21.0" layoutY="80.0" prefHeight="122.0" prefWidth="190.0" title="Degree Progress">
+            <title>
+                <Font size="6.0" />
+            </title>
+        </PieChart>
+      <Button fx:id="signOutButton" layoutX="540.0" layoutY="365.0" mnemonicParsing="false" onAction="#signOut" prefHeight="20.0" prefWidth="80.0" text="Sign Out" />
+      <Label layoutX="225.0" layoutY="90.0" minHeight="20.0" prefHeight="20.0" prefWidth="40.0" text="Major:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="225.0" layoutY="120.0" minHeight="20.0" prefWidth="60.0" text="App Area:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="225.0" layoutY="150.0" minHeight="20.0" prefWidth="60.0" text="Semester:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="225.0" layoutY="180.0" minHeight="20.0" prefWidth="30.0" text="GPA:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="225.0" layoutY="208.0" minHeight="20.0" prefWidth="90.0" text="Advising Note:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="majorLabel" layoutX="265.0" layoutY="90.0" prefHeight="20.0" prefWidth="340.0" />
+      <Label fx:id="appAreaLabel" layoutX="285.0" layoutY="120.0" prefHeight="20.0" prefWidth="320.0" />
+      <Label fx:id="semesterLabel" layoutX="285.0" layoutY="150.0" prefHeight="20.0" prefWidth="320.0" />
+      <Label fx:id="gpaLabel" layoutX="255.0" layoutY="180.0" prefHeight="20.0" prefWidth="350.0" />
+      <Label fx:id="advisingNoteLabel" layoutX="315.0" layoutY="208.0" prefHeight="20.0" prefWidth="290.0" />
+      <VBox fx:id="legendVbox" layoutX="31.0" layoutY="213.0" prefHeight="31.0" prefWidth="168.0" />
+    </children>
+</AnchorPane>

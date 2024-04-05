@@ -306,4 +306,30 @@ public double calculateGPA(ArrayList<Course> courseList, ArrayList<Grades> compl
     }
     return creditHours;
   }
+  /**
+     * Gets the count of completed courses.
+     *
+     * @return The count of completed courses.
+     */
+    public int getCompleteCoursesCount() {
+      return completeCourses.size();
+  }
+
+  /**
+   * Gets the count of incomplete courses.
+   *
+   * @return The count of incomplete courses.
+   */
+  public int getIncompleteCoursesCount() {
+      return incompleteCourses.size();
+  }
+  /**
+     * Gets the total count of courses (completed and incomplete).
+     *
+     * @return The total count of courses.
+     */
+    public int getTotalCoursesCount() {
+      return completeCourses.size() + incompleteCourses.size();
+  }
+
 }
