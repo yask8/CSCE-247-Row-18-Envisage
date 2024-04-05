@@ -51,12 +51,19 @@ public class Advisor extends User {
   }
 
   /**
-   * Allows the advisor to view a student's profile
-   *
-   * @return The student profile
-   */
-  public String viewStudentProfile() {
-    return "";
+     * Allows the advisor to view a student's profile
+     * 
+     * @param studentId UUID of the student to view
+     * @param userList  UserList containing all users
+     * @return The student's profile if found, otherwise an empty string
+     */
+    public String viewStudentProfile(UUID studentId, UserList userList) {
+      Student student = getStudentByAdvisor(studentId, userList);
+      if (student != null) {
+          return student.toString();
+      } else {
+          return "Student not found or not advisee of the advisor.";
+      }
   }
 
   /**
@@ -131,13 +138,15 @@ public void removeStudent(UUID studentId) {
   }
 
   /**
-   * Allows advisor to search for a student
-   *
-   * @param uscID uscID for the specific student
-   * @return returns Student instance
-   */
-  public Student studentLookUp(String uscID) {
-    return null;
+     * Allows advisor to search for a student
+     *
+     * @param uscID uscID for the specific student
+     * @param userList UserList containing all users
+     * @return Student instance if found, otherwise null
+     */
+    public Student studentLookUp(String uscID, UserList userList) {
+      UUID studentUUID = UUID.fromString(uscID);
+      return userList.getStudentById(studentUUID);
   }
 
   /**
