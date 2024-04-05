@@ -57,7 +57,21 @@ public class AdvisingDashboardController {
     private Text signOut;
 
     @FXML
+    private Text welcomeText;
     private Facade facade = Facade.getInstance();
+    private User user;
+
+    @FXML
+    public void initialize() {
+        facade = Facade.getInstance();
+        user = facade.getUser();
+        if (user instanceof Advisor) {
+            Advisor advisor = (Advisor) user;
+            welcomeText.setText("Welcome, " + advisor.getFirstName() + " " + advisor.getLastName());
+        } else {
+            welcomeText.setText("Welcome, Advisor");
+        }
+    }
 
     @FXML
     private void AddOrRemoveAdvisee(ActionEvent event) {
