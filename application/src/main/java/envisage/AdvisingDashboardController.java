@@ -136,7 +136,7 @@ public class AdvisingDashboardController {
 
     @FXML
     private void viewMajorMaps(ActionEvent event) {
-        String majorName = "Computer Science"; // Change this to the actual major name
+        String majorName = null; //null for now
         MajorMap majorMap = facade.getMajorMap(majorName);
         if (majorMap != null) {
             viewMajorMapsButton.setText("Major Map for " + majorName + ":\n" + majorMap.toString());
