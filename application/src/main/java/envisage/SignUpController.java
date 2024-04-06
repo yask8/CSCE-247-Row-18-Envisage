@@ -7,17 +7,14 @@ package envisage;
 import java.io.IOException;
 
 import AdvisingSoftware.*;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.PasswordField;
