@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -31,7 +31,7 @@ public class LogInController {
     private Button adminLoginButton;
 
     @FXML
-    private Tab adminPasswordTextField;
+    private PasswordField adminPasswordTextField;
 
     @FXML
     private TextField advisorEmailTextField;
@@ -43,7 +43,7 @@ public class LogInController {
     private Button advisorLoginButton;
 
     @FXML
-    private Tab advisorPasswordTextField;
+    private PasswordField advisorPasswordTextField;
 
     @FXML
     private Text signUpLabel;
@@ -58,7 +58,7 @@ public class LogInController {
     private Button studentLoginButton;
 
     @FXML
-    private Tab studentPasswordTextField;
+    private PasswordField studentPasswordTextField;
 
     @FXML
     void setStageAbout(MouseEvent event) throws IOException {
