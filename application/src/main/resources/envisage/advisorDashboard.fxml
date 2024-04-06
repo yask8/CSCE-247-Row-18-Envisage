@@ -1,58 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="advisorDashboard" prefHeight="400.0" prefWidth="643.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisingDashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisorDashboardController">
     <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="159.0" layoutX="17.0" layoutY="78.0" stroke="BLACK" strokeType="INSIDE" width="602.0" />
-        <Label layoutX="10" layoutY="10" text="Welcome Michael!">
-         <font>
-            <Font name="System Bold Italic" size="21.0" />
-         </font></Label>
-        <VBox layoutX="50" layoutY="50" spacing="10" />
-         <Button fx:id="advisingProfileButton" layoutX="18.0" layoutY="256.0" onAction="#viewAdvisingProfile" prefHeight="36.0" prefWidth="200.0" />
-         <Button fx:id="adviseStudentButton" layoutX="226.0" layoutY="256.0" onAction="#adviseStudent" prefHeight="36.0" prefWidth="200.0" />
-         <Button fx:id="viewMajorMapsButton" layoutX="434.0" layoutY="256.0" onAction="#viewMajorMaps" prefHeight="36.0" prefWidth="188.0" />
-         <Button fx:id="listOfAdviseesButton" layoutX="18.0" layoutY="315.0" onAction="#viewListOfAdvisees" prefHeight="36.0" prefWidth="200.0" />
-         <Button fx:id="studentLookupButton" layoutX="228.0" layoutY="315.0" onAction="#lookupStudent" prefHeight="36.0" prefWidth="200.0" />
-      <TextFlow layoutX="234.0" layoutY="50.0">
-         <children>
-            <ButtonBar />
-         </children>
-      </TextFlow>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2efef" height="121.0" layoutX="348.0" layoutY="106.0" stroke="#f8f5f5" strokeType="INSIDE" width="188.0" />
-      <Text layoutX="354.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appt. TIme: 11:00am - 11:30am" wrappingWidth="148.0" />
-      <Text layoutX="18.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advising Progress For Spring 2024">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Text>
-      <Text fill="#222020" layoutX="356.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" wrappingWidth="188.0" />
-      <Text layoutX="356.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next Appointment: 04/21/24" wrappingWidth="172.7294921875" />
-      <Text layoutX="354.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appt. Type: Virtual" wrappingWidth="148.0" />
-      <ProgressBar layoutX="18.0" layoutY="111.0" prefHeight="20.0" prefWidth="255.0" progress="0.81" />
-      <Text layoutX="18.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 80% In Progress" wrappingWidth="254.53466796875" />
-      <Text layoutX="18.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 10% Complete" wrappingWidth="254.53466796875" />
-      <Text layoutX="18.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 10% Incomplete" wrappingWidth="254.53466796875" />
-      <Button fx:id="AddOrRemoveAdviseeButton" layoutX="433.0" layoutY="317.0" mnemonicParsing="false" onAction="#AddOrRemoveAdvisee" prefHeight="36.0" prefWidth="188.0" />
-      <Text layoutX="36.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="textField2" layoutX="244.0" layoutY="279.0" onDragDetected="#adviseStudent" onMouseClicked="#adviseStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Advise Student" />
-      <Text fx:id="TextField3" layoutX="450.0" layoutY="279.0" onDragDetected="#viewMajorMaps" onMouseClicked="#viewMajorMaps" strokeType="OUTSIDE" strokeWidth="0.0" text="View Major Maps" />
-      <Text fx:id="TextField4" layoutX="36.0" layoutY="340.0" onDragDetected="#viewListOfAdvisees" onMouseClicked="#viewListOfAdvisees" strokeType="OUTSIDE" strokeWidth="0.0" text="List Of Advisees" />
-      <Text fx:id="textField5" layoutX="244.0" layoutY="340.0" onDragDetected="#lookupStudent" onMouseClicked="#lookupStudent" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Lookup" />
-      <Text fx:id="textField6" layoutX="450.0" layoutY="340.0" onDragDetected="#AddOrRemoveAdvisee" onMouseClicked="#AddOrRemoveAdvisee" strokeType="OUTSIDE" strokeWidth="0.0" text="Add/Remove Advisees" />
-      <Text fx:id="textField1" layoutX="36.0" layoutY="278.0" onDragDetected="#viewAdvisingProfile" onMouseClicked="#viewAdvisingProfile" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisor Profile" />
-      <Text fx:id="ViewRiskOfFailureButton" layoutX="356.0" layoutY="126.0" onMouseClicked="#ViewRiskOfFailure" strokeType="OUTSIDE" strokeWidth="0.0" text="! 10 New Risk Of Failure" />
-      <Button fx:id="SignOutButton" layoutX="548.0" layoutY="362.0" mnemonicParsing="false" onAction="#signOut" prefHeight="24.0" prefWidth="74.0" />
-      <Text fx:id="signOut" layoutX="560.0" layoutY="378.0" onDragDetected="#signOut" onMouseClicked="#signOut" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Out" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+        <Button fx:id="advisorProfileButton" layoutX="20.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Advisor Profile" />
+        <Button fx:id="adviseStudentButton" layoutX="225.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Advise Student" />
+        <Button fx:id="viewMajorMapsButton" layoutX="430.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="View Major Maps" />
+        <Button fx:id="listOfAdviseesButton" layoutX="20.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="List of Advisees" />
+        <Button fx:id="studentLookupButton" layoutX="225.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Student Lookup" />
+        <Button fx:id="editListOfAdviseesButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Edit List of Advisees" />
+        <Text layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisor Dashboard">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Button layoutX="540.0" layoutY="365.0" mnemonicParsing="false" onAction="#signOut" prefHeight="20.0" prefWidth="80.0" text="Sign Out" />
+        <Label fx:id="welcomeLabel" layoutX="20.0" layoutY="15.0" prefHeight="40.0" prefWidth="591.0">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
