@@ -39,7 +39,7 @@
       </ToolBar>
       <TabPane layoutX="19.0" layoutY="64.0" prefHeight="280.0" prefWidth="602.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="studentPasswordTextField" text="Student">
+          <Tab text="Student">
                <content>
                   <AnchorPane prefHeight="182.0" prefWidth="640.0">
                      <children>
@@ -47,12 +47,12 @@
                         <Button fx:id="studentLoginButton" layoutX="200.0" layoutY="150.0" mnemonicParsing="false" onAction="#loginStudent" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="428.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
                         <Label fx:id="studentInvalidLabel" contentDisplay="CENTER" layoutX="29.0" layoutY="34.0" prefHeight="20.0" prefWidth="500.0" textAlignment="CENTER" />
-                        <PasswordField layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
+                        <PasswordField fx:id="studentPasswordTextField" layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
                      </children>
                   </AnchorPane>
                </content>
           </Tab>
-            <Tab fx:id="advisorPasswordTextField" text="Advisor">
+            <Tab text="Advisor">
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
@@ -60,12 +60,12 @@
                         <Button fx:id="advisorLoginButton" layoutX="200.0" layoutY="150.0" mnemonicParsing="false" onAction="#loginAdvisor" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="428.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
                         <Label fx:id="advisorInvalidLabel" contentDisplay="CENTER" layoutX="27.0" layoutY="34.0" prefHeight="20.0" prefWidth="500.0" textAlignment="CENTER" visible="false" />
-                        <PasswordField layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
+                        <PasswordField fx:id="advisorPasswordTextField" layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="adminPasswordTextField" text="Admin">
+            <Tab text="Admin">
                <content>
                   <AnchorPane prefHeight="191.0" prefWidth="615.0">
                      <children>
@@ -73,7 +73,7 @@
                         <Button fx:id="adminLoginButton" layoutX="200.0" layoutY="150.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="25.0" prefWidth="150.0" text="Login" />
                         <Text layoutX="428.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
                         <Label fx:id="adminInvalidLabel" alignment="CENTER" layoutX="29.0" layoutY="34.0" prefHeight="20.0" prefWidth="500.0" textAlignment="CENTER" visible="false" />
-                        <PasswordField layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
+                        <PasswordField fx:id="adminPasswordTextField" layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
                      </children>
                   </AnchorPane>
                </content>
