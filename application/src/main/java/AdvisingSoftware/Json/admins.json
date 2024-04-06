@@ -1,11 +1,1 @@
-[
-    {
-        "firstName": "Billy",
-        "lastName": "Bob",
-        "password": "Guiy#ghawe",
-        "changesMade": [],
-        "uscID": "92a449d4-6d47-4925-b477-97134c835cdf",
-        "userType": "ADMIN",
-        "email": "thebillybob@gmail.com"
-    }
-]
+[{"firstName":"Billy","lastName":"Bob","password":"Guiy#ghawe","changesMade":[],"uscID":"92a449d4-6d47-4925-b477-97134c835cdf","userType":"ADMIN","email":"thebillybob@gmail.com"}]

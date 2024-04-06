@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="adminDashboard" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdminDashboardController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+        <Text layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Dashboard">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Text>
+        <Label fx:id="welcomeLabel" layoutX="20.0" layoutY="15.0" prefHeight="40.0" prefWidth="591.0">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+        </Label>
+        <Button fx:id="adminProfileButton" layoutX="20.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Admin Profile" />
+        <Button fx:id="studentLookupButton" layoutX="225.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Student Lookup" />
+        <Button fx:id="manageUserButton" layoutX="430.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Manage Users" />
+        <Button fx:id="manageMajorMapsButton" layoutX="20.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Manage Major Maps" />
+        <Button fx:id="manageCoursesButton" layoutX="225.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Manage Courses" />
+        <Button fx:id="manageAppAreasButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Manage Application Areas" />
+        <Button fx:id="signOutButton" layoutX="540.0" layoutY="365.0" mnemonicParsing="false" onAction="#signOut" prefHeight="20.0" prefWidth="80.0" text="Sign Out" />
+    </children>
+</AnchorPane>
