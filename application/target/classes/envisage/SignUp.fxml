@@ -47,7 +47,7 @@
       <PasswordField fx:id="hiddenPassword" layoutX="220.0" layoutY="205.0" prefHeight="26.0" prefWidth="200.0" promptText="Enter Password" />
       <PasswordField fx:id="hiddenCheckPassword" layoutX="220.0" layoutY="240.0" prefHeight="26.0" prefWidth="200.0" promptText="Confirm Password" />
       <CheckBox fx:id="passwordCheckBox" layoutX="428.0" layoutY="210.0" mnemonicParsing="false" onAction="#showHiddenPassword" text="Show Password" />
-      <CheckBox fx:id="checkPasswordCheckBox" layoutX="428.0" layoutY="244.0" mnemonicParsing="false" onAction="#showHiddenPassword" text="Show Password" />
+      <CheckBox fx:id="checkPasswordCheckBox" layoutX="428.0" layoutY="244.0" mnemonicParsing="false" onAction="#showHiddenCheckPassword" text="Show Password" />
       <Label fx:id="errorMessageLabel" layoutX="220.0" layoutY="265.0" prefHeight="18.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

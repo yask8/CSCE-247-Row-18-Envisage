@@ -124,7 +124,6 @@ public class SignUpController implements Initializable {
     // Extra Screen Features Section
     @FXML
     private void showHiddenPassword(ActionEvent event){
-        // Password TextField
         if(passwordCheckBox.isSelected()){
             passwordTextField.setText(hiddenPassword.getText());
             passwordTextField.setVisible(true);
@@ -135,8 +134,10 @@ public class SignUpController implements Initializable {
             hiddenPassword.setVisible(true);
             passwordTextField.setVisible(false);
         }
+    }
 
-        // Confirm Password TextField
+    @FXML
+    private void showHiddenCheckPassword(ActionEvent event){
         if(checkPasswordCheckBox.isSelected()){
             passwordCheckTextField.setText(hiddenCheckPassword.getText());
             passwordCheckTextField.setVisible(true);
