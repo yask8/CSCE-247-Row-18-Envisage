@@ -1,9 +1,5 @@
-
 package envisage;
 
-/**
- * @author Yasmine Kennedy (yask8)
- */
 import java.io.IOException;
 
 import AdvisingSoftware.*;
@@ -101,6 +97,27 @@ public class SignUpController implements Initializable {
                 default:
                     break;
             }
+            switchToDashboard(roleType);
+        }
+    }
+
+    private void switchToDashboard(String roleType) {
+        try {
+            switch (roleType) {
+                case "Student":
+                    App.setRoot("studentDashboard");
+                    break;
+                case "Advisor":
+                    App.setRoot("advisorDashboard");
+                    break;
+                case "Admin":
+                    App.setRoot("adminDashboard");
+                    break;
+                default:
+                    break;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -151,5 +168,4 @@ public class SignUpController implements Initializable {
     void setStageAbout(MouseEvent event) throws IOException {
         App.setRoot("About");
     }
-    
 }

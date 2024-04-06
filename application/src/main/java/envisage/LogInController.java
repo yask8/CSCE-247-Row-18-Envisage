@@ -7,50 +7,58 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 public class LogInController {
 
+    @FXML
+    private AnchorPane LogIn;
 
     @FXML
     private Label aboutLabel;
 
     @FXML
-    private TextField studentEmailTextField;
-
-    @FXML
-    private TextField studentPasswordTextField;
-
-    @FXML
-    private Button studentLoginButton;
-
-    @FXML
-    private Label studentInvalidLabel;
-
-    @FXML
     private TextField adminEmailTextField;
 
     @FXML
-    private TextField adminPasswordTextField;
+    private Label adminInvalidLabel;
 
     @FXML
     private Button adminLoginButton;
-    
+
     @FXML
-    private Label adminInvalidLabel;
+    private Tab adminPasswordTextField;
 
     @FXML
     private TextField advisorEmailTextField;
 
     @FXML
-    private TextField advisorPasswordTextField;
+    private Label advisorInvalidLabel;
 
     @FXML
     private Button advisorLoginButton;
 
     @FXML
-    private Label advisorInvalidLabel;
+    private Tab advisorPasswordTextField;
+
+    @FXML
+    private Text signUpLabel;
+
+    @FXML
+    private TextField studentEmailTextField;
+
+    @FXML
+    private Label studentInvalidLabel;
+
+    @FXML
+    private Button studentLoginButton;
+
+    @FXML
+    private Tab studentPasswordTextField;
 
     @FXML
     void setStageAbout(MouseEvent event) throws IOException {
@@ -61,10 +69,10 @@ public class LogInController {
     private void loginStudent(ActionEvent event) throws IOException {
         String email = studentEmailTextField.getText();
         String password = studentPasswordTextField.getText();
-    
+
         Facade facade = Facade.getInstance();
         User loggedInUser = facade.login(email, password);
-    
+
         if (loggedInUser != null && loggedInUser.getUserType().equals("STUDENT")) {
             App.setRoot("studentDashboard");
         } else {
@@ -104,6 +112,7 @@ public class LogInController {
             advisorInvalidLabel.setVisible(true);
         }
     }
+
     @FXML
     void setStageSignIn(MouseEvent event) throws IOException {
         App.setRoot("signUp");
