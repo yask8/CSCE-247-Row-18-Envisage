@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="courseTemplatePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.CourseTemplateController" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: black; -fx-border-width: 1px;">
+   <children>
+      <Label fx:id="courseNameLabel" layoutX="5.0" layoutY="5.0" prefHeight="20.0" prefWidth="190.0" />
+      <Button fx:id="viewCourseInfoButton" layoutX="5.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="View Info" />
+      <Button fx:id="AddCourseButton" layoutX="105.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Add Course" />
+   </children>
+</AnchorPane>

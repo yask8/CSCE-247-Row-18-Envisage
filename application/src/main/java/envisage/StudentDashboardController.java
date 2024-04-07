@@ -60,7 +60,7 @@ public class StudentDashboardController implements Initializable {
     private Button studentProfileButton;
 
     @FXML
-    private Button viewCurrentCoursesButton;
+    private Button courseListButton;
 
     @FXML
     private Button viewMajorMapButton;
@@ -111,20 +111,10 @@ public class StudentDashboardController implements Initializable {
     }
 
     @FXML
-    void goToCoursePlanner(ActionEvent event) {
-
+    void setStageCourseList(ActionEvent event) throws IOException {
+        App.setRoot("courseList");;
     }
-
-    @FXML
-    void printCoursePlanner(ActionEvent event) {
-
-    }
-
-    @FXML
-    void viewMajorMap(ActionEvent event) {
-
-    }
-
+    
     @FXML
     void signOut(ActionEvent event) {
         try {
