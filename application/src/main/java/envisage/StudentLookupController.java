@@ -64,9 +64,6 @@ public class StudentLookupController implements Initializable {
   private Label studentLookupLabel;
 
   @FXML
-  void clear(ActionEvent event) {}
-
-  @FXML
   void nextPage(ActionEvent event) {}
 
   @FXML
@@ -75,14 +72,66 @@ public class StudentLookupController implements Initializable {
   @FXML
   void search(ActionEvent event) {}
 
-  @FXML
-  void setStageDashboard(ActionEvent event) {}
-
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException(
       "Unimplemented method 'initialize'"
     );
+  }
+
+  private void displayFilteredStudents(ArrayList<Student> filteredStudents) {
+    studentLookupGridPane.getChildren().clear();
+
+    for (int i = 0; i < filteredStudents.size(); i++) {
+      Student student = filteredStudents.get(i);
+      FXMLLoader loader = new FXMLLoader(
+        getClass().getResource("StudentTemplate.fxml")
+      );
+      try {
+        AnchorPane studentTemplate = loader.load();
+
+        StudentTemplateController controller = loader.getController();
+        controller.setStudentName(
+          student.getFirstName(),
+          student.getLastName()
+        );
+
+        int row = i / COLUMNS_PER_PAGE;
+        int column = i % COLUMNS_PER_PAGE;
+        studentLookupGridPane.add(studentTemplate, column, row);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  @FXML
+  void setStageDashboard(ActionEvent event) throws IOException {
+    if (user == null) {
+      return;
+    }
+    switch (user.getUserType()) {
+      case "STUDENT":
+        App.setRoot("studentDashboard");
+        break;
+      case "ADVISOR":
+        App.setRoot("advisorDashboard");
+        break;
+      case "ADMIN":
+        App.setRoot("adminDashboard");
+        break;
+      default:
+        break;
+    }
+  }
+
+  @FXML
+  void clear(ActionEvent event) {
+    searchBarTextField.clear();
+    filterByChoiceBox.getSelectionModel().clearSelection();
+    filteredStudents = null;
+    currentPage = 0;
+    populateStudentList();
   }
 }
