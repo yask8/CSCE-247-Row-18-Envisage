@@ -12,7 +12,7 @@
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
          <Button fx:id="studentProfileButton" layoutX="20.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Student Profile" />
-         <Button fx:id="scheduleAptButton" layoutX="225.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Scheudle Advsing Appointment" />
+         <Button fx:id="scheduleAptButton" layoutX="225.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Schedule Advising Appointment" />
          <Button fx:id="viewMajorMapButton" layoutX="430.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="View Major Map" />
          <Button fx:id="courseListButton" layoutX="20.0" layoutY="310.0" onAction="#setStageCourseList" prefHeight="40.0" prefWidth="190.0" text="Course List" />
          <Button fx:id="coursePlannerButton" layoutX="225.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Course Planner" />
