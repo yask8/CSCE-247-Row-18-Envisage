@@ -34,7 +34,7 @@ public class StudentLookupController implements Initializable {
   private Button clearSearchButton;
 
   @FXML
-  private ChoiceBox<?> filterByChoiceBox;
+  private ChoiceBox<String> filterByChoiceBox;
 
   @FXML
   private Button nextPageButton;
@@ -63,21 +63,128 @@ public class StudentLookupController implements Initializable {
   @FXML
   private Label studentLookupLabel;
 
-  @FXML
-  void nextPage(ActionEvent event) {}
-
-  @FXML
-  void previousPage(ActionEvent event) {}
-
-  @FXML
-  void search(ActionEvent event) {}
-
   @Override
-  public void initialize(URL arg0, ResourceBundle arg1) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException(
-      "Unimplemented method 'initialize'"
+  public void initialize(URL location, ResourceBundle resources) {
+    facade = Facade.getInstance();
+    user = facade.getUser();
+    ObservableList<String> roleOptions = FXCollections.observableArrayList(
+      "First Name",
+      "Last Name"
     );
+    filterByChoiceBox.setItems(roleOptions);
+    populateStudentList();
+  }
+
+  private void populateStudentList() {
+    ArrayList<User> users = facade.getUsers();
+    ArrayList<Student> students = new ArrayList<Student>();
+    for (User user : users) {
+      if (user.getUserType().equalsIgnoreCase("STUDENT")) {
+        students.add((Student) user);
+      }
+    }
+    int totalStudents = students.size();
+    int totalPages = (int) Math.ceil(
+      (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
+    );
+
+    currentPage = Math.min(currentPage, totalPages - 1);
+    currentPage = Math.max(currentPage, 0);
+
+    int start = currentPage * ROWS_PER_PAGE * COLUMNS_PER_PAGE;
+    int end = Math.min(start + ROWS_PER_PAGE * COLUMNS_PER_PAGE, totalStudents);
+
+    studentLookupGridPane.getChildren().clear();
+
+    for (int i = start; i < end; i++) {
+      Student student = students.get(i);
+      FXMLLoader loader = new FXMLLoader(
+        getClass().getResource("StudentTemplate.fxml")
+      );
+      try {
+        AnchorPane studentTemplate = loader.load();
+
+        StudentTemplateController controller = loader.getController();
+        controller.setStudentName(
+          student.getFirstName(),
+          student.getLastName()
+        );
+
+        int row = (i - start) / COLUMNS_PER_PAGE;
+        int column = (i - start) % COLUMNS_PER_PAGE;
+        studentLookupGridPane.add(studentTemplate, column, row);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+
+    pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
+  }
+
+  @FXML
+  void nextPage(ActionEvent event) {
+    ArrayList<Student> xstudents;
+    if (filteredStudents != null) {
+      xstudents = filteredStudents;
+    } else {
+      xstudents = new ArrayList<Student>();
+    }
+
+    int totalStudents = xstudents.size();
+    int totalPages = (int) Math.ceil(
+      (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
+    );
+
+    if (currentPage < totalPages - 1) {
+      currentPage++;
+      studentLookupGridPane.getChildren().clear();
+      populateStudentList();
+    }
+  }
+
+  @FXML
+  void previousPage(ActionEvent event) {
+    if (currentPage > 0) {
+      currentPage--;
+      studentLookupGridPane.getChildren().clear();
+      populateStudentList();
+    }
+  }
+
+  @FXML
+  void search(ActionEvent event) {
+    String searchText = searchBarTextField.getText().trim().toLowerCase();
+    String filterCriteria = filterByChoiceBox.getValue();
+
+    if (searchText.isEmpty() || filterCriteria == null) {
+      searchErrorLabel.setText("Please enter search text and select a filter.");
+      return;
+    }
+
+    ArrayList<Student> students = new ArrayList<Student>();
+    for (User user : facade.getUsers()) {
+      if (user.getUserType().equalsIgnoreCase("STUDENT")) {
+        students.add((Student) user);
+      }
+    }
+    filteredStudents = new ArrayList<>();
+
+    for (Student student : students) {
+      switch (filterCriteria) {
+        case "First Name":
+          if (student.getFirstName().toLowerCase().contains(searchText)) {
+            filteredStudents.add(student);
+          }
+          break;
+        case "Last Name":
+          if (student.getLastName().toLowerCase().contains(searchText)) {
+            filteredStudents.add(student);
+          }
+          break;
+        default:
+          break;
+      }
+    }
   }
 
   private void displayFilteredStudents(ArrayList<Student> filteredStudents) {
