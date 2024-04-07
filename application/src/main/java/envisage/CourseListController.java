@@ -24,6 +24,7 @@ public class CourseListController implements Initializable {
 
     private Facade facade;
     private User user;
+    private ArrayList<Course> filteredCourses;
     private final int ROWS_PER_PAGE = 3;
     private final int COLUMNS_PER_PAGE = 3;
     private int currentPage = 0;
@@ -55,6 +56,9 @@ public class CourseListController implements Initializable {
     @FXML
     private ChoiceBox<String> filterByChoiceBox;
 
+    @FXML
+    private Label searchErrorLabel;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         facade = Facade.getInstance();
@@ -66,27 +70,29 @@ public class CourseListController implements Initializable {
 
     private void populateCourseList() {
         ArrayList<Course> courses = facade.getCourses();
-    
+        int totalCourses = courses.size();
+        int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+
+        currentPage = Math.min(currentPage, totalPages - 1);
+        currentPage = Math.max(currentPage, 0);
+
         int start = currentPage * ROWS_PER_PAGE * COLUMNS_PER_PAGE;
-        int end = Math.min(start + ROWS_PER_PAGE * COLUMNS_PER_PAGE, courses.size());
-    
+        int end = Math.min(start + ROWS_PER_PAGE * COLUMNS_PER_PAGE, totalCourses);
+
+        courseListGridPane.getChildren().clear();
+
         for (int i = start; i < end; i++) {
             Course course = courses.get(i);
-    
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseTemplate.fxml"));
-    
             try {
                 AnchorPane courseTemplate = loader.load();
-    
+
                 CourseTemplateController controller = loader.getController();
                 controller.setCourseName(course.getName());
-    
-             
-                boolean isStudent = user.getUserType().equals("STUDENT");
 
-                
+                boolean isStudent = user.getUserType().equals("STUDENT");
                 controller.showAddCourseButton(isStudent);
-    
+
                 int row = (i - start) / COLUMNS_PER_PAGE;
                 int column = (i - start) % COLUMNS_PER_PAGE;
                 courseListGridPane.add(courseTemplate, column, row);
@@ -94,16 +100,29 @@ public class CourseListController implements Initializable {
                 e.printStackTrace();
             }
         }
-    
-        pageNumberLabel.setText("Page " + (currentPage + 1));
+
+        pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
+
     @FXML
     void nextPage(ActionEvent event) {
-        currentPage++;
-        courseListGridPane.getChildren().clear();
-        populateCourseList();
+        ArrayList<Course> courses;
+        if (filteredCourses != null) {
+            courses = filteredCourses;
+        } else {
+            courses = facade.getCourses();
+        }
+
+        int totalCourses = courses.size();
+        int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            courseListGridPane.getChildren().clear();
+            populateCourseList();
+        }
     }
-    
+
     @FXML
     void previousPage(ActionEvent event) {
         if (currentPage > 0) {
@@ -112,7 +131,80 @@ public class CourseListController implements Initializable {
             populateCourseList();
         }
     }
-    
+
+    @FXML
+    void search(ActionEvent event) {
+        String searchText = searchBarTextField.getText().trim().toLowerCase();
+        String filterCriteria = filterByChoiceBox.getValue();
+
+        if (searchText.isEmpty() || filterCriteria == null) {
+            searchErrorLabel.setText("Please enter search text and select a filter.");
+            return;
+        }
+
+        ArrayList<Course> courses = facade.getCourses();
+        filteredCourses = new ArrayList<>(); 
+
+        for (Course course : courses) {
+            switch (filterCriteria) {
+                case "Code":
+                    if (course.getCode().toLowerCase().contains(searchText)) {
+                        filteredCourses.add(course);
+                    }
+                    break;
+                case "Name":
+                    if (course.getName().toLowerCase().contains(searchText)) {
+                        filteredCourses.add(course);
+                    }
+                    break;
+                case "ID":
+                    if (course.getID().toLowerCase().contains(searchText)) {
+                        filteredCourses.add(course);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (filteredCourses.isEmpty()) {
+            searchErrorLabel.setText("No matching courses found.");
+        } else {
+            searchErrorLabel.setText("");
+            displayFilteredCourses(filteredCourses);
+
+            currentPage = 0;
+
+            int totalCourses = filteredCourses.size();
+            int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+            pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
+        }
+    }
+
+    private void displayFilteredCourses(ArrayList<Course> filteredCourses) {
+        courseListGridPane.getChildren().clear();
+
+        for (int i = 0; i < filteredCourses.size(); i++) {
+            Course course = filteredCourses.get(i);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseTemplate.fxml"));
+            try {
+                AnchorPane courseTemplate = loader.load();
+
+                CourseTemplateController controller = loader.getController();
+                controller.setCourseName(course.getName());
+
+                boolean isStudent = user.getUserType().equals("STUDENT");
+                controller.showAddCourseButton(isStudent);
+
+                int row = i / COLUMNS_PER_PAGE;
+                int column = i % COLUMNS_PER_PAGE;
+                courseListGridPane.add(courseTemplate, column, row);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @FXML
     void setStageDashboard(ActionEvent event) throws IOException {
         if (user == null) {
@@ -132,4 +224,13 @@ public class CourseListController implements Initializable {
                 break;
         }
     }
+
+    @FXML
+void clear(ActionEvent event) {
+    searchBarTextField.clear();
+    filterByChoiceBox.getSelectionModel().clearSelection();
+    filteredCourses = null;
+    currentPage = 0; 
+    populateCourseList();
+}
 }
