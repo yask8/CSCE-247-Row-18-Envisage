@@ -45,7 +45,7 @@
                      <children>
                         <TextField fx:id="studentEmailTextField" layoutX="30.0" layoutY="65.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Email" />
                         <Button fx:id="studentLoginButton" layoutX="200.0" layoutY="150.0" mnemonicParsing="false" onAction="#loginStudent" prefHeight="25.0" prefWidth="150.0" text="Login" />
-                        <Text layoutX="428.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
+                        <Text fx:id="forgotPasswordLabel" layoutX="428.0" layoutY="143.0" onMouseClicked="#setStageForgotPassword" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" underline="true" wrappingWidth="99.0" />
                         <Label fx:id="studentInvalidLabel" contentDisplay="CENTER" layoutX="29.0" layoutY="34.0" prefHeight="20.0" prefWidth="500.0" textAlignment="CENTER" />
                         <PasswordField fx:id="studentPasswordTextField" layoutX="30.0" layoutY="100.0" prefHeight="25.0" prefWidth="500.0" promptText="Enter Password" />
                      </children>

@@ -49,6 +49,9 @@ public class LogInController {
     private Text signUpLabel;
 
     @FXML
+    private Text forgotPasswordLabel;
+
+    @FXML
     private TextField studentEmailTextField;
 
     @FXML
@@ -116,6 +119,11 @@ public class LogInController {
     @FXML
     void setStageSignIn(MouseEvent event) throws IOException {
         App.setRoot("signUp");
+    }
+
+    @FXML
+    void setStageForgotPassword(MouseEvent event) throws IOException {
+        App.setRoot("forgotPassword");
     }
 
 }

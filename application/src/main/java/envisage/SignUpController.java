@@ -121,7 +121,6 @@ public class SignUpController implements Initializable {
         }
     }
 
-    // Extra Screen Features Section
     @FXML
     private void showHiddenPassword(ActionEvent event){
         if(passwordCheckBox.isSelected()){
@@ -150,7 +149,6 @@ public class SignUpController implements Initializable {
         }
     }
 
-    // Helper Methods Section
     private boolean checkIfConfirmPasswordMatchesPassword() {
         boolean matches = true;
         if (!passwordCheckTextField.getText().equals(passwordTextField.getText())) {
@@ -160,11 +158,11 @@ public class SignUpController implements Initializable {
         return matches;
     }
 
-    // Transition Section --> Switching Screens
     @FXML
     void setStageLogin(MouseEvent event) throws IOException {
         App.setRoot("LogIn");
     }
+    
     @FXML
     void setStageAbout(MouseEvent event) throws IOException {
         App.setRoot("About");
