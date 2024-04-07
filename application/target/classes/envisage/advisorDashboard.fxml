@@ -15,7 +15,7 @@
         <Button fx:id="adviseStudentButton" layoutX="225.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Advise Student" />
         <Button fx:id="viewMajorMapsButton" layoutX="430.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="View Major Maps" />
         <Button fx:id="listOfAdviseesButton" layoutX="20.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="List of Advisees" />
-        <Button fx:id="studentLookupButton" layoutX="225.0" layoutY="310.0" onMouseClicked="#setStageStudentLookup" prefHeight="40.0" prefWidth="190.0" text="Student Lookup" />
+        <Button fx:id="studentLookupButton" layoutX="225.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Student Lookup" />
         <Button fx:id="editListOfAdviseesButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Edit List of Advisees" />
         <Text layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisor Dashboard">
             <font>

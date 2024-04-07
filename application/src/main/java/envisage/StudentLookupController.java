@@ -72,7 +72,7 @@ public class StudentLookupController implements Initializable {
       "Last Name"
     );
     filterByChoiceBox.setItems(roleOptions);
-    populateStudentList();
+    //populateStudentList();
   }
 
   private void populateStudentList() {
