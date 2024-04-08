@@ -185,6 +185,21 @@ public class StudentLookupController implements Initializable {
           break;
       }
     }
+
+    if (filteredStudents.isEmpty()) {
+      searchErrorLabel.setText("No matching students found.");
+    } else {
+      searchErrorLabel.setText("");
+      displayFilteredStudents(filteredStudents);
+
+      currentPage = 0;
+
+      int totalStudents = filteredStudents.size();
+      int totalPages = (int) Math.ceil(
+        ((double) totalStudents) / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
+      );
+      pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
+    }
   }
 
   private void displayFilteredStudents(ArrayList<Student> filteredStudents) {
