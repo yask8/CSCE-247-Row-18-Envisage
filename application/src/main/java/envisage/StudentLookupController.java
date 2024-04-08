@@ -72,7 +72,7 @@ public class StudentLookupController implements Initializable {
       "Last Name"
     );
     filterByChoiceBox.setItems(roleOptions);
-    //populateStudentList();
+    populateStudentList();
   }
 
   private void populateStudentList() {
@@ -219,9 +219,6 @@ public class StudentLookupController implements Initializable {
       return;
     }
     switch (user.getUserType()) {
-      case "STUDENT":
-        App.setRoot("studentDashboard");
-        break;
       case "ADVISOR":
         App.setRoot("advisorDashboard");
         break;
