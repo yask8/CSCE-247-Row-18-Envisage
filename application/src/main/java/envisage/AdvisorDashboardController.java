@@ -90,6 +90,11 @@ public class AdvisorDashboardController implements Initializable {
   }
 
   @FXML
+  void setStageRiskOfFailureList(ActionEvent event) throws IOException {
+    App.setRoot("riskOfFailure");
+  }
+
+  @FXML
   void signOut(ActionEvent event) {
     try {
       Facade.getInstance().signOut();
