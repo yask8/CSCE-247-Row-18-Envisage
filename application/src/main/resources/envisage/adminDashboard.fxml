@@ -21,7 +21,7 @@
             </font>
         </Label>
         <Button fx:id="adminProfileButton" layoutX="20.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Admin Profile" />
-        <Button fx:id="studentLookupButton" layoutX="225.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Student Lookup" />
+        <Button fx:id="studentLookupButton" layoutX="225.0" layoutY="260.0" onAction="#setStageStudentLookup" prefHeight="40.0" prefWidth="190.0" text="Student Lookup" />
         <Button fx:id="manageUserButton" layoutX="430.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Manage Users" />
         <Button fx:id="manageMajorMapsButton" layoutX="20.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Manage Major Maps" />
         <Button fx:id="manageCoursesButton" layoutX="225.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Manage Courses" />
