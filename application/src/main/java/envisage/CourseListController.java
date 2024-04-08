@@ -183,26 +183,36 @@ public class CourseListController implements Initializable {
 
     private void displayFilteredCourses(ArrayList<Course> filteredCourses) {
         courseListGridPane.getChildren().clear();
-
-        for (int i = 0; i < filteredCourses.size(); i++) {
+    
+        int totalCourses = filteredCourses.size();
+        int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+        currentPage = Math.min(currentPage, totalPages - 1);
+        currentPage = Math.max(currentPage, 0);
+    
+        int start = currentPage * ROWS_PER_PAGE * COLUMNS_PER_PAGE;
+        int end = Math.min(start + ROWS_PER_PAGE * COLUMNS_PER_PAGE, totalCourses);
+    
+        for (int i = start; i < end; i++) {
             Course course = filteredCourses.get(i);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseTemplate.fxml"));
             try {
                 AnchorPane courseTemplate = loader.load();
-
+    
                 CourseTemplateController controller = loader.getController();
                 controller.setCourseName(course.getName());
-
+    
                 boolean isStudent = user.getUserType().equals("STUDENT");
                 controller.showAddCourseButton(isStudent);
-
-                int row = i / COLUMNS_PER_PAGE;
-                int column = i % COLUMNS_PER_PAGE;
+    
+                int row = (i - start) / COLUMNS_PER_PAGE;
+                int column = (i - start) % COLUMNS_PER_PAGE;
                 courseListGridPane.add(courseTemplate, column, row);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    
+        pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
 
     @FXML
