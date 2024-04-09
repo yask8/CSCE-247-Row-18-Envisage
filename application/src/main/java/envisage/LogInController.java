@@ -17,6 +17,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+//Author @Spillmag
+
 public class LogInController {
 
     @FXML

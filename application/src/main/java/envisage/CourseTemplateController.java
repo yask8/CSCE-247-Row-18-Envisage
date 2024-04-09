@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+//Author @Spillmag
+
 public class CourseTemplateController implements Initializable {
 
     @FXML

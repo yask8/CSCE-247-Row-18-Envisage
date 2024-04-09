@@ -20,6 +20,8 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.AnchorPane;
 
+//Author @Spillmag
+
 public class CoursePlannerController implements Initializable {
 
     @FXML

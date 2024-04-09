@@ -11,6 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
+
+<!-- Designed by Garrett Spillman-->
+
 <AnchorPane fx:id="LogIn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.LogInController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="640.0">
