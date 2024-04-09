@@ -46,7 +46,7 @@
       <Text layoutX="30.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Calls or Emails are accepted from Faculty only; students can not request partnerships on their school's behalf." textAlignment="CENTER" />
       <TextFlow layoutX="99.0" layoutY="172.0" prefHeight="168.0" prefWidth="443.0" textAlignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="We are proud to offer Envisage, our software, to schools worldwide. Our main goal is to serve unversities, colleges, community colleges, and trade schools. However, our software is adaptable for any K-12 school. Are you interested in partnering your school with Envisage? Call us at (803) 208 - 1436 or email us at unveristy-partnership@envisage.edu." wrappingWidth="340.36016845703125">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="We are proud to offer Envisage, our software, to schools worldwide. Our main goal is to serve unversities, colleges, community colleges, and trade schools. However, our software is adaptable for any K-12 school. Are you interested in partnering your school with Envisage? Call us at (803) 247 - 3618 or email us at unveristy-partnership@envisage.edu." wrappingWidth="340.36016845703125">
                <font>
                   <Font size="18.0" />
                </font>
