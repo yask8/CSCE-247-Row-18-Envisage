@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
@@ -12,8 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<!--Designed by Yasmine Kennedy (yask8)-->
-<AnchorPane fx:id="univeristyPartners" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.UniveristyPartnersController">
+<AnchorPane fx:id="univeristyPartners" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.UniversityPartnersController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="640.0">
          <items>
@@ -27,7 +25,7 @@
                   <Insets left="20.0" right="20.0" />
                </padding>
             </Label>
-            <Label fx:id="AboutLabel" text="About">
+            <Label fx:id="AboutLabel" onMouseClicked="#setStageAbout" text="About">
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
@@ -42,7 +40,7 @@
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#a2ee76" height="104.0" layoutX="99.0" layoutY="61.0" stroke="TRANSPARENT" strokeType="INSIDE" width="443.0" />
       <ImageView fitHeight="91.0" fitWidth="467.0" layoutX="87.0" layoutY="68.0" scaleX="0.9" scaleY="0.9">
          <image>
-            <Image url="@../../../../target/classes/envisage/ImageAssets/purplelogotext.png" />
+            <Image url="@ImageAssets/purplelogotext.png" />
          </image>
       </ImageView>
       <Text layoutX="30.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Calls or Emails are accepted from Faculty only; students can not request partnerships on their school's behalf." textAlignment="CENTER" />

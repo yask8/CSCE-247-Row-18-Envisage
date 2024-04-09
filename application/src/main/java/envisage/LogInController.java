@@ -28,6 +28,9 @@ public class LogInController {
     private Label aboutLabel;
 
     @FXML
+    private Label univeristyPartnersLabel;
+
+    @FXML
     private TextField adminEmailTextField;
 
     @FXML
@@ -140,6 +143,11 @@ public class LogInController {
         stage.showAndWait(); 
         
 
+    }
+
+    @FXML
+    void setStageUniversityPartners(MouseEvent event) throws IOException{
+        App.setRoot("universityPartners");
     }
 
 }

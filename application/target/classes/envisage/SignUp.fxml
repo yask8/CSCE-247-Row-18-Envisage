@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <!--Designed by Yasmine Kennedy(yask8)-->
+
 <AnchorPane fx:id="signUp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.SignUpController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="640.0">
@@ -30,7 +31,7 @@
                   <Insets left="20.0" right="20.0" />
                </padding>
             </Label>
-            <Label text="University Partners">
+            <Label fx:id="universityPartnersLabel" onMouseClicked="#setStageUniversityPartners" text="University Partners">
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>

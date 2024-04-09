@@ -29,5 +29,10 @@ public class AboutController {
         App.setRoot("LogIn");
     }
 
+    @FXML
+    void setStageUniversityPartners(MouseEvent event) throws IOException{
+        App.setRoot("universityPartners");
+    }
+
 }
 
