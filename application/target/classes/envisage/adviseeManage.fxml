@@ -17,7 +17,7 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="searchBarTextField" layoutX="20.0" layoutY="75.0" prefHeight="25.0" prefWidth="400.0" promptText="Search for Student by First Name or Last Name" />
+      <TextField fx:id="searchBarTextField" layoutX="20.0" layoutY="75.0" prefHeight="25.0" prefWidth="400.0" promptText="Search for Advisee by First Name or Last Name" />
       <GridPane fx:id="adviseeManageGridPane" hgap="10" layoutX="20.0" layoutY="120.0" prefHeight="310.0" prefWidth="600.0" vgap="10">
          <columnConstraints>
              <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
