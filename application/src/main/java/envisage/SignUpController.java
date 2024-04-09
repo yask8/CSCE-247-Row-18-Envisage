@@ -1,5 +1,8 @@
 package envisage;
 
+/**
+ * @author Yasmine Kennedy (yask8)
+ */
 import java.io.IOException;
 
 import AdvisingSoftware.*;
