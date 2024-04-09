@@ -18,7 +18,7 @@
       <Text fx:id="CarolinaCoreLabel" layoutX="7.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carolina Core:"/>
       <Text fx:id="PreReqLabel" layoutX="8.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pre-Requisite:"/>
       <Label fx:id="EditLabel" layoutX="342.0" layoutY="87.0" prefHeight="16.0" prefWidth="55.0" text="EDIT"/>
-      <ChoiceBox fx:id="AssignToChoiceBox" layoutX="412.0" layoutY="83.0" prefWidth="150.0" promptText="Assign To:"/>
+      <ChoiceBox fx:id="AssignToChoiceBox" layoutX="412.0" layoutY="83.0" prefWidth="150.0" Text="Assign To..."/>
       <Button fx:id="SaveButton" layoutX="487.0" layoutY="353.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="68.0" text="Save"/>
       <Button fx:id="BackButton" layoutX="11.0" layoutY="353.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="68.0" text="Back"/>
       <Text fx:id="CourseText" layoutX="61.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" />
