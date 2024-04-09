@@ -1,14 +1,16 @@
 package envisage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class editCourseController {
+public class editCourseController implements Initializable {
 
     @FXML
     private ResourceBundle resources;
@@ -76,4 +78,18 @@ public class editCourseController {
     @FXML
     private Button SaveButton;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
+
+    public void initializeCourseInformation(String courseID, String courseCode, String courseName,
+        String courseDescription, int creditHours, String carolinaCore, String preRequisites) {
+        CourseIDText.setText(courseID);
+        CourseCodeText.setText(courseCode);
+        CourseText.setText(courseName);
+        CourseDescriptionText.setText(courseDescription);
+        CourseCreditHourText.setText(Integer.toString(creditHours));
+        CarolinaCoreText.setText(carolinaCore);
+        PreReqTextField.setText(preRequisites);
+    }
 }
