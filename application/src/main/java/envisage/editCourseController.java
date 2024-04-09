@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class editCourseController {
@@ -75,6 +76,11 @@ public class editCourseController {
     private Button SaveButton;
 
     @FXML
+    void AssignTo(MouseEvent event) {
+
+    }
+
+    @FXML
     void back(ActionEvent event) {
 
     }
@@ -83,5 +89,4 @@ public class editCourseController {
     void save(ActionEvent event) {
 
     }
-
 }
