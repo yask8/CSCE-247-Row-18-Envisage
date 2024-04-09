@@ -31,7 +31,7 @@
                   <Insets left="20.0" right="20.0" />
                </padding>
             </Label>
-            <Label fx:id="UniversityPartnersLabel" onMouseClicked="#setStageUniversityPartners" text="University Partners">
+            <Label fx:id="UniversityPartnersLabel" text="University Partners">
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
