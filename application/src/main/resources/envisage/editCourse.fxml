@@ -6,7 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.editCourseController">
+<!-- Designed by Stephon Johnson-->
+
+<AnchorPane fx:id="editCourse" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.editCourseController">
     <children>
         <Label fx:id="EditCourseLabel" layoutX="14.0" layoutY="14.0" prefHeight="59.0" prefWidth="371.0" text="Edit Course Info" />
         <Text fx:id="CourseLabel" layoutX="8.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course:" wrappingWidth="55.0" />
@@ -17,7 +19,7 @@
         <Text fx:id="CarolinaCoreLabel" layoutX="7.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carolina Core:" />
         <Text fx:id="PreReqLabel" layoutX="8.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pre-Requisite:" />
         <Label fx:id="EditLabel" layoutX="342.0" layoutY="87.0" prefHeight="16.0" prefWidth="55.0" text="EDIT" />
-        <ChoiceBox fx:id="AssignToChoiceBox" layoutX="412.0" layoutY="83.0" prefWidth="150.0" />
+        <ChoiceBox fx:id="AssignToChoiceBox" layoutX="412.0" layoutY="83.0" onMouseClicked="#AssignTo" prefWidth="150.0" />
         <Button fx:id="SaveButton" layoutX="487.0" layoutY="353.0" mnemonicParsing="false" onAction="#save" prefHeight="24.0" prefWidth="68.0" text="Save" />
         <Button fx:id="BackButton" layoutX="11.0" layoutY="353.0" mnemonicParsing="false" onAction="#back" prefHeight="24.0" prefWidth="68.0" text="Back" />
         <Text fx:id="CourseText" layoutX="61.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" />
