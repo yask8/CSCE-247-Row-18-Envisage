@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -77,13 +78,21 @@ public class AdviseeManageController implements Initializable {
   }
 
   private void populateAdviseeList() {
-    ArrayList<User> users = facade.getUsers();
+    //ArrayList<User> users = facade.getUsers();
+    ArrayList<UUID> advisees = ((Advisor) user).getListOfAdvisees();
     ArrayList<Student> students = new ArrayList<Student>();
+
+    for (UUID advisee : advisees) {
+      students.add(
+        ((Advisor) user).getStudentByAdvisor(advisee, facade.getUserList())
+      );
+    }
+    /* 
     for (User user : users) {
       if (user.getUserType().equalsIgnoreCase("STUDENT")) {
         students.add((Student) user);
       }
-    }
+    }*/
     int totalStudents = students.size();
     int totalPages = (int) Math.ceil(
       (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
@@ -183,9 +192,12 @@ public class AdviseeManageController implements Initializable {
           }
           break;
         case "Risk Of Failure":
-          if (true) {
-            filteredStudents.add(student);
+          for (UUID fail : ((Advisor) user).getListOfFailingStudents()) {
+            filteredStudents.add(
+              ((Advisor) user).getStudentByAdvisor(fail, facade.getUserList())
+            );
           }
+
           break;
         default:
           break;

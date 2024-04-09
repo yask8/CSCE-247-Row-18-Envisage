@@ -101,8 +101,7 @@
     "firstName": "Tawnie",
     "password": "bi117",
     "advisorNotes": [
-      { "date": "2024-03-18", "note": "Make Stats Your Application Area" },
-      { "date": "2024-03-21", "note": "Make Stats Your Application Area" }
+      { "date": "2024-03-18", "note": "Make Stats Your Application Area" }
     ],
     "major": "Undeclared",
     "degreeProgress": {
@@ -221,11 +220,11 @@
     "email": "bwest@email.sc.edu",
     "coursePlanner": {
       "semesters": [
-        ["ENGL101", "MATH141", "CSCE145", "CSCE190", "ARTE101"],
-        ["ENGL102", "MATH142", "CHEM111", "CHEM111L", "CSCE146", "CSCE215"],
-        ["CSCE211", "CSCE240", "CHEM112", "CHEM112L", "SPCH140"],
-        ["CSCE212", "CSCE247", "MATH241", "SOCY101", "ANTH161"],
-        ["CSCE311", "CSCE330", "CSCE350", "CSCE390", "ENGL462", "CSCE518"],
+        [],
+        [],
+        [],
+        [],
+        [],
         [],
         [],
         []
