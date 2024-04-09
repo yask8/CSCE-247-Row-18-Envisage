@@ -193,11 +193,24 @@ public class AdviseeManageController implements Initializable {
           break;
         case "Risk Of Failure":
           for (UUID fail : ((Advisor) user).getListOfFailingStudents()) {
-            filteredStudents.add(
-              ((Advisor) user).getStudentByAdvisor(fail, facade.getUserList())
-            );
-          }
+            Student displayedStudent =
+              ((Advisor) user).getStudentByAdvisor(fail, facade.getUserList());
+            String fullName =
+              displayedStudent.getFirstName() +
+              " " +
+              displayedStudent.getLastName();
 
+            boolean searchAdvisee =
+              (fullName.toLowerCase().contains(searchText));
+            /*if (searchAdvisee && !filteredStudents.contains(displayedStudent)) {
+              filteredStudents.add(displayedStudent);
+            }*/
+            if (searchText.isEmpty() || searchText.isBlank() || searchAdvisee) {
+              if (!filteredStudents.contains(displayedStudent)) {
+                filteredStudents.add(displayedStudent);
+              }
+            }
+          }
           break;
         default:
           break;
