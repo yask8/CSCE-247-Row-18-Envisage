@@ -139,7 +139,7 @@ public class CoursePlannerController implements Initializable {
 
     @FXML
     void GeneratePlanner(ActionEvent event) {
-    
+
     }
 
     @FXML
