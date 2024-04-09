@@ -4,6 +4,7 @@ module envisage {
   requires json.simple;
   requires javafx.graphics;
   requires javafx.base;
+requires java.desktop;
 
   opens envisage to javafx.fxml;
   exports envisage ;
