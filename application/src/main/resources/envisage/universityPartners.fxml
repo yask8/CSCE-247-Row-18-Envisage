@@ -4,9 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="signUp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.SignUpController">
+<AnchorPane fx:id="universityPartners" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.UniversityPartnersController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="640.0">
          <items>
@@ -33,6 +39,20 @@
          </items>
       </ToolBar>
       <TextField fx:id="passwordCheckTextField" layoutX="220.0" layoutY="240.0" prefHeight="25.0" prefWidth="200.0" promptText="Confirm Password" visible="false" />
-      <Label fx:id="errorMessageLabel" layoutX="220.0" layoutY="265.0" prefHeight="18.0" prefWidth="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2ee76" height="132.0" layoutY="40.0" stroke="#a2ee76" strokeType="INSIDE" width="640.0" />
+      <ImageView fitHeight="91.0" fitWidth="467.0" layoutX="87.0" layoutY="62.0">
+         <image>
+            <Image url="@../../../../target/classes/envisage/ImageAssets/purplelogotext.png" />
+         </image>
+      </ImageView>
+      <TextFlow layoutX="6.0" layoutY="171.0" prefHeight="118.0" prefWidth="629.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="We are proud to offer Envisage, our software, to schools worldwide. Our main goal is to serve universities, colleges, community colleges, and trade schools. However, Envisage is adaptable for any K-12 school. Are you interested in parterning your school with Envisage? Call us at (803) 247-3618 or email us at university-partnership@envisage.edu." wrappingWidth="457.550048828125">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </TextFlow>
    </children>
 </AnchorPane>
