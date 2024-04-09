@@ -88,13 +88,13 @@ public class CoursePlannerController implements Initializable {
             String noteText = mostRecentNote.getNote();
             advisorNoteLabel.setText(noteText);
         } else {
-            advisorNoteLabel.setText("No advisor notes available.");
+            advisorNoteLabel.setText(" No advisor notes available.");
         }
     }
 
     @FXML
-    void AddCoursePopup(ActionEvent event) {
-
+    void AddCoursePopup(ActionEvent event) throws IOException {
+        App.setRoot("courseList");
     }
 
     @FXML
