@@ -77,7 +77,7 @@ public class editCourseController {
     private Button SaveButton;
 
     @FXML
-    private AnchorPane editCoursePane;
+    private AnchorPane editCourse;
 
     @FXML
     void AssignTo(MouseEvent event) {
