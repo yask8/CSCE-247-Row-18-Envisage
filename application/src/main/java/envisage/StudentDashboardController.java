@@ -114,6 +114,11 @@ public class StudentDashboardController implements Initializable {
     void setStageCourseList(ActionEvent event) throws IOException {
         App.setRoot("courseList");;
     }
+
+    @FXML
+    void setStageCoursePlanner(ActionEvent event) throws IOException {
+        App.setRoot("coursePlanner");;
+    }
     
     @FXML
     void signOut(ActionEvent event) {
