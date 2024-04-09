@@ -90,8 +90,8 @@ public class AdvisorDashboardController implements Initializable {
   }
 
   @FXML
-  void setStageRiskOfFailureList(ActionEvent event) throws IOException {
-    App.setRoot("riskOfFailure");
+  void setStageAdviseeManage(ActionEvent event) throws IOException {
+    App.setRoot("adviseeManage");
   }
 
   @FXML
