@@ -129,11 +129,9 @@ public class StudentProfileController implements Initializable {
             String noteText = mostRecentNote.getNote();
             noteLabel.setText(noteText);
             lastAdvisingApptDateLabel.setText(mostRecentNote.getDate().toString());
-            dateLabel.setText(mostRecentNote.getDate().toString());
         } else {
             noteLabel.setText("No advisor notes available.");
             lastAdvisingApptDateLabel.setText("None Found.");
-            dateLabel.setText("None.");
         }
     }
 
