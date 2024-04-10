@@ -42,14 +42,14 @@
       </Label>
       <ListView fx:id="noteListView" layoutX="336.0" layoutY="216.0" prefHeight="174.0" prefWidth="285.0" />
       <Button fx:id="declareMajorButton" layoutX="24.0" layoutY="429.0" mnemonicParsing="false" onAction="#declareMajor" prefHeight="25.0" prefWidth="125.0" text="Declare a Major" />
-      <Button fx:id="declareAppAreaButton" layoutX="159.0" layoutY="429.0" mnemonicParsing="false" text="Declare an Application Area" />
-      <Button fx:id="backButton" layoutX="580.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#setStageStudentDashboard" text="Back" />
+      <Button fx:id="declareAppAreaButton" layoutX="159.0" layoutY="429.0" mnemonicParsing="false" onAction="#declareAppArea" text="Declare an Application Area" />
+      <Button fx:id="backButton" layoutX="580.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#setStageDashboard" text="Back" />
       <Label fx:id="lastAdvisingAppointmentDateTitleLabel" layoutX="315.0" layoutY="101.0" text="Last Advising Appt. Date:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <Label fx:id="lastAdvisingApptDateLabel" layoutX="458.0" layoutY="101.0" prefHeight="18.0" prefWidth="150.0" />
-      <Button fx:id="addNoteButton" layoutX="336.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="285.0" text="Add Note" />
+      <Button fx:id="addNoteButton" layoutX="336.0" layoutY="390.0" mnemonicParsing="false" onAction="#addNote" prefHeight="25.0" prefWidth="285.0" text="Add Note" />
    </children>
 </AnchorPane>

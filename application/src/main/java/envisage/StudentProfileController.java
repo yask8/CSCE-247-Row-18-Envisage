@@ -149,8 +149,23 @@ public class StudentProfileController implements Initializable {
     }
 
     @FXML
-    void setStageStudentDashboard(MouseEvent event) throws IOException {
-        App.setRoot("studentDashboard");
+    void setStageDashboard(MouseEvent event) throws IOException {
+        if (user == null) {
+            return;
+        }
+        switch (user.getUserType()) {
+            case "STUDENT":
+                App.setRoot("studentDashboard");
+                break;
+            case "ADVISOR":
+                App.setRoot("advisorDashboard");
+                break;
+            case "ADMIN":
+                App.setRoot("adminDashboard");
+                break;
+            default:
+                break;
+        }
     }
 
     @FXML
@@ -176,6 +191,36 @@ public class StudentProfileController implements Initializable {
 
             majorNotTitleLabel.setText(chosenMajor);
         }
-
     }
+    @FXML
+public void declareAppArea(ActionEvent event) throws IOException {
+
+  ArrayList<String> allAppAreas = new ArrayList<String>();
+  allAppAreas.add("Science");
+  allAppAreas.add("Math");
+  allAppAreas.add("Digital Design");
+  allAppAreas.add("Robotics");
+  allAppAreas.add("Speech");
+
+
+  if (allAppAreas == null || allAppAreas.isEmpty()) {
+    System.err.println("Error: Unable to retrieve application area list.");
+    return;
+  }
+
+  ChoiceDialog<String> appAreaDialog = new ChoiceDialog<>();
+  appAreaDialog.setHeaderText("Declare Your Application Area");
+  appAreaDialog.setContentText("Select your application area from the list:");
+  appAreaDialog.getItems().addAll(allAppAreas);
+
+ 
+  Optional<String> selectedAppArea = appAreaDialog.showAndWait();
+
+  if (selectedAppArea.isPresent()) {
+    String chosenAppArea = selectedAppArea.get(); 
+    facade.setAppArea(chosenAppArea);  
+
+    appAreaNotTitleLabel.setText(chosenAppArea); 
+  }
+}
 }

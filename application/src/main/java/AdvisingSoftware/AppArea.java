@@ -1,4 +1,5 @@
 package AdvisingSoftware;
+
 /**
  * The class that creates adds a Application areas
  * to a list of application areas.
@@ -18,6 +19,7 @@ public class AppArea {
 
   /**
    * Application Area Constructor
+   * 
    * @param appAreaName the name of the application area wanting to be found
    */
   public AppArea(String appAreaName) {
@@ -32,8 +34,10 @@ public class AppArea {
     setMajorElectives(appAreaName);
     setAppAreaCourses(appAreaName);
   }
+
   /**
    * Displays the application options
+   * 
    * @return the application area options
    */
   public String showAppAreaOptions() {
@@ -43,29 +47,37 @@ public class AppArea {
     }
     return appAreaOptions + "and more to come...";
   }
+
   /**
    * Gets the application area options
+   * 
    * @return the list of application area options
    */
   public ArrayList<String> getAppAreaOptions() {
     return appAreaOptions;
   }
+
   /**
    * Gets the major electives
+   * 
    * @return the list of major eletives
    */
   public ArrayList<String> getmajorElectives() {
     return majorElectives;
   }
+
   /**
    * Get the application area courses
+   * 
    * @return the list of application area courses
    */
   public ArrayList<String> getAppAreaCourses() {
     return appAreaCourses;
   }
+
   /**
    * Sets the major electives
+   * 
    * @param appAreaName the name of the application area
    */
   public void setMajorElectives(String appAreaName) {
@@ -105,6 +117,7 @@ public class AppArea {
   /**
    * depending on the application area name, the method would
    * populate the given lists with the corresponding courses
+   * 
    * @param appAreaName String application area name
    */
   public void setAppAreaCourses(String appAreaName) {
@@ -143,8 +156,10 @@ public class AppArea {
       appAreaCourses.add("LING567");
     }
   }
+
   /**
    * The display of the application area: major electives and courses
+   * 
    * @return the string format of the string application area
    */
   public String toString() {
