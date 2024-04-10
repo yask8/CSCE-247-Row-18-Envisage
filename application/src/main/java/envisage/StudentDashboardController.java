@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -137,4 +138,20 @@ public class StudentDashboardController implements Initializable {
     void setStageStudentProfile(MouseEvent event) throws IOException{
         App.setRoot("studentProfile");
     }
+    
+    @FXML
+public void printCoursePlanner(ActionEvent event) {
+
+    String firstName = user.getFirstName();
+    String lastName = user.getLastName();
+    String fullName = firstName + " " + lastName;
+
+    facade.writeStudentCoursePlanner(fullName);
+
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Course Planner");
+    alert.setHeaderText("Complete!");
+    alert.setContentText("Your course planner has been printed successfully.");
+    alert.showAndWait();
+}
 }

@@ -18,7 +18,7 @@
          <Button fx:id="viewMajorMapButton" layoutX="430.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="View Major Map" />
          <Button fx:id="courseListButton" layoutX="20.0" layoutY="310.0" onAction="#setStageCourseList" prefHeight="40.0" prefWidth="190.0" text="Course List" />
          <Button fx:id="coursePlannerButton" layoutX="225.0" layoutY="310.0" onAction="#setStageCoursePlanner" prefHeight="40.0" prefWidth="190.0" text="Course Planner" />
-      <Button fx:id="printCoursePlannerButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Print Course Planner" />
+      <Button fx:id="printCoursePlannerButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" onAction="#printCoursePlanner" prefHeight="40.0" prefWidth="190.0" text="Print Course Planner" />
       <Text layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Dashboard">
          <font>
             <Font name="System Bold" size="13.0" />

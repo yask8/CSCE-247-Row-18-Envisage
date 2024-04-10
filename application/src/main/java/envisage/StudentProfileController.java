@@ -192,35 +192,39 @@ public class StudentProfileController implements Initializable {
             majorNotTitleLabel.setText(chosenMajor);
         }
     }
+
     @FXML
-public void declareAppArea(ActionEvent event) throws IOException {
+    public void declareAppArea(ActionEvent event) throws IOException {
 
-  ArrayList<String> allAppAreas = new ArrayList<String>();
-  allAppAreas.add("Science");
-  allAppAreas.add("Math");
-  allAppAreas.add("Digital Design");
-  allAppAreas.add("Robotics");
-  allAppAreas.add("Speech");
+        ArrayList<String> allAppAreas = new ArrayList<String>();
+        allAppAreas.add("Science");
+        allAppAreas.add("Math");
+        allAppAreas.add("Digital Design");
+        allAppAreas.add("Robotics");
+        allAppAreas.add("Speech");
 
+        if (allAppAreas == null || allAppAreas.isEmpty()) {
+            System.err.println("Error: Unable to retrieve application area list.");
+            return;
+        }
 
-  if (allAppAreas == null || allAppAreas.isEmpty()) {
-    System.err.println("Error: Unable to retrieve application area list.");
-    return;
-  }
+        ChoiceDialog<String> appAreaDialog = new ChoiceDialog<>();
+        appAreaDialog.setHeaderText("Declare Your Application Area");
+        appAreaDialog.setContentText("Select your application area from the list:");
+        appAreaDialog.getItems().addAll(allAppAreas);
 
-  ChoiceDialog<String> appAreaDialog = new ChoiceDialog<>();
-  appAreaDialog.setHeaderText("Declare Your Application Area");
-  appAreaDialog.setContentText("Select your application area from the list:");
-  appAreaDialog.getItems().addAll(allAppAreas);
+        Optional<String> selectedAppArea = appAreaDialog.showAndWait();
 
- 
-  Optional<String> selectedAppArea = appAreaDialog.showAndWait();
+        if (selectedAppArea.isPresent()) {
+            String chosenAppArea = selectedAppArea.get();
+            facade.setAppArea(chosenAppArea);
 
-  if (selectedAppArea.isPresent()) {
-    String chosenAppArea = selectedAppArea.get(); 
-    facade.setAppArea(chosenAppArea);  
+            appAreaNotTitleLabel.setText(chosenAppArea);
+        }
+    }
 
-    appAreaNotTitleLabel.setText(chosenAppArea); 
-  }
-}
+    @FXML
+    void addNote(ActionEvent event) {
+
+    }
 }
