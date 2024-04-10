@@ -21,44 +21,45 @@
          </font>
       </Label>
       <Rectangle fx:id="studentSummaryBox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="94.0" layoutX="24.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="593.0" />
-      <Label fx:id="studentsSummaryTitleLabel" layoutX="39.0" layoutY="84.0" prefHeight="18.0" prefWidth="249.0" />
-      <Label layoutX="39.0" layoutY="101.0" text="App Area:">
+      <Label fx:id="studentsSummaryTitleLabel" layoutX="40.0" layoutY="78.0" prefHeight="18.0" prefWidth="249.0" />
+      <Label layoutX="39.0" layoutY="123.0" text="App Area:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="124.0" text="Major:">
+      <Label layoutX="39.0" layoutY="101.0" text="Major:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="appAreaNotTitleLabel" layoutX="102.0" layoutY="101.0" prefHeight="18.0" prefWidth="128.0" />
-      <Label fx:id="majorNotTitleLabel" layoutX="83.0" layoutY="123.0" prefHeight="18.0" prefWidth="128.0" />
+      <Label fx:id="appAreaNotTitleLabel" layoutX="100.0" layoutY="123.0" prefHeight="18.0" prefWidth="210.0" />
+      <Label fx:id="majorNotTitleLabel" layoutX="80.0" layoutY="101.0" prefHeight="18.0" prefWidth="223.0" />
       <TreeView fx:id="studentCompletionTree" layoutX="24.0" layoutY="186.0" prefHeight="229.0" prefWidth="395.0" />
       <Label fx:id="mostRecentNoteTitleLabel" layoutX="426.0" layoutY="186.0" prefHeight="18.0" prefWidth="200.0" text="Most Recent Note:" textAlignment="RIGHT">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextFlow fx:id="textFlowBox" layoutX="426.0" layoutY="216.0" prefHeight="200.0" prefWidth="200.0">
+      <TextFlow fx:id="textFlowBox" layoutX="426.0" layoutY="216.0" prefHeight="174.0" prefWidth="200.0">
          <children>
             <Label fx:id="dateTitleLabel" prefHeight="18.0" prefWidth="38.0" text="Date:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="dateLabel" prefHeight="18.0" prefWidth="69.0" text="House" />
-            <Label fx:id="noteLabel" prefHeight="18.0" prefWidth="200.0" text="House" />
+            <Label fx:id="dateLabel" prefHeight="18.0" prefWidth="162.0" />
+            <Label fx:id="noteLabel" prefHeight="18.0" prefWidth="200.0" />
          </children>
       </TextFlow>
       <Button fx:id="declareMajorButton" layoutX="24.0" layoutY="429.0" mnemonicParsing="false" text="Declare a Major" />
       <Button fx:id="declareAppAreaButton" layoutX="138.0" layoutY="429.0" mnemonicParsing="false" text="Declare an Application Area" />
       <Button fx:id="backButton" layoutX="574.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#setStageStudentDashboard" text="Back" />
-      <Label fx:id="lastAdvisingAppointmentDateTitleLabel" layoutX="320.0" layoutY="101.0" text="Last Advising Appt. Date:">
+      <Label fx:id="lastAdvisingAppointmentDateTitleLabel" layoutX="315.0" layoutY="101.0" text="Last Advising Appt. Date:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lastAdvisingApptDateLabel" layoutX="466.0" layoutY="101.0" prefHeight="18.0" prefWidth="128.0" />
+      <Label fx:id="lastAdvisingApptDateLabel" layoutX="458.0" layoutY="101.0" prefHeight="18.0" prefWidth="150.0" />
+      <Button fx:id="addNoteButton" layoutX="426.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Add Note" />
    </children>
 </AnchorPane>
