@@ -380,6 +380,10 @@ public class Student extends User {
     this.applicationArea = xappArea;
   }
 
+  public void setMajor(String major) {
+    this.major = major;
+  }
+
   /**
    * Getter for coursePlanner
    *

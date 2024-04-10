@@ -297,19 +297,19 @@ public class Facade {
   }
 
   /**
- * Gets the application area of the logged-in student.
- *
- * Returns null if the logged-in user is not a student.
- *
- * @return The application area of the logged-in student.
- */
-public String getStudentAppArea() {
-  if (user.getUserType().equals("STUDENT")) {
+   * Gets the application area of the logged-in student.
+   *
+   * Returns null if the logged-in user is not a student.
+   *
+   * @return The application area of the logged-in student.
+   */
+  public String getStudentAppArea() {
+    if (user.getUserType().equals("STUDENT")) {
       return ((Student) user).getApplicationArea();
-  } else {
+    } else {
       return null;
+    }
   }
-}
 
   /**
    * Gets the GPA of the logged-in student.
@@ -536,17 +536,34 @@ public String getStudentAppArea() {
       return null;
     }
   }
+
   public void removeStudent(UUID studentId) {
     if (user != null && user.getUserType().equals("ADVISOR")) {
-        Advisor advisor = (Advisor) user;
-        advisor.removeStudent(studentId);
+      Advisor advisor = (Advisor) user;
+      advisor.removeStudent(studentId);
     }
   }
+
   public boolean addStudent(UUID studentId) {
     if (user != null && user.getUserType().equals("ADVISOR")) {
-        Advisor advisor = (Advisor) user;
-        return advisor.addStudentToListOfAdvisees(studentId);
+      Advisor advisor = (Advisor) user;
+      return advisor.addStudentToListOfAdvisees(studentId);
     }
     return false;
-}
+  }
+
+ /**
+   * Sets the major for the logged-in student.
+   * @param major The new major area of the student.
+   * @return true if the major was set successfully, false otherwise.
+   */
+  public boolean declareMajor(String major) {
+    if (user != null && user.getUserType().equals("STUDENT")) {
+      ((Student) user).setMajor(major);
+      return true;
+    } else {
+      System.out.println("Not a student user.");
+      return false;
+    }
+  }
 }

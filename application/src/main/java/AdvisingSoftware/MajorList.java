@@ -198,5 +198,17 @@ public void addMajor(
     public void clear() {
         majors.clear();
     }
+     /**
+     * Gets the names of every major.
+     *
+     * @return List of major names
+     */
+    public ArrayList<String> getAllMajorNames() {
+        ArrayList<String> majorNames = new ArrayList<>();
+        for (MajorMap major : majors) {
+            majorNames.add(major.getMajor());
+        }
+        return majorNames;
+    }
 
 }
