@@ -3,6 +3,7 @@ package envisage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 import AdvisingSoftware.*;
@@ -31,35 +32,36 @@ public class CourseTemplateController implements Initializable {
     }
 
     @FXML
-void addCoursetoCoursePlanner(ActionEvent event) {
-    Facade facade = Facade.getInstance();
-    User currentUser = facade.getUser();
-    
-    if (currentUser != null) {
-        String courseName = courseNameLabel.getText();
+    void addCoursetoCoursePlanner(ActionEvent event) {
+        Facade facade = Facade.getInstance();
+        User currentUser = facade.getUser();
 
-        String semesterInput = JOptionPane.showInputDialog(null, "Enter the semester for course " + courseName + ":");
+        if (currentUser != null) {
+            String courseName = courseNameLabel.getText();
 
-        if (semesterInput != null) {
-            try {
-                int semester = Integer.parseInt(semesterInput);
+            String[] semesterOptions = { "1", "2", "3", "4", "5", "6", "7", "8" };
+            JComboBox<String> semesterDropdown = new JComboBox<>(semesterOptions);
+
+            int option = JOptionPane.showOptionDialog(
+                    null, semesterDropdown, "Select Semester for Course " + courseName, JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.PLAIN_MESSAGE, null, null, null);
+
+            if (option == JOptionPane.OK_OPTION) {
+                int semester = Integer.parseInt((String) semesterDropdown.getSelectedItem());
+
                 if (semester >= 1 && semester <= 8) {
-                    facade.getStudentCoursePlanner().addCourse(semester,courseName);
-                    
-                    System.out.println("Course: " + courseName + ", Semester: " + semester + " added to course planner for user " + currentUser.getFirstName() + " "+ currentUser.getLastName());
+                    facade.getStudentCoursePlanner().addCourse(semester, courseName);
+                    JOptionPane.showMessageDialog(null, "Course successfully added to the course planner.");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Please enter a semester between 1 and 8.");
+                    JOptionPane.showMessageDialog(null, "Please select a semester between 1 and 8.");
                 }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid integer.");
+            } else {
+                JOptionPane.showMessageDialog(null, "add course canceled.");
             }
         } else {
-            System.out.println("Operation canceled.");
+            JOptionPane.showMessageDialog(null, "User not found. Unable to add course to course planner.");
         }
-    } else {
-        System.out.println("User not found. Unable to add course to course planner.");
     }
-}
 
     public void setCourseName(String courseName) {
         courseNameLabel.setText(courseName);

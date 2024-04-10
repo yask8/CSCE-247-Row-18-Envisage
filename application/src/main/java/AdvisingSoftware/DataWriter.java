@@ -257,7 +257,7 @@ public class DataWriter extends DataConstants {
             majorMapJSON.put(MAJOR_UUID, majorMap.getId().toString());
 
             for (int i = 1; i <= 8; i++) {
-                String semesterKey = "Semester" + i;
+                String semesterKey = "semester " + i;
                 majorMapJSON.put(semesterKey, majorMap.getSemester(i));
             }
 
