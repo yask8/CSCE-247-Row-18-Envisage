@@ -16,7 +16,7 @@ public class AboutController {
     private Label AboutLabel;
 
     @FXML
-    private Label FAQlabel;
+    private Label faqLabel;
 
     @FXML
     private Label UniversityPartnersLabel;
@@ -32,6 +32,11 @@ public class AboutController {
     @FXML
     void setStageUniversityPartners(MouseEvent event) throws IOException{
         App.setRoot("universityPartners");
+    }
+
+    @FXML
+    void setStageFAQ(MouseEvent event) throws IOException{
+        App.setRoot("faqPage");
     }
 
 }

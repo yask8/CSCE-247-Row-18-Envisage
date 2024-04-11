@@ -2,7 +2,7 @@ package envisage;
 
 import javafx.event.ActionEvent;
 /**
- * @author Yasmine Kennedy (yask8)
+ * @author Yasmine Kennedy (yask8) and Garrett Spillman (Spillmag)
  */
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -8,6 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+<!--Designed by Yasmine Kennedy(yask8) and Garrett Spillman(Spillmag)-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentProfileController">
    <children>
       <Label fx:id="studentProfileTitleLabel" layoutX="26.0" layoutY="30.0" prefHeight="35.0" prefWidth="578.0">
