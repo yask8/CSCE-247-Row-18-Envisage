@@ -56,12 +56,17 @@ public class StudentTemplateController implements Initializable {
         stage.setScene(scene);
         stage.show();
       } else {
-
+        setStageStudentLookup(event);
       }
     } catch (IOException e) {
 
       e.printStackTrace();
     }
+  }
+
+  @FXML
+  void setStageStudentLookup(ActionEvent event) throws IOException {
+    App.setRoot("studentLookup");
   }
 
   @Override

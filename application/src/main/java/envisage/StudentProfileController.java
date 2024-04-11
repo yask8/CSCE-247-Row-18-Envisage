@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 import AdvisingSoftware.*;
@@ -80,11 +79,7 @@ public class StudentProfileController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle arg1) {
-
-        if (studentID == null) {
-            return;
-        }
-
+        
         if (facade.getUser().getUserType().equals("STUDENT")) {
             initStudent();
         } else {
@@ -93,6 +88,7 @@ public class StudentProfileController implements Initializable {
     }
 
     private void initStudent() {
+        
         ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
         ArrayList<String> studentIncompletedCourses = facade.getStudentDegreeProgress().getIncompleteCourses();
         if (studentCompletedCourses != null && studentIncompletedCourses != null) {
@@ -166,6 +162,7 @@ public class StudentProfileController implements Initializable {
 
     private void initOtherUsers(UUID studentId) {
         Student student = facade.getStudentById(studentId);
+        
 
         if (student != null) {
 
@@ -246,7 +243,7 @@ public class StudentProfileController implements Initializable {
     }
 
     @FXML
-    void setStageDashboard(MouseEvent event) throws IOException {
+    void setStageDashboard(ActionEvent event) throws IOException {
         if (user == null) {
             return;
         }
