@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
  */
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
@@ -22,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 public class StudentProfileController implements Initializable {
 
@@ -74,9 +76,23 @@ public class StudentProfileController implements Initializable {
     User user = facade.getUser();
     String userFirstName = facade.getUser().getFirstName();
     String userLastName = facade.getUser().getLastName();
+    UUID studentID = null;
 
     @Override
     public void initialize(URL url, ResourceBundle arg1) {
+
+        if (studentID == null) {
+            return;
+        }
+
+        if (facade.getUser().getUserType().equals("STUDENT")) {
+            initStudent();
+        } else {
+            initOtherUsers(studentID);
+        }
+    }
+
+    private void initStudent() {
         ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
         ArrayList<String> studentIncompletedCourses = facade.getStudentDegreeProgress().getIncompleteCourses();
         if (studentCompletedCourses != null && studentIncompletedCourses != null) {
@@ -145,6 +161,87 @@ public class StudentProfileController implements Initializable {
             declareMajorButton.setVisible(false);
             declareAppAreaButton.setVisible(false);
 
+        }
+    }
+
+    private void initOtherUsers(UUID studentId) {
+        Student student = facade.getStudentById(studentId);
+
+        if (student != null) {
+
+            ArrayList<Grades> studentCompletedCourses = student.getCompletedCourses();
+            ArrayList<String> studentIncompletedCourses = student.getDegreeProgress().getIncompleteCourses();
+
+            if (studentCompletedCourses != null && studentIncompletedCourses != null) {
+                TreeItem<String> root = new TreeItem<>(student.getFirstName() + "'s Completed and Incompleted Courses");
+                studentCompletionTree.setRoot(root);
+
+                TreeItem<String> completedItem = new TreeItem<>("Completed Courses");
+                root.getChildren().add(completedItem);
+                for (Grades completedCourse : studentCompletedCourses) {
+                    TreeItem<String> completedCourses = new TreeItem<>(completedCourse.toString());
+                    completedItem.getChildren().add(completedCourses);
+                }
+
+                TreeItem<String> incompletedItem = new TreeItem<>("Incompleted Courses");
+                root.getChildren().add(incompletedItem);
+                for (String incompletedCourse : studentIncompletedCourses) {
+                    TreeItem<String> incompletedCourses = new TreeItem<>(incompletedCourse);
+                    incompletedItem.getChildren().add(incompletedCourses);
+                }
+            } else {
+
+                TreeItem<String> root = new TreeItem<>("Courses Error");
+                studentCompletionTree.setRoot(root);
+                TreeItem<String> errorItem = new TreeItem<>("Unable to retrieve courses.");
+                root.getChildren().add(errorItem);
+            }
+
+            advisingStudentProfileLabel.setVisible(false);
+            studentProfileTitleLabel
+                    .setText(student.getFirstName() + " " + student.getLastName() + "'s Student Profile");
+            studentsSummaryTitleLabel.setText("Student Summary:");
+
+            if (student.getApplicationArea() != null) {
+                appAreaNotTitleLabel.setText(student.getApplicationArea());
+            } else {
+                appAreaNotTitleLabel.setText("Undecided");
+            }
+
+            if (student.getMajor() != null) {
+                majorNotTitleLabel.setText(student.getMajor());
+            } else {
+                majorNotTitleLabel.setText("Undeclared");
+            }
+
+            ArrayList<Note> advisorNotes = student.getAdvisorNotes();
+            if (!advisorNotes.isEmpty()) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
+                for (Note advisorNote : advisorNotes) {
+                    String formattedNote = dateFormat.format(advisorNote.getDate()) + " - " + advisorNote.getNote();
+                    noteListView.getItems().add(formattedNote);
+                }
+            } else {
+                noteListView.getItems().add("No Notes Given Yet");
+            }
+
+            boolean isAdvisor = facade.getUser().getUserType().equals("ADVISOR");
+            if (!isAdvisor) {
+                addNoteButton.setVisible(false);
+                noteListView.setPrefHeight(noteListView.getPrefHeight() + addNoteButton.getPrefHeight());
+            }
+            boolean isStudent = facade.getUser().getUserType().equals("STUDENT");
+            if (!isStudent) {
+                declareMajorButton.setVisible(false);
+                declareAppAreaButton.setVisible(false);
+            }
+        } else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid Student ID");
+            alert.setContentText("The provided ID does not correspond to a student. " + studentId);
+            alert.showAndWait();
         }
     }
 
@@ -226,5 +323,10 @@ public class StudentProfileController implements Initializable {
     @FXML
     void addNote(ActionEvent event) {
 
+    }
+
+    public void setUserId(UUID id) {
+        this.studentID = id;
+        initialize(null, null);
     }
 }

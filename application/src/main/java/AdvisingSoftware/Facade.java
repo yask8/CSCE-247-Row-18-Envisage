@@ -552,8 +552,9 @@ public class Facade {
     return false;
   }
 
- /**
+  /**
    * Sets the major for the logged-in student.
+   * 
    * @param major The new major area of the student.
    * @return true if the major was set successfully, false otherwise.
    */
@@ -565,5 +566,15 @@ public class Facade {
       System.out.println("Not a student user.");
       return false;
     }
+  }
+
+  /**
+   * Gets a student by their ID.
+   *
+   * @param studentId The ID of the student to retrieve.
+   * @return The student object if found, or null if not found.
+   */
+  public Student getStudentById(UUID studentId) {
+    return userList.getStudentById(studentId);
   }
 }
