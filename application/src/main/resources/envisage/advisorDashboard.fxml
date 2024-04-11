@@ -10,7 +10,6 @@
 
 <!-- Designed by Stephon Johnson -->
 
-
 <AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisorDashboardController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
@@ -37,7 +36,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="225.0" layoutY="120.0" prefHeight="20.0" prefWidth="150.0" text="Risk of Failuire Advisees:">
+      <Label layoutX="225.0" layoutY="120.0" prefHeight="20.0" prefWidth="150.0" text="Risk of Failure Advisees:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
