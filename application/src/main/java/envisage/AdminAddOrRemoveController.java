@@ -23,6 +23,9 @@ public class AdminAddOrRemoveController {
     private AnchorPane AddOrRemoveUser;
 
     @FXML
+    private ChoiceBox<?> IAmChoiceBox;
+
+    @FXML
     private Button SaveButton;
 
     @FXML
