@@ -305,7 +305,7 @@
             }
         ],
         "uscID": "b1528974-761c-40cf-8b60-2c73d951fbb2",
-        "creditHours": 0,
+        "creditHours": 76,
         "firstName": "Brax",
         "password": "bwest060903",
         "advisorNotes": [],
@@ -372,7 +372,7 @@
         },
         "gpa": 3.78,
         "userType": "STUDENT",
-        "class": "Freshman",
+        "class": "Junior",
         "applicationArea": "Digital Design",
         "email": "bwest@email.sc.edu",
         "coursePlanner": {
@@ -407,114 +407,6 @@
         "class": "Freshman",
         "applicationArea": "Undeclared",
         "email": "g@gmail.com",
-        "coursePlanner": {
-            "semesters": [
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                []
-            ]
-        }
-    },
-    {
-        "lastName": "Cooper",
-        "completedCourses": [],
-        "uscID": "f423cb3d-678d-425f-96bc-4ba1a21690a2",
-        "creditHours": 0,
-        "firstName": "Kasey",
-        "password": "hellothere@3",
-        "advisorNotes": [],
-        "major": "Computer Science",
-        "degreeProgress": {
-            "major": "Undeclared",
-            "incompleteCourses": [
-                "CSCE520",
-                "CSCE531",
-                "CSCE587",
-                "CSCE580",
-                "LING340",
-                "LING421",
-                "LING440",
-                "LING565",
-                "LING567"
-            ],
-            "completeCourses": []
-        },
-        "gpa": 0.0,
-        "userType": "STUDENT",
-        "class": "Freshman",
-        "applicationArea": "Speech",
-        "email": "kcooper@email.sc.edu",
-        "coursePlanner": {
-            "semesters": [
-                [
-                    "ENGL 101 Critical Reading and Composition"
-                ],
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                []
-            ]
-        }
-    },
-    {
-        "lastName": "Student",
-        "completedCourses": [],
-        "uscID": "84e18f46-1596-48d6-ab8c-bdd51ab27d76",
-        "creditHours": 0,
-        "firstName": "Test",
-        "password": "password",
-        "advisorNotes": [],
-        "major": "Undeclared",
-        "degreeProgress": {
-            "major": "Undeclared",
-            "incompleteCourses": [],
-            "completeCourses": []
-        },
-        "gpa": 0.0,
-        "userType": "STUDENT",
-        "class": "Freshman",
-        "applicationArea": "Undeclared",
-        "email": "test@email.sc.edu",
-        "coursePlanner": {
-            "semesters": [
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                [],
-                []
-            ]
-        }
-    },
-    {
-        "lastName": "Student2",
-        "completedCourses": [],
-        "uscID": "f45b2cd3-36c4-41cc-9fa4-a58f1d3c3c6e",
-        "creditHours": 0,
-        "firstName": "Test",
-        "password": "hello",
-        "advisorNotes": [],
-        "major": "Undeclared",
-        "degreeProgress": {
-            "major": "Undeclared",
-            "incompleteCourses": [],
-            "completeCourses": []
-        },
-        "gpa": 0.0,
-        "userType": "STUDENT",
-        "class": "Sophomore",
-        "applicationArea": "Undeclared",
-        "email": "nfkfkdkfndf",
         "coursePlanner": {
             "semesters": [
                 [],
