@@ -160,7 +160,8 @@ public class SignUpController implements Initializable {
 
     private boolean checkIfConfirmPasswordMatchesPassword() {
         boolean matches = true;
-        if (!passwordCheckTextField.getText().equals(passwordTextField.getText())) {
+        if (!hiddenCheckPassword.getText().equals(hiddenPassword.getText()) 
+            || passwordCheckTextField.getText().equals(passwordTextField.getText())) {
             errorMessageLabel.setText("Passwords do not match.");
             matches = false;
         }

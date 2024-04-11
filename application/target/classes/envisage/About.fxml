@@ -21,7 +21,11 @@
                   <Insets left="10.0" right="25.0" />
                </padding>
             </Label>
+<<<<<<< HEAD
             <Label fx:id="FAQlabel" text="FAQ">
+=======
+            <Label fx:id="FAQlabel" onMouseClicked="#setStageFAQ" text="FAQ">
+>>>>>>> 48aacfb3a50e314f2bb4bc48faa0130b26bd61dd
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
