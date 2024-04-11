@@ -41,5 +41,6 @@
       <Label fx:id="searchErrorLabel" layoutX="20.0" layoutY="100.0" prefHeight="17.0" prefWidth="600.0" />
       <ChoiceBox fx:id="IAmChoiceBox" layoutX="9.0" layoutY="76.0" prefHeight="24.0" prefWidth="107.0" />
       <Button fx:id="SaveButton" layoutX="514.0" layoutY="440.0" mnemonicParsing="false" onAction="#save" text="Save" />
+      <Label fx:id="ErrormessageLabel" layoutX="20.0" layoutY="460.0" prefHeight="17.0" prefWidth="600.0" text="" />
    </children>
 </AnchorPane>
