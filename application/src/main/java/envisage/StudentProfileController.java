@@ -11,9 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 import AdvisingSoftware.*;
@@ -81,10 +81,6 @@ public class StudentProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle arg1) {
 
-        if (studentID == null) {
-            return;
-        }
-
         if (facade.getUser().getUserType().equals("STUDENT")) {
             initStudent();
         } else {
@@ -93,6 +89,7 @@ public class StudentProfileController implements Initializable {
     }
 
     private void initStudent() {
+
         ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
         ArrayList<String> studentIncompletedCourses = facade.getStudentDegreeProgress().getIncompleteCourses();
         if (studentCompletedCourses != null && studentIncompletedCourses != null) {
@@ -235,18 +232,11 @@ public class StudentProfileController implements Initializable {
                 declareMajorButton.setVisible(false);
                 declareAppAreaButton.setVisible(false);
             }
-        } else {
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Invalid Student ID");
-            alert.setContentText("The provided ID does not correspond to a student. " + studentId);
-            alert.showAndWait();
         }
     }
 
     @FXML
-    void setStageDashboard(MouseEvent event) throws IOException {
+    void setStageDashboard(ActionEvent event) throws IOException {
         if (user == null) {
             return;
         }
@@ -319,12 +309,37 @@ public class StudentProfileController implements Initializable {
             appAreaNotTitleLabel.setText(chosenAppArea);
         }
     }
-
+    
     @FXML
-    void addNote(ActionEvent event) {
-
+    public void addNote(ActionEvent event) {
+        ArrayList<UUID> advisees = facade.getListOfAdvisees();
+    
+        if (!advisees.contains(studentID)) {
+            showAlert("Student Not Assigned", "You are not assigned to this student.");
+            return;
+        }
+    
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Add Note");
+        dialog.setHeaderText("Add a new note for the student");
+        dialog.setContentText("Enter your note:");
+    
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(noteText -> {
+            facade.addNoteToStudentAdvisor(facade.getCurrentUserId(), studentID, noteText);
+            noteListView.getItems().clear();
+            facade.saveUsers();
+            initialize(null, null);
+        });
     }
-
+    
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
     public void setUserId(UUID id) {
         this.studentID = id;
         initialize(null, null);
