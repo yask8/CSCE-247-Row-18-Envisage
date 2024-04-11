@@ -79,7 +79,7 @@ public class StudentProfileController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle arg1) {
-        
+
         if (facade.getUser().getUserType().equals("STUDENT")) {
             initStudent();
         } else {
@@ -232,14 +232,7 @@ public class StudentProfileController implements Initializable {
                 declareMajorButton.setVisible(false);
                 declareAppAreaButton.setVisible(false);
             }
-        } else {
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Invalid Student ID");
-            alert.setContentText("The provided ID does not correspond to a student. " + studentId);
-            alert.showAndWait();
-        }
+        } 
     }
 
     @FXML
