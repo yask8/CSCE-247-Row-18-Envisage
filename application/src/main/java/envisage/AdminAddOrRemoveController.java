@@ -10,8 +10,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.fxml.Initializable;
+import AdvisingSoftware.*;
+import java.io.IOException;
+import java.util.ArrayList;
 
-public class AdminAddOrRemoveController {
+
+public class AdminAddOrRemoveController implements Initializable{
+    private Facade facade;
+    private User user;
+    private ArrayList<Student> filteredUsList;
+    private final int ROWS_PER_PAGE = 3;
+    private final int COLUMNS_PER_PAGE = 3;
 
     @FXML
     private ResourceBundle resources;
@@ -78,5 +88,11 @@ public class AdminAddOrRemoveController {
     @FXML
     void setStageDashboard(ActionEvent event) {
 
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
     }
 }

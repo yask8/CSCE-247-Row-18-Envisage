@@ -31,12 +31,13 @@
          </rowConstraints>
      </GridPane>
       <ChoiceBox fx:id="filterByChoiceBox" layoutX="420.0" layoutY="75.0" prefHeight="25.0" prefWidth="80.0" />
-      <Button fx:id="backButton" layoutX="550.0" layoutY="440.0" mnemonicParsing="false" onAction="#setStageDashboard" prefWidth="70.0" text="Back" />
-      <Button fx:id="nextPageButton" layoutX="380.0" layoutY="440.0" mnemonicParsing="false" onAction="#nextPage" prefWidth="100.0" text="Next Page" />
+      <Button fx:id="backButton" layoutX="28.0" layoutY="440.0" mnemonicParsing="false" onAction="#setStageDashboard" prefWidth="70.0" text="Back" />
+      <Button fx:id="nextPageButton" layoutX="285.0" layoutY="440.0" mnemonicParsing="false" onAction="#nextPage" prefWidth="100.0" text="Next Page" />
       <Button fx:id="previousPageButton" layoutX="155.0" layoutY="440.0" mnemonicParsing="false" onAction="#previousPage" prefWidth="100.0" text="Previous Page" />
       <Button fx:id="clearSearchButton" layoutX="570.0" layoutY="75.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="50.0" text="Clear" />
       <Button fx:id="searchButton" layoutX="500.0" layoutY="75.0" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="70.0" text="Search" />
       <Label fx:id="searchErrorLabel" layoutX="20.0" layoutY="100.0" prefHeight="17.0" prefWidth="600.0" />
-      <ChoiceBox fx:id="IAmFilterChoiceBox" layoutX="9.0" layoutY="76.0" prefHeight="24.0" prefWidth="107.0" />
+      <ChoiceBox layoutX="9.0" layoutY="76.0" prefHeight="24.0" prefWidth="107.0" />
+      <Button fx:id="SaveButton" layoutX="514.0" layoutY="440.0" mnemonicParsing="false" onAction="#save" />
    </children>
 </AnchorPane>
