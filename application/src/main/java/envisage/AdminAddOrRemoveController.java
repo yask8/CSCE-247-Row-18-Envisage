@@ -23,6 +23,9 @@ public class AdminAddOrRemoveController {
     private AnchorPane AddOrRemoveUser;
 
     @FXML
+    private ChoiceBox<?> IAmFilterChoiceBox;
+
+    @FXML
     private GridPane addOrRemoveGridPane;
 
     @FXML
