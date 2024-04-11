@@ -73,6 +73,9 @@ public class SignUpController implements Initializable {
     @FXML
     private Label universityPartnersLabel;
 
+    @FXML
+    private Label faqLabel;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         ObservableList<String> roleOptions = FXCollections.observableArrayList("Student", "Advisor", "Admin");
@@ -179,5 +182,8 @@ public class SignUpController implements Initializable {
         App.setRoot("universityPartners");
     }
 
-    // Add FAQ label and stage
+    @FXML
+    void setStageFAQ(MouseEvent event) throws IOException{
+        App.setRoot("faqPage");
+    }
 }

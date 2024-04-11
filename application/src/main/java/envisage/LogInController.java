@@ -31,6 +31,9 @@ public class LogInController {
     private Label univeristyPartnersLabel;
 
     @FXML
+    private Label faqLabel;
+
+    @FXML
     private TextField adminEmailTextField;
 
     @FXML
@@ -148,6 +151,11 @@ public class LogInController {
     @FXML
     void setStageUniversityPartners(MouseEvent event) throws IOException{
         App.setRoot("universityPartners");
+    }
+
+    @FXML
+    void setStageFAQ(MouseEvent event) throws IOException{
+        App.setRoot("faqPage");
     }
 
 }
