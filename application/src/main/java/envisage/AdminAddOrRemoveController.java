@@ -26,7 +26,7 @@ public class AdminAddOrRemoveController {
     private GridPane addOrRemoveGridPane;
 
     @FXML
-    private Label adviseeListLabel;
+    private Label addOrremoveLabel;
 
     @FXML
     private Button backButton;
