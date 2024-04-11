@@ -165,17 +165,20 @@ public class AdviseeManageController implements Initializable {
     String searchText = searchBarTextField.getText().trim().toLowerCase();
     String filterCriteria = filterByChoiceBox.getValue();
 
-    if (searchText.isEmpty() || filterCriteria == null) {
-      searchErrorLabel.setText("Please enter search text and select a filter.");
-      return;
+    if (searchText.isEmpty()/* || filterCriteria == null*/) {
+      if (
+        !filterCriteria.equalsIgnoreCase("Risk of Failure") ||
+        filterCriteria == null
+      ) {
+        searchErrorLabel.setText(
+          "Please enter search text and select a filter."
+        );
+        return;
+      }
     }
 
     ArrayList<Student> students = getAdvisees();
-    /*for (User user : facade.getUsers()) {
-      if (user.getUserType().equalsIgnoreCase("STUDENT")) {
-        students.add((Student) user);
-      }
-    }*/
+
     filteredStudents = new ArrayList<>();
 
     for (Student student : students) {
@@ -201,9 +204,7 @@ public class AdviseeManageController implements Initializable {
 
             boolean searchAdvisee =
               (fullName.toLowerCase().contains(searchText));
-            /*if (searchAdvisee && !filteredStudents.contains(displayedStudent)) {
-              filteredStudents.add(displayedStudent);
-            }*/
+
             if (searchText.isEmpty() || searchText.isBlank() || searchAdvisee) {
               if (!filteredStudents.contains(displayedStudent)) {
                 filteredStudents.add(displayedStudent);
