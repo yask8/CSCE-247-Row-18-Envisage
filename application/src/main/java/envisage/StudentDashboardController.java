@@ -95,19 +95,17 @@ public class StudentDashboardController implements Initializable {
         if (degreeProgress != null) {
             int completedCoursesCount = degreeProgress.getCompleteCoursesCount();
             int totalCoursesCount = degreeProgress.getTotalCoursesCount();
-        
+
             ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-                new PieChart.Data("Completed", completedCoursesCount),
-                new PieChart.Data("Incomplete", totalCoursesCount - completedCoursesCount)
-            );
-        
-       
+                    new PieChart.Data("Completed", completedCoursesCount),
+                    new PieChart.Data("Incomplete", totalCoursesCount - completedCoursesCount));
+
             for (PieChart.Data data : pieChartData) {
                 double percentage = (data.getPieValue() / totalCoursesCount) * 100;
                 String tooltip = String.format("%.2f%%", percentage);
                 Tooltip.install(data.getNode(), new Tooltip(tooltip));
             }
-        
+
             progressPieChart.setData(pieChartData);
         } else {
             progressPieChart.setVisible(false);
@@ -116,14 +114,16 @@ public class StudentDashboardController implements Initializable {
 
     @FXML
     void setStageCourseList(ActionEvent event) throws IOException {
-        App.setRoot("courseList");;
+        App.setRoot("courseList");
+        ;
     }
 
     @FXML
     void setStageCoursePlanner(ActionEvent event) throws IOException {
-        App.setRoot("coursePlanner");;
+        App.setRoot("coursePlanner");
+        ;
     }
-    
+
     @FXML
     void signOut(ActionEvent event) {
         try {
@@ -135,23 +135,23 @@ public class StudentDashboardController implements Initializable {
     }
 
     @FXML
-    void setStageStudentProfile(MouseEvent event) throws IOException{
+    void setStageStudentProfile(MouseEvent event) throws IOException {
         App.setRoot("studentProfile");
     }
-    
+
     @FXML
-public void printCoursePlanner(ActionEvent event) {
+    public void printCoursePlanner(@SuppressWarnings("exports") ActionEvent event) {
 
-    String firstName = user.getFirstName();
-    String lastName = user.getLastName();
-    String fullName = firstName + " " + lastName;
+        String firstName = user.getFirstName();
+        String lastName = user.getLastName();
+        String fullName = firstName + " " + lastName;
 
-    facade.writeStudentCoursePlanner(fullName);
+        facade.writeStudentCoursePlanner(fullName);
 
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("Course Planner");
-    alert.setHeaderText("Complete!");
-    alert.setContentText("Your course planner has been printed successfully.");
-    alert.showAndWait();
-}
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Course Planner");
+        alert.setHeaderText("Complete!");
+        alert.setContentText("Your course planner has been printed successfully.");
+        alert.showAndWait();
+    }
 }

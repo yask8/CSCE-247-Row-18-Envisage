@@ -77,8 +77,7 @@ public class AdviseeManageController implements Initializable {
     populateAdviseeList();
   }
 
-  private void populateAdviseeList() {
-    //ArrayList<User> users = facade.getUsers();
+  private ArrayList<Student> getAdvisees() {
     ArrayList<UUID> advisees = ((Advisor) user).getListOfAdvisees();
     ArrayList<Student> students = new ArrayList<Student>();
 
@@ -87,12 +86,12 @@ public class AdviseeManageController implements Initializable {
         ((Advisor) user).getStudentByAdvisor(advisee, facade.getUserList())
       );
     }
-    /* 
-    for (User user : users) {
-      if (user.getUserType().equalsIgnoreCase("STUDENT")) {
-        students.add((Student) user);
-      }
-    }*/
+    return students;
+  }
+
+  private void populateAdviseeList() {
+    ArrayList<Student> students = getAdvisees();
+
     int totalStudents = students.size();
     int totalPages = (int) Math.ceil(
       (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
@@ -171,12 +170,12 @@ public class AdviseeManageController implements Initializable {
       return;
     }
 
-    ArrayList<Student> students = new ArrayList<Student>();
-    for (User user : facade.getUsers()) {
+    ArrayList<Student> students = getAdvisees();
+    /*for (User user : facade.getUsers()) {
       if (user.getUserType().equalsIgnoreCase("STUDENT")) {
         students.add((Student) user);
       }
-    }
+    }*/
     filteredStudents = new ArrayList<>();
 
     for (Student student : students) {

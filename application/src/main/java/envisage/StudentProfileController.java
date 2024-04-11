@@ -169,7 +169,7 @@ public class StudentProfileController implements Initializable {
     }
 
     @FXML
-    public void declareMajor(ActionEvent event) throws IOException {
+    public void declareMajor(@SuppressWarnings("exports") ActionEvent event) throws IOException {
         ArrayList<String> allMajors = facade.getMajorList().getAllMajorNames();
 
         if (allMajors == null || allMajors.isEmpty()) {
@@ -194,7 +194,7 @@ public class StudentProfileController implements Initializable {
     }
 
     @FXML
-    public void declareAppArea(ActionEvent event) throws IOException {
+    public void declareAppArea(@SuppressWarnings("exports") ActionEvent event) throws IOException {
 
         ArrayList<String> allAppAreas = new ArrayList<String>();
         allAppAreas.add("Science");
