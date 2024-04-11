@@ -118,13 +118,16 @@ public class Student extends User {
    * @return String of newly updated year/class
    */
   public String updateYear(int creditHours) {
-    year = "Freshman";
-    if (creditHours < 60 && creditHours >= 30) {
-      year = "Sophomore";
+    if(creditHours <= 29 && creditHours >= 0 ) {
+      setYear("Freshman");
+    } else if (creditHours < 60 && creditHours >= 30) {
+      setYear("Sophomore");
     } else if (creditHours < 90 && creditHours >= 60) {
-      year = "Junior";
+      setYear("Junior");
     } else if (creditHours <= 90) {
-      year = "Senior";
+      setYear("Senior");
+    } else if (creditHours > 91) {
+      setYear("Super Senior");
     }
     return year;
   }
@@ -324,6 +327,14 @@ public class Student extends User {
   public String getYear() {
     this.year = updateYear(creditHours);
     return year;
+  }
+
+  /**
+   * Setter for student's year/class
+   * @return
+   */
+  public void setYear(String year) {
+    this.year = year;
   }
 
   /**
