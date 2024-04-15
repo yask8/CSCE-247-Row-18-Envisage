@@ -42,7 +42,7 @@ public class AdvisorProfileController implements Initializable {
   private Button addNoteButton;
 
   @FXML
-  private TreeView<?> adviseeCompletionTree;
+  private TreeView<String> adviseeCompletionTree;
 
   @FXML
   private Label advisingStudentProfileLabel;
@@ -60,7 +60,7 @@ public class AdvisorProfileController implements Initializable {
   private Label mostRecentNoteTitleLabel;
 
   @FXML
-  private ListView<?> noteListView;
+  private ListView<String> noteListView;
 
   @FXML
   private Label personalEmailNotTitleLabel;
@@ -78,14 +78,138 @@ public class AdvisorProfileController implements Initializable {
   User user = facade.getUser();
   String userFirstName = facade.getUser().getFirstName();
   String userLastName = facade.getUser().getLastName();
-  UUID studentID = null;
+
+  //UUID advisorID = null;
 
   @Override
   public void initialize(URL url, ResourceBundle arg1) {
-    if (facade.getUser().getUserType().equals("STUDENT")) {
+    if (facade.getUser().getUserType().equals("ADVISOR")) {
       //initStudent();
     } else {
       //initOtherUsers(studentID);
+    }
+  }
+
+  private ArrayList<Student> getAdvisees() {
+    ArrayList<UUID> advisees = ((Advisor) user).getListOfAdvisees();
+    ArrayList<Student> students = new ArrayList<Student>();
+
+    for (UUID advisee : advisees) {
+      students.add(
+        ((Advisor) user).getStudentByAdvisor(advisee, facade.getUserList())
+      );
+    }
+    return students;
+  }
+
+  private void initAdvisor() {
+    ArrayList<Student> listOfAdvisees = getAdvisees();
+
+    ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
+    ArrayList<String> studentIncompletedCourses = facade
+      .getStudentDegreeProgress()
+      .getIncompleteCourses();
+
+    if (!listOfAdvisees.isEmpty()) {
+      TreeItem<String> root = new TreeItem<>(
+        userFirstName + "'s Advised and Unadvised Advisees"
+      );
+
+      adviseeCompletionTree.setRoot(root);
+      TreeItem<String> completedItem = new TreeItem<>("Advised Advisees");
+      root.getChildren().add(completedItem);
+      // Trying to figure out how to track advised/unadvised students
+
+      for (Grades completedCourse : studentCompletedCourses) {
+        TreeItem<String> completedCourses = new TreeItem<>(
+          completedCourse.toString()
+        );
+        completedItem.getChildren().add(completedCourses);
+      }
+      TreeItem<String> incompletedItem = new TreeItem<>("Unadvised Advisees");
+      root.getChildren().add(incompletedItem);
+      for (String incompletedCourse : studentIncompletedCourses) {
+        TreeItem<String> incompletedCourses = new TreeItem<>(incompletedCourse);
+        incompletedItem.getChildren().add(incompletedCourses);
+      }
+    } else {
+      if (studentCompletedCourses == null) {
+        TreeItem<String> root = new TreeItem<>("Completed Courses Error");
+        adviseeCompletionTree.setRoot(root);
+        TreeItem<String> errorItem = new TreeItem<>(
+          "Unable to retrieve completed courses."
+        );
+        root.getChildren().add(errorItem);
+      }
+      if (studentIncompletedCourses == null) {
+        TreeItem<String> root = new TreeItem<>("Incompleted Courses Error");
+        adviseeCompletionTree.setRoot(root);
+        TreeItem<String> errorItem = new TreeItem<>(
+          "Unable to retrieve incompleted courses."
+        );
+        root.getChildren().add(errorItem);
+      }
+    }
+    advisingStudentProfileLabel.setVisible(false);
+    //studentProfileTitleLabel.setText(userFirstName + " " + userLastName + "'s Student Profile");
+    //studentsSummaryTitleLabel.setText("Student Summary:");
+    if (facade.getStudentAppArea() != null) {
+      //appAreaNotTitleLabel.setText(facade.getStudentAppArea());
+    } else {
+      //appAreaNotTitleLabel.setText("Undecided");
+    }
+    if (facade.getStudentMajor() != null) {
+      //majorNotTitleLabel.setText(facade.getStudentMajor());
+    } else {
+      //majorNotTitleLabel.setText("Undeclared");
+    }
+
+    ArrayList<Note> advisorNotes = facade.getStudentAdvisorNotes();
+    if (!advisorNotes.isEmpty()) {
+      SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
+      for (Note advisorNote : advisorNotes) {
+        String formattedNote =
+          dateFormat.format(advisorNote.getDate()) +
+          " - " +
+          advisorNote.getNote();
+        noteListView.getItems().add(formattedNote);
+      }
+    } else {
+      noteListView.getItems().add("No Notes Given Yet");
+    }
+
+    boolean isAdvisor = facade.getUser().getUserType().equals("ADVISOR");
+
+    if (!isAdvisor) {
+      //addNoteButton.setVisible(false);
+      //noteListView.setPrefHeight(noteListView.getPrefHeight() + addNoteButton.getPrefHeight());
+    }
+    boolean isStudent = facade.getUser().getUserType().equals("STUDENT");
+
+    if (!isStudent) {
+      //declareMajorButton.setVisible(false);
+      //declareAppAreaButton.setVisible(false);
+
+    }
+  }
+
+  @FXML
+  void setStageDashboard(ActionEvent event) throws IOException {
+    if (user == null) {
+      return;
+    }
+    switch (user.getUserType()) {
+      case "STUDENT":
+        App.setRoot("studentDashboard");
+        break;
+      case "ADVISOR":
+        App.setRoot("advisorDashboard");
+        break;
+      case "ADMIN":
+        App.setRoot("adminDashboard");
+        break;
+      default:
+        break;
     }
   }
 }

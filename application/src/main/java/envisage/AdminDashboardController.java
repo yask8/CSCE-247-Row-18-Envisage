@@ -58,6 +58,11 @@ public class AdminDashboardController implements Initializable {
   }
 
   @FXML
+  void setStageAdvisorProfile(ActionEvent event) throws IOException {
+    App.setRoot("advisorProfile");
+  }
+
+  @FXML
   void signOut(ActionEvent event) {
     try {
       Facade.getInstance().signOut();
