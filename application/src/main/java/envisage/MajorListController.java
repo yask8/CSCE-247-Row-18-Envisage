@@ -64,7 +64,7 @@ public class MajorListController implements Initializable {
 
     private void populateMajorMapList() {
 
-        facade = facade.getInstance();
+        facade = Facade.getInstance();
         user = facade.getUser();
 
         majors = facade.getMajors();
