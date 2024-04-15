@@ -21,6 +21,9 @@ public class CourseTemplateController implements Initializable {
     private Button AddCourseButton;
 
     @FXML
+    private Button editCourseInfoButton;
+
+    @FXML
     private Label courseNameLabel;
 
     @FXML
@@ -28,7 +31,7 @@ public class CourseTemplateController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        editCourseInfoButton.setVisible(false);
     }
 
     @FXML
@@ -69,5 +72,11 @@ public class CourseTemplateController implements Initializable {
 
     public void showAddCourseButton(boolean show) {
         AddCourseButton.setVisible(show);
+    }
+
+    public void showEditCourseButton() {
+        editCourseInfoButton.setVisible(true);
+        showAddCourseButton(false);
+        viewCourseInfoButton.setVisible(false);
     }
 }

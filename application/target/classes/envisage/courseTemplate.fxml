@@ -11,5 +11,6 @@
       <Label fx:id="courseNameLabel" layoutX="5.0" layoutY="5.0" prefHeight="20.0" prefWidth="190.0" />
       <Button fx:id="viewCourseInfoButton" layoutX="5.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="View Info" />
       <Button fx:id="AddCourseButton" layoutX="105.0" layoutY="40.0" mnemonicParsing="false" onAction="#addCoursetoCoursePlanner" prefHeight="25.0" prefWidth="90.0" text="Add Course" />
+      <Button fx:id="editCourseInfoButton" layoutX="5.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Edit Info" visible="false" />
    </children>
 </AnchorPane>
