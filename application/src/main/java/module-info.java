@@ -10,6 +10,5 @@ requires java.desktop;
   exports envisage ;
 
   opens AdvisingSoftware to javafx.fmxl;
-
-  exports AdvisingSoftware ;
+  exports AdvisingSoftware;
 }

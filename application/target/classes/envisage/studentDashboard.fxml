@@ -10,12 +10,12 @@
 
 <!-- Designed by Garrett Spillman-->
 
-<AnchorPane fx:id="studentDashboard" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentDashboardController" stylesheets="@studentDashboard.css">
+<AnchorPane fx:id="studentDashboard" prefHeight="400.0" prefWidth="640.0" stylesheets="@studentDashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentDashboardController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
          <Button fx:id="studentProfileButton" layoutX="20.0" layoutY="260.0" onMouseClicked="#setStageStudentProfile" prefHeight="40.0" prefWidth="190.0" text="Student Profile" />
          <Button fx:id="scheduleAptButton" layoutX="225.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Schedule Advising Appointment" />
-         <Button fx:id="viewMajorMapButton" layoutX="430.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="View Major Map" />
+         <Button fx:id="viewMajorMapButton" layoutX="430.0" layoutY="260.0" onAction="#setStageMajorMap" prefHeight="40.0" prefWidth="190.0" text="View Major Map" />
          <Button fx:id="courseListButton" layoutX="20.0" layoutY="310.0" onAction="#setStageCourseList" prefHeight="40.0" prefWidth="190.0" text="Course List" />
          <Button fx:id="coursePlannerButton" layoutX="225.0" layoutY="310.0" onAction="#setStageCoursePlanner" prefHeight="40.0" prefWidth="190.0" text="Course Planner" />
       <Button fx:id="printCoursePlannerButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" onAction="#printCoursePlanner" prefHeight="40.0" prefWidth="190.0" text="Print Course Planner" />

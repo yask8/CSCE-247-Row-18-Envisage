@@ -4,7 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -12,11 +15,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.scene.Node;
 
 import AdvisingSoftware.*;
 
@@ -153,5 +158,33 @@ public class StudentDashboardController implements Initializable {
         alert.setHeaderText("Complete!");
         alert.setContentText("Your course planner has been printed successfully.");
         alert.showAndWait();
+    }
+    @FXML
+    void setStageMajorMap(ActionEvent event) {
+        String majorName = facade.getStudentMajor();
+        if (majorName == null || majorName.isEmpty() || majorName.equalsIgnoreCase("Undeclared")) {
+            try {
+                App.setRoot("majorList");
+            } catch (IOException e) {
+                System.err.println("Error loading majorList.fxml: " + e.getMessage());
+            }
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MajorMap.fxml"));
+                Parent root = loader.load();
+
+                MajorMapController controller = loader.getController();
+                controller.setMajorName(majorName);
+
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                System.err.println("Error loading MajorMap.fxml: " + e.getMessage());
+            } catch (Exception e) {
+                System.err.println("Error setting major name: " + e.getMessage());
+            }
+        }
     }
 }
