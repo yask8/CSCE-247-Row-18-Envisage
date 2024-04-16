@@ -45,20 +45,8 @@
       <Button fx:id="addAdviseeButton" layoutX="24.0" layoutY="429.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" prefHeight="25.0" prefWidth="104.0" text="Add Advisee" />
       <Button fx:id="removeAdviseeButton" layoutX="142.0" layoutY="429.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" text="Remove Advisee" />
       <Button fx:id="backButton" layoutX="580.0" layoutY="429.0" mnemonicParsing="false" onAction="#setStageDashboard" onMouseClicked="#setStageDashboard" text="Back" />
-      <Label fx:id="PersonalEmailTitleLabel" layoutX="315.0" layoutY="101.0" text="Personal Email:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="personalEmailNotTitleLabel" layoutX="406.0" layoutY="101.0" prefHeight="18.0" prefWidth="150.0" />
       <Button fx:id="addNoteButton" layoutX="336.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="285.0" text="Add Note" />
-      <Label fx:id="phoneNumberTitleLabel" layoutX="315.0" layoutY="123.0" text="Phone Number:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
       <Label fx:id="IDNotTitleLabel" layoutX="62.0" layoutY="123.0" prefHeight="17.0" prefWidth="249.0" />
-      <Label fx:id="phoneNumberNotTitleLabel" layoutX="406.0" layoutY="123.0" prefHeight="18.0" prefWidth="150.0" />
       <Button fx:id="removeAdviseeButton1" layoutX="260.0" layoutY="429.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" text="Button" />
    </children>
 </AnchorPane>
