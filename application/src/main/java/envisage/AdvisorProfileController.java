@@ -84,6 +84,8 @@ public class AdvisorProfileController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle arg1) {
     if (facade.getUser().getUserType().equals("ADVISOR")) {
+      IDNotTitleLabel.setText(user.getID().toString());
+      mainEmailTitleLabel.setText(user.getEmail());
       //initStudent();
     } else {
       //initOtherUsers(studentID);

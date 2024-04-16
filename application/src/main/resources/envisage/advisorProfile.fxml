@@ -57,7 +57,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="IDNotTitleLabel" layoutX="62.0" layoutY="123.0" prefHeight="17.0" prefWidth="195.0" />
+      <Label fx:id="IDNotTitleLabel" layoutX="62.0" layoutY="123.0" prefHeight="17.0" prefWidth="249.0" />
       <Label fx:id="phoneNumberNotTitleLabel" layoutX="406.0" layoutY="123.0" prefHeight="18.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
