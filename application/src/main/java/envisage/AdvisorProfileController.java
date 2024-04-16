@@ -86,6 +86,7 @@ public class AdvisorProfileController implements Initializable {
     if (facade.getUser().getUserType().equals("ADVISOR")) {
       IDNotTitleLabel.setText(user.getID().toString());
       mainEmailTitleLabel.setText(user.getEmail());
+      initAdvisor();
       //initStudent();
     } else {
       //initOtherUsers(studentID);
@@ -106,92 +107,71 @@ public class AdvisorProfileController implements Initializable {
 
   private void initAdvisor() {
     ArrayList<Student> listOfAdvisees = getAdvisees();
+    ArrayList<Student> listOfFailing = new ArrayList<Student>();
 
-    ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
-    ArrayList<String> studentIncompletedCourses = facade
-      .getStudentDegreeProgress()
-      .getIncompleteCourses();
+    for (UUID fail : ((Advisor) user).getListOfFailingStudents()) {
+      Student displayedStudent =
+        ((Advisor) user).getStudentByAdvisor(fail, facade.getUserList());
+
+      if (!listOfFailing.contains(displayedStudent)) {
+        listOfFailing.add(displayedStudent);
+      }
+    }
 
     if (!listOfAdvisees.isEmpty()) {
-      TreeItem<String> root = new TreeItem<>(
-        userFirstName + "'s Advised and Unadvised Advisees"
-      );
+      TreeItem<String> root = new TreeItem<>(userFirstName + "'s Advisees");
 
       adviseeCompletionTree.setRoot(root);
-      TreeItem<String> completedItem = new TreeItem<>("Advised Advisees");
-      root.getChildren().add(completedItem);
-      // Trying to figure out how to track advised/unadvised students
+      TreeItem<String> cumulativeItem = new TreeItem<>("All Advisees");
+      root.getChildren().add(cumulativeItem);
 
-      for (Grades completedCourse : studentCompletedCourses) {
-        TreeItem<String> completedCourses = new TreeItem<>(
-          completedCourse.toString()
+      for (Student xadvisee : listOfAdvisees) {
+        TreeItem<String> displayedAdviseeList = new TreeItem<>(
+          xadvisee.toString()
         );
-        completedItem.getChildren().add(completedCourses);
+        cumulativeItem.getChildren().add(displayedAdviseeList);
       }
-      TreeItem<String> incompletedItem = new TreeItem<>("Unadvised Advisees");
-      root.getChildren().add(incompletedItem);
-      for (String incompletedCourse : studentIncompletedCourses) {
-        TreeItem<String> incompletedCourses = new TreeItem<>(incompletedCourse);
-        incompletedItem.getChildren().add(incompletedCourses);
+
+      TreeItem<String> subCategoryItem = new TreeItem<>("At-Risk Advisees");
+      root.getChildren().add(subCategoryItem);
+
+      for (Student xadvisee : listOfFailing) {
+        TreeItem<String> displayedFailingList = new TreeItem<>(
+          xadvisee.toString()
+        );
+        subCategoryItem.getChildren().add(displayedFailingList);
       }
     } else {
-      if (studentCompletedCourses == null) {
-        TreeItem<String> root = new TreeItem<>("Completed Courses Error");
+      TreeItem<String> root = new TreeItem<>("Advisee List Error");
+      adviseeCompletionTree.setRoot(root);
+      TreeItem<String> errorItem = new TreeItem<>(
+        "Unable to retrieve any advisees."
+      );
+      root.getChildren().add(errorItem);
+
+      /*TreeItem<String> */root = new TreeItem<>("At-Risk List Error");
+      adviseeCompletionTree.setRoot(root);
+      /*TreeItem<String> */errorItem =
+        new TreeItem<>("Unable to retrieve At-Risk advisees.");
+      root.getChildren().add(errorItem);
+      /* 
+      if (listOfAdvisees == null) {
+        TreeItem<String> root = new TreeItem<>("Advisee List Error");
         adviseeCompletionTree.setRoot(root);
         TreeItem<String> errorItem = new TreeItem<>(
-          "Unable to retrieve completed courses."
+          "Unable to retrieve any advisees."
         );
         root.getChildren().add(errorItem);
       }
-      if (studentIncompletedCourses == null) {
-        TreeItem<String> root = new TreeItem<>("Incompleted Courses Error");
+      if (listOfFailing == null) {
+        TreeItem<String> root = new TreeItem<>("At-Risk List Error");
         adviseeCompletionTree.setRoot(root);
         TreeItem<String> errorItem = new TreeItem<>(
-          "Unable to retrieve incompleted courses."
+          "Unable to retrieve At-Risk advisees."
         );
         root.getChildren().add(errorItem);
       }
-    }
-    advisingStudentProfileLabel.setVisible(false);
-    //studentProfileTitleLabel.setText(userFirstName + " " + userLastName + "'s Student Profile");
-    //studentsSummaryTitleLabel.setText("Student Summary:");
-    if (facade.getStudentAppArea() != null) {
-      //appAreaNotTitleLabel.setText(facade.getStudentAppArea());
-    } else {
-      //appAreaNotTitleLabel.setText("Undecided");
-    }
-    if (facade.getStudentMajor() != null) {
-      //majorNotTitleLabel.setText(facade.getStudentMajor());
-    } else {
-      //majorNotTitleLabel.setText("Undeclared");
-    }
-
-    ArrayList<Note> advisorNotes = facade.getStudentAdvisorNotes();
-    if (!advisorNotes.isEmpty()) {
-      SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
-      for (Note advisorNote : advisorNotes) {
-        String formattedNote =
-          dateFormat.format(advisorNote.getDate()) +
-          " - " +
-          advisorNote.getNote();
-        noteListView.getItems().add(formattedNote);
-      }
-    } else {
-      noteListView.getItems().add("No Notes Given Yet");
-    }
-
-    boolean isAdvisor = facade.getUser().getUserType().equals("ADVISOR");
-
-    if (!isAdvisor) {
-      //addNoteButton.setVisible(false);
-      //noteListView.setPrefHeight(noteListView.getPrefHeight() + addNoteButton.getPrefHeight());
-    }
-    boolean isStudent = facade.getUser().getUserType().equals("STUDENT");
-
-    if (!isStudent) {
-      //declareMajorButton.setVisible(false);
-      //declareAppAreaButton.setVisible(false);
-
+    */
     }
   }
 
