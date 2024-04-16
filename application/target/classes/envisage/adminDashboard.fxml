@@ -24,7 +24,7 @@
         </Label>
         <Button fx:id="adminProfileButton" layoutX="20.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Admin Profile" />
         <Button fx:id="studentLookupButton" layoutX="225.0" layoutY="260.0" onAction="#setStageStudentLookup" prefHeight="40.0" prefWidth="190.0" text="Student Lookup" />
-        <Button fx:id="AddOrRemoveUsersButton" layoutX="430.0" layoutY="260.0" onAction="#setStageAddRemoveUsers" prefHeight="40.0" prefWidth="190.0" text="AddOrRemove Users" />
+        <Button fx:id="AddOrRemoveUsersButton" layoutX="430.0" layoutY="260.0" onAction="#setStageAddRemoveUsers" prefHeight="40.0" prefWidth="190.0" text="Add/Remove Users" />
         <Button fx:id="manageMajorMapsButton" layoutX="20.0" layoutY="310.0" onAction="#setStageMajorList" prefHeight="40.0" prefWidth="190.0" text="Manage Major Maps" />
         <Button fx:id="manageCoursesButton" layoutX="225.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Manage Courses" />
         <Button fx:id="manageAppAreasButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Manage Application Areas" />
