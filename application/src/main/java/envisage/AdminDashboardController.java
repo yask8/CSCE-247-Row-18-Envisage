@@ -63,6 +63,10 @@ public class AdminDashboardController implements Initializable {
     }
 
     @FXML
+    void setStageAdminProfile(ActionEvent event) {
+    }
+
+    @FXML
     void setStageMajorList(ActionEvent event) throws IOException {
         App.setRoot("majorList");
     }
