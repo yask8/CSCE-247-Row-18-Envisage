@@ -10,7 +10,7 @@
 
 <!-- Designed by Garrett Spillman-->
 
-<AnchorPane fx:id="studentDashboard" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentDashboardController">
+<AnchorPane fx:id="studentDashboard" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentDashboardController" stylesheets="@studentDashboard.css">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
          <Button fx:id="studentProfileButton" layoutX="20.0" layoutY="260.0" onMouseClicked="#setStageStudentProfile" prefHeight="40.0" prefWidth="190.0" text="Student Profile" />

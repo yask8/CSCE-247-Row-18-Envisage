@@ -163,6 +163,7 @@ public class StudentProfileController implements Initializable {
 
     private void initOtherUsers(UUID studentId) {
         Student student = facade.getStudentById(studentId);
+        user = facade.getUser();
 
         if (student != null) {
 
