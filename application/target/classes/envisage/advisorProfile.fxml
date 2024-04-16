@@ -59,5 +59,6 @@
       </Label>
       <Label fx:id="IDNotTitleLabel" layoutX="62.0" layoutY="123.0" prefHeight="17.0" prefWidth="249.0" />
       <Label fx:id="phoneNumberNotTitleLabel" layoutX="406.0" layoutY="123.0" prefHeight="18.0" prefWidth="150.0" />
+      <Button fx:id="removeAdviseeButton1" layoutX="260.0" layoutY="429.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" text="Button" />
    </children>
 </AnchorPane>
