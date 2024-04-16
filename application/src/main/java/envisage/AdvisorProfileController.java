@@ -3,8 +3,10 @@ package envisage;
 import AdvisingSoftware.*;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.UUID;
@@ -103,6 +105,75 @@ public class AdvisorProfileController implements Initializable {
       );
     }
     return students;
+  }
+
+  private void initAdvised() throws ParseException {
+    ArrayList<Student> listOfAdvisees = getAdvisees();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
+    String stringDateSPRING24 = "01-01-2024";
+    String stringDateFALL23 = "09-01-2023";
+    Date dateSPRING24 = dateFormat.parse(stringDateSPRING24);
+    Date dateFALL23 = dateFormat.parse(stringDateFALL23);
+
+    for (Student adviseeCheck : getAdvisees()) {
+      if (adviseeCheck.getAdvisorNotes().isEmpty()) {} else {}
+    }
+
+    if (!listOfAdvisees.isEmpty()) {
+      TreeItem<String> root = new TreeItem<>(userFirstName + "'s Advisees");
+
+      adviseeCompletionTree.setRoot(root);
+      TreeItem<String> cumulativeItem = new TreeItem<>("All Advisees");
+      root.getChildren().add(cumulativeItem);
+
+      for (Student xadvisee : listOfAdvisees) {
+        TreeItem<String> displayedAdviseeList = new TreeItem<>(
+          xadvisee.toString()
+        );
+        cumulativeItem.getChildren().add(displayedAdviseeList);
+      }
+
+      TreeItem<String> subCategoryItem = new TreeItem<>("At-Risk Advisees");
+      root.getChildren().add(subCategoryItem);
+
+      for (Student xadvisee : listOfFailing) {
+        TreeItem<String> displayedFailingList = new TreeItem<>(
+          xadvisee.toString()
+        );
+        subCategoryItem.getChildren().add(displayedFailingList);
+      }
+    } else {
+      TreeItem<String> root = new TreeItem<>("Advisee List Error");
+      adviseeCompletionTree.setRoot(root);
+      TreeItem<String> errorItem = new TreeItem<>(
+        "Unable to retrieve any advisees."
+      );
+      root.getChildren().add(errorItem);
+
+      /*TreeItem<String> */root = new TreeItem<>("At-Risk List Error");
+      adviseeCompletionTree.setRoot(root);
+      /*TreeItem<String> */errorItem =
+        new TreeItem<>("Unable to retrieve At-Risk advisees.");
+      root.getChildren().add(errorItem);
+      /* 
+      if (listOfAdvisees == null) {
+        TreeItem<String> root = new TreeItem<>("Advisee List Error");
+        adviseeCompletionTree.setRoot(root);
+        TreeItem<String> errorItem = new TreeItem<>(
+          "Unable to retrieve any advisees."
+        );
+        root.getChildren().add(errorItem);
+      }
+      if (listOfFailing == null) {
+        TreeItem<String> root = new TreeItem<>("At-Risk List Error");
+        adviseeCompletionTree.setRoot(root);
+        TreeItem<String> errorItem = new TreeItem<>(
+          "Unable to retrieve At-Risk advisees."
+        );
+        root.getChildren().add(errorItem);
+      }
+    */
+    }
   }
 
   private void initAdvisor() {
