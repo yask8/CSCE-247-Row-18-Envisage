@@ -194,6 +194,11 @@ public class AdvisorProfileController implements Initializable {
   }
 
   @FXML
+  void setStageAdviseeManage(ActionEvent event) throws IOException {
+    App.setRoot("adviseeManage");
+  }
+
+  @FXML
   void setStageDashboard(ActionEvent event) throws IOException {
     if (user == null) {
       return;
