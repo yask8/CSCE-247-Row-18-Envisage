@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-//Author @Spillmag
+//Author @Spillmag And Stephon Johnson
 
 public class AdminDashboardController implements Initializable {
 
@@ -37,7 +37,7 @@ public class AdminDashboardController implements Initializable {
   private Button manageMajorMapsButton;
 
   @FXML
-  private Button manageUserButton;
+  private Button AddOrRemoveUsersButton;
 
   @FXML
   private Button signOutButton;
@@ -68,9 +68,9 @@ public class AdminDashboardController implements Initializable {
   }
 
   @FXML
-    void setStageAddRemoveUsers(ActionEvent event) throws IOException{
-      App.setRoot("AdminAddOrRemove");
-    }
+  void setStageAddRemoveUsers(ActionEvent event) throws IOException{
+    App.setRoot("AddOrRemoveUser");
+  }
 
 
   @FXML
