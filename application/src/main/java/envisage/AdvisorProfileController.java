@@ -6,6 +6,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -88,7 +89,13 @@ public class AdvisorProfileController implements Initializable {
     if (facade.getUser().getUserType().equals("ADVISOR")) {
       IDNotTitleLabel.setText(user.getID().toString());
       mainEmailTitleLabel.setText(user.getEmail());
-      initAdvisor();
+      //initAdvisor();
+      try {
+        initAdvised();
+      } catch (ParseException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
       //initStudent();
     } else {
       //initOtherUsers(studentID);
@@ -107,53 +114,88 @@ public class AdvisorProfileController implements Initializable {
     return students;
   }
 
+  private Date updateAdvisingPeriod() throws ParseException {
+    //Date date = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
+    //int year = date.getYear();
+    //int month = date.getMonth();
+    Calendar calendar = Calendar.getInstance();
+    int year = calendar.get(Calendar.YEAR);
+    int month = calendar.get(Calendar.MONTH);
+    String fallAdvisingDate = "09-01-" + (year - 1);
+    String springAdvisingDate = "01-01-" + year;
+    if (month >= 9) {
+      return dateFormat.parse(fallAdvisingDate);
+    } else {
+      return dateFormat.parse(springAdvisingDate);
+    }
+  }
+
   private void initAdvised() throws ParseException {
     ArrayList<Student> listOfAdvisees = getAdvisees();
-    SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
-    String stringDateSPRING24 = "01-01-2024";
-    String stringDateFALL23 = "09-01-2023";
-    Date dateSPRING24 = dateFormat.parse(stringDateSPRING24);
-    Date dateFALL23 = dateFormat.parse(stringDateFALL23);
+    //SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
+    Date advisingComparison = updateAdvisingPeriod();
 
+    ArrayList<Student> advisedList = new ArrayList<>();
+    ArrayList<Student> unadvisedList = new ArrayList<>();
     for (Student adviseeCheck : getAdvisees()) {
-      if (adviseeCheck.getAdvisorNotes().isEmpty()) {} else {}
+      if (adviseeCheck.getAdvisorNotes().isEmpty()) {
+        // add to list of unadvised
+        unadvisedList.add(adviseeCheck);
+      } else {
+        if (
+          adviseeCheck
+            .getAdvisorNotes()
+            .get(adviseeCheck.getAdvisorNotes().size() - 1)
+            .getDate()
+            .after(advisingComparison)
+        ) {
+          //if note is after the advising period then
+          //the student is added to advised
+          advisedList.add(adviseeCheck);
+          //otherwise the student is added to unadvised
+        } else {
+          unadvisedList.add(adviseeCheck);
+        }
+      }
     }
 
     if (!listOfAdvisees.isEmpty()) {
       TreeItem<String> root = new TreeItem<>(userFirstName + "'s Advisees");
 
       adviseeCompletionTree.setRoot(root);
-      TreeItem<String> cumulativeItem = new TreeItem<>("All Advisees");
-      root.getChildren().add(cumulativeItem);
+      TreeItem<String> advisedTreeItem = new TreeItem<>("Advised Advisees");
+      root.getChildren().add(advisedTreeItem);
 
-      for (Student xadvisee : listOfAdvisees) {
-        TreeItem<String> displayedAdviseeList = new TreeItem<>(
-          xadvisee.toString()
+      for (Student xadvisee : advisedList) {
+        TreeItem<String> displayedAdvisedAdviseesList = new TreeItem<>(
+          xadvisee.getFirstName() + " " + xadvisee.getLastName()
         );
-        cumulativeItem.getChildren().add(displayedAdviseeList);
+        advisedTreeItem.getChildren().add(displayedAdvisedAdviseesList);
       }
 
-      TreeItem<String> subCategoryItem = new TreeItem<>("At-Risk Advisees");
-      root.getChildren().add(subCategoryItem);
+      TreeItem<String> unadvisedTreeItem = new TreeItem<>("Unadvised Advisees");
+      root.getChildren().add(unadvisedTreeItem);
 
-      for (Student xadvisee : listOfFailing) {
-        TreeItem<String> displayedFailingList = new TreeItem<>(
-          xadvisee.toString()
+      for (Student xadvisee : unadvisedList) {
+        TreeItem<String> displayedUnadvisedAdviseesList = new TreeItem<>(
+          xadvisee.getFirstName() + " " + xadvisee.getLastName()
         );
-        subCategoryItem.getChildren().add(displayedFailingList);
+        unadvisedTreeItem.getChildren().add(displayedUnadvisedAdviseesList);
       }
     } else {
-      TreeItem<String> root = new TreeItem<>("Advisee List Error");
+      TreeItem<String> root = new TreeItem<>("Advised Advisees List Error");
       adviseeCompletionTree.setRoot(root);
       TreeItem<String> errorItem = new TreeItem<>(
-        "Unable to retrieve any advisees."
+        "Unable to retrieve any advised advisees."
       );
       root.getChildren().add(errorItem);
 
-      /*TreeItem<String> */root = new TreeItem<>("At-Risk List Error");
+      /*TreeItem<String> */root =
+        new TreeItem<>("Unadvised Advisees List Error");
       adviseeCompletionTree.setRoot(root);
       /*TreeItem<String> */errorItem =
-        new TreeItem<>("Unable to retrieve At-Risk advisees.");
+        new TreeItem<>("Unable to retrieve any unadvised advisees.");
       root.getChildren().add(errorItem);
       /* 
       if (listOfAdvisees == null) {
