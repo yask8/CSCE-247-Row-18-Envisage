@@ -48,6 +48,9 @@ public class MajorMapController implements Initializable {
 
     @FXML
     void setStageMajorList(ActionEvent event) throws IOException {
+<<<<<<< HEAD
+        App.setRoot("majorList");
+=======
         System.out.println("Button clicked: setStageMajorList method called."); 
         try {
             App.setRoot("majorList");
@@ -56,6 +59,7 @@ public class MajorMapController implements Initializable {
             System.err.println("Error switching to majorList screen: " + e.getMessage()); 
             e.printStackTrace(); 
         }
+>>>>>>> 6406cb7d430e1944b5f65db25a7b177d713d7236
     }
 
     @Override
@@ -103,4 +107,8 @@ public class MajorMapController implements Initializable {
         majorNameLabel.setText(majorName);
         initialize(null, null);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6406cb7d430e1944b5f65db25a7b177d713d7236

@@ -16,12 +16,16 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+<<<<<<< HEAD
+=======
 import javafx.scene.Node;
+>>>>>>> 6406cb7d430e1944b5f65db25a7b177d713d7236
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.scene.Node;
 
 import AdvisingSoftware.*;
 
@@ -160,6 +164,36 @@ public class StudentDashboardController implements Initializable {
         alert.showAndWait();
     }
     @FXML
+<<<<<<< HEAD
+    void setStageMajorMap(ActionEvent event) {
+        String majorName = facade.getStudentMajor();
+        if (majorName == null || majorName.isEmpty() || majorName.equalsIgnoreCase("Undeclared")) {
+            try {
+                App.setRoot("majorList");
+            } catch (IOException e) {
+                System.err.println("Error loading majorList.fxml: " + e.getMessage());
+            }
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MajorMap.fxml"));
+                Parent root = loader.load();
+
+                MajorMapController controller = loader.getController();
+                controller.setMajorName(majorName);
+
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                System.err.println("Error loading MajorMap.fxml: " + e.getMessage());
+            } catch (Exception e) {
+                System.err.println("Error setting major name: " + e.getMessage());
+            }
+        }
+    }
+}
+=======
 void setStageMajorMap(ActionEvent event) {
     String majorName = facade.getStudentMajor();
     if (majorName == null || majorName.isEmpty() || majorName.equalsIgnoreCase("Undeclared")) {
@@ -188,3 +222,4 @@ void setStageMajorMap(ActionEvent event) {
     }
 }
 }
+>>>>>>> 6406cb7d430e1944b5f65db25a7b177d713d7236
