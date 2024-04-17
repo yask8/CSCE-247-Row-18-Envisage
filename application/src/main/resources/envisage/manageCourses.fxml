@@ -20,7 +20,7 @@
          </font>
       </Label>
       <TextField fx:id="searchBarTextField" layoutX="14.0" layoutY="70.0" prefHeight="25.0" prefWidth="400.0" promptText="Search for Course by Code, Name, or ID" />
-      <GridPane fx:id="courseListGridPane" hgap="10" layoutX="14.0" layoutY="115.0" prefHeight="310.0" prefWidth="600.0" vgap="10">
+      <GridPane fx:id="manageCoursesGridPane" hgap="10" layoutX="14.0" layoutY="115.0" prefHeight="310.0" prefWidth="600.0" vgap="10">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />

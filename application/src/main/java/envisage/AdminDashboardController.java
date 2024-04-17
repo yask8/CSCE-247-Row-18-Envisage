@@ -70,7 +70,7 @@ public class AdminDashboardController implements Initializable {
 
   @FXML
   void setStageAddRemoveUsers(ActionEvent event) throws IOException{
-    App.setRoot("AddOrRemoveUser");
+    App.setRoot("AdminAddOrRemove");
   }
 
   @FXML
