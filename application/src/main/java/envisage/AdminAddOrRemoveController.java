@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -221,6 +222,26 @@ public class AdminAddOrRemoveController implements Initializable {
         if (currentPage > 0) {
             currentPage--;
             populateUserList();
+        }
+    }
+
+    @FXML
+    void setStageDashboard(ActionEvent event) throws IOException {
+        if (facade.getUser() == null) {
+            return;
+        }
+        switch (facade.getUser().getUserType()) {
+            case "STUDENT":
+                App.setRoot("studentDashboard");
+                break;
+            case "ADVISOR":
+                App.setRoot("advisorDashboard");
+                break;
+            case "ADMIN":
+                App.setRoot("adminDashboard");
+                break;
+            default:
+                break;
         }
     }
 }
