@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.MajorMapController">
+   <children>
+      <Label fx:id="majorNameLabel" layoutX="15.0" layoutY="15.0" prefHeight="50.0" prefWidth="610.0">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></Label>
+      <TreeView fx:id="courseListTreeView" layoutX="15.0" layoutY="130.0" prefHeight="302.0" prefWidth="610.0" />
+      <Label layoutX="15.0" layoutY="75.0" prefHeight="20.0" prefWidth="115.0" text="Carolina Core Hours:" />
+      <Label layoutX="15.0" layoutY="100.0" prefHeight="18.0" prefWidth="125.0" text="Minimum Total Hours:" />
+      <Label layoutX="320.0" layoutY="75.0" prefHeight="18.0" prefWidth="155.0" text="Mininum Graduation Hours:" />
+      <Label layoutX="320.0" layoutY="100.0" prefHeight="20.0" prefWidth="85.0" text="Minimum GPA:" />
+      <Label fx:id="caroCoreHoursLabel" layoutX="130.0" layoutY="75.0" prefHeight="20.0" prefWidth="184.0" />
+      <Label fx:id="minTotalHoursLabel" layoutX="141.0" layoutY="99.0" prefHeight="20.0" prefWidth="174.0" />
+      <Label fx:id="minGradHoursLabel" layoutX="475.0" layoutY="76.0" prefHeight="18.0" prefWidth="155.0" />
+      <Label fx:id="minGPAlabel" layoutX="406.0" layoutY="101.0" prefHeight="18.0" prefWidth="218.0" />
+      <Button fx:id="backButton" layoutX="583.0" layoutY="440.0" mnemonicParsing="false" onAction="#setStageMajorList" text="Back" />
+   </children>
+</AnchorPane>

@@ -13,7 +13,7 @@
 
 <!-- Designed by Garrett Spillman-->
 
-<AnchorPane fx:id="LogIn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.LogInController">
+<AnchorPane fx:id="LogIn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.LogInController">
    <children>
       <ToolBar prefHeight="40.0" prefWidth="640.0">
          <items>
@@ -85,6 +85,6 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
       </TabPane>
-      <Text fx:id="signUpLabel" layoutX="240.0" layoutY="357.0" onMouseClicked="#setStageSignIn" strokeType="OUTSIDE" strokeWidth="0.0" text="No Account? Sign Up Here" underline="true" wrappingWidth="146.13671875" />
+      <Text fx:id="signUpLabel" layoutX="246.0" layoutY="357.0" onMouseClicked="#setStageSignIn" strokeType="OUTSIDE" strokeWidth="0.0" text="No Account? Sign Up Here" underline="true" wrappingWidth="146.13671875" />
    </children>
 </AnchorPane>

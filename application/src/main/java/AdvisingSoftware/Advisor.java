@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Advisor extends User {
+
   /**
    * Attributes
    */
@@ -17,7 +18,7 @@ public class Advisor extends User {
 
   /**
    * Advisor Constructor
-   * 
+   *
    * @param firstName             String Advisor's first name
    * @param lastName              String Advisor's last name
    * @param email                 String Advisor's email
@@ -29,14 +30,15 @@ public class Advisor extends User {
    *                              risk of failinG
    */
   public Advisor(
-      String firstName,
-      String lastName,
-      String email,
-      UUID uscID,
-      String password,
-      String userType,
-      ArrayList<UUID> listOfAdvisees,
-      ArrayList<UUID> listOfFailingStudents) {
+    String firstName,
+    String lastName,
+    String email,
+    UUID uscID,
+    String password,
+    String userType,
+    ArrayList<UUID> listOfAdvisees,
+    ArrayList<UUID> listOfFailingStudents
+  ) {
     super(firstName, lastName, email, uscID, password, userType);
     this.listOfAdvisees = listOfAdvisees;
     this.listOfFailingStudents = listOfFailingStudents;
@@ -54,7 +56,7 @@ public class Advisor extends User {
 
   /**
    * Allows the advisor to view a student's profile
-   * 
+   *
    * @param studentId UUID of the student to view
    * @param userList  UserList containing all users
    * @return The student's profile if found, otherwise an empty string
@@ -86,7 +88,7 @@ public class Advisor extends User {
 
   /**
    * used to search a Student by uscID
-   * 
+   *
    * @param studentId UUID Student's uscID
    * @param userList  UserList list of all users
    * @return Student
@@ -96,7 +98,9 @@ public class Advisor extends User {
       ArrayList<UUID> adviseeIds = this.getListOfAdvisees();
       if (adviseeIds.contains(studentId)) {
         User studentUser = userList.getUserbyUSCID(studentId);
-        if (studentUser != null && studentUser.getUserType().equals("STUDENT")) {
+        if (
+          studentUser != null && studentUser.getUserType().equals("STUDENT")
+        ) {
           return (Student) studentUser;
         }
       }
@@ -106,15 +110,16 @@ public class Advisor extends User {
 
   /**
    * adds a Note to Student being advised
-   * 
+   *
    * @param studentId   UUID Student's uscID
    * @param noteContent String Advisor's note(s) to advisee
    * @param userList    UserList list of all users
    */
   public void addNoteToStudentAdvisor(
-      UUID studentId,
-      String noteContent,
-      UserList userList) {
+    UUID studentId,
+    String noteContent,
+    UserList userList
+  ) {
     Student student = getStudentByAdvisor(studentId, userList);
     if (student != null) {
       Note newNote = new Note(noteContent, new Date());
@@ -126,7 +131,7 @@ public class Advisor extends User {
 
   /**
    * adds a Student to ListOfAdvisees
-   * 
+   *
    * @param studentId UUID Student's uscID
    * @return boolean to indicate of action was successful
    */
@@ -156,8 +161,7 @@ public class Advisor extends User {
    * @param student specific student to add a note to
    * @param note    note given
    */
-  public void addNote(Student student, String note) {
-  }
+  public void addNote(Student student, String note) {}
 
   /**
    * Allows the advisor to view their list of advisees
@@ -176,7 +180,8 @@ public class Advisor extends User {
    * @return list of failing students
    */
   public String viewFailingStudentList(
-      ArrayList<Student> listOfFailingStudents) {
+    ArrayList<Student> listOfFailingStudents
+  ) {
     return "";
   }
 
@@ -193,7 +198,7 @@ public class Advisor extends User {
     } else {
       System.out.println("Passing");
     }
-    return true;
+    return gpa < minGPA;
   }
 
   /**
@@ -203,7 +208,10 @@ public class Advisor extends User {
    * @param minimumGPA The minimum GPA considered failing.
    * @return The list of students at risk of failure.
    */
-  public ArrayList<Student> addStudentRiskOfFailure(UserList userList, double minimumGPA) {
+  public ArrayList<Student> addStudentRiskOfFailure(
+    UserList userList,
+    double minimumGPA
+  ) {
     ArrayList<Student> adviseesAtRisk = new ArrayList<>();
 
     if (listOfAdvisees != null) {
@@ -238,17 +246,19 @@ public class Advisor extends User {
 
   /**
    * To string to view user details
-   * 
+   *
    * @return the String format of the user details
    *
    * @author @Spillmag
    */
   public String toString() {
-    return ("\n********* ADVISOR PROFILE *********\n" +
-        super.toString() +
-        "\nList of Advisees: " +
-        listOfAdvisees +
-        "\nList of Failing Students: " +
-        listOfFailingStudents);
+    return (
+      "\n********* ADVISOR PROFILE *********\n" +
+      super.toString() +
+      "\nList of Advisees: " +
+      listOfAdvisees +
+      "\nList of Failing Students: " +
+      listOfFailingStudents
+    );
   }
 }

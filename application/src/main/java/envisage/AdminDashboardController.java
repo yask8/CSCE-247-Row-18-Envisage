@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-//Author @Spillmag
+//Author @Spillmag And Stephon Johnson
 
 public class AdminDashboardController implements Initializable {
 
@@ -38,7 +38,7 @@ public class AdminDashboardController implements Initializable {
   private Button manageMajorMapsButton;
 
   @FXML
-  private Button manageUserButton;
+  private Button AddOrRemoveUsersButton;
 
   @FXML
   private Button signOutButton;
@@ -59,9 +59,20 @@ public class AdminDashboardController implements Initializable {
   }
 
   @FXML
-  void setStageManageCourses(MouseEvent event) throws IOException {
-    App.setRoot("manageCourses");
+  void setStageAdvisorProfile(ActionEvent event) throws IOException {
+    App.setRoot("advisorProfile");
   }
+
+  @FXML
+  void setStageMajorList(ActionEvent event) throws IOException {
+    App.setRoot("majorList");
+  }
+
+  @FXML
+  void setStageAddRemoveUsers(ActionEvent event) throws IOException{
+    App.setRoot("AddOrRemoveUser");
+  }
+
 
   @FXML
   void signOut(ActionEvent event) {
