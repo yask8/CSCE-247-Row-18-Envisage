@@ -26,7 +26,7 @@
         <Button fx:id="studentLookupButton" layoutX="225.0" layoutY="260.0" onAction="#setStageStudentLookup" prefHeight="40.0" prefWidth="190.0" text="Student Lookup" />
         <Button fx:id="manageUserButton" layoutX="430.0" layoutY="260.0" prefHeight="40.0" prefWidth="190.0" text="Manage Users" />
         <Button fx:id="manageMajorMapsButton" layoutX="20.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Manage Major Maps" />
-        <Button fx:id="manageCoursesButton" layoutX="225.0" layoutY="310.0" prefHeight="40.0" prefWidth="190.0" text="Manage Courses" />
+        <Button fx:id="manageCoursesButton" layoutX="225.0" layoutY="310.0" onMouseClicked="#setStageManageCourses" prefHeight="40.0" prefWidth="190.0" text="Manage Courses" />
         <Button fx:id="manageAppAreasButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Manage Application Areas" />
         <Button fx:id="signOutButton" layoutX="540.0" layoutY="365.0" mnemonicParsing="false" onAction="#signOut" prefHeight="20.0" prefWidth="80.0" text="Sign Out" />
     </children>
