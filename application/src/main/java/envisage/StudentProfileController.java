@@ -15,7 +15,6 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.shape.Rectangle;
-
 import AdvisingSoftware.*;
 import java.io.IOException;
 import java.net.URL;
@@ -310,21 +309,21 @@ public class StudentProfileController implements Initializable {
             appAreaNotTitleLabel.setText(chosenAppArea);
         }
     }
-    
+
     @FXML
     public void addNote(ActionEvent event) {
         ArrayList<UUID> advisees = facade.getListOfAdvisees();
-    
+
         if (!advisees.contains(studentID)) {
             showAlert("Student Not Assigned", "You are not assigned to this student.");
             return;
         }
-    
+
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Add Note");
         dialog.setHeaderText("Add a new note for the student");
         dialog.setContentText("Enter your note:");
-    
+
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(noteText -> {
             facade.addNoteToStudentAdvisor(facade.getCurrentUserId(), studentID, noteText);
@@ -333,7 +332,7 @@ public class StudentProfileController implements Initializable {
             initialize(null, null);
         });
     }
-    
+
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(title);
@@ -341,6 +340,7 @@ public class StudentProfileController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
     public void setUserId(UUID id) {
         this.studentID = id;
         initialize(null, null);
