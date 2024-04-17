@@ -46,48 +46,6 @@ public class AdminDashboardController implements Initializable {
     @FXML
     private Button studentLookupButton;
 
-<<<<<<< HEAD
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        facade = Facade.getInstance();
-        user = facade.getUser();
-        welcomeLabel.setText("Welcome " + user.getFirstName());
-    }
-
-    @FXML
-    void setStageStudentLookup(ActionEvent event) throws IOException {
-        App.setRoot("studentLookup");
-    }
-
-    @FXML
-    void setStageAdvisorProfile(ActionEvent event) throws IOException {
-        App.setRoot("advisorProfile");
-    }
-
-    @FXML
-    void setStageAdminProfile(ActionEvent event) {
-    }
-
-    @FXML
-    void setStageMajorList(ActionEvent event) throws IOException {
-        App.setRoot("majorList");
-    }
-
-    @FXML
-    void setStageAddRemoveUsers(ActionEvent event) throws IOException {
-        App.setRoot("AdminAddOrRemove");
-}
-
-
-    @FXML
-    void signOut(ActionEvent event) {
-        try {
-            Facade.getInstance().signOut();
-            App.setRoot("LogIn");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-=======
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     facade = Facade.getInstance();
@@ -128,6 +86,6 @@ public class AdminDashboardController implements Initializable {
       App.setRoot("LogIn");
     } catch (IOException e) {
       e.printStackTrace();
->>>>>>> 6406cb7d430e1944b5f65db25a7b177d713d7236
     }
+}
 }
