@@ -175,13 +175,14 @@ public class ManageCoursesController implements Initializable {
                     if(course.getID().toLowerCase().contains(searchText)){
                         filteredCourses.add(course);
                     }
+                    break;
                 default:
                     break;
             }
         }
 
         if(filteredCourses.isEmpty()){
-            searchErrorLabel.setText("No matching courses found");
+            searchErrorLabel.setText("No matching courses found.");
         } else {
             searchErrorLabel.setText("");
             displayFilteredCourses(filteredCourses);
@@ -229,6 +230,7 @@ public class ManageCoursesController implements Initializable {
         pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
 
+    // for back button
     @FXML
     void setStageDashboard(ActionEvent event) throws IOException {
         if (user == null) {

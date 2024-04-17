@@ -11,7 +11,8 @@
 <?import javafx.scene.text.Font?>
 
 <!--Designed By Yasmine Kennedy(Yask8) and Garrett Spillman (Spillmag)-->
-<AnchorPane fx:id="courseList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane fx:id="courseList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.ManageCoursesController">
    <children>
       <Label layoutX="14.0" layoutY="20.0" prefHeight="40.0" prefWidth="600.0" text="Manage Courses">
          <font>
