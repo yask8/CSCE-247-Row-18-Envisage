@@ -131,9 +131,10 @@ public class ManageCoursesController implements Initializable {
         }
         int totalCourses = courses.size();
         int totalPages = (int)Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+
         if(currentPage < totalPages - 1){
             currentPage++;
-            manageCourses.getChildren().clear();
+            manageCoursesGridPane.getChildren().clear();
             populateCourseList();
         }
     }
@@ -142,7 +143,7 @@ public class ManageCoursesController implements Initializable {
     void previousPage(ActionEvent event) {
         if(currentPage > 0){
             currentPage--;
-            manageCourses.getChildren().clear();
+            manageCoursesGridPane.getChildren().clear();
             populateCourseList();
         }
     }
