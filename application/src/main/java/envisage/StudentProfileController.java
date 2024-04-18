@@ -53,6 +53,12 @@ public class StudentProfileController implements Initializable {
     private Label lastAdvisingApptDateLabel;
 
     @FXML
+    private Label creditHoursTitleLabel;
+
+    @FXML
+    private Label creditHoursNotTitleLabel;
+
+    @FXML
     private Label majorNotTitleLabel;
 
     @FXML
@@ -150,6 +156,8 @@ public class StudentProfileController implements Initializable {
         studentsSummaryTitleLabel.setText("Student Summary:");
         appAreaNotTitleLabel.setText(facade.getStudentAppArea() != null ? facade.getStudentAppArea() : "Undecided");
         majorNotTitleLabel.setText(facade.getStudentMajor() != null ? facade.getStudentMajor() : "Undeclared");
+        String studentCreditHours = Integer.toString(facade.getStudentCreditHours());
+        creditHoursNotTitleLabel.setText(studentCreditHours);
     
         ArrayList<Note> advisorNotes = facade.getStudentAdvisorNotes();
         if (!advisorNotes.isEmpty()) {
@@ -241,7 +249,7 @@ public class StudentProfileController implements Initializable {
         }
     }
 
-    
+
     @FXML
     private void goBack(ActionEvent event) {
         try {

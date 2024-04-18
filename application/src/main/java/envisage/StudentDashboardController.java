@@ -91,6 +91,9 @@ public class StudentDashboardController implements Initializable {
       advisingNoteLabel.setText("No advisor notes available.");
     }
 
+    int studentCreditHours = facade.getStudentCreditHours();
+    calculatingCurrentSemester(studentCreditHours);
+
     DegreeProgress degreeProgress = facade.getStudentDegreeProgress();
 
     if (degreeProgress != null) {
@@ -112,6 +115,42 @@ public class StudentDashboardController implements Initializable {
       progressPieChart.setData(pieChartData);
     } else {
       progressPieChart.setVisible(false);
+    }
+  }
+  
+  /**
+   * Helper method to calculate the student's current semester
+   * @param credithours the student's credit hours
+   */
+  public void calculatingCurrentSemester(int credithours){
+    int studentCreditHours = credithours;
+    if(studentCreditHours >= 0) {
+      if(studentCreditHours >= 0 && studentCreditHours <= 29){
+        semesterLabel.setText("1");
+      }
+      if(studentCreditHours >= 30 && studentCreditHours <= 44){
+        semesterLabel.setText("2");
+      }
+      if(studentCreditHours >= 44 && studentCreditHours <= 59){
+        semesterLabel.setText("3");
+      }
+      if(studentCreditHours >= 60 && studentCreditHours <= 74){
+        semesterLabel.setText("4");
+      }
+      if(studentCreditHours >= 75 && studentCreditHours <= 89){
+        semesterLabel.setText("5");
+      }
+      if(studentCreditHours >= 90 && studentCreditHours <= 104){
+        semesterLabel.setText("6");
+      }
+      if(studentCreditHours >= 105 && studentCreditHours <= 119){
+        semesterLabel.setText("7");
+      }
+      if(studentCreditHours >= 120){
+        semesterLabel.setText("8");
+      }
+    } else {
+      semesterLabel.setText("Could not calculate current semester. Invalid credit hours.");
     }
   }
 
