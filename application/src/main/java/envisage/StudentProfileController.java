@@ -1,19 +1,9 @@
 package envisage;
 
 import javafx.event.ActionEvent;
-/**
- * @author Yasmine Kennedy (yask8) and Garrett Spillman (Spillmag)
- */
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 import javafx.scene.shape.Rectangle;
 import AdvisingSoftware.*;
 import java.io.IOException;
@@ -76,30 +66,46 @@ public class StudentProfileController implements Initializable {
     String userFirstName = facade.getUser().getFirstName();
     String userLastName = facade.getUser().getLastName();
     UUID studentID = null;
+    StudentIDStore studentIDStore = StudentIDStore.getInstance();
 
-    @Override
     public void initialize(URL url, ResourceBundle arg1) {
-
-        if (facade.getUser().getUserType().equals("STUDENT")) {
-            initStudent();
-        } else {
-            initOtherUsers(studentID);
+        UUID studentID = studentIDStore.getStudentID();
+        if (studentID != null) {
+            if (facade.getUser().getUserType().equals("STUDENT")) {
+                initStudent();
+            } else {
+                initOtherUsers(studentID);
+            }
         }
     }
 
-    private void initStudent() {
 
+    public void setUserId(UUID id) {
+        this.studentID = id;
+        studentIDStore.setStudentID(id);
+        initialize(null, null);
+    }
+
+    private void initStudent() {
         ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
         ArrayList<String> studentIncompletedCourses = facade.getStudentDegreeProgress().getIncompleteCourses();
-        if (studentCompletedCourses != null && studentIncompletedCourses != null) {
-            TreeItem<String> root = new TreeItem<>(userFirstName + "'s Completed and Incompleted Courses");
-            studentCompletionTree.setRoot(root);
+        
+        TreeItem<String> root = new TreeItem<>(userFirstName + "'s Completed and Incompleted Courses");
+        studentCompletionTree.setRoot(root);
+    
+        if (studentCompletedCourses != null && !studentCompletedCourses.isEmpty()) {
             TreeItem<String> completedItem = new TreeItem<>("Completed Courses");
             root.getChildren().add(completedItem);
             for (Grades completedCourse : studentCompletedCourses) {
                 TreeItem<String> completedCourses = new TreeItem<>(completedCourse.toString());
                 completedItem.getChildren().add(completedCourses);
             }
+        } else {
+            TreeItem<String> errorItem = new TreeItem<>("Unable to retrieve completed courses.");
+            root.getChildren().add(errorItem);
+        }
+    
+        if (studentIncompletedCourses != null && !studentIncompletedCourses.isEmpty()) {
             TreeItem<String> incompletedItem = new TreeItem<>("Incompleted Courses");
             root.getChildren().add(incompletedItem);
             for (String incompletedCourse : studentIncompletedCourses) {
@@ -107,33 +113,16 @@ public class StudentProfileController implements Initializable {
                 incompletedItem.getChildren().add(incompletedCourses);
             }
         } else {
-            if (studentCompletedCourses == null) {
-                TreeItem<String> root = new TreeItem<>("Completed Courses Error");
-                studentCompletionTree.setRoot(root);
-                TreeItem<String> errorItem = new TreeItem<>("Unable to retrieve completed courses.");
-                root.getChildren().add(errorItem);
-            }
-            if (studentIncompletedCourses == null) {
-                TreeItem<String> root = new TreeItem<>("Incompleted Courses Error");
-                studentCompletionTree.setRoot(root);
-                TreeItem<String> errorItem = new TreeItem<>("Unable to retrieve incompleted courses.");
-                root.getChildren().add(errorItem);
-            }
+            TreeItem<String> errorItem = new TreeItem<>("Unable to retrieve incompleted courses.");
+            root.getChildren().add(errorItem);
         }
+    
         advisingStudentProfileLabel.setVisible(false);
         studentProfileTitleLabel.setText(userFirstName + " " + userLastName + "'s Student Profile");
         studentsSummaryTitleLabel.setText("Student Summary:");
-        if (facade.getStudentAppArea() != null) {
-            appAreaNotTitleLabel.setText(facade.getStudentAppArea());
-        } else {
-            appAreaNotTitleLabel.setText("Undecided");
-        }
-        if (facade.getStudentMajor() != null) {
-            majorNotTitleLabel.setText(facade.getStudentMajor());
-        } else {
-            majorNotTitleLabel.setText("Undeclared");
-        }
-
+        appAreaNotTitleLabel.setText(facade.getStudentAppArea() != null ? facade.getStudentAppArea() : "Undecided");
+        majorNotTitleLabel.setText(facade.getStudentMajor() != null ? facade.getStudentMajor() : "Undeclared");
+    
         ArrayList<Note> advisorNotes = facade.getStudentAdvisorNotes();
         if (!advisorNotes.isEmpty()) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
@@ -144,19 +133,16 @@ public class StudentProfileController implements Initializable {
         } else {
             noteListView.getItems().add("No Notes Given Yet");
         }
-
-        boolean isAdvisor = facade.getUser().getUserType().equals("ADVISOR");
-
+    
+        boolean isAdvisor = user.getUserType().equals("ADVISOR");
         if (!isAdvisor) {
             addNoteButton.setVisible(false);
             noteListView.setPrefHeight(noteListView.getPrefHeight() + addNoteButton.getPrefHeight());
         }
-        boolean isStudent = facade.getUser().getUserType().equals("STUDENT");
-
+        boolean isStudent = user.getUserType().equals("STUDENT");
         if (!isStudent) {
             declareMajorButton.setVisible(false);
             declareAppAreaButton.setVisible(false);
-
         }
     }
 
@@ -165,7 +151,6 @@ public class StudentProfileController implements Initializable {
         user = facade.getUser();
 
         if (student != null) {
-
             ArrayList<Grades> studentCompletedCourses = student.getCompletedCourses();
             ArrayList<String> studentIncompletedCourses = student.getDegreeProgress().getIncompleteCourses();
 
@@ -187,7 +172,6 @@ public class StudentProfileController implements Initializable {
                     incompletedItem.getChildren().add(incompletedCourses);
                 }
             } else {
-
                 TreeItem<String> root = new TreeItem<>("Courses Error");
                 studentCompletionTree.setRoot(root);
                 TreeItem<String> errorItem = new TreeItem<>("Unable to retrieve courses.");
@@ -195,21 +179,11 @@ public class StudentProfileController implements Initializable {
             }
 
             advisingStudentProfileLabel.setVisible(false);
-            studentProfileTitleLabel
-                    .setText(student.getFirstName() + " " + student.getLastName() + "'s Student Profile");
+            studentProfileTitleLabel.setText(student.getFirstName() + " " + student.getLastName() + "'s Student Profile");
             studentsSummaryTitleLabel.setText("Student Summary:");
 
-            if (student.getApplicationArea() != null) {
-                appAreaNotTitleLabel.setText(student.getApplicationArea());
-            } else {
-                appAreaNotTitleLabel.setText("Undecided");
-            }
-
-            if (student.getMajor() != null) {
-                majorNotTitleLabel.setText(student.getMajor());
-            } else {
-                majorNotTitleLabel.setText("Undeclared");
-            }
+            appAreaNotTitleLabel.setText(student.getApplicationArea() != null ? student.getApplicationArea() : "Undecided");
+            majorNotTitleLabel.setText(student.getMajor() != null ? student.getMajor() : "Undeclared");
 
             ArrayList<Note> advisorNotes = student.getAdvisorNotes();
             if (!advisorNotes.isEmpty()) {
@@ -222,12 +196,12 @@ public class StudentProfileController implements Initializable {
                 noteListView.getItems().add("No Notes Given Yet");
             }
 
-            boolean isAdvisor = facade.getUser().getUserType().equals("ADVISOR");
+            boolean isAdvisor = user.getUserType().equals("ADVISOR");
             if (!isAdvisor) {
                 addNoteButton.setVisible(false);
                 noteListView.setPrefHeight(noteListView.getPrefHeight() + addNoteButton.getPrefHeight());
             }
-            boolean isStudent = facade.getUser().getUserType().equals("STUDENT");
+            boolean isStudent = user.getUserType().equals("STUDENT");
             if (!isStudent) {
                 declareMajorButton.setVisible(false);
                 declareAppAreaButton.setVisible(false);
@@ -236,22 +210,11 @@ public class StudentProfileController implements Initializable {
     }
 
     @FXML
-    void setStageDashboard(ActionEvent event) throws IOException {
-        if (user == null) {
-            return;
-        }
-        switch (user.getUserType()) {
-            case "STUDENT":
-                App.setRoot("studentDashboard");
-                break;
-            case "ADVISOR":
-                App.setRoot("advisorDashboard");
-                break;
-            case "ADMIN":
-                App.setRoot("adminDashboard");
-                break;
-            default:
-                break;
+    private void goBack(ActionEvent event) {
+        try {
+            App.goBack();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -339,10 +302,5 @@ public class StudentProfileController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-    }
-
-    public void setUserId(UUID id) {
-        this.studentID = id;
-        initialize(null, null);
     }
 }

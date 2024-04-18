@@ -35,33 +35,24 @@ public class StudentTemplateController implements Initializable {
 
   @FXML
   void setStudentProfile(ActionEvent event) {
-    Facade facade = Facade.getInstance();
-    String fullName = studentNameLabel.getText().trim();
-    String[] nameParts = fullName.split(" ");
-    String firstName = nameParts[0].trim();
-    String lastName = nameParts[1].trim();
-    try {
-
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("studentProfile.fxml"));
-      Parent root = loader.load();
-
-      UUID Id = facade.getUserIdByName(firstName, lastName);
-
-      if (Id != null) {
-        StudentProfileController controller = loader.getController();
-        controller.setUserId(Id);
-
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-      } else {
-        setStageStudentLookup(event);
+      try {
+          Facade facade = Facade.getInstance();
+          String fullName = studentNameLabel.getText().trim();
+          String[] nameParts = fullName.split(" ");
+          String firstName = nameParts[0].trim();
+          String lastName = nameParts[1].trim();
+  
+          UUID Id = facade.getUserIdByName(firstName, lastName);
+  
+          if (Id != null) {
+              StudentIDStore.getInstance().setStudentID(Id);
+              App.setRoot("studentProfile");
+          } else {
+              setStageStudentLookup(event);
+          }
+      } catch (IOException e) {
+          e.printStackTrace();
       }
-    } catch (IOException e) {
-
-      e.printStackTrace();
-    }
   }
 
   @FXML

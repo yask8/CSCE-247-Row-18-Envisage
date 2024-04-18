@@ -27,30 +27,23 @@ public class MajorMapTemplateController {
   private Button viewMajorMapButton;
 
   @FXML
-  void setMajorMap(ActionEvent event) {
-    String majorName = majorMapLabel.getText().trim();
-    try {
-      FXMLLoader loader = new FXMLLoader(
-        getClass().getResource("MajorMap.fxml")
-      );
-      Parent root = loader.load();
-
-      MajorMapController controller = loader.getController();
-
-      if (controller != null) {
-        controller.setMajorName(majorName);
+  void setMajorMap(ActionEvent event) throws IOException {
+      String majorName = majorMapLabel.getText().trim();
+      if (majorName == null || majorName.isEmpty() || majorName.equals("Undeclared")) {
+          try {
+              App.setRoot("majorList");
+          } catch (IOException e) {
+              System.err.println("Error loading MajorList view: " + e.getMessage());
+          }
       } else {
-        System.out.println("MajorMapController is null");
+          MajorNameStore.getInstance().setMajorName(majorName);
+          try {
+              App.setRoot("MajorMap");
+          } catch (IOException e) {
+              System.err.println("Error loading MajorMap view: " + e.getMessage());
+          }
       }
-
-      Scene scene = new Scene(root);
-      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      stage.setScene(scene);
-      stage.show();
-    } catch (IOException e) {
-      e.printStackTrace();
     }
-  }
 
   public void setMajorName(String majorName) {
     majorMapLabel.setText(majorName);

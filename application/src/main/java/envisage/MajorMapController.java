@@ -53,42 +53,40 @@ public class MajorMapController implements Initializable {
       System.out.println("Switched to majorList screen successfully.");
     } catch (IOException e) {
       System.err.println(
-        "Error switching to majorList screen: " + e.getMessage()
-      );
+          "Error switching to majorList screen: " + e.getMessage());
       e.printStackTrace();
     }
   }
 
-  @Override
   public void initialize(URL url, ResourceBundle rb) {
+    majorName = MajorNameStore.getInstance().getMajorName();
     if (majorName != null && !majorName.isEmpty()) {
       majorNameLabel.setText(majorName);
+      loadMajorMapData();
+    }
+  }
 
-      MajorMap majorMap = findMajorMapByName(majorName);
-      if (majorMap != null) {
-        caroCoreHoursLabel.setText(
-          Integer.toString(majorMap.getCaroCoreHours())
-        );
-        minGPAlabel.setText(Double.toString(majorMap.getMinGPA()));
-        minGradHoursLabel.setText(Integer.toString(majorMap.getMinGradHours()));
-        minTotalHoursLabel.setText(
-          Integer.toString(majorMap.getMinTotalHours())
-        );
+  private void loadMajorMapData() {
+    MajorMap majorMap = findMajorMapByName(majorName);
+    if (majorMap != null) {
+      caroCoreHoursLabel.setText(Integer.toString(majorMap.getCaroCoreHours()));
+      minGPAlabel.setText(Double.toString(majorMap.getMinGPA()));
+      minGradHoursLabel.setText(Integer.toString(majorMap.getMinGradHours()));
+      minTotalHoursLabel.setText(Integer.toString(majorMap.getMinTotalHours()));
 
-        TreeItem<String> root = new TreeItem<>("Courses");
-        courseListTreeView.setRoot(root);
+      TreeItem<String> root = new TreeItem<>("Courses");
+      courseListTreeView.setRoot(root);
 
-        for (int i = 1; i <= 8; i++) {
-          List<String> courses = majorMap.getSemester(i);
-          if (courses != null && !courses.isEmpty()) {
-            String semesterName = "Semester " + i;
-            TreeItem<String> semesterNode = new TreeItem<>(semesterName);
-            for (String course : courses) {
-              TreeItem<String> courseNode = new TreeItem<>(course);
-              semesterNode.getChildren().add(courseNode);
-            }
-            root.getChildren().add(semesterNode);
+      for (int i = 1; i <= 8; i++) {
+        List<String> courses = majorMap.getSemester(i);
+        if (courses != null && !courses.isEmpty()) {
+          String semesterName = "Semester " + i;
+          TreeItem<String> semesterNode = new TreeItem<>(semesterName);
+          for (String course : courses) {
+            TreeItem<String> courseNode = new TreeItem<>(course);
+            semesterNode.getChildren().add(courseNode);
           }
+          root.getChildren().add(semesterNode);
         }
       }
     }
@@ -105,7 +103,9 @@ public class MajorMapController implements Initializable {
 
   public void setMajorName(String majorName) {
     this.majorName = majorName;
+    System.out.println("Major Name set: " + majorName);
     majorNameLabel.setText(majorName);
-    initialize(null, null);
+    MajorNameStore.getInstance().setMajorName(majorName);
+    loadMajorMapData();
   }
 }
