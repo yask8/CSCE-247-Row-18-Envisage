@@ -35,16 +35,16 @@
       </Label>
       <Label fx:id="mainEmailTitleLabel" layoutX="113.0" layoutY="101.0" prefHeight="17.0" prefWidth="195.0" />
       <TreeView fx:id="adviseeCompletionTree" layoutX="24.0" layoutY="186.0" prefHeight="229.0" prefWidth="300.0" />
-      <Label fx:id="mostRecentNoteTitleLabel" layoutX="336.0" layoutY="186.0" prefHeight="27.0" prefWidth="290.0" text="Advisor Actions" textAlignment="RIGHT">
+      <Label fx:id="mostRecentNoteTitleLabel" layoutX="350.0" layoutY="186.0" prefHeight="27.0" prefWidth="249.0" text="Advisor Actions" textAlignment="RIGHT">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="addAdviseeButton" layoutX="336.0" layoutY="230.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" prefHeight="25.0" prefWidth="150.0" text="Add Advisee" />
-      <Button fx:id="removeAdviseeButton" layoutX="336.0" layoutY="274.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" prefWidth="150.0" text="Remove Advisee" />
+      <Button fx:id="addAdviseeButton" layoutX="350.0" layoutY="230.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" prefHeight="25.0" prefWidth="150.0" text="Add Advisee" />
+      <Button fx:id="removeAdviseeButton" layoutX="350.0" layoutY="274.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" prefWidth="150.0" text="Remove Advisee" />
       <Button fx:id="backButton" layoutX="580.0" layoutY="429.0" mnemonicParsing="false" onAction="#setStageDashboard" onMouseClicked="#setStageDashboard" text="Back" />
-      <Button fx:id="addAtRiskAdviseeButton" layoutX="336.0" layoutY="318.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Add At-Risk Advisee" />
+      <Button fx:id="addAtRiskAdviseeButton" layoutX="350.0" layoutY="318.0" mnemonicParsing="false" onAction="#setStageAdviseeManage" prefHeight="25.0" prefWidth="150.0" text="Add At-Risk Advisee" />
       <Label fx:id="IDNotTitleLabel" layoutX="62.0" layoutY="123.0" prefHeight="17.0" prefWidth="249.0" />
-      <Button fx:id="checkStudentFailButton" layoutX="336.0" layoutY="362.0" mnemonicParsing="false" onAction="#checkFailButton" text="Check Student Fail Status" />
+      <Button fx:id="checkStudentFailButton" layoutX="350.0" layoutY="362.0" mnemonicParsing="false" onAction="#checkFailButton" text="Check Student Fail Status" />
    </children>
 </AnchorPane>
