@@ -1,5 +1,17 @@
 package envisage;
 
+/**
+ * Controller class for the Student Profile page in the Envisage application.
+ * This class handles the logic for displaying student profile information,
+ * such as completed and incompleted courses, advising notes, and allowing
+ * users (students or advisors) to declare major and application area, as well
+ * as add notes to the student's profile.
+ * 
+ * It initializes the UI components and provides methods for initializing student
+ * information, declaring major and application area, adding notes, and navigating back.
+ * 
+ * @author Garrett Spillman and Yasmine Kennedy
+ */
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
