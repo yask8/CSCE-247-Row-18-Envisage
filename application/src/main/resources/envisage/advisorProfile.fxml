@@ -47,6 +47,6 @@
       <Button fx:id="backButton" layoutX="580.0" layoutY="429.0" mnemonicParsing="false" onAction="#setStageDashboard" onMouseClicked="#setStageDashboard" text="Back" />
       <Button fx:id="addNoteButton" layoutX="336.0" layoutY="390.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="285.0" text="Add Note" />
       <Label fx:id="IDNotTitleLabel" layoutX="62.0" layoutY="123.0" prefHeight="17.0" prefWidth="249.0" />
-      <Button fx:id="checkStudentFailButton" layoutX="260.0" layoutY="429.0" mnemonicParsing="false" text="Check Student Fail Status" />
+      <Button fx:id="checkStudentFailButton" layoutX="260.0" layoutY="429.0" mnemonicParsing="false" onAction="#checkFailButton" text="Check Student Fail Status" />
    </children>
 </AnchorPane>

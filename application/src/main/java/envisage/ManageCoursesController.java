@@ -230,8 +230,7 @@ public class ManageCoursesController implements Initializable {
         }
         pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
-
-    // for back button
+    
     @FXML
     void setStageDashboard(ActionEvent event) throws IOException {
         if (user == null) {

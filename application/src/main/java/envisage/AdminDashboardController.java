@@ -108,27 +108,16 @@ public class AdminDashboardController implements Initializable {
         App.setRoot("majorList");
     }
 
-    /**
-     * Navigates to the Admin Add or Remove Users page.
-     *
-     * @param event The event representing the action.
-     * @throws IOException if an I/O error occurs when setting the root scene.
-     */
-    @FXML
-    void setStageAddRemoveUsers(ActionEvent event) throws IOException {
-        App.setRoot("AdminAddOrRemove");
-    }
+  @FXML
+  void setStageAddRemoveUsers(ActionEvent event) throws IOException {
+    App.setRoot("AdminAddOrRemove");
+    
+  }
 
-    /**
-     * Navigates to the Course List page.
-     *
-     * @param event The event representing the action.
-     * @throws IOException if an I/O error occurs when setting the root scene.
-     */
-    @FXML
-    void setStageManageCourses(ActionEvent event) throws IOException {
-        App.setRoot("courseList");
-    }
+  @FXML
+  void setStageManageCourses(ActionEvent event) throws IOException {
+    App.setRoot("manageCourses");
+  }
 
     /**
      * Signs out the user and navigates to the Login page.

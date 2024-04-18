@@ -26,6 +26,8 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.shape.Rectangle;
+import javax.security.auth.callback.TextOutputCallback;
+import javax.swing.Action;
 
 public class AdvisorProfileController implements Initializable {
 
@@ -286,6 +288,68 @@ public class AdvisorProfileController implements Initializable {
       }
     */
     }
+  }
+
+  @FXML
+  void checkFailButton(ActionEvent event) throws IOException {
+    TextInputDialog dialog = new TextInputDialog();
+    dialog.setTitle("Check Fail Status With GPA");
+    dialog.setHeaderText("Enter the current GPA to check fail status");
+    dialog.setContentText("Enter the current GPA");
+    Optional<String> result = dialog.showAndWait();
+    //result.ifPresent(noteText -> {currentGPA = Double.parseDouble(noteText);});
+    //result.ifPresent(xmajor -> { if(facade.getMajorMap(xmajor) != null){}});
+
+    result.ifPresent(noteText -> {
+      double d = Double.parseDouble(noteText);
+      dialog.setTitle("Check Fail Status With GPA");
+      dialog.setHeaderText("Enter the current major to check fail status");
+      dialog.setContentText("Enter the major");
+      Optional<String> result2 = dialog.showAndWait();
+      result2.ifPresent(xmajor -> {
+        if (facade.getMajorMap(xmajor) != null) {
+          boolean fail =
+            ((Advisor) user).checkStudentFailStatus(
+                d,
+                facade.getMajorMap(xmajor).getMinGPA()
+              );
+
+          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+          alert.setTitle("Check Fail Status Calculated");
+          alert.setHeaderText("Complete!");
+          String failing = "passing!";
+          if (fail) {
+            failing = "failing!";
+          }
+          alert.setContentText(
+            "With this GPA, the student would be " + failing
+          );
+          alert.showAndWait();
+        } else {
+          boolean fail =
+            ((Advisor) user).checkStudentFailStatus(
+                d,
+                facade.getMajorMap("Computer Science").getMinGPA()
+              );
+
+          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+          alert.setTitle("Check Fail Status Calculated");
+          alert.setHeaderText("Complete!");
+          String failing = "passing!";
+          if (fail) {
+            failing = "failing!";
+          }
+          alert.setContentText(
+            "With this GPA, the student would be " + failing
+          );
+          alert.showAndWait();
+        }
+      });
+    });
+    //noteListView.getItems().clear();
+    //facade.saveUsers();
+    //initialize(null, null);
+    //});
   }
 
   @FXML
