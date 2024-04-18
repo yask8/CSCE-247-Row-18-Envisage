@@ -6,7 +6,8 @@
 
 /* Toolbar styling */
 .tool-bar {
-    -fx-background-color: #2196F3;
+    -fx-background-color: #5567E7;
+
 }
 
 .tool-bar .label {
@@ -40,12 +41,13 @@
 
 /* Selected tab styling */
 .tab-pane .tab:selected {
-    -fx-border-color: #2196F3;
+    -fx-border-color: #5567E7;
     -fx-border-width: 0 0 2px 0;
 }
 
 .tab-pane .tab:selected .tab-label {
     -fx-font-weight: bold;
+
 }
 
 .tab-pane .tab-area {
@@ -70,7 +72,7 @@
 
 /* Button styling */
 .button {
-    -fx-background-color: #2196F3;
+    -fx-background-color: #5567E7;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
     -fx-border-radius: 3px;
@@ -84,9 +86,15 @@
     -fx-transition: all 0.3s;
 }
 
-/* Text styling */
-.text {
-    -fx-fill: #333333;
+/* Toolbar Label Text-Styling*/
+.text.label {
+    -fx-fill:white;
+    -fx-font-size: 14px;
+}
+
+/*Text-styling*/
+.text{
+    -fx-fill: black;
     -fx-font-size: 14px;
 }
 
