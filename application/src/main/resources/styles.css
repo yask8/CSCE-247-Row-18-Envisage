@@ -1,0 +1,136 @@
+/* Root styling */
+#studentDashboard {
+    -fx-background-color: #f9f9f9; /* Set background color to a light shade of grey */
+}
+
+/* Rectangle styling */
+#studentDashboard .rectangle {
+    -fx-arc-width: 5.0; /* Set arc width */
+    -fx-arc-height: 5.0; /* Set arc height */
+    -fx-fill: transparent; /* Set fill color to transparent */
+    -fx-stroke: black; /* Set stroke color to black */
+    -fx-stroke-type: inside; /* Set stroke type to inside */
+}
+
+/* Button styling */
+#studentDashboard .button {
+    -fx-background-color: #3498db; /* Set button background color to a shade of blue */
+    -fx-text-fill: #ffffff; /* Set button text color to white */
+    -fx-font-size: 14px; /* Set button font size */
+    -fx-border-radius: 3; /* Set border radius to make corners smoother */
+}
+
+#studentDashboard .button:hover {
+    -fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+}
+
+/* Text styling */
+#studentDashboard .text {
+    -fx-fill: #333333; /* Set text color to a dark grey */
+    -fx-font-size: 14px; /* Set text font size */
+}
+
+/* Label styling */
+#studentDashboard .label {
+    -fx-text-fill: #333333; /* Set label text color to a dark grey */
+    -fx-font-size: 12px; /* Set label font size */
+}
+
+/* PieChart Data styling */
+#studentDashboard .chart-pie-label-line {
+    -fx-stroke: grey; /* Set label line color to grey */
+}
+
+#studentDashboard .chart-pie-label {
+    -fx-fill: #333333; /* Set label text color to dark grey */
+    -fx-font-size: 10px; /* Set label font size */
+    -fx-font-weight: bold; /* Set label font weight */
+}
+
+/* PieChart colors */
+#studentDashboard .default-color0.chart-pie {
+    -fx-pie-color: #3498db; /* Set first color to blue */
+}
+
+#studentDashboard .default-color1.chart-pie {
+    -fx-pie-color: #cccccc; /* Set second color to grey */
+}
+
+#studentDashboard .default-color2.chart-pie {
+    -fx-pie-color: #666666; /* Set third color to darker grey */
+}
+
+/* Welcome label styling */
+#studentDashboard #welcomeLabel {
+    -fx-font-family: "System Bold Italic";
+    -fx-font-size: 24px;
+}
+
+/* Toolbar styling */
+#studentDashboard .tool-bar {
+    -fx-background-color: #3498db; /* Set toolbar background color to a shade of blue */
+}
+
+#studentDashboard .tool-bar .label {
+    -fx-text-fill: #ffffff; /* Set label text color to white */
+    -fx-font-size: 14px; /* Set label font size */
+    -fx-font-weight: bold; /* Set label font weight */
+}
+
+/* Tabs styling */
+#studentDashboard .tab-pane {
+    -fx-background-color: #ffffff; /* Set tab pane background color to white */
+    -fx-padding: 20; /* Add padding to the tab pane */
+    -fx-border-width: 2; /* Increase border width */
+    -fx-border-color: rgba(204, 204, 204, 0.5); /* Set border color to a light grey with transparency */
+}
+
+#studentDashboard .tab-pane .tab-header-area {
+    -fx-background-color: transparent; /* Set tab header background color to transparent */
+}
+
+#studentDashboard .tab-pane .tab {
+    -fx-background-color: transparent; /* Set tab background color to transparent */
+    -fx-text-fill: #333333; /* Set tab text color to a dark grey */
+    -fx-font-size: 14px; /* Set tab font size */
+    -fx-background-insets: 0; /* Remove background insets */
+    -fx-padding: 10 20; /* Add padding to the tabs */
+}
+
+/* Selected tab styling */
+#studentDashboard .tab-pane .tab:selected {
+    -fx-background-color: transparent; /* Set selected tab background color to transparent */
+    -fx-border-color: #3498db; /* Set border color of selected tab */
+    -fx-border-width: 0 0 2 0; /* Add bottom border only */
+    -fx-border-radius: 3 3 0 0; /* Add border radius to bottom corners */
+}
+
+#studentDashboard .tab-pane .tab:selected .tab-label {
+    -fx-font-weight: bold; /* Make the text bold for the selected tab */
+}
+
+#studentDashboard .tab-pane .tab-area {
+    -fx-padding: 0; /* Remove padding from the tab area */
+}
+
+#studentDashboard .tab-pane .headers-region {
+    -fx-alignment: CENTER; /* Align tab headers in the center */
+}
+
+#studentDashboard .tab-pane .tab .tab-label {
+    -fx-padding: 0; /* Remove padding from tab labels */
+    -fx-background-insets: 0; /* Remove background insets */
+}
+
+/* Textfield styling */
+#studentDashboard .text-field {
+    -fx-background-color: #ffffff; /* Set text field background color to white */
+    -fx-border-color: #cccccc; /* Set text field border color to a light grey */
+    -fx-border-radius: 3; /* Set border radius to make corners smoother */
+}
+
+/* AnchorPane styling */
+#studentDashboard .anchor-pane {
+    -fx-background-color: #f9f9f9; /* Set anchor pane background color to a light shade of grey */
+    -fx-padding: 10; /* Add padding around the anchor pane */
+}
