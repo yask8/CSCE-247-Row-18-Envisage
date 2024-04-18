@@ -6,7 +6,7 @@
 
 /* Toolbar styling */
 .tool-bar {
-    -fx-background-color: #5567E7;
+    -fx-background-color: #5f6a9a;
 
 }
 
@@ -29,7 +29,7 @@
 }
 
 .tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: #c6cdff;
+    -fx-background-color: #aab1d2;
 }
 
 .tab-pane .tab {
@@ -45,7 +45,7 @@
 
 /* Selected tab styling */
 .tab-pane .tab:selected {
-    -fx-border-color: #5567E7;
+    -fx-border-color: #5F6A9A;
     -fx-border-width: 0 0 2px 0;
 }
 
@@ -76,7 +76,7 @@
 
 /* Button styling */
 .button {
-    -fx-background-color: #5567E7;
+    -fx-background-color: #5f6a9a;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
     -fx-border-radius: 3px;
@@ -86,7 +86,7 @@
 }
 
 .button:hover {
-    -fx-background-color: #1E88E5;
+    -fx-background-color: #aab1d2;
     -fx-transition: all 0.3s;
 }
 
