@@ -1,91 +1,97 @@
 /* Root styling */
 .root {
-    -fx-background-color: #f9f9f9; /* Set background color to a light shade of grey */
+    background-color: #f9f9f9;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Toolbar styling */
 .tool-bar {
-    -fx-background-color: #3498db; /* Set toolbar background color to a shade of blue */
+    -fx-background-color: #2196F3;
 }
 
 .tool-bar .label {
-    -fx-text-fill: #ffffff; /* Set label text color to white */
-    -fx-font-size: 14px; /* Set label font size */
-    -fx-font-weight: bold; /* Set label font weight */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
 }
 
 /* Tabs styling */
 .tab-pane {
-    -fx-background-color: #ffffff; /* Set tab pane background color to white */
-    -fx-padding: 20; /* Add padding to the tab pane */
-    -fx-border-width: 2; /* Increase border width */
-    -fx-border-color: rgba(204, 204, 204, 0.5); /* Set border color to a light grey with transparency */
+    -fx-background-color: #ffffff;
+    -fx-padding: 20px;
+    -fx-border-width: 1px;
+    -fx-border-color: #ddd;
 }
 
 .tab-pane .tab-header-area {
-    -fx-background-color: transparent; /* Set tab header background color to transparent */
+    -fx-background-color: transparent;
 }
 
 .tab-pane .tab {
-    -fx-background-color: transparent; /* Set tab background color to transparent */
-    -fx-text-fill: #333333; /* Set tab text color to a dark grey */
-    -fx-font-size: 14px; /* Set tab font size */
-    -fx-background-insets: 0; /* Remove background insets */
-    -fx-padding: 10 20; /* Add padding to the tabs */
+    -fx-background-color: transparent;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-background-insets: 0;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2,0,0,1);
+    -fx-transition: all 0.3s;
 }
 
 /* Selected tab styling */
 .tab-pane .tab:selected {
-    -fx-background-color: transparent; /* Set selected tab background color to transparent */
-    -fx-border-color: #3498db; /* Set border color of selected tab */
-    -fx-border-width: 0 0 2 0; /* Add bottom border only */
-    -fx-border-radius: 3 3 0 0; /* Add border radius to bottom corners */
+    -fx-border-color: #2196F3;
+    -fx-border-width: 0 0 2px 0;
 }
 
 .tab-pane .tab:selected .tab-label {
-    -fx-font-weight: bold; /* Make the text bold for the selected tab */
+    -fx-font-weight: bold;
 }
 
 .tab-pane .tab-area {
-    -fx-padding: 0; /* Remove padding from the tab area */
+    -fx-padding: 0;
 }
 
 .tab-pane .headers-region {
-    -fx-alignment: CENTER; /* Align tab headers in the center */
+    -fx-alignment: center;
 }
 
 .tab-pane .tab .tab-label {
-    -fx-padding: 0; /* Remove padding from tab labels */
-    -fx-background-insets: 0; /* Remove background insets */
+    -fx-padding: 0;
+    -fx-background-insets: 0;
 }
 
 /* Textfield styling */
 .text-field {
-    -fx-background-color: #ffffff; /* Set text field background color to white */
-    -fx-border-color: #cccccc; /* Set text field border color to a light grey */
-    -fx-border-radius: 3; /* Set border radius to make corners smoother */
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 3px;
 }
 
 /* Button styling */
 .button {
-    -fx-background-color: #3498db; /* Set button background color to a shade of blue */
-    -fx-text-fill: #ffffff; /* Set button text color to white */
-    -fx-font-size: 14px; /* Set button font size */
-    -fx-border-radius: 3; /* Set border radius to make corners smoother */
+    -fx-background-color: #2196F3;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-border-radius: 3px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2,0,0,1);
 }
 
 .button:hover {
-    -fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+    -fx-background-color: #1E88E5;
+    -fx-transition: all 0.3s;
 }
 
 /* Text styling */
 .text {
-    -fx-fill: #333333; /* Set text color to a dark grey */
-    -fx-font-size: 14px; /* Set text font size */
+    -fx-fill: #333333;
+    -fx-font-size: 14px;
 }
 
 /* AnchorPane styling */
 .anchor-pane {
-    -fx-background-color: #f9f9f9; /* Set anchor pane background color to a light shade of grey */
-    -fx-padding: 10; /* Add padding around the anchor pane */
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 20px;
 }

@@ -1,7 +1,11 @@
 package envisage;
-/*
- * @author Stephon Johnson
+
+/**
+ * Controller class for the Admin Add or Remove User page.
+ * Handles actions and logic related to adding or removing users by an admin.
+ * Author: Stephon Johnson
  */
+
 import AdvisingSoftware.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,12 +26,14 @@ import java.util.ResourceBundle;
 
 public class AdminAddOrRemoveController implements Initializable {
 
+    // Instance variables
     private Facade facade;
     private ArrayList<User> filteredUsers;
     private final int ROWS_PER_PAGE = 3;
     private final int COLUMNS_PER_PAGE = 3;
     private int currentPage = 0;
 
+    // FXML injected elements
     @FXML
     private AnchorPane AddOrRemoveUser;
 
@@ -70,8 +76,14 @@ public class AdminAddOrRemoveController implements Initializable {
     @FXML
     private Label ErrormessageLabel;
 
-
-
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object,
+     *                  or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null
+     *                  if the root object was not localized.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         facade = Facade.getInstance();
@@ -84,6 +96,9 @@ public class AdminAddOrRemoveController implements Initializable {
         populateUserList();
     }
 
+    /**
+     * Populates the user list grid with users based on the current page and filters.
+     */
     private void populateUserList() {
         ArrayList<User> users = new ArrayList<>();
         users.addAll(facade.getUserList().getUsers());
@@ -109,31 +124,40 @@ public class AdminAddOrRemoveController implements Initializable {
         searchErrorLabel.setVisible(false);
     }
 
+    /**
+     * Handles the save action, either adding or removing users based on the selected action.
+     *
+     * @param event The event representing the action.
+     */
     @FXML
     void save(ActionEvent event) {
-    String selectedAction = IAmChoiceBox.getValue().toString();
+        String selectedAction = IAmChoiceBox.getValue().toString();
 
-    if (selectedAction == null || selectedAction.isEmpty()) {
-        ErrormessageLabel.setText("Please select an action (Add/Remove).");
-        return;
+        if (selectedAction == null || selectedAction.isEmpty()) {
+            ErrormessageLabel.setText("Please select an action (Add/Remove).");
+            return;
+        }
+
+        switch (selectedAction) {
+            case "Add":
+                ErrormessageLabel.setText("Users added successfully.");
+                // Implement add logic
+                break;
+            case "Remove":
+                ErrormessageLabel.setText("Users removed successfully.");
+                // Implement remove logic
+                break;
+            default:
+                ErrormessageLabel.setText("Invalid action selected.");
+                break;
+        }
     }
 
-    switch (selectedAction) {
-        case "Add":
-            ErrormessageLabel.setText("Users added successfully.");
-            // Implement add logic
-            break;
-        case "Remove":
-            ErrormessageLabel.setText("Users removed successfully.");
-            // Implement remove logic
-            break;
-        default:
-            ErrormessageLabel.setText("Invalid action selected.");
-            break;
-    }
-}
-
-
+    /**
+     * Handles the search action, filtering users based on search text and criteria.
+     *
+     * @param event The event representing the action.
+     */
     @FXML
     void search(ActionEvent event) {
         String searchText = searchBarTextField.getText().trim().toLowerCase();
@@ -180,11 +204,21 @@ public class AdminAddOrRemoveController implements Initializable {
         }
     }
 
+    /**
+     * Checks if a user's full name matches the search text.
+     *
+     * @param user       The user to check.
+     * @param searchText The search text to match against.
+     * @return True if the user's full name matches the search text, false otherwise.
+     */
     private boolean matchesSearch(User user, String searchText) {
         String fullName = user.getFirstName() + " " + user.getLastName();
         return fullName.toLowerCase().contains(searchText);
     }
 
+    /**
+     * Displays the filtered users in the grid.
+     */
     private void displayFilteredUsers() {
         addOrRemoveGridPane.getChildren().clear();
 
@@ -195,6 +229,11 @@ public class AdminAddOrRemoveController implements Initializable {
         }
     }
 
+    /**
+     * Clears the search filters and resets the user list to the initial state.
+     *
+     * @param event The event representing the action.
+     */
     @FXML
     void clearSearch(ActionEvent event) {
         searchBarTextField.clear();
@@ -206,6 +245,11 @@ public class AdminAddOrRemoveController implements Initializable {
         populateUserList();
     }
 
+    /**
+     * Navigates to the next page of users in the grid.
+     *
+     * @param event The event representing the action.
+     */
     @FXML
     void nextPage(ActionEvent event) {
         int totalUsers = (filteredUsers != null) ? filteredUsers.size() : facade.getUserList().getUsers().size();
@@ -217,6 +261,11 @@ public class AdminAddOrRemoveController implements Initializable {
         }
     }
 
+    /**
+     * Navigates to the previous page of users in the grid.
+     *
+     * @param event The event representing the action.
+     */
     @FXML
     void previousPage(ActionEvent event) {
         if (currentPage > 0) {
@@ -225,6 +274,12 @@ public class AdminAddOrRemoveController implements Initializable {
         }
     }
 
+    /**
+     * Sets the stage to the appropriate dashboard based on the user's role.
+     *
+     * @param event The event representing the action.
+     * @throws IOException if an I/O error occurs when setting the root scene.
+     */
     @FXML
     void setStageDashboard(ActionEvent event) throws IOException {
         if (facade.getUser() == null) {
