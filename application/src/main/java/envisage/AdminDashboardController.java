@@ -18,100 +18,107 @@ import javafx.scene.layout.AnchorPane;
  */
 public class AdminDashboardController implements Initializable {
 
-    // Instance variables
-    private Facade facade;
-    private User user;
+  // Instance variables
+  private Facade facade;
+  private User user;
 
-    // FXML injected elements
-    @FXML
-    private Label welcomeLabel;
+  // FXML injected elements
+  @FXML
+  private Label welcomeLabel;
 
-    @FXML
-    private AnchorPane adminDashboard;
+  @FXML
+  private Label IDNotTitleLabel;
 
-    @FXML
-    private Button adminProfileButton;
+  @FXML
+  private Label mainEmailTitleLabel;
 
-    @FXML
-    private Button manageAppAreasButton;
+  @FXML
+  private AnchorPane adminDashboard;
 
-    @FXML
-    private Button manageCoursesButton;
+  @FXML
+  private Button adminProfileButton;
 
-    @FXML
-    private Button manageMajorMapsButton;
+  @FXML
+  private Button manageAppAreasButton;
 
-    @FXML
-    private Button AddOrRemoveUsersButton;
+  @FXML
+  private Button manageCoursesButton;
 
-    @FXML
-    private Button signOutButton;
+  @FXML
+  private Button manageMajorMapsButton;
 
-    @FXML
-    private Button studentLookupButton;
+  @FXML
+  private Button AddOrRemoveUsersButton;
 
-    /**
-     * Initializes the controller after its root element has been completely processed.
-     *
-     * @param location  The location used to resolve relative paths for the root object,
-     *                  or null if the location is not known.
-     * @param resources The resources used to localize the root object, or null
-     *                  if the root object was not localized.
-     */
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        facade = Facade.getInstance();
-        user = facade.getUser();
-        welcomeLabel.setText("Welcome " + user.getFirstName());
-    }
+  @FXML
+  private Button signOutButton;
 
-    /**
-     * Navigates to the Student Lookup page.
-     *
-     * @param event The event representing the action.
-     * @throws IOException if an I/O error occurs when setting the root scene.
-     */
-    @FXML
-    void setStageStudentLookup(ActionEvent event) throws IOException {
-        App.setRoot("studentLookup");
-    }
+  @FXML
+  private Button studentLookupButton;
 
-    /**
-     * Navigates to the Advisor Profile page.
-     *
-     * @param event The event representing the action.
-     * @throws IOException if an I/O error occurs when setting the root scene.
-     */
-    @FXML
-    void setStageAdvisorProfile(ActionEvent event) throws IOException {
-        App.setRoot("advisorProfile");
-    }
+  /**
+   * Initializes the controller after its root element has been completely processed.
+   *
+   * @param location  The location used to resolve relative paths for the root object,
+   *                  or null if the location is not known.
+   * @param resources The resources used to localize the root object, or null
+   *                  if the root object was not localized.
+   */
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    facade = Facade.getInstance();
+    user = facade.getUser();
+    welcomeLabel.setText("Welcome " + user.getFirstName());
+    IDNotTitleLabel.setText(user.getID().toString());
+    mainEmailTitleLabel.setText(user.getEmail());
+  }
 
-    /**
-     * Navigates to the Admin Profile page.
-     *
-     * @param event The event representing the action.
-     */
-    @FXML
-    void setStageAdminProfile(ActionEvent event) {
-        // Implement navigation to Admin Profile page
-    }
+  /**
+   * Navigates to the Student Lookup page.
+   *
+   * @param event The event representing the action.
+   * @throws IOException if an I/O error occurs when setting the root scene.
+   */
+  @FXML
+  void setStageStudentLookup(ActionEvent event) throws IOException {
+    App.setRoot("studentLookup");
+  }
 
-    /**
-     * Navigates to the Major List page.
-     *
-     * @param event The event representing the action.
-     * @throws IOException if an I/O error occurs when setting the root scene.
-     */
-    @FXML
-    void setStageMajorList(ActionEvent event) throws IOException {
-        App.setRoot("majorList");
-    }
+  /**
+   * Navigates to the Advisor Profile page.
+   *
+   * @param event The event representing the action.
+   * @throws IOException if an I/O error occurs when setting the root scene.
+   */
+  @FXML
+  void setStageAdvisorProfile(ActionEvent event) throws IOException {
+    App.setRoot("advisorProfile");
+  }
+
+  /**
+   * Navigates to the Admin Profile page.
+   *
+   * @param event The event representing the action.
+   */
+  @FXML
+  void setStageAdminProfile(ActionEvent event) {
+    // Implement navigation to Admin Profile page
+  }
+
+  /**
+   * Navigates to the Major List page.
+   *
+   * @param event The event representing the action.
+   * @throws IOException if an I/O error occurs when setting the root scene.
+   */
+  @FXML
+  void setStageMajorList(ActionEvent event) throws IOException {
+    App.setRoot("majorList");
+  }
 
   @FXML
   void setStageAddRemoveUsers(ActionEvent event) throws IOException {
     App.setRoot("AdminAddOrRemove");
-    
   }
 
   @FXML
@@ -119,18 +126,18 @@ public class AdminDashboardController implements Initializable {
     App.setRoot("manageCourses");
   }
 
-    /**
-     * Signs out the user and navigates to the Login page.
-     *
-     * @param event The event representing the action.
-     */
-    @FXML
-    void signOut(ActionEvent event) {
-        try {
-            Facade.getInstance().signOut();
-            App.setRoot("LogIn");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+  /**
+   * Signs out the user and navigates to the Login page.
+   *
+   * @param event The event representing the action.
+   */
+  @FXML
+  void signOut(ActionEvent event) {
+    try {
+      Facade.getInstance().signOut();
+      App.setRoot("LogIn");
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 }

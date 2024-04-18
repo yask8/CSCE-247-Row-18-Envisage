@@ -13,21 +13,19 @@ import java.util.ResourceBundle;
 import java.util.UUID;
 import javafx.event.ActionEvent;
 /**
+ * Controller class for AdvisorProfile page
  * @author Lia Zhao (zhaolia9), Yasmine Kennedy (yask8), and Garrett Spillman (Spillmag)
  */
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.shape.Rectangle;
-import javax.security.auth.callback.TextOutputCallback;
-import javax.swing.Action;
 
 public class AdvisorProfileController implements Initializable {
 
@@ -91,19 +89,21 @@ public class AdvisorProfileController implements Initializable {
     if (facade.getUser().getUserType().equals("ADVISOR")) {
       IDNotTitleLabel.setText(user.getID().toString());
       mainEmailTitleLabel.setText(user.getEmail());
-      //initAdvisor();
+
       try {
         initAdvised();
       } catch (ParseException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
       }
-      //initStudent();
-    } else {
-      //initOtherUsers(studentID);
     }
   }
 
+  /**
+   * getter for Advisor to get advisees
+   * converts UUID to Student array list
+   * @return ArrayList<Student> list of Advisees
+   */
   private ArrayList<Student> getAdvisees() {
     ArrayList<UUID> advisees = ((Advisor) user).getListOfAdvisees();
     ArrayList<Student> students = new ArrayList<Student>();
@@ -116,11 +116,13 @@ public class AdvisorProfileController implements Initializable {
     return students;
   }
 
+  /**
+   * returns and updates the advising period based on current time
+   * @return Date advising period
+   * @throws ParseException
+   */
   private Date updateAdvisingPeriod() throws ParseException {
-    //Date date = new Date();
     SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
-    //int year = date.getYear();
-    //int month = date.getMonth();
     Calendar calendar = Calendar.getInstance();
     int year = calendar.get(Calendar.YEAR);
     int month = calendar.get(Calendar.MONTH);
@@ -133,9 +135,12 @@ public class AdvisorProfileController implements Initializable {
     }
   }
 
+  /**
+   * populates the AdvisorProfile screen with a tree that shows advised/unadvised students
+   * @throws ParseException
+   */
   private void initAdvised() throws ParseException {
     ArrayList<Student> listOfAdvisees = getAdvisees();
-    //SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
     Date advisingComparison = updateAdvisingPeriod();
 
     ArrayList<Student> advisedList = new ArrayList<>();
@@ -193,103 +198,18 @@ public class AdvisorProfileController implements Initializable {
       );
       root.getChildren().add(errorItem);
 
-      /*TreeItem<String> */root =
-        new TreeItem<>("Unadvised Advisees List Error");
+      root = new TreeItem<>("Unadvised Advisees List Error");
       adviseeCompletionTree.setRoot(root);
-      /*TreeItem<String> */errorItem =
-        new TreeItem<>("Unable to retrieve any unadvised advisees.");
+      errorItem = new TreeItem<>("Unable to retrieve any unadvised advisees.");
       root.getChildren().add(errorItem);
-      /* 
-      if (listOfAdvisees == null) {
-        TreeItem<String> root = new TreeItem<>("Advisee List Error");
-        adviseeCompletionTree.setRoot(root);
-        TreeItem<String> errorItem = new TreeItem<>(
-          "Unable to retrieve any advisees."
-        );
-        root.getChildren().add(errorItem);
-      }
-      if (listOfFailing == null) {
-        TreeItem<String> root = new TreeItem<>("At-Risk List Error");
-        adviseeCompletionTree.setRoot(root);
-        TreeItem<String> errorItem = new TreeItem<>(
-          "Unable to retrieve At-Risk advisees."
-        );
-        root.getChildren().add(errorItem);
-      }
-    */
     }
   }
 
-  private void initAdvisor() {
-    ArrayList<Student> listOfAdvisees = getAdvisees();
-    ArrayList<Student> listOfFailing = new ArrayList<Student>();
-
-    for (UUID fail : ((Advisor) user).getListOfFailingStudents()) {
-      Student displayedStudent =
-        ((Advisor) user).getStudentByAdvisor(fail, facade.getUserList());
-
-      if (!listOfFailing.contains(displayedStudent)) {
-        listOfFailing.add(displayedStudent);
-      }
-    }
-
-    if (!listOfAdvisees.isEmpty()) {
-      TreeItem<String> root = new TreeItem<>(userFirstName + "'s Advisees");
-
-      adviseeCompletionTree.setRoot(root);
-      TreeItem<String> cumulativeItem = new TreeItem<>("All Advisees");
-      root.getChildren().add(cumulativeItem);
-
-      for (Student xadvisee : listOfAdvisees) {
-        TreeItem<String> displayedAdviseeList = new TreeItem<>(
-          xadvisee.toString()
-        );
-        cumulativeItem.getChildren().add(displayedAdviseeList);
-      }
-
-      TreeItem<String> subCategoryItem = new TreeItem<>("At-Risk Advisees");
-      root.getChildren().add(subCategoryItem);
-
-      for (Student xadvisee : listOfFailing) {
-        TreeItem<String> displayedFailingList = new TreeItem<>(
-          xadvisee.toString()
-        );
-        subCategoryItem.getChildren().add(displayedFailingList);
-      }
-    } else {
-      TreeItem<String> root = new TreeItem<>("Advisee List Error");
-      adviseeCompletionTree.setRoot(root);
-      TreeItem<String> errorItem = new TreeItem<>(
-        "Unable to retrieve any advisees."
-      );
-      root.getChildren().add(errorItem);
-
-      /*TreeItem<String> */root = new TreeItem<>("At-Risk List Error");
-      adviseeCompletionTree.setRoot(root);
-      /*TreeItem<String> */errorItem =
-        new TreeItem<>("Unable to retrieve At-Risk advisees.");
-      root.getChildren().add(errorItem);
-      /* 
-      if (listOfAdvisees == null) {
-        TreeItem<String> root = new TreeItem<>("Advisee List Error");
-        adviseeCompletionTree.setRoot(root);
-        TreeItem<String> errorItem = new TreeItem<>(
-          "Unable to retrieve any advisees."
-        );
-        root.getChildren().add(errorItem);
-      }
-      if (listOfFailing == null) {
-        TreeItem<String> root = new TreeItem<>("At-Risk List Error");
-        adviseeCompletionTree.setRoot(root);
-        TreeItem<String> errorItem = new TreeItem<>(
-          "Unable to retrieve At-Risk advisees."
-        );
-        root.getChildren().add(errorItem);
-      }
-    */
-    }
-  }
-
+  /**
+   * shows whether a gpa is failing or passing
+   * @param event when button is clicked, a pop up appears to take an input of gpa and major
+   * @throws IOException
+   */
   @FXML
   void checkFailButton(ActionEvent event) throws IOException {
     TextInputDialog dialog = new TextInputDialog();
@@ -297,8 +217,6 @@ public class AdvisorProfileController implements Initializable {
     dialog.setHeaderText("Enter the current GPA to check fail status");
     dialog.setContentText("Enter the current GPA");
     Optional<String> result = dialog.showAndWait();
-    //result.ifPresent(noteText -> {currentGPA = Double.parseDouble(noteText);});
-    //result.ifPresent(xmajor -> { if(facade.getMajorMap(xmajor) != null){}});
 
     result.ifPresent(noteText -> {
       double d = Double.parseDouble(noteText);
@@ -346,17 +264,23 @@ public class AdvisorProfileController implements Initializable {
         }
       });
     });
-    //noteListView.getItems().clear();
-    //facade.saveUsers();
-    //initialize(null, null);
-    //});
   }
 
+  /**
+   *
+   * @param event when button is clicked it returns to AdviseeManage screen
+   * @throws IOException
+   */
   @FXML
   void setStageAdviseeManage(ActionEvent event) throws IOException {
     App.setRoot("adviseeManage");
   }
 
+  /**
+   * return to user dashboard
+   * @param event when button is clicked it checks user type to return to corresponding dashboard
+   * @throws IOException
+   */
   @FXML
   void setStageDashboard(ActionEvent event) throws IOException {
     if (user == null) {
