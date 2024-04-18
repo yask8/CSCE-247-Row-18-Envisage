@@ -29,5 +29,17 @@
         <Button fx:id="manageCoursesButton" layoutX="225.0" layoutY="310.0" onAction="#setStageManageCourses" prefHeight="40.0" prefWidth="190.0" text="Manage Courses" />
         <Button fx:id="manageAppAreasButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Manage Application Areas" />
         <Button fx:id="signOutButton" layoutX="540.0" layoutY="365.0" mnemonicParsing="false" onAction="#signOut" prefHeight="20.0" prefWidth="80.0" text="Sign Out" />
+      <Label layoutX="49.0" layoutY="133.0" text="ID:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="49.0" layoutY="111.0" text="Main Email:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="mainEmailTitleLabel" layoutX="123.0" layoutY="111.0" prefHeight="17.0" prefWidth="195.0" />
+      <Label fx:id="IDNotTitleLabel" layoutX="72.0" layoutY="133.0" prefHeight="17.0" prefWidth="249.0" />
     </children>
 </AnchorPane>
