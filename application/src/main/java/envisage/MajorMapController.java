@@ -15,6 +15,10 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Controller class for the MajorMap.fxml file.
+ * Handles actions and displays related to the major map functionality.
+ */
 public class MajorMapController implements Initializable {
 
   private Facade facade = Facade.getInstance();
@@ -45,27 +49,46 @@ public class MajorMapController implements Initializable {
   @FXML
   private Label minTotalHoursLabel;
 
+  /**
+   * Handles the action event for navigating back to the major list or student
+   * dashboard.
+   * 
+   * @param event The action event that occurred.
+   * @throws IOException If an error occurs while loading the FXML file for the
+   *                     destination view.
+   */
   @FXML
   void setStageMajorList(ActionEvent event) throws IOException {
-      User user = facade.getUser();
-      if (user.getUserType().equals("STUDENT") && (facade.getStudentMajor() != null && !facade.getStudentMajor().isEmpty() && !facade.getStudentMajor().equals("Undeclared"))) {
-      
-          try {
-              App.setRoot("studentDashboard");
-          } catch (IOException e) {
-              System.err.println("Error switching to studentDashboard screen: " + e.getMessage());
-              e.printStackTrace();
-          }
-      } else {
+    User user = facade.getUser();
+    if (user.getUserType().equals("STUDENT") && (facade.getStudentMajor() != null && !facade.getStudentMajor().isEmpty()
+        && !facade.getStudentMajor().equals("Undeclared"))) {
 
-          try {
-              App.setRoot("majorList");
-          } catch (IOException e) {
-              System.err.println("Error switching to majorList screen: " + e.getMessage());
-              e.printStackTrace();
-          }
+      try {
+        App.setRoot("studentDashboard");
+      } catch (IOException e) {
+        System.err.println("Error switching to studentDashboard screen: " + e.getMessage());
+        e.printStackTrace();
       }
+    } else {
+
+      try {
+        App.setRoot("majorList");
+      } catch (IOException e) {
+        System.err.println("Error switching to majorList screen: " + e.getMessage());
+        e.printStackTrace();
+      }
+    }
   }
+
+  /**
+   * Initializes the major map view.
+   * Loads major map data based on the selected major.
+   * 
+   * @param url The location used to resolve relative paths for the root object,
+   *            or null if the location is not known.
+   * @param rb  The resources used to localize the root object, or null if the
+   *            root object was not localized.
+   */
   public void initialize(URL url, ResourceBundle rb) {
     majorName = MajorNameStore.getInstance().getMajorName();
     if (majorName != null && !majorName.isEmpty()) {
@@ -74,6 +97,10 @@ public class MajorMapController implements Initializable {
     }
   }
 
+  /**
+   * Loads data for the selected major map.
+   * Populates the major map details and course tree view.
+   */
   private void loadMajorMapData() {
     MajorMap majorMap = findMajorMapByName(majorName);
     if (majorMap != null) {
@@ -100,6 +127,12 @@ public class MajorMapController implements Initializable {
     }
   }
 
+  /**
+   * Finds a major map by its name.
+   * 
+   * @param majorName The name of the major map to find.
+   * @return The MajorMap object if found, or null if not found.
+   */
   private MajorMap findMajorMapByName(String majorName) {
     for (MajorMap majorMap : majorList) {
       if (majorMap.getMajor().equals(majorName)) {
@@ -109,6 +142,12 @@ public class MajorMapController implements Initializable {
     return null;
   }
 
+  /**
+   * Setter method for the major name.
+   * Updates the major name and loads data for the corresponding major map.
+   * 
+   * @param majorName The name of the major.
+   */
   public void setMajorName(String majorName) {
     this.majorName = majorName;
     System.out.println("Major Name set: " + majorName);

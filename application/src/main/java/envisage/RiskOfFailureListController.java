@@ -1,3 +1,4 @@
 package envisage;
 
-public class RiskOfFailureListController {}
+public class RiskOfFailureListController {
+}

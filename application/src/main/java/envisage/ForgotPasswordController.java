@@ -20,8 +20,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
-
-
 public class ForgotPasswordController implements Initializable {
 
     // FXML injected variables
@@ -55,10 +53,13 @@ public class ForgotPasswordController implements Initializable {
     @FXML
     private Label checkPasswordsErrorLabel;
 
-     /**
-     * Initializes the controller after its root element has been completely processed and
+    /**
+     * Initializes the controller after its root element has been completely
+     * processed and
      * sets all of the hidden values to false.
-     * @param location  The location used to resolve relative paths for the root object,
+     * 
+     * @param location  The location used to resolve relative paths for the root
+     *                  object,
      *                  or null if the location is not known.
      * @param resources The resources used to localize the root object, or null
      *                  if the root object was not localized.
@@ -75,6 +76,7 @@ public class ForgotPasswordController implements Initializable {
 
     /**
      * Checks users school ID to ensure they are a valid user
+     * 
      * @param event representing a mouse event
      */
     @FXML
@@ -98,6 +100,7 @@ public class ForgotPasswordController implements Initializable {
 
     /**
      * Resets the password
+     * 
      * @param event representing a mouse event
      */
     @FXML
@@ -105,7 +108,7 @@ public class ForgotPasswordController implements Initializable {
         Facade facade = Facade.getInstance();
         UUID id = UUID.fromString(enterSchoolIDTextField.getText());
         String password = newPassword.getText();
-        if (password.length() >= 8 && password.length() <= 25 ) {
+        if (password.length() >= 8 && password.length() <= 25) {
             facade.getUserList().getUserbyUSCID(id).editPassword(password);
             String modified_password = facade.getUserList().getUserbyUSCID(id).getPassword();
             if (checkIfConfirmPasswordMatchesPassword() && modified_password.equals(password)) {
@@ -130,6 +133,7 @@ public class ForgotPasswordController implements Initializable {
     /**
      * Helper Method that checks if the new password matches the confirmed
      * password.
+     * 
      * @return if the passwords do or do not match
      */
     private boolean checkIfConfirmPasswordMatchesPassword() {

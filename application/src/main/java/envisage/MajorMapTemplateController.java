@@ -29,8 +29,10 @@ public class MajorMapTemplateController {
      * Handles the action event for setting the major map.
      * If the major name is undeclared or empty, navigates to the major list.
      * Otherwise, sets the selected major name and navigates to the MajorMap view.
+     * 
      * @param event The action event that occurred.
-     * @throws IOException If an error occurs while loading the FXML file for the MajorMap view.
+     * @throws IOException If an error occurs while loading the FXML file for the
+     *                     MajorMap view.
      */
     @FXML
     void setMajorMap(ActionEvent event) throws IOException {
@@ -53,6 +55,7 @@ public class MajorMapTemplateController {
 
     /**
      * Sets the major name displayed on the major map template.
+     * 
      * @param majorName The major name to set.
      */
     public void setMajorName(String majorName) {

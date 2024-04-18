@@ -67,10 +67,9 @@ public class CourseListController implements Initializable {
     facade = Facade.getInstance();
     user = facade.getUser();
     ObservableList<String> roleOptions = FXCollections.observableArrayList(
-      "Code",
-      "Name",
-      "ID"
-    );
+        "Code",
+        "Name",
+        "ID");
     filterByChoiceBox.setItems(roleOptions);
     populateCourseList();
   }
@@ -83,8 +82,7 @@ public class CourseListController implements Initializable {
     ArrayList<Course> courses = facade.getCourses();
     int totalCourses = courses.size();
     int totalPages = (int) Math.ceil(
-      (double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
-    );
+        (double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
 
     currentPage = Math.min(currentPage, totalPages - 1);
     currentPage = Math.max(currentPage, 0);
@@ -97,8 +95,7 @@ public class CourseListController implements Initializable {
     for (int i = start; i < end; i++) {
       Course course = courses.get(i);
       FXMLLoader loader = new FXMLLoader(
-        getClass().getResource("CourseTemplate.fxml")
-      );
+          getClass().getResource("CourseTemplate.fxml"));
       try {
         AnchorPane courseTemplate = loader.load();
 
@@ -121,7 +118,9 @@ public class CourseListController implements Initializable {
 
   /**
    * next page button for the course list search
-   * @param event when button is clicked, the screen is set to next screen with more courses
+   * 
+   * @param event when button is clicked, the screen is set to next screen with
+   *              more courses
    */
   @FXML
   void nextPage(ActionEvent event) {
@@ -134,8 +133,7 @@ public class CourseListController implements Initializable {
 
     int totalCourses = courses.size();
     int totalPages = (int) Math.ceil(
-      (double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
-    );
+        (double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
 
     if (currentPage < totalPages - 1) {
       currentPage++;
@@ -146,7 +144,9 @@ public class CourseListController implements Initializable {
 
   /**
    * previous page button for the course list search
-   * @param event when button is clicked, the screen is set to previous screen with previous courses
+   * 
+   * @param event when button is clicked, the screen is set to previous screen
+   *              with previous courses
    */
   @FXML
   void previousPage(ActionEvent event) {
@@ -159,7 +159,9 @@ public class CourseListController implements Initializable {
 
   /**
    * search button for the course list search
-   * @param event when button is clicked, populates screen with courses based on the given parameters
+   * 
+   * @param event when button is clicked, populates screen with courses based on
+   *              the given parameters
    */
   @FXML
   void search(ActionEvent event) {
@@ -206,23 +208,23 @@ public class CourseListController implements Initializable {
 
       int totalCourses = filteredCourses.size();
       int totalPages = (int) Math.ceil(
-        (double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
-      );
+          (double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
       pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
   }
 
   /**
    * used in search method
-   * @param filteredCourses ArrayList<Course> courses filtered from the given parameters
+   * 
+   * @param filteredCourses ArrayList<Course> courses filtered from the given
+   *                        parameters
    */
   private void displayFilteredCourses(ArrayList<Course> filteredCourses) {
     courseListGridPane.getChildren().clear();
 
     int totalCourses = filteredCourses.size();
     int totalPages = (int) Math.ceil(
-      (double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
-    );
+        (double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
     currentPage = Math.min(currentPage, totalPages - 1);
     currentPage = Math.max(currentPage, 0);
 
@@ -232,8 +234,7 @@ public class CourseListController implements Initializable {
     for (int i = start; i < end; i++) {
       Course course = filteredCourses.get(i);
       FXMLLoader loader = new FXMLLoader(
-        getClass().getResource("CourseTemplate.fxml")
-      );
+          getClass().getResource("CourseTemplate.fxml"));
       try {
         AnchorPane courseTemplate = loader.load();
 
@@ -256,7 +257,9 @@ public class CourseListController implements Initializable {
 
   /**
    * returns to user dashboard
-   * @param event when button is clicked, based on user type, the user returns to its corresponding dashboard
+   * 
+   * @param event when button is clicked, based on user type, the user returns to
+   *              its corresponding dashboard
    * @throws IOException
    */
   @FXML
@@ -281,6 +284,7 @@ public class CourseListController implements Initializable {
 
   /**
    * clear button
+   * 
    * @param event when clicked, the screen resets to default course list view
    */
   @FXML

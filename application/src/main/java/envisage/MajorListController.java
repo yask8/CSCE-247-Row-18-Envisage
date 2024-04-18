@@ -19,7 +19,8 @@ import AdvisingSoftware.*;
 
 /**
  * Controller class for the MajorList.fxml file.
- * This class handles the display of major maps and provides functionality for navigation between pages,
+ * This class handles the display of major maps and provides functionality for
+ * navigation between pages,
  * searching for majors, and clearing the search.
  */
 public class MajorListController implements Initializable {
@@ -65,8 +66,11 @@ public class MajorListController implements Initializable {
      * Initializes the controller class.
      * This method is automatically called after the FXML file has been loaded.
      * It populates the major map list on the initial display.
-     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
-     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     * 
+     * @param location  The location used to resolve relative paths for the root
+     *                  object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if
+     *                  the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -113,6 +117,7 @@ public class MajorListController implements Initializable {
     /**
      * Handles the action event for navigating to the next page of major maps.
      * Increments the current page index and repopulates the major map list.
+     * 
      * @param event The action event that occurred.
      */
     @FXML
@@ -126,6 +131,7 @@ public class MajorListController implements Initializable {
     /**
      * Handles the action event for navigating to the previous page of major maps.
      * Decrements the current page index and repopulates the major map list.
+     * 
      * @param event The action event that occurred.
      */
     @FXML
@@ -138,8 +144,10 @@ public class MajorListController implements Initializable {
 
     /**
      * Handles the action event for searching for majors.
-     * Retrieves the search text from the search bar, filters the majors based on the search text,
+     * Retrieves the search text from the search bar, filters the majors based on
+     * the search text,
      * and displays the filtered majors.
+     * 
      * @param event The action event that occurred.
      */
     @FXML
@@ -165,6 +173,7 @@ public class MajorListController implements Initializable {
     /**
      * Handles the action event for clearing the search bar.
      * Clears the search bar text and repopulates the major map list.
+     * 
      * @param event The action event that occurred.
      */
     @FXML
@@ -175,7 +184,9 @@ public class MajorListController implements Initializable {
 
     /**
      * Displays the filtered list of majors.
-     * Updates the major map list with the filtered majors and adjusts the page numbering accordingly.
+     * Updates the major map list with the filtered majors and adjusts the page
+     * numbering accordingly.
+     * 
      * @param filteredMajors The list of filtered majors to display.
      */
     private void displayFilteredMajors(ArrayList<MajorMap> filteredMajors) {
@@ -213,8 +224,10 @@ public class MajorListController implements Initializable {
     /**
      * Handles the action event for navigating to the dashboard.
      * Depending on the user type, navigates to the appropriate dashboard.
+     * 
      * @param event The action event that occurred.
-     * @throws IOException If an error occurs while loading the FXML file for the dashboard.
+     * @throws IOException If an error occurs while loading the FXML file for the
+     *                     dashboard.
      */
     @FXML
     void setStageDashboard(ActionEvent event) throws IOException {
@@ -237,7 +250,9 @@ public class MajorListController implements Initializable {
     }
 
     /**
-     * Calculates the total number of pages based on the number of majors and the rows and columns per page.
+     * Calculates the total number of pages based on the number of majors and the
+     * rows and columns per page.
+     * 
      * @return The total number of pages.
      */
     private int getTotalPages() {

@@ -87,10 +87,12 @@ public class StudentProfileController implements Initializable {
     UUID studentID = null;
     StudentIDStore studentIDStore = StudentIDStore.getInstance();
 
-     /**
-     * Initializes the controller after its root element has been completely processed.
+    /**
+     * Initializes the controller after its root element has been completely
+     * processed.
      *
-     * @param location  The location used to resolve relative paths for the root object,
+     * @param location  The location used to resolve relative paths for the root
+     *                  object,
      *                  or null if the location is not known.
      * @param resources The resources used to localize the root object, or null
      *                  if the root object was not localized.
@@ -106,11 +108,11 @@ public class StudentProfileController implements Initializable {
         }
     }
 
-
-   /**
-    * Helper method to set the users id
-    * @param id the users unique id
-    */
+    /**
+     * Helper method to set the users id
+     * 
+     * @param id the users unique id
+     */
     public void setUserId(UUID id) {
         this.studentID = id;
         studentIDStore.setStudentID(id);
@@ -123,10 +125,10 @@ public class StudentProfileController implements Initializable {
     private void initStudent() {
         ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
         ArrayList<String> studentIncompletedCourses = facade.getStudentDegreeProgress().getIncompleteCourses();
-        
+
         TreeItem<String> root = new TreeItem<>(userFirstName + "'s Completed and Incompleted Courses");
         studentCompletionTree.setRoot(root);
-    
+
         if (studentCompletedCourses != null && !studentCompletedCourses.isEmpty()) {
             TreeItem<String> completedItem = new TreeItem<>("Completed Courses");
             root.getChildren().add(completedItem);
@@ -138,7 +140,7 @@ public class StudentProfileController implements Initializable {
             TreeItem<String> errorItem = new TreeItem<>("Unable to retrieve completed courses.");
             root.getChildren().add(errorItem);
         }
-    
+
         if (studentIncompletedCourses != null && !studentIncompletedCourses.isEmpty()) {
             TreeItem<String> incompletedItem = new TreeItem<>("Incompleted Courses");
             root.getChildren().add(incompletedItem);
@@ -150,7 +152,7 @@ public class StudentProfileController implements Initializable {
             TreeItem<String> errorItem = new TreeItem<>("Unable to retrieve incompleted courses.");
             root.getChildren().add(errorItem);
         }
-    
+
         advisingStudentProfileLabel.setVisible(false);
         studentProfileTitleLabel.setText(userFirstName + " " + userLastName + "'s Student Profile");
         studentsSummaryTitleLabel.setText("Student Summary:");
@@ -158,7 +160,7 @@ public class StudentProfileController implements Initializable {
         majorNotTitleLabel.setText(facade.getStudentMajor() != null ? facade.getStudentMajor() : "Undeclared");
         String studentCreditHours = Integer.toString(facade.getStudentCreditHours());
         creditHoursNotTitleLabel.setText(studentCreditHours);
-    
+
         ArrayList<Note> advisorNotes = facade.getStudentAdvisorNotes();
         if (!advisorNotes.isEmpty()) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
@@ -169,7 +171,7 @@ public class StudentProfileController implements Initializable {
         } else {
             noteListView.getItems().add("No Notes Given Yet");
         }
-    
+
         boolean isAdvisor = user.getUserType().equals("ADVISOR");
         if (!isAdvisor) {
             addNoteButton.setVisible(false);
@@ -183,7 +185,9 @@ public class StudentProfileController implements Initializable {
     }
 
     /**
-     * Helper method to intialize a students completed and incompleted courses for a different user type
+     * Helper method to intialize a students completed and incompleted courses for a
+     * different user type
+     * 
      * @param studentId the students id
      */
     private void initOtherUsers(UUID studentId) {
@@ -219,10 +223,12 @@ public class StudentProfileController implements Initializable {
             }
 
             advisingStudentProfileLabel.setVisible(false);
-            studentProfileTitleLabel.setText(student.getFirstName() + " " + student.getLastName() + "'s Student Profile");
+            studentProfileTitleLabel
+                    .setText(student.getFirstName() + " " + student.getLastName() + "'s Student Profile");
             studentsSummaryTitleLabel.setText("Student Summary:");
 
-            appAreaNotTitleLabel.setText(student.getApplicationArea() != null ? student.getApplicationArea() : "Undecided");
+            appAreaNotTitleLabel
+                    .setText(student.getApplicationArea() != null ? student.getApplicationArea() : "Undecided");
             majorNotTitleLabel.setText(student.getMajor() != null ? student.getMajor() : "Undeclared");
 
             ArrayList<Note> advisorNotes = student.getAdvisorNotes();
@@ -248,7 +254,6 @@ public class StudentProfileController implements Initializable {
             }
         }
     }
-
 
     @FXML
     private void goBack(ActionEvent event) {

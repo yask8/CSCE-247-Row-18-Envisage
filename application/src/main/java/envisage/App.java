@@ -10,7 +10,8 @@ import javafx.stage.Stage;
 
 /**
  * The main class of the Envisage application.
- * This class extends JavaFX Application and serves as the entry point for the application.
+ * This class extends JavaFX Application and serves as the entry point for the
+ * application.
  * It manages navigation between different screens using a stack.
  */
 public class App extends Application {
@@ -27,6 +28,7 @@ public class App extends Application {
 
   /**
    * Starts the JavaFX application by loading the initial screen.
+   * 
    * @param stage The primary stage for this application.
    * @throws IOException If an error occurs while loading the FXML file.
    */
@@ -40,6 +42,7 @@ public class App extends Application {
   /**
    * Sets the root node of the scene to the FXML file specified.
    * Pushes the FXML file path onto the screen stack.
+   * 
    * @param fxml The name of the FXML file to load.
    * @throws IOException If an error occurs while loading the FXML file.
    */
@@ -51,9 +54,11 @@ public class App extends Application {
 
   /**
    * Navigates back to the previous screen if possible.
-   * Pops the current screen from the screen stack and sets the root node to the previous screen.
+   * Pops the current screen from the screen stack and sets the root node to the
+   * previous screen.
    * Prints a message indicating the navigation.
    * If there are no screens to navigate back from, prints an appropriate message.
+   * 
    * @throws IOException If an error occurs while loading the FXML file.
    */
   static void goBack() throws IOException {
@@ -63,8 +68,7 @@ public class App extends Application {
         String previousScreen = screenStack.peek();
         scene.setRoot(loadFXML(previousScreen));
         System.out.println(
-          "Navigated back from: " + currentScreen + " to: " + previousScreen
-        );
+            "Navigated back from: " + currentScreen + " to: " + previousScreen);
       } else {
         System.out.println("Cannot go back. Already at the initial screen.");
       }
@@ -75,19 +79,20 @@ public class App extends Application {
 
   /**
    * Loads the FXML file specified and returns its root node.
+   * 
    * @param fxml The name of the FXML file to load.
    * @return The root node of the loaded FXML file.
    * @throws IOException If an error occurs while loading the FXML file.
    */
   static Parent loadFXML(String fxml) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(
-      App.class.getResource(fxml + ".fxml")
-    );
+        App.class.getResource(fxml + ".fxml"));
     return fxmlLoader.load();
   }
 
   /**
    * The main method that launches the JavaFX application.
+   * 
    * @param args Command-line arguments (unused).
    */
   public static void main(String[] args) {

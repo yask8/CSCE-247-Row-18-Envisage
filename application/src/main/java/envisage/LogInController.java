@@ -130,6 +130,7 @@ public class LogInController {
 
     /**
      * Sets the stage to the Sign In Screen
+     * 
      * @param event representing mouse action
      * @throws IOException if an I/O error occurs when the scene is set
      */
@@ -140,6 +141,7 @@ public class LogInController {
 
     /**
      * Sets the stage to the Forgot Password Screen
+     * 
      * @param event representing mouse action
      * @throws IOException if an I/O error occurs when the scene is set
      */
@@ -148,33 +150,34 @@ public class LogInController {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("forgotPassword.fxml"));
         AnchorPane root = loader.load();
-        
+
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Forgot Password");
         stage.setScene(new Scene(root));
-        stage.showAndWait(); 
-        
+        stage.showAndWait();
 
     }
 
     /**
      * Sets the stage to the University Partners Screen
+     * 
      * @param event representing mouse action
      * @throws IOException if an I/O error occurs when the scene is set
      */
     @FXML
-    void setStageUniversityPartners(MouseEvent event) throws IOException{
+    void setStageUniversityPartners(MouseEvent event) throws IOException {
         App.setRoot("universityPartners");
     }
 
     /**
      * Sets the stage to the FAQ screen
+     * 
      * @param event representing mouse action
      * @throws IOException if an I/O error occurs when the scene is set
      */
     @FXML
-    void setStageFAQ(MouseEvent event) throws IOException{
+    void setStageFAQ(MouseEvent event) throws IOException {
         App.setRoot("faqPage");
     }
 

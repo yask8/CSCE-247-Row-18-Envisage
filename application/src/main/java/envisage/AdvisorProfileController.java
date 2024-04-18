@@ -102,6 +102,7 @@ public class AdvisorProfileController implements Initializable {
   /**
    * getter for Advisor to get advisees
    * converts UUID to Student array list
+   * 
    * @return ArrayList<Student> list of Advisees
    */
   private ArrayList<Student> getAdvisees() {
@@ -110,14 +111,14 @@ public class AdvisorProfileController implements Initializable {
 
     for (UUID advisee : advisees) {
       students.add(
-        ((Advisor) user).getStudentByAdvisor(advisee, facade.getUserList())
-      );
+          ((Advisor) user).getStudentByAdvisor(advisee, facade.getUserList()));
     }
     return students;
   }
 
   /**
    * returns and updates the advising period based on current time
+   * 
    * @return Date advising period
    * @throws ParseException
    */
@@ -138,7 +139,9 @@ public class AdvisorProfileController implements Initializable {
   }
 
   /**
-   * populates the AdvisorProfile screen with a tree that shows advised/unadvised students
+   * populates the AdvisorProfile screen with a tree that shows advised/unadvised
+   * students
+   * 
    * @throws ParseException
    */
   private void initAdvised() throws ParseException {
@@ -153,17 +156,15 @@ public class AdvisorProfileController implements Initializable {
         // add to list of unadvised
         unadvisedList.add(adviseeCheck);
       } else {
-        //if most recent note is after the advising period then
-        //the student is added to advised
-        if (
-          adviseeCheck
+        // if most recent note is after the advising period then
+        // the student is added to advised
+        if (adviseeCheck
             .getAdvisorNotes()
             .get(adviseeCheck.getAdvisorNotes().size() - 1)
             .getDate()
-            .after(advisingComparison)
-        ) {
+            .after(advisingComparison)) {
           advisedList.add(adviseeCheck);
-          //otherwise the student is added to unadvised
+          // otherwise the student is added to unadvised
         } else {
           unadvisedList.add(adviseeCheck);
         }
@@ -179,8 +180,7 @@ public class AdvisorProfileController implements Initializable {
 
       for (Student xadvisee : advisedList) {
         TreeItem<String> displayedAdvisedAdviseesList = new TreeItem<>(
-          xadvisee.getFirstName() + " " + xadvisee.getLastName()
-        );
+            xadvisee.getFirstName() + " " + xadvisee.getLastName());
         advisedTreeItem.getChildren().add(displayedAdvisedAdviseesList);
       }
 
@@ -189,16 +189,14 @@ public class AdvisorProfileController implements Initializable {
 
       for (Student xadvisee : unadvisedList) {
         TreeItem<String> displayedUnadvisedAdviseesList = new TreeItem<>(
-          xadvisee.getFirstName() + " " + xadvisee.getLastName()
-        );
+            xadvisee.getFirstName() + " " + xadvisee.getLastName());
         unadvisedTreeItem.getChildren().add(displayedUnadvisedAdviseesList);
       }
     } else {
       TreeItem<String> root = new TreeItem<>("Advised Advisees List Error");
       adviseeCompletionTree.setRoot(root);
       TreeItem<String> errorItem = new TreeItem<>(
-        "Unable to retrieve any advised advisees."
-      );
+          "Unable to retrieve any advised advisees.");
       root.getChildren().add(errorItem);
 
       root = new TreeItem<>("Unadvised Advisees List Error");
@@ -210,7 +208,9 @@ public class AdvisorProfileController implements Initializable {
 
   /**
    * shows whether a gpa is failing or passing
-   * @param event when button is clicked, a pop up appears to take an input of gpa and major
+   * 
+   * @param event when button is clicked, a pop up appears to take an input of gpa
+   *              and major
    * @throws IOException
    */
   @FXML
@@ -229,11 +229,9 @@ public class AdvisorProfileController implements Initializable {
       Optional<String> result2 = dialog.showAndWait();
       result2.ifPresent(xmajor -> {
         if (facade.getMajorMap(xmajor) != null) {
-          boolean fail =
-            ((Advisor) user).checkStudentFailStatus(
-                d,
-                facade.getMajorMap(xmajor).getMinGPA()
-              );
+          boolean fail = ((Advisor) user).checkStudentFailStatus(
+              d,
+              facade.getMajorMap(xmajor).getMinGPA());
 
           Alert alert = new Alert(Alert.AlertType.INFORMATION);
           alert.setTitle("Check Fail Status Calculated");
@@ -243,15 +241,12 @@ public class AdvisorProfileController implements Initializable {
             failing = "failing!";
           }
           alert.setContentText(
-            "With this GPA, the student would be " + failing
-          );
+              "With this GPA, the student would be " + failing);
           alert.showAndWait();
         } else {
-          boolean fail =
-            ((Advisor) user).checkStudentFailStatus(
-                d,
-                facade.getMajorMap("Computer Science").getMinGPA()
-              );
+          boolean fail = ((Advisor) user).checkStudentFailStatus(
+              d,
+              facade.getMajorMap("Computer Science").getMinGPA());
 
           Alert alert = new Alert(Alert.AlertType.INFORMATION);
           alert.setTitle("Check Fail Status Calculated");
@@ -261,8 +256,7 @@ public class AdvisorProfileController implements Initializable {
             failing = "failing!";
           }
           alert.setContentText(
-            "With this GPA, the student would be " + failing
-          );
+              "With this GPA, the student would be " + failing);
           alert.showAndWait();
         }
       });
@@ -281,7 +275,9 @@ public class AdvisorProfileController implements Initializable {
 
   /**
    * return to user dashboard
-   * @param event when button is clicked it checks user type to return to corresponding dashboard
+   * 
+   * @param event when button is clicked it checks user type to return to
+   *              corresponding dashboard
    * @throws IOException
    */
   @FXML

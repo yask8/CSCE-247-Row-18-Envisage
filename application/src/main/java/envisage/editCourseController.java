@@ -21,7 +21,8 @@ import java.util.ResourceBundle;
 
 /**
  * Controller class for the editCourse.fxml file.
- * This class handles the editing of course information and provides functionality for saving changes.
+ * This class handles the editing of course information and provides
+ * functionality for saving changes.
  */
 public class editCourseController implements Initializable {
 
@@ -118,19 +119,24 @@ public class editCourseController implements Initializable {
      * Initializes the controller class.
      * This method is automatically called after the FXML file has been loaded.
      * It sets up the choice box with edit options.
-     * @param location The location used to resolve relative paths for the root object, or null if the location is not known.
-     * @param resources The resources used to localize the root object, or null if the root object was not localized.
+     * 
+     * @param location  The location used to resolve relative paths for the root
+     *                  object, or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null if
+     *                  the root object was not localized.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         facade = Facade.getInstance();
-        ObservableList<String> editOptions = FXCollections.observableArrayList("Course Name", "Course Credit Hours", "Course Description",
-                                                                                "Carolina Core","Prerequisites");
+        ObservableList<String> editOptions = FXCollections.observableArrayList("Course Name", "Course Credit Hours",
+                "Course Description",
+                "Carolina Core", "Prerequisites");
         pickToEditChoiceBox.setItems(editOptions);
     }
 
     /**
      * Handles mouse event for assigning to.
+     * 
      * @param event The mouse event that occurred.
      */
     @FXML
@@ -140,12 +146,13 @@ public class editCourseController implements Initializable {
 
     /**
      * Handles action event for setting the stage to dashboard.
+     * 
      * @param event The action event that occurred.
      * @throws IOException If an error occurs while loading the FXML file.
      */
     @FXML
     void setStageDashboard(ActionEvent event) throws IOException {
-        if(facade.getUser() == null){
+        if (facade.getUser() == null) {
             return;
         }
         save();
@@ -157,14 +164,14 @@ public class editCourseController implements Initializable {
      */
     public void save() {
         String editCriteria = pickToEditChoiceBox.getValue();
-        if(editCriteria == null){
+        if (editCriteria == null) {
             errorLabel.setText("Please pick an info option to edit.");
             return;
         }
-        
+
         ArrayList<Course> courses = facade.getCourses();
-        for(Course course : courses){
-            switch(editCriteria){
+        for (Course course : courses) {
+            switch (editCriteria) {
                 case "Course Name":
                     course.setName(newInfoTextField.getText());
                     break;

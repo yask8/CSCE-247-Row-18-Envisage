@@ -1,8 +1,11 @@
 package envisage;
 
 /**
- * The MajorNameStore class is a singleton class used to store and retrieve a single major name.
- * Only one instance of this class can exist throughout the runtime of the application.
+ * The MajorNameStore class is a singleton class used to store and retrieve a
+ * single major name.
+ * Only one instance of this class can exist throughout the runtime of the
+ * application.
+ * 
  * @author Row 18
  */
 public class MajorNameStore {
@@ -13,10 +16,12 @@ public class MajorNameStore {
     /**
      * Private constructor to prevent instantiation from outside the class.
      */
-    private MajorNameStore() {}
+    private MajorNameStore() {
+    }
 
     /**
      * Returns the singleton instance of the MajorNameStore class.
+     * 
      * @return The singleton instance of MajorNameStore.
      */
     public static MajorNameStore getInstance() {
@@ -25,6 +30,7 @@ public class MajorNameStore {
 
     /**
      * Retrieves the currently stored major name.
+     * 
      * @return The major name.
      */
     public String getMajorName() {
@@ -33,6 +39,7 @@ public class MajorNameStore {
 
     /**
      * Sets the major name to be stored.
+     * 
      * @param majorName The major name to be stored.
      */
     public void setMajorName(String majorName) {
