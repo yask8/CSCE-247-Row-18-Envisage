@@ -18,6 +18,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
+/**
+ *
+ */
 public class StudentLookupController implements Initializable {
 
   private Facade facade;
@@ -63,6 +66,9 @@ public class StudentLookupController implements Initializable {
   @FXML
   private Label studentLookupLabel;
 
+  /*
+   * loads up elements for StudentLookupController screen
+   */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     facade = Facade.getInstance();
@@ -75,6 +81,10 @@ public class StudentLookupController implements Initializable {
     populateStudentList();
   }
 
+  /**
+   * populate students onto the screen
+   * method used in initialize method
+   */
   private void populateStudentList() {
     ArrayList<User> users = facade.getUsers();
     ArrayList<Student> students = new ArrayList<Student>();
@@ -121,6 +131,10 @@ public class StudentLookupController implements Initializable {
     pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
   }
 
+  /**
+   * next page button for the student list search
+   * @param event when button is clicked, the screen is set to next screen with more students
+   */
   @FXML
   void nextPage(ActionEvent event) {
     ArrayList<Student> xstudents;
@@ -142,6 +156,10 @@ public class StudentLookupController implements Initializable {
     }
   }
 
+  /**
+   * previous page button for the student list search
+   * @param event when button is clicked, the screen is set to previous screen with previous students
+   */
   @FXML
   void previousPage(ActionEvent event) {
     if (currentPage > 0) {
@@ -151,6 +169,10 @@ public class StudentLookupController implements Initializable {
     }
   }
 
+  /**
+   * search button for the student list search
+   * @param event when button is clicked, populates screen with students based on the given parameters
+   */
   @FXML
   void search(ActionEvent event) {
     String searchText = searchBarTextField.getText().trim().toLowerCase();
@@ -202,6 +224,10 @@ public class StudentLookupController implements Initializable {
     }
   }
 
+  /**
+   * used in search method
+   * @param filteredStudents ArrayList<Student> students filtered from the given parameters
+   */
   private void displayFilteredStudents(ArrayList<Student> filteredStudents) {
     studentLookupGridPane.getChildren().clear();
 
@@ -228,6 +254,11 @@ public class StudentLookupController implements Initializable {
     }
   }
 
+  /**
+   * returns to user dashboard
+   * @param event when button is clicked, based on user type, the user returns to its corresponding dashboard
+   * @throws IOException
+   */
   @FXML
   void setStageDashboard(ActionEvent event) throws IOException {
     if (user == null) {
@@ -245,6 +276,10 @@ public class StudentLookupController implements Initializable {
     }
   }
 
+  /**
+   * clear button
+   * @param event when clicked, the screen resets to default student list view
+   */
   @FXML
   void clear(ActionEvent event) {
     searchBarTextField.clear();
