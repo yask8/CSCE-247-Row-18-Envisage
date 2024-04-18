@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<!-- Designed by Row 18-->
+
 <AnchorPane fx:id="studentTemplatePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: black; -fx-border-width: 1px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentTemplateController">
    <children>
       <Label fx:id="studentNameLabel" layoutX="5.0" layoutY="15.0" prefHeight="20.0" prefWidth="190.0" />
