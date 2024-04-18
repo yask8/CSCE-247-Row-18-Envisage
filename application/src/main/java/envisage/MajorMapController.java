@@ -47,17 +47,25 @@ public class MajorMapController implements Initializable {
 
   @FXML
   void setStageMajorList(ActionEvent event) throws IOException {
-    System.out.println("Button clicked: setStageMajorList method called.");
-    try {
-      App.setRoot("majorList");
-      System.out.println("Switched to majorList screen successfully.");
-    } catch (IOException e) {
-      System.err.println(
-          "Error switching to majorList screen: " + e.getMessage());
-      e.printStackTrace();
-    }
-  }
+      User user = facade.getUser();
+      if (user.getUserType().equals("STUDENT") && (facade.getStudentMajor() != null && !facade.getStudentMajor().isEmpty() && !facade.getStudentMajor().equals("Undeclared"))) {
+      
+          try {
+              App.setRoot("studentDashboard");
+          } catch (IOException e) {
+              System.err.println("Error switching to studentDashboard screen: " + e.getMessage());
+              e.printStackTrace();
+          }
+      } else {
 
+          try {
+              App.setRoot("majorList");
+          } catch (IOException e) {
+              System.err.println("Error switching to majorList screen: " + e.getMessage());
+              e.printStackTrace();
+          }
+      }
+  }
   public void initialize(URL url, ResourceBundle rb) {
     majorName = MajorNameStore.getInstance().getMajorName();
     if (majorName != null && !majorName.isEmpty()) {
