@@ -62,7 +62,7 @@ public class UniversityPartnersController {
      * @throws IOException If an error occurs while loading the FXML file
      */
     @FXML
-    void setStageAbout(MouseEvent event) throws IOException{
+    void setStageAbout(MouseEvent event) throws IOException {
         App.setRoot("About");
     }
 
@@ -74,7 +74,7 @@ public class UniversityPartnersController {
      * @throws IOException If an error occurs while loading the FXML file
      */
     @FXML
-    void setStageFAQ(MouseEvent event) throws IOException{
+    void setStageFAQ(MouseEvent event) throws IOException {
         App.setRoot("faqPage");
     }
 

@@ -58,9 +58,11 @@ public class AdminDashboardController implements Initializable {
   private Button studentLookupButton;
 
   /**
-   * Initializes the controller after its root element has been completely processed.
+   * Initializes the controller after its root element has been completely
+   * processed.
    *
-   * @param location  The location used to resolve relative paths for the root object,
+   * @param location  The location used to resolve relative paths for the root
+   *                  object,
    *                  or null if the location is not known.
    * @param resources The resources used to localize the root object, or null
    *                  if the root object was not localized.
@@ -117,11 +119,12 @@ public class AdminDashboardController implements Initializable {
     App.setRoot("majorList");
   }
 
-    /**
-     * ActionEvent that sets the stage to the Add/Remove Users screen.
-     * @param event The event representing the action.
-     * @throws IOExeception if an I/O error occurs when setting the root scene.
-     */
+  /**
+   * ActionEvent that sets the stage to the Add/Remove Users screen.
+   * 
+   * @param event The event representing the action.
+   * @throws IOExeception if an I/O error occurs when setting the root scene.
+   */
   @FXML
   void setStageAddRemoveUsers(ActionEvent event) throws IOException {
     App.setRoot("AdminAddOrRemove");
@@ -129,6 +132,7 @@ public class AdminDashboardController implements Initializable {
 
   /**
    * ActionEvent that sets the stage to the Manage Courses screen.
+   * 
    * @param event The event representing the action.
    * @throws IOException
    */

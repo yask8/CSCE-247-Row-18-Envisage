@@ -32,6 +32,7 @@ public class AboutController {
 
     /**
      * MouseEvent Method that sets the stage to the Login screen
+     * 
      * @param event representing the action
      * @throws IOException if an IO error occurs when setting the root
      */
@@ -41,24 +42,25 @@ public class AboutController {
     }
 
     /**
-     * MouseEvent Method that sets the stage to the  University Partners screen
+     * MouseEvent Method that sets the stage to the University Partners screen
+     * 
      * @param event representing the action
      * @throws IOException if an IO error occurs when setting the root
      */
     @FXML
-    void setStageUniversityPartners(MouseEvent event) throws IOException{
+    void setStageUniversityPartners(MouseEvent event) throws IOException {
         App.setRoot("universityPartners");
     }
 
     /**
      * MouseEvent Method that sets the stage to the FAQ screen
+     * 
      * @param event representing the action
      * @throws IOException if an IO error occurs when setting the root
      */
     @FXML
-    void setStageFAQ(MouseEvent event) throws IOException{
+    void setStageFAQ(MouseEvent event) throws IOException {
         App.setRoot("faqPage");
     }
 
 }
-

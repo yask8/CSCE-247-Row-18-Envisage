@@ -11,9 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -21,6 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
+/**
+ * Controller class for the StudentDashboard.fxml file.
+ * This class handles the display and actions related to the student dashboard.
+ */
 
 public class StudentDashboardController implements Initializable {
 
@@ -73,6 +76,15 @@ public class StudentDashboardController implements Initializable {
   @FXML
   private Label welcomeLabel;
 
+  /**
+   * Initializes the student dashboard.
+   * Populates the dashboard with student information and degree progress.
+   * 
+   * @param location  The location used to resolve relative paths for the root
+   *                  object, or null if the location is not known.
+   * @param resources The resources used to localize the root object, or null if
+   *                  the root object was not localized.
+   */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     facade = Facade.getInstance();
@@ -117,36 +129,38 @@ public class StudentDashboardController implements Initializable {
       progressPieChart.setVisible(false);
     }
   }
-  
+
   /**
-   * Helper method to calculate the student's current semester
-   * @param credithours the student's credit hours
+   * Helper method to calculate the student's current semester based on their
+   * credit hours.
+   * 
+   * @param credithours The student's credit hours.
    */
-  public void calculatingCurrentSemester(int credithours){
+  public void calculatingCurrentSemester(int credithours) {
     int studentCreditHours = credithours;
-    if(studentCreditHours >= 0) {
-      if(studentCreditHours >= 0 && studentCreditHours <= 29){
+    if (studentCreditHours >= 0) {
+      if (studentCreditHours >= 0 && studentCreditHours <= 29) {
         semesterLabel.setText("1");
       }
-      if(studentCreditHours >= 30 && studentCreditHours <= 44){
+      if (studentCreditHours >= 30 && studentCreditHours <= 44) {
         semesterLabel.setText("2");
       }
-      if(studentCreditHours >= 44 && studentCreditHours <= 59){
+      if (studentCreditHours >= 44 && studentCreditHours <= 59) {
         semesterLabel.setText("3");
       }
-      if(studentCreditHours >= 60 && studentCreditHours <= 74){
+      if (studentCreditHours >= 60 && studentCreditHours <= 74) {
         semesterLabel.setText("4");
       }
-      if(studentCreditHours >= 75 && studentCreditHours <= 89){
+      if (studentCreditHours >= 75 && studentCreditHours <= 89) {
         semesterLabel.setText("5");
       }
-      if(studentCreditHours >= 90 && studentCreditHours <= 104){
+      if (studentCreditHours >= 90 && studentCreditHours <= 104) {
         semesterLabel.setText("6");
       }
-      if(studentCreditHours >= 105 && studentCreditHours <= 119){
+      if (studentCreditHours >= 105 && studentCreditHours <= 119) {
         semesterLabel.setText("7");
       }
-      if(studentCreditHours >= 120){
+      if (studentCreditHours >= 120) {
         semesterLabel.setText("8");
       }
     } else {
@@ -154,16 +168,35 @@ public class StudentDashboardController implements Initializable {
     }
   }
 
+  /**
+   * Handles the action event for navigating to the course list.
+   * 
+   * @param event The action event that occurred.
+   * @throws IOException If an error occurs while loading the FXML file for the
+   *                     course list.
+   */
   @FXML
   void setStageCourseList(ActionEvent event) throws IOException {
     App.setRoot("courseList");
   }
 
+  /**
+   * Handles the action event for navigating to the course planner.
+   * 
+   * @param event The action event that occurred.
+   * @throws IOException If an error occurs while loading the FXML file for the
+   *                     course planner.
+   */
   @FXML
   void setStageCoursePlanner(ActionEvent event) throws IOException {
     App.setRoot("coursePlanner");
   }
 
+  /**
+   * Handles the action event for signing out from the dashboard.
+   * 
+   * @param event The action event that occurred.
+   */
   @FXML
   void signOut(ActionEvent event) {
     try {
@@ -174,6 +207,13 @@ public class StudentDashboardController implements Initializable {
     }
   }
 
+  /**
+   * Handles the action event for navigating to the student profile.
+   * 
+   * @param event The mouse event that occurred.
+   * @throws IOException If an error occurs while loading the FXML file for the
+   *                     student profile.
+   */
   @FXML
   void setStageStudentProfile(MouseEvent event) throws IOException {
     UUID studentID = studentIDStore.getStudentID();
@@ -184,6 +224,11 @@ public class StudentDashboardController implements Initializable {
     }
   }
 
+  /**
+   * Handles the action event for printing the course planner.
+   * 
+   * @param event The action event that occurred.
+   */
   @FXML
   public void printCoursePlanner(
       @SuppressWarnings("exports") ActionEvent event) {
@@ -200,6 +245,13 @@ public class StudentDashboardController implements Initializable {
     alert.showAndWait();
   }
 
+  /**
+   * Handles the action event for navigating to the major map.
+   * 
+   * @param event The action event that occurred.
+   * @throws IOException If an error occurs while loading the FXML file for the
+   *                     major map.
+   */
   @FXML
   void setStageMajorMap(ActionEvent event) throws IOException {
     String majorName = facade.getStudentMajor();

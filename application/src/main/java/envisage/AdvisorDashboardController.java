@@ -1,4 +1,5 @@
 package envisage;
+
 /**
  * @author Row 18
  */
@@ -19,7 +20,8 @@ import javafx.scene.control.Label;
 
 /**
  * This class controls the advisor dashboard in the Envisage Advising Software.
- * It provides functionality for displaying advisor-specific information and navigating to other functionalities.
+ * It provides functionality for displaying advisor-specific information and
+ * navigating to other functionalities.
  */
 public class AdvisorDashboardController implements Initializable {
 
@@ -59,7 +61,8 @@ public class AdvisorDashboardController implements Initializable {
     private Label welcomeLabel;
 
     /**
-     * Initializes the controller after its root element has been completely processed.
+     * Initializes the controller after its root element has been completely
+     * processed.
      * Sets up the advisor dashboard with user-specific information.
      */
     @Override
@@ -77,19 +80,16 @@ public class AdvisorDashboardController implements Initializable {
                 : 0;
 
         totalNumberOfAdivseesLabel.setText(
-                adviseesCount > 0 ? String.valueOf(adviseesCount) : "No advisees yet"
-        );
+                adviseesCount > 0 ? String.valueOf(adviseesCount) : "No advisees yet");
         riskOfFailureLabel.setText(
                 riskOfFailAdviseesCount > 0
                         ? String.valueOf(riskOfFailAdviseesCount)
-                        : "No advisees at risk of failing"
-        );
+                        : "No advisees at risk of failing");
 
         if (adviseesCount > 0) {
             ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
                     new PieChart.Data("Low Risk", adviseesCount - riskOfFailAdviseesCount),
-                    new PieChart.Data("Risk of Fail", riskOfFailAdviseesCount)
-            );
+                    new PieChart.Data("Risk of Fail", riskOfFailAdviseesCount));
             progressPieChart.setData(pieChartData);
         } else {
             progressPieChart.setVisible(false);
@@ -110,7 +110,8 @@ public class AdvisorDashboardController implements Initializable {
     /**
      * Redirects the user to the advisee management functionality.
      *
-     * @param event The ActionEvent triggered by clicking the advisee management button.
+     * @param event The ActionEvent triggered by clicking the advisee management
+     *              button.
      * @throws IOException If an I/O error occurs.
      */
     @FXML
@@ -121,7 +122,8 @@ public class AdvisorDashboardController implements Initializable {
     /**
      * Redirects the user to the advisor profile management functionality.
      *
-     * @param event The ActionEvent triggered by clicking the advisor profile button.
+     * @param event The ActionEvent triggered by clicking the advisor profile
+     *              button.
      * @throws IOException If an I/O error occurs.
      */
     @FXML

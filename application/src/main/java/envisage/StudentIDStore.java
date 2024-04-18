@@ -4,7 +4,8 @@ import java.util.UUID;
 
 /**
  * Singleton class for storing the UUID of the currently selected student.
- * This class ensures that only one instance of the StudentIDStore exists throughout
+ * This class ensures that only one instance of the StudentIDStore exists
+ * throughout
  * the application runtime.
  * 
  * It provides methods for setting and getting the UUID of the student.
@@ -15,7 +16,8 @@ public class StudentIDStore {
     private static StudentIDStore instance;
     private UUID studentID;
 
-    private StudentIDStore() {}
+    private StudentIDStore() {
+    }
 
     /**
      * Returns the instance of StudentIDStore.

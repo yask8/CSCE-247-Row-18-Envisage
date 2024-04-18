@@ -74,9 +74,8 @@ public class StudentLookupController implements Initializable {
     facade = Facade.getInstance();
     user = facade.getUser();
     ObservableList<String> roleOptions = FXCollections.observableArrayList(
-      "First Name",
-      "Last Name"
-    );
+        "First Name",
+        "Last Name");
     filterByChoiceBox.setItems(roleOptions);
     populateStudentList();
   }
@@ -95,8 +94,7 @@ public class StudentLookupController implements Initializable {
     }
     int totalStudents = students.size();
     int totalPages = (int) Math.ceil(
-      (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
-    );
+        (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
 
     currentPage = Math.min(currentPage, totalPages - 1);
     currentPage = Math.max(currentPage, 0);
@@ -109,16 +107,14 @@ public class StudentLookupController implements Initializable {
     for (int i = start; i < end; i++) {
       Student student = students.get(i);
       FXMLLoader loader = new FXMLLoader(
-        getClass().getResource("StudentTemplate.fxml")
-      );
+          getClass().getResource("StudentTemplate.fxml"));
       try {
         AnchorPane studentTemplate = loader.load();
 
         StudentTemplateController controller = loader.getController();
         controller.setStudentName(
-          student.getFirstName(),
-          student.getLastName()
-        );
+            student.getFirstName(),
+            student.getLastName());
 
         int row = (i - start) / COLUMNS_PER_PAGE;
         int column = (i - start) % COLUMNS_PER_PAGE;
@@ -133,7 +129,9 @@ public class StudentLookupController implements Initializable {
 
   /**
    * next page button for the student list search
-   * @param event when button is clicked, the screen is set to next screen with more students
+   * 
+   * @param event when button is clicked, the screen is set to next screen with
+   *              more students
    */
   @FXML
   void nextPage(ActionEvent event) {
@@ -146,8 +144,7 @@ public class StudentLookupController implements Initializable {
 
     int totalStudents = xstudents.size();
     int totalPages = (int) Math.ceil(
-      (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
-    );
+        (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
 
     if (currentPage < totalPages - 1) {
       currentPage++;
@@ -158,7 +155,9 @@ public class StudentLookupController implements Initializable {
 
   /**
    * previous page button for the student list search
-   * @param event when button is clicked, the screen is set to previous screen with previous students
+   * 
+   * @param event when button is clicked, the screen is set to previous screen
+   *              with previous students
    */
   @FXML
   void previousPage(ActionEvent event) {
@@ -171,7 +170,9 @@ public class StudentLookupController implements Initializable {
 
   /**
    * search button for the student list search
-   * @param event when button is clicked, populates screen with students based on the given parameters
+   * 
+   * @param event when button is clicked, populates screen with students based on
+   *              the given parameters
    */
   @FXML
   void search(ActionEvent event) {
@@ -218,15 +219,16 @@ public class StudentLookupController implements Initializable {
 
       int totalStudents = filteredStudents.size();
       int totalPages = (int) Math.ceil(
-        ((double) totalStudents) / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
-      );
+          ((double) totalStudents) / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
       pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
   }
 
   /**
    * used in search method
-   * @param filteredStudents ArrayList<Student> students filtered from the given parameters
+   * 
+   * @param filteredStudents ArrayList<Student> students filtered from the given
+   *                         parameters
    */
   private void displayFilteredStudents(ArrayList<Student> filteredStudents) {
     studentLookupGridPane.getChildren().clear();
@@ -234,16 +236,14 @@ public class StudentLookupController implements Initializable {
     for (int i = 0; i < filteredStudents.size(); i++) {
       Student student = filteredStudents.get(i);
       FXMLLoader loader = new FXMLLoader(
-        getClass().getResource("StudentTemplate.fxml")
-      );
+          getClass().getResource("StudentTemplate.fxml"));
       try {
         AnchorPane studentTemplate = loader.load();
 
         StudentTemplateController controller = loader.getController();
         controller.setStudentName(
-          student.getFirstName(),
-          student.getLastName()
-        );
+            student.getFirstName(),
+            student.getLastName());
 
         int row = i / COLUMNS_PER_PAGE;
         int column = i % COLUMNS_PER_PAGE;
@@ -256,7 +256,9 @@ public class StudentLookupController implements Initializable {
 
   /**
    * returns to user dashboard
-   * @param event when button is clicked, based on user type, the user returns to its corresponding dashboard
+   * 
+   * @param event when button is clicked, based on user type, the user returns to
+   *              its corresponding dashboard
    * @throws IOException
    */
   @FXML
@@ -278,6 +280,7 @@ public class StudentLookupController implements Initializable {
 
   /**
    * clear button
+   * 
    * @param event when clicked, the screen resets to default student list view
    */
   @FXML

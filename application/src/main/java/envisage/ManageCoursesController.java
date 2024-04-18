@@ -6,7 +6,7 @@ import javafx.collections.FXCollections;
  * Handles the actions and logic for managing courses
  * @author Row 18
  */
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,19 +68,21 @@ public class ManageCoursesController implements Initializable {
     private ArrayList<Course> filteredCourses;
     private final int ROWS_PER_PAGE = 3;
     private final int COLUMNS_PER_PAGE = 3;
-    private int currentPage = 0; 
+    private int currentPage = 0;
 
-     /**
-     * Initializes the controller after its root element has been completely processed, sets the
+    /**
+     * Initializes the controller after its root element has been completely
+     * processed, sets the
      * filtered items, and populates the courses.
      *
-     * @param location  The location used to resolve relative paths for the root object,
+     * @param location  The location used to resolve relative paths for the root
+     *                  object,
      *                  or null if the location is not known.
      * @param resources The resources used to localize the root object, or null
      *                  if the root object was not localized.
      */
     @Override
-    public void initialize(URL url, ResourceBundle arg1 ) {
+    public void initialize(URL url, ResourceBundle arg1) {
         facade = Facade.getInstance();
         user = facade.getUser();
         ObservableList<String> roleOptions = FXCollections.observableArrayList("Code", "Name", "ID");
@@ -89,16 +91,16 @@ public class ManageCoursesController implements Initializable {
     }
 
     /**
-     * Helper method to populate the courses from the course list into a 
+     * Helper method to populate the courses from the course list into a
      * grid format
      */
     private void populateCourseList() {
         ArrayList<Course> courses = facade.getCourses();
         int totalCourses = courses.size();
-        int totalPages = (int) Math.ceil((double)totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+        int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
 
-        currentPage = Math.min(currentPage,totalPages-1);
-        currentPage = Math.max(currentPage,0);
+        currentPage = Math.min(currentPage, totalPages - 1);
+        currentPage = Math.max(currentPage, 0);
 
         int start = currentPage * ROWS_PER_PAGE * COLUMNS_PER_PAGE;
         int end = Math.min(start + ROWS_PER_PAGE * COLUMNS_PER_PAGE, totalCourses);
@@ -119,8 +121,8 @@ public class ManageCoursesController implements Initializable {
                     controller.showEditCourseButton();
                 }
 
-                int row = (i-start) / COLUMNS_PER_PAGE;
-                int column = (i-start) % COLUMNS_PER_PAGE;
+                int row = (i - start) / COLUMNS_PER_PAGE;
+                int column = (i - start) % COLUMNS_PER_PAGE;
                 manageCoursesGridPane.add(courseTemplate, column, row);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -128,9 +130,10 @@ public class ManageCoursesController implements Initializable {
         }
         pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
-    
+
     /**
      * Clears the results
+     * 
      * @param event representing action
      */
     @FXML
@@ -144,6 +147,7 @@ public class ManageCoursesController implements Initializable {
 
     /**
      * Goes to the next page
+     * 
      * @param event representing action
      */
     @FXML
@@ -155,9 +159,9 @@ public class ManageCoursesController implements Initializable {
             courses = facade.getCourses();
         }
         int totalCourses = courses.size();
-        int totalPages = (int)Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+        int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
 
-        if(currentPage < totalPages - 1){
+        if (currentPage < totalPages - 1) {
             currentPage++;
             manageCoursesGridPane.getChildren().clear();
             populateCourseList();
@@ -166,6 +170,7 @@ public class ManageCoursesController implements Initializable {
 
     /**
      * Goes to the previous page
+     * 
      * @param event representing action
      */
     @FXML
@@ -178,7 +183,9 @@ public class ManageCoursesController implements Initializable {
     }
 
     /**
-     * Allows a course to be searched for by the user and utilizes the filtered options
+     * Allows a course to be searched for by the user and utilizes the filtered
+     * options
+     * 
      * @param event representing action
      */
     @FXML
@@ -196,17 +203,17 @@ public class ManageCoursesController implements Initializable {
         for (Course course : courses) {
             switch (filterCriteria) {
                 case "Code":
-                    if(course.getCode().toLowerCase().contains(searchText)){
+                    if (course.getCode().toLowerCase().contains(searchText)) {
                         filteredCourses.add(course);
                     }
                     break;
                 case "Name":
-                    if(course.getName().toLowerCase().contains(searchText)){
+                    if (course.getName().toLowerCase().contains(searchText)) {
                         filteredCourses.add(course);
                     }
                     break;
                 case "ID":
-                    if(course.getID().toLowerCase().contains(searchText)){
+                    if (course.getID().toLowerCase().contains(searchText)) {
                         filteredCourses.add(course);
                     }
                     break;
@@ -225,20 +232,21 @@ public class ManageCoursesController implements Initializable {
 
             int totalCourses = filteredCourses.size();
             int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
-            pageNumberLabel.setText("Page "+ (currentPage + 1) + " / " + totalPages);
+            pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
         }
     }
 
     /**
      * Displays the filtered courses and puts them in a grid format
+     * 
      * @param filteredCourses the courses that are filtered by a certain role option
      */
     private void displayFilteredCourses(ArrayList<Course> filteredCourses) {
         manageCoursesGridPane.getChildren().clear();
 
         int totalCourses = filteredCourses.size();
-        int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE *COLUMNS_PER_PAGE));
-        currentPage = Math.min(currentPage, totalPages -1);
+        int totalPages = (int) Math.ceil((double) totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+        currentPage = Math.min(currentPage, totalPages - 1);
         currentPage = Math.max(currentPage, 0);
 
         int start = currentPage * ROWS_PER_PAGE * COLUMNS_PER_PAGE;
@@ -258,19 +266,20 @@ public class ManageCoursesController implements Initializable {
                     controller.showEditCourseButton();
                 }
                 int row = (i - start) / COLUMNS_PER_PAGE;
-                int column = (i-start) % COLUMNS_PER_PAGE;
+                int column = (i - start) % COLUMNS_PER_PAGE;
                 manageCoursesGridPane.add(courseTemplate, column, row);
-            } catch(IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
         }
         pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
-    
+
     /**
      * Sets the stage to the dashboard of a specific user
-     * @param event representing action 
+     * 
+     * @param event representing action
      * @throws IOException if an I/O error occurs when setting the scene
      */
     @FXML

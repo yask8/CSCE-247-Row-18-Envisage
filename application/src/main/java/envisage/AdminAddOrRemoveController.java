@@ -77,9 +77,11 @@ public class AdminAddOrRemoveController implements Initializable {
     private Label ErrormessageLabel;
 
     /**
-     * Initializes the controller after its root element has been completely processed.
+     * Initializes the controller after its root element has been completely
+     * processed.
      *
-     * @param location  The location used to resolve relative paths for the root object,
+     * @param location  The location used to resolve relative paths for the root
+     *                  object,
      *                  or null if the location is not known.
      * @param resources The resources used to localize the root object, or null
      *                  if the root object was not localized.
@@ -90,14 +92,14 @@ public class AdminAddOrRemoveController implements Initializable {
         ObservableList<String> roleOptions = FXCollections.observableArrayList(
                 "Advisor",
                 "Admin",
-                "Student"
-        );
+                "Student");
         IAmChoiceBox.setItems(roleOptions);
         populateUserList();
     }
 
     /**
-     * Populates the user list grid with users based on the current page and filters.
+     * Populates the user list grid with users based on the current page and
+     * filters.
      */
     private void populateUserList() {
         ArrayList<User> users = new ArrayList<>();
@@ -125,7 +127,8 @@ public class AdminAddOrRemoveController implements Initializable {
     }
 
     /**
-     * Handles the save action, either adding or removing users based on the selected action.
+     * Handles the save action, either adding or removing users based on the
+     * selected action.
      *
      * @param event The event representing the action.
      */
@@ -209,7 +212,8 @@ public class AdminAddOrRemoveController implements Initializable {
      *
      * @param user       The user to check.
      * @param searchText The search text to match against.
-     * @return True if the user's full name matches the search text, false otherwise.
+     * @return True if the user's full name matches the search text, false
+     *         otherwise.
      */
     private boolean matchesSearch(User user, String searchText) {
         String fullName = user.getFirstName() + " " + user.getLastName();
@@ -300,4 +304,3 @@ public class AdminAddOrRemoveController implements Initializable {
         }
     }
 }
-

@@ -20,12 +20,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-
-
+/**
+ * Controller class for the CoursePlanner.fxml file.
+ * Handles actions and displays related to the course planner functionality.
+ */
 public class CoursePlannerController implements Initializable {
 
   private Facade facade = Facade.getInstance();
-  private User user = facade.getUser();
 
   @FXML
   private Button addCourseButton;
@@ -54,14 +55,23 @@ public class CoursePlannerController implements Initializable {
   @FXML
   private Label errorLabel;
 
+  /**
+   * Initializes the course planner view.
+   * Populates the course planner tree with the student's course planner and
+   * advisor notes.
+   * 
+   * @param url The location used to resolve relative paths for the root object,
+   *            or null if the location is not known.
+   * @param rb  The resources used to localize the root object, or null if the
+   *            root object was not localized.
+   */
   @Override
   public void initialize(URL url, ResourceBundle rb) {
     CoursePlanner coursePlanner = facade.getStudentCoursePlanner();
 
     if (coursePlanner != null) {
       TreeItem<String> root = new TreeItem<>(
-        "Course Planner for Major: " + facade.getStudentMajor()
-      );
+          "Course Planner for Major: " + facade.getStudentMajor());
       coursePlannerTree.setRoot(root);
 
       for (int i = 1; i <= coursePlanner.getNumberOfSemesters(); i++) {
@@ -71,8 +81,7 @@ public class CoursePlannerController implements Initializable {
         String[] courses = coursePlanner.getCoursesForSemester(i);
         if (courses.length == 0) {
           TreeItem<String> noCoursesItem = new TreeItem<>(
-            "No courses planned for this semester"
-          );
+              "No courses planned for this semester");
           semesterItem.getChildren().add(noCoursesItem);
         } else {
           for (String course : courses) {
@@ -85,8 +94,7 @@ public class CoursePlannerController implements Initializable {
       TreeItem<String> root = new TreeItem<>("Course Planner - Error");
       coursePlannerTree.setRoot(root);
       TreeItem<String> errorItem = new TreeItem<>(
-        "Unable to retrieve course planner"
-      );
+          "Unable to retrieve course planner");
       root.getChildren().add(errorItem);
     }
 
@@ -100,38 +108,49 @@ public class CoursePlannerController implements Initializable {
     }
   }
 
+  /**
+   * Handles the action event for adding a course.
+   * Navigates to the course list view.
+   * 
+   * @param event The action event that occurred.
+   * @throws IOException If an error occurs while loading the FXML file for the
+   *                     course list.
+   */
   @FXML
   void AddCoursePopup(ActionEvent event) throws IOException {
     App.setRoot("courseList");
   }
 
+  /**
+   * Handles the action event for deleting a course.
+   * Deletes the selected course from the course planner.
+   * 
+   * @param event The action event that occurred.
+   */
   @FXML
   void DeleteCourse(ActionEvent event) {
     TreeItem<String> selectedItem = coursePlannerTree
-      .getSelectionModel()
-      .getSelectedItem();
-    if (
-      selectedItem != null &&
-      selectedItem.getParent() != null &&
-      selectedItem.getParent().getParent() != null
-    ) {
+        .getSelectionModel()
+        .getSelectedItem();
+    if (selectedItem != null &&
+        selectedItem.getParent() != null &&
+        selectedItem.getParent().getParent() != null) {
       String courseToDelete = selectedItem.getValue();
       String semesterStr = selectedItem
-        .getParent()
-        .getValue()
-        .replaceAll("[^0-9]", "");
+          .getParent()
+          .getValue()
+          .replaceAll("[^0-9]", "");
       int semester = Integer.parseInt(semesterStr);
 
       Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
       confirmationAlert.setHeaderText("Delete Course");
       confirmationAlert.setContentText(
-        "Are you sure you want to delete the course '" + courseToDelete + "'?"
-      );
+          "Are you sure you want to delete the course '" + courseToDelete + "'?");
 
       Stage stage = (Stage) confirmationAlert
-        .getDialogPane()
-        .getScene()
-        .getWindow();
+          .getDialogPane()
+          .getScene()
+          .getWindow();
       stage.initStyle(StageStyle.TRANSPARENT);
 
       Optional<ButtonType> result = confirmationAlert.showAndWait();
@@ -145,8 +164,7 @@ public class CoursePlannerController implements Initializable {
         if (coursePlanner.getCoursesForSemester(semester).length == 0) {
           parentItem.getChildren().clear();
           TreeItem<String> noCoursesItem = new TreeItem<>(
-            "No courses planned for this semester"
-          );
+              "No courses planned for this semester");
           parentItem.getChildren().add(noCoursesItem);
         }
       }
@@ -158,11 +176,15 @@ public class CoursePlannerController implements Initializable {
     }
   }
 
+  /**
+   * Handles the action event for generating the course planner.
+   * Generates the course planner from the student's major map.
+   * 
+   * @param event The action event that occurred.
+   */
   @FXML
   void GeneratePlanner(ActionEvent event) {
-    if (
-      facade.getStudentMajor() == null || facade.getStudentMajor().isEmpty()
-    ) {
+    if (facade.getStudentMajor() == null || facade.getStudentMajor().isEmpty()) {
       Alert majorNotDeclaredAlert = new Alert(Alert.AlertType.WARNING);
       majorNotDeclaredAlert.setHeaderText("Major Not Declared");
       majorNotDeclaredAlert.setContentText("Please declare your major first.");
@@ -173,17 +195,16 @@ public class CoursePlannerController implements Initializable {
     Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
     confirmationAlert.setHeaderText("Generate Planner");
     Text contentText = new Text(
-      "Are you sure you want to generate the course planner from your major? This will overwrite any changes you have made."
-    );
+        "Are you sure you want to generate the course planner from your major? This will overwrite any changes you have made.");
     contentText.setWrappingWidth(250);
     Label contentLabel = new Label(null, contentText);
     contentLabel.setGraphicTextGap(20);
     confirmationAlert.getDialogPane().setContent(contentLabel);
 
     Stage stage = (Stage) confirmationAlert
-      .getDialogPane()
-      .getScene()
-      .getWindow();
+        .getDialogPane()
+        .getScene()
+        .getWindow();
     stage.initStyle(StageStyle.TRANSPARENT);
 
     Optional<ButtonType> response = confirmationAlert.showAndWait();
@@ -191,8 +212,8 @@ public class CoursePlannerController implements Initializable {
       if (response.get() == ButtonType.OK) {
         try {
           facade
-            .getStudentCoursePlanner()
-            .generateFromMajorMap(facade.getMajorMap(facade.getStudentMajor()));
+              .getStudentCoursePlanner()
+              .generateFromMajorMap(facade.getMajorMap(facade.getStudentMajor()));
           facade.saveUsers();
           initialize(null, null);
         } catch (Exception e) {
@@ -200,8 +221,7 @@ public class CoursePlannerController implements Initializable {
           errorAlert.setHeaderText("Error Generating Planner");
 
           Text text = new Text(
-            "An error occurred while generating the planner. Please try again later."
-          );
+              "An error occurred while generating the planner. Please try again later.");
           text.setWrappingWidth(250);
           Label label = new Label(null, text);
           label.setGraphicTextGap(20);
@@ -214,6 +234,12 @@ public class CoursePlannerController implements Initializable {
     }
   }
 
+  /**
+   * Handles the action event for saving the course planner.
+   * Saves any changes made to the course planner.
+   * 
+   * @param event The action event that occurred.
+   */
   @FXML
   void SavePlanner(ActionEvent event) {
     facade.saveUsers();
@@ -227,6 +253,13 @@ public class CoursePlannerController implements Initializable {
     alert.showAndWait();
   }
 
+  /**
+   * Handles the action event for navigating back to the student dashboard.
+   * 
+   * @param event The action event that occurred.
+   * @throws IOException If an error occurs while loading the FXML file for the
+   *                     student dashboard.
+   */
   @FXML
   void setStageDashboard(ActionEvent event) throws IOException {
     App.setRoot("StudentDashboard");
