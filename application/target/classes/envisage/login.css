@@ -28,6 +28,10 @@
     -fx-background-color: transparent;
 }
 
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #c6cdff;
+}
+
 .tab-pane .tab {
     -fx-background-color: transparent;
     -fx-text-fill: #333333;
