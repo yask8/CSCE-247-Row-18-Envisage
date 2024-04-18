@@ -82,7 +82,7 @@ public class AdvisorProfileController implements Initializable {
   String userFirstName = facade.getUser().getFirstName();
   String userLastName = facade.getUser().getLastName();
 
-  //UUID advisorID = null;
+  UUID advisorID = null;
 
   @Override
   public void initialize(URL url, ResourceBundle arg1) {
