@@ -315,7 +315,7 @@ public class StudentProfileController implements Initializable {
     }
 
     @FXML
-    public void addNote(ActionEvent event) {
+    public void addNote(@SuppressWarnings("exports") ActionEvent event) {
         ArrayList<UUID> advisees = facade.getListOfAdvisees();
 
         if (!advisees.contains(studentID)) {

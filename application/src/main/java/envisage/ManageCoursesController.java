@@ -6,7 +6,7 @@ import javafx.collections.FXCollections;
  * Handles the actions and logic for managing courses
  * @author Row 18
  */
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
