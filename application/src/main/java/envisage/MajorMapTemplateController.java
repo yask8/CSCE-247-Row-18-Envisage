@@ -27,7 +27,7 @@ public class MajorMapTemplateController {
   private Button viewMajorMapButton;
 
   @FXML
-  void setStageMajorMap(ActionEvent event) {
+  void setMajorMap(ActionEvent event) {
     String majorName = majorMapLabel.getText().trim();
     try {
       FXMLLoader loader = new FXMLLoader(
