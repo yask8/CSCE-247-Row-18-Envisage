@@ -39,7 +39,7 @@
             </Label>
          </items>
       </ToolBar>
-      <TabPane layoutX="19.0" layoutY="64.0" prefHeight="280.0" prefWidth="602.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="19.0" layoutY="64.0" prefHeight="294.0" prefWidth="602.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Student">
                <content>
@@ -85,6 +85,6 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
       </TabPane>
-      <Text fx:id="signUpLabel" layoutX="246.0" layoutY="357.0" onMouseClicked="#setStageSignIn" strokeType="OUTSIDE" strokeWidth="0.0" text="No Account? Sign Up Here" underline="true" wrappingWidth="146.13671875" />
+      <Text fx:id="signUpLabel" layoutX="247.0" layoutY="376.0" onMouseClicked="#setStageSignIn" strokeType="OUTSIDE" strokeWidth="0.0" text="No Account? Sign Up Here" underline="true" wrappingWidth="146.13671875" />
    </children>
 </AnchorPane>
