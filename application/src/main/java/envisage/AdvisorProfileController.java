@@ -126,8 +126,10 @@ public class AdvisorProfileController implements Initializable {
     Calendar calendar = Calendar.getInstance();
     int year = calendar.get(Calendar.YEAR);
     int month = calendar.get(Calendar.MONTH);
+
     String fallAdvisingDate = "09-01-" + (year - 1);
     String springAdvisingDate = "01-01-" + year;
+
     if (month >= 9) {
       return dateFormat.parse(fallAdvisingDate);
     } else {
@@ -145,11 +147,14 @@ public class AdvisorProfileController implements Initializable {
 
     ArrayList<Student> advisedList = new ArrayList<>();
     ArrayList<Student> unadvisedList = new ArrayList<>();
+
     for (Student adviseeCheck : getAdvisees()) {
       if (adviseeCheck.getAdvisorNotes().isEmpty()) {
         // add to list of unadvised
         unadvisedList.add(adviseeCheck);
       } else {
+        //if most recent note is after the advising period then
+        //the student is added to advised
         if (
           adviseeCheck
             .getAdvisorNotes()
@@ -157,8 +162,6 @@ public class AdvisorProfileController implements Initializable {
             .getDate()
             .after(advisingComparison)
         ) {
-          //if note is after the advising period then
-          //the student is added to advised
           advisedList.add(adviseeCheck);
           //otherwise the student is added to unadvised
         } else {
