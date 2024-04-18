@@ -27,7 +27,6 @@ import javafx.stage.StageStyle;
 public class CoursePlannerController implements Initializable {
 
   private Facade facade = Facade.getInstance();
-  private User user = facade.getUser();
 
   @FXML
   private Button addCourseButton;

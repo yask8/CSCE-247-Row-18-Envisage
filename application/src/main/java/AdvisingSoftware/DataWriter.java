@@ -82,7 +82,7 @@ public class DataWriter extends DataConstants {
      * @param user The user for which the JSON object is generated.
      * @return The JSON user object.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "exports" })
     public static JSONObject getUserJSON(User user) {
         JSONObject userJSON = new JSONObject();
 

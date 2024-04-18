@@ -33,7 +33,7 @@ public class App extends Application {
    * @throws IOException If an error occurs while loading the FXML file.
    */
   @Override
-  public void start(Stage stage) throws IOException {
+  public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
     scene = new Scene(loadFXML("LogIn"), 640, 480);
     stage.setScene(scene);
     stage.show();
