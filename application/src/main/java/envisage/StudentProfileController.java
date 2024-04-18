@@ -10,7 +10,7 @@ package envisage;
  * It initializes the UI components and provides methods for initializing student
  * information, declaring major and application area, adding notes, and navigating back.
  * 
- * @author Garrett Spillman and Yasmine Kennedy
+ * @author Row 18
  */
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 import java.util.UUID;
 
 public class StudentProfileController implements Initializable {
-
+    // FXML injected variables
     @FXML
     private Button addNoteButton;
 
@@ -73,6 +73,7 @@ public class StudentProfileController implements Initializable {
     @FXML
     private Label studentsSummaryTitleLabel;
 
+    // Instance variables
     Facade facade = Facade.getInstance();
     User user = facade.getUser();
     String userFirstName = facade.getUser().getFirstName();
@@ -80,6 +81,14 @@ public class StudentProfileController implements Initializable {
     UUID studentID = null;
     StudentIDStore studentIDStore = StudentIDStore.getInstance();
 
+     /**
+     * Initializes the controller after its root element has been completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object,
+     *                  or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null
+     *                  if the root object was not localized.
+     */
     public void initialize(URL url, ResourceBundle arg1) {
         UUID studentID = studentIDStore.getStudentID();
         if (studentID != null) {
@@ -92,12 +101,19 @@ public class StudentProfileController implements Initializable {
     }
 
 
+   /**
+    * Helper method to set the users id
+    * @param id the users unique id
+    */
     public void setUserId(UUID id) {
         this.studentID = id;
         studentIDStore.setStudentID(id);
         initialize(null, null);
     }
 
+    /**
+     * Helper method to initialize a student's completed and incompleted courses
+     */
     private void initStudent() {
         ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
         ArrayList<String> studentIncompletedCourses = facade.getStudentDegreeProgress().getIncompleteCourses();
@@ -158,6 +174,10 @@ public class StudentProfileController implements Initializable {
         }
     }
 
+    /**
+     * Helper method to intialize a students completed and incompleted courses for a different user type
+     * @param studentId the students id
+     */
     private void initOtherUsers(UUID studentId) {
         Student student = facade.getStudentById(studentId);
         user = facade.getUser();
@@ -221,6 +241,7 @@ public class StudentProfileController implements Initializable {
         }
     }
 
+    
     @FXML
     private void goBack(ActionEvent event) {
         try {

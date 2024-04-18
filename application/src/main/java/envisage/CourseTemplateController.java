@@ -1,5 +1,7 @@
 package envisage;
-
+/**
+ * @author Row 18
+ */
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,8 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
-//Author @Spillmag
 
 public class CourseTemplateController implements Initializable {
 
@@ -82,7 +82,7 @@ public class CourseTemplateController implements Initializable {
     }
     
     @FXML
-    void setStageEditCourses(ActionEvent event) throws IOException{
+    void setStageEditCourses(ActionEvent event) throws IOException {
         App.setRoot("editCourse");
     }
 }

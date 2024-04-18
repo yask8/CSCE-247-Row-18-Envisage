@@ -1,6 +1,7 @@
 package envisage;
 /**
- * @author Yasmine Kennedy(yask8)
+ * Controller for the Frequently Asked Questions (FAQ) Screen
+ * @author Row 18
  */
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import java.util.ResourceBundle;
 
 public class FAQController implements Initializable {
 
+    // FXML Injected Variables
     @FXML
     private Label AboutLabel;
 
@@ -109,8 +111,12 @@ public class FAQController implements Initializable {
             "We offer support 24/7. Call us at (803)247 - 3618 or email us at" +
             " " + "customer-support@envisage.edu.";
 
+    /**
+     * Initializes the controller after its root element has been completely processed.
+     * Sets up the FAQ tree commonly asked questions about Envisage.
+     */
     @Override
-    public void initialize(URL url, ResourceBundle arg1){
+    public void initialize(URL url, ResourceBundle arg1) {
         TreeItem<String> envisageQuestions = new TreeItem<>("Envisage Questions");
         TreeItem<String> studentQuestions = new TreeItem<>("Student Questions");
         TreeItem<String> softwareQuestions = new TreeItem<>("Software Questions");
@@ -223,18 +229,33 @@ public class FAQController implements Initializable {
         contactCustomerSupportQuestion.getChildren().add(contactCustomerSupportResponse);
     }
 
+    /**
+     * Sets the stage for the Login screen
+     * @param event representing mouse action
+     * @throws IOException if an I/O error occurs when setting the root scene
+     */
     @FXML
     void setStageLogin(MouseEvent event) throws IOException {
         App.setRoot("LogIn");
     }
 
+    /**
+     * Sets the stage for the About Screen
+     * @param event representing mouse action
+     * @throws IOException if an I/O error occurs when setting the root scene
+     */
     @FXML
     void setStageAbout(MouseEvent event) throws IOException {
         App.setRoot("About");
     }
 
+    /**
+     * Sets the stage for the University Partners screen
+     * @param event representing mouse action
+     * @throws IOException if an I/O error occurs when setting the root scene
+     */
     @FXML
-    void setStageUniversityPartners(MouseEvent event) throws IOException{
+    void setStageUniversityPartners(MouseEvent event) throws IOException {
         App.setRoot("universityPartners");
     }
 

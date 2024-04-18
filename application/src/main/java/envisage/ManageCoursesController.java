@@ -2,7 +2,9 @@ package envisage;
 
 import javafx.collections.FXCollections;
 /**
- * @author Yasmine Kennedy (yask8) and Garrett Spillman (Spillmag)
+ * Controller to manage courses for the Admin screen
+ * Handles the actions and logic for managing courses
+ * @author Row 18
  */
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +28,7 @@ import AdvisingSoftware.*;
 
 public class ManageCoursesController implements Initializable {
 
+    // FXML injected variables
     @FXML
     private Button backButton;
 
@@ -59,6 +62,7 @@ public class ManageCoursesController implements Initializable {
     @FXML
     private GridPane manageCoursesGridPane;
 
+    // Instance variables
     private Facade facade;
     private User user;
     private ArrayList<Course> filteredCourses;
@@ -66,8 +70,17 @@ public class ManageCoursesController implements Initializable {
     private final int COLUMNS_PER_PAGE = 3;
     private int currentPage = 0; 
 
+     /**
+     * Initializes the controller after its root element has been completely processed, sets the
+     * filtered items, and populates the courses.
+     *
+     * @param location  The location used to resolve relative paths for the root object,
+     *                  or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null
+     *                  if the root object was not localized.
+     */
     @Override
-    public void initialize(URL url, ResourceBundle arg1 ){
+    public void initialize(URL url, ResourceBundle arg1 ) {
         facade = Facade.getInstance();
         user = facade.getUser();
         ObservableList<String> roleOptions = FXCollections.observableArrayList("Code", "Name", "ID");
@@ -75,7 +88,11 @@ public class ManageCoursesController implements Initializable {
         populateCourseList();
     }
 
-    private void populateCourseList(){
+    /**
+     * Helper method to populate the courses from the course list into a 
+     * grid format
+     */
+    private void populateCourseList() {
         ArrayList<Course> courses = facade.getCourses();
         int totalCourses = courses.size();
         int totalPages = (int) Math.ceil((double)totalCourses / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
@@ -88,17 +105,17 @@ public class ManageCoursesController implements Initializable {
 
         manageCoursesGridPane.getChildren().clear();
 
-        for(int i = start; i < end; i++){
+        for (int i = start; i < end; i++) {
             Course course = courses.get(i);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseTemplate.fxml"));
-            try{
+            try {
                 AnchorPane courseTemplate = loader.load();
 
                 CourseTemplateController controller = loader.getController();
                 controller.setCourseName(course.getName());
 
                 boolean isAdmin = user.getUserType().equals("ADMIN");
-                if(isAdmin) {
+                if (isAdmin) {
                     controller.showEditCourseButton();
                 }
 
@@ -112,6 +129,10 @@ public class ManageCoursesController implements Initializable {
         pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
     
+    /**
+     * Clears the results
+     * @param event representing action
+     */
     @FXML
     void clear(ActionEvent event) {
         searchBarTextField.clear();
@@ -121,10 +142,14 @@ public class ManageCoursesController implements Initializable {
         populateCourseList();
     }
 
+    /**
+     * Goes to the next page
+     * @param event representing action
+     */
     @FXML
     void nextPage(ActionEvent event) {
         ArrayList<Course> courses;
-        if(filteredCourses != null) {
+        if (filteredCourses != null) {
             courses = filteredCourses;
         } else {
             courses = facade.getCourses();
@@ -139,20 +164,28 @@ public class ManageCoursesController implements Initializable {
         }
     }
 
+    /**
+     * Goes to the previous page
+     * @param event representing action
+     */
     @FXML
     void previousPage(ActionEvent event) {
-        if(currentPage > 0){
+        if (currentPage > 0) {
             currentPage--;
             manageCoursesGridPane.getChildren().clear();
             populateCourseList();
         }
     }
 
+    /**
+     * Allows a course to be searched for by the user and utilizes the filtered options
+     * @param event representing action
+     */
     @FXML
     void search(ActionEvent event) {
         String searchText = searchBarTextField.getText().toLowerCase();
         String filterCriteria = filterByChoiceBox.getValue();
-        if(searchText.isEmpty() || filterCriteria == null){
+        if (searchText.isEmpty() || filterCriteria == null) {
             searchErrorLabel.setText("Please enter search text and select a filter.");
             return;
         }
@@ -160,7 +193,7 @@ public class ManageCoursesController implements Initializable {
         ArrayList<Course> courses = facade.getCourses();
         filteredCourses = new ArrayList<>();
 
-        for(Course course : courses){
+        for (Course course : courses) {
             switch (filterCriteria) {
                 case "Code":
                     if(course.getCode().toLowerCase().contains(searchText)){
@@ -182,7 +215,7 @@ public class ManageCoursesController implements Initializable {
             }
         }
 
-        if(filteredCourses.isEmpty()){
+        if (filteredCourses.isEmpty()) {
             searchErrorLabel.setText("No matching courses found.");
         } else {
             searchErrorLabel.setText("");
@@ -196,7 +229,11 @@ public class ManageCoursesController implements Initializable {
         }
     }
 
-    private void displayFilteredCourses(ArrayList<Course> filteredCourses){
+    /**
+     * Displays the filtered courses and puts them in a grid format
+     * @param filteredCourses the courses that are filtered by a certain role option
+     */
+    private void displayFilteredCourses(ArrayList<Course> filteredCourses) {
         manageCoursesGridPane.getChildren().clear();
 
         int totalCourses = filteredCourses.size();
@@ -207,7 +244,7 @@ public class ManageCoursesController implements Initializable {
         int start = currentPage * ROWS_PER_PAGE * COLUMNS_PER_PAGE;
         int end = Math.min(start + ROWS_PER_PAGE * COLUMNS_PER_PAGE, totalCourses);
 
-        for(int i = start; i < end; i++){
+        for (int i = start; i < end; i++) {
             Course course = filteredCourses.get(i);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseTemplate.fxml"));
             try {
@@ -217,13 +254,13 @@ public class ManageCoursesController implements Initializable {
                 controller.setCourseName(course.getName());
 
                 boolean isAdmin = user.getUserType().equals("ADMIN");
-                if(isAdmin){
+                if (isAdmin) {
                     controller.showEditCourseButton();
                 }
                 int row = (i - start) / COLUMNS_PER_PAGE;
                 int column = (i-start) % COLUMNS_PER_PAGE;
                 manageCoursesGridPane.add(courseTemplate, column, row);
-            } catch(IOException e){
+            } catch(IOException e) {
                 e.printStackTrace();
             }
 
@@ -231,6 +268,11 @@ public class ManageCoursesController implements Initializable {
         pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
     
+    /**
+     * Sets the stage to the dashboard of a specific user
+     * @param event representing action 
+     * @throws IOException if an I/O error occurs when setting the scene
+     */
     @FXML
     void setStageDashboard(ActionEvent event) throws IOException {
         if (user == null) {

@@ -1,5 +1,10 @@
 package envisage;
 
+/**
+ * Controller class for Advisee Management Page.
+ * Handles actions and logic related to advisee management.
+ * @author Row 18
+ */
 import AdvisingSoftware.*;
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +32,7 @@ import javafx.scene.layout.GridPane;
  * Authors: Spillmag, zhaolia9
  */
 public class AdviseeManageController implements Initializable {
-
+  // Instance Variables
   private Facade facade;
   private User user;
   private ArrayList<Student> filteredStudents;
@@ -35,6 +40,7 @@ public class AdviseeManageController implements Initializable {
   private final int COLUMNS_PER_PAGE = 3;
   private int currentPage = 0;
 
+  // FXML injected variables
   @FXML
   private Button backButton;
 

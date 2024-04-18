@@ -3,7 +3,7 @@ package envisage;
 /**
  * Controller class for the Admin Add or Remove User page.
  * Handles actions and logic related to adding or removing users by an admin.
- * Author: Stephon Johnson
+ * @author Row 18
  */
 
 import AdvisingSoftware.*;

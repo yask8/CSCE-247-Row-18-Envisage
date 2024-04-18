@@ -8,7 +8,7 @@ package envisage;
  * It initializes the UI components and provides methods for setting student name,
  * viewing student profile, and navigating to the student lookup page.
  * 
- * @author Garrett Spillman
+ * @author Row 18
  */
 import java.io.IOException;
 import java.net.URL;

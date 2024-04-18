@@ -1,5 +1,11 @@
 package envisage;
 
+/**
+ * Controller class for the Admin Dashboard page.
+ * Handles actions and navigation for the admin dashboard UI.
+ * @author Row 18
+ */
+
 import AdvisingSoftware.*;
 import java.io.IOException;
 import java.net.URL;
@@ -11,11 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-/**
- * Controller class for the Admin Dashboard page.
- * Handles actions and navigation for the admin dashboard UI.
- * Authors: @Spillmag and Stephon Johnson
- */
 public class AdminDashboardController implements Initializable {
 
     // Instance variables
@@ -108,12 +109,22 @@ public class AdminDashboardController implements Initializable {
         App.setRoot("majorList");
     }
 
+    /**
+     * ActionEvent that sets the stage to the Add/Remove Users screen.
+     * @param event The event representing the action.
+     * @throws IOExeception if an I/O error occurs when setting the root scene.
+     */
   @FXML
   void setStageAddRemoveUsers(ActionEvent event) throws IOException {
     App.setRoot("AdminAddOrRemove");
     
   }
 
+  /**
+   * ActionEvent that sets the stage to the Manage Courses screen.
+   * @param event The event representing the action.
+   * @throws IOException
+   */
   @FXML
   void setStageManageCourses(ActionEvent event) throws IOException {
     App.setRoot("manageCourses");

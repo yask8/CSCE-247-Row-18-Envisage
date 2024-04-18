@@ -1,5 +1,7 @@
 package envisage;
-
+/**
+ * @author Row 18
+ */
 import AdvisingSoftware.*;
 import java.io.IOException;
 import java.net.URL;
@@ -21,9 +23,11 @@ import javafx.scene.control.Label;
  */
 public class AdvisorDashboardController implements Initializable {
 
+    // Instance Variables
     private Facade facade;
     private User user;
 
+    // FXML Injected Variables
     @FXML
     private Button adviseStudentButton;
 

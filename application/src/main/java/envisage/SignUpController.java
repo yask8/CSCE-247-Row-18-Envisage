@@ -1,7 +1,9 @@
 package envisage;
 
 /**
- * @author Yasmine Kennedy (yask8)
+ * Controller for the User Sign Up Screen
+ * Handles action and logic for signing up a user
+ * @author Row 18
  */
 import java.io.IOException;
 
@@ -25,6 +27,7 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
 
+    // FXML injected variables
     @FXML
     private Label aboutLabel;
 
@@ -76,6 +79,14 @@ public class SignUpController implements Initializable {
     @FXML
     private Label faqLabel;
 
+     /**
+     * Initializes the controller after its root element has been completely processed and sets the role options
+     *
+     * @param location  The location used to resolve relative paths for the root object,
+     *                  or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null
+     *                  if the root object was not localized.
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         ObservableList<String> roleOptions = FXCollections.observableArrayList("Student", "Advisor", "Admin");
@@ -83,6 +94,9 @@ public class SignUpController implements Initializable {
         passwordTextField.setVisible(false);
     }
 
+    /***
+     * Signs up the user and then switches to that specific dashboard
+     */
     @FXML
     private void signUpUser() {
         String firstName = firstNameTextField.getText();
@@ -110,6 +124,10 @@ public class SignUpController implements Initializable {
         }
     }
 
+    /**
+     * Helper method to switch to dashboard
+     * @param roleType what the user type is
+     */
     private void switchToDashboard(String roleType) {
         try {
             switch (roleType) {
@@ -130,6 +148,10 @@ public class SignUpController implements Initializable {
         }
     }
 
+    /**
+     * Shows the hidden password
+     * @param event representing action event
+     */
     @FXML
     private void showHiddenPassword(ActionEvent event){
         if(passwordCheckBox.isSelected()){
@@ -144,6 +166,10 @@ public class SignUpController implements Initializable {
         }
     }
 
+    /**
+     * Shows the hidden confirm password field
+     * @param event representing an action
+     */
     @FXML
     private void showHiddenCheckPassword(ActionEvent event){
         if(checkPasswordCheckBox.isSelected()){
@@ -158,6 +184,10 @@ public class SignUpController implements Initializable {
         }
     }
 
+    /**
+     * Helper method to check if the password and confirm password matches
+     * @return if the passwords do or do not match
+     */
     private boolean checkIfConfirmPasswordMatchesPassword() {
         boolean matches = true;
         if (!hiddenCheckPassword.getText().equals(hiddenPassword.getText()) 
@@ -168,21 +198,41 @@ public class SignUpController implements Initializable {
         return matches;
     }
 
+    /**
+     * Sets the stage to the Login Screen
+     * @param event representing a mouse event
+     * @throws IOException if an I/O error occurs when setting the scene
+     */
     @FXML
     void setStageLogin(MouseEvent event) throws IOException {
         App.setRoot("LogIn");
     }
     
+    /**
+     * Sets the stage to the About Screen
+     * @param event representing a mouse event
+     * @throws IOException if an I/O error occurs when setting the scene
+     */
     @FXML
     void setStageAbout(MouseEvent event) throws IOException {
         App.setRoot("About");
     }
 
+    /**
+     * Sets the stage to the University Partners Screen
+     * @param event representing a mouse event
+     * @throws IOException if an I/O error occurs when setting the scene
+     */
     @FXML 
     void setStageUniversityPartners(MouseEvent event) throws IOException{
         App.setRoot("universityPartners");
     }
 
+    /**
+     * Sets the stage to the FAQ Screen
+     * @param event representing a mouse event
+     * @throws IOException if an I/O error occurs when setting the scene
+     */
     @FXML
     void setStageFAQ(MouseEvent event) throws IOException{
         App.setRoot("faqPage");

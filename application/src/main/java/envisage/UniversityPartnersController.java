@@ -5,7 +5,7 @@ package envisage;
  * This class handles the interaction and logic for displaying university partners.
  * It contains methods for initializing the UI components and handling mouse events.
  * 
- * @author Yasmine Kennedy (yask8)
+ * @author Row 18
  */
 import java.io.IOException;
 
@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class UniversityPartnersController {
 
+    // FXML injected variables
     @FXML
     private Label AboutLabel;
 

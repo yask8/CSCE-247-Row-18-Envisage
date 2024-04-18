@@ -3,7 +3,7 @@ package envisage;
 /**
  * The MajorNameStore class is a singleton class used to store and retrieve a single major name.
  * Only one instance of this class can exist throughout the runtime of the application.
- * @author Garrett Spillman
+ * @author Row 18
  */
 public class MajorNameStore {
 

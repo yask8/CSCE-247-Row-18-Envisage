@@ -9,7 +9,7 @@ import java.util.UUID;
  * 
  * It provides methods for setting and getting the UUID of the student.
  * 
- * @author Garrrett Spillman
+ * @author Row 18
  */
 public class StudentIDStore {
     private static StudentIDStore instance;

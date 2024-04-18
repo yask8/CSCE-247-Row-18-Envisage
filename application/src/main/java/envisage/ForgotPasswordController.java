@@ -1,7 +1,9 @@
 package envisage;
 
 /**
- * @author Yasmine Kennedy (yask8)
+ * Controller for the Forgot Password Screen
+ * Handles actions and logics if password is forgotten.
+ * @author Row 18
  */
 
 import AdvisingSoftware.*;
@@ -22,6 +24,7 @@ import java.util.UUID;
 
 public class ForgotPasswordController implements Initializable {
 
+    // FXML injected variables
     @FXML
     private PasswordField checkNewPassword;
 
@@ -52,8 +55,16 @@ public class ForgotPasswordController implements Initializable {
     @FXML
     private Label checkPasswordsErrorLabel;
 
+     /**
+     * Initializes the controller after its root element has been completely processed and
+     * sets all of the hidden values to false.
+     * @param location  The location used to resolve relative paths for the root object,
+     *                  or null if the location is not known.
+     * @param resources The resources used to localize the root object, or null
+     *                  if the root object was not localized.
+     */
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1){
+    public void initialize(URL arg0, ResourceBundle arg1) {
         checkNewPassword.setVisible(false);
         newPassword.setVisible(false);
         enterNewPasswordMessage.setVisible(false);
@@ -62,11 +73,15 @@ public class ForgotPasswordController implements Initializable {
         incorrectIDLabel.setVisible(false);
     }
 
+    /**
+     * Checks users school ID to ensure they are a valid user
+     * @param event representing a mouse event
+     */
     @FXML
-    private void checkingSchoolID(MouseEvent event){
+    private void checkingSchoolID(MouseEvent event) {
         Facade facade = Facade.getInstance();
         UUID id = UUID.fromString(enterSchoolIDTextField.getText());
-        if(facade.getUserList().getUserbyUSCID(id) != null){
+        if (facade.getUserList().getUserbyUSCID(id) != null) {
             incorrectIDLabel.setVisible(false);
             enterSchoolIDTextField.setVisible(false);
             forgotPasswordMessage.setVisible(false);
@@ -81,15 +96,19 @@ public class ForgotPasswordController implements Initializable {
         }
     }
 
+    /**
+     * Resets the password
+     * @param event representing a mouse event
+     */
     @FXML
-    private void resetForgottenPassword(MouseEvent event){
+    private void resetForgottenPassword(MouseEvent event) {
         Facade facade = Facade.getInstance();
         UUID id = UUID.fromString(enterSchoolIDTextField.getText());
         String password = newPassword.getText();
-        if(password.length() >= 8 && password.length() <= 25 ){
+        if (password.length() >= 8 && password.length() <= 25 ) {
             facade.getUserList().getUserbyUSCID(id).editPassword(password);
             String modified_password = facade.getUserList().getUserbyUSCID(id).getPassword();
-            if(checkIfConfirmPasswordMatchesPassword() && modified_password.equals(password)){
+            if (checkIfConfirmPasswordMatchesPassword() && modified_password.equals(password)) {
                 passwordLengthErrorLabel.setVisible(true);
                 passwordLengthErrorLabel.setText("Password reset succesful! Login with new password.");
             } else {
@@ -100,7 +119,7 @@ public class ForgotPasswordController implements Initializable {
                 passwordLengthErrorLabel.setVisible(true);
                 passwordLengthErrorLabel.setText("Password is too short.");
             }
-            if(password.length() >= 26) {
+            if (password.length() >= 26) {
                 passwordLengthErrorLabel.setVisible(true);
                 passwordLengthErrorLabel.setText("Password is too long.");
             }
@@ -108,6 +127,11 @@ public class ForgotPasswordController implements Initializable {
 
     }
 
+    /**
+     * Helper Method that checks if the new password matches the confirmed
+     * password.
+     * @return if the passwords do or do not match
+     */
     private boolean checkIfConfirmPasswordMatchesPassword() {
         boolean matches = true;
         if (!checkNewPassword.getText().equals(newPassword.getText())) {

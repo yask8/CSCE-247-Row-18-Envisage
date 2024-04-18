@@ -1,5 +1,10 @@
 package envisage;
 
+/**
+ * Controller for Course Planner Screen
+ * Handles actions and logic for course planning
+ * @author Row 18
+ */
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,13 +26,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-//Author @Spillmag
+
 
 public class CoursePlannerController implements Initializable {
 
+    // Instance Variables
     private Facade facade = Facade.getInstance();
     private User user = facade.getUser();
 
+    // Injected FXML Variables
     @FXML
     private Button addCourseButton;
 
@@ -55,6 +62,7 @@ public class CoursePlannerController implements Initializable {
     @FXML
     private Label errorLabel;
 
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         CoursePlanner coursePlanner = facade.getStudentCoursePlanner();

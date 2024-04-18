@@ -20,8 +20,6 @@ import java.util.ResourceBundle;
 
 import AdvisingSoftware.*;
 
-//Author @Spillmag
-
 public class CourseListController implements Initializable {
 
     private Facade facade;
