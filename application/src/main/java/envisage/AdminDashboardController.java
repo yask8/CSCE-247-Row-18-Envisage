@@ -79,7 +79,7 @@ public class AdminDashboardController implements Initializable {
 
   @FXML
   void setStageManageCourses(ActionEvent event) throws IOException {
-    App.setRoot("courseList");
+    App.setRoot("manageCourses");
   }
 
   @FXML

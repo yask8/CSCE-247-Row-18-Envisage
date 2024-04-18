@@ -1,5 +1,6 @@
 package envisage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -78,5 +79,10 @@ public class CourseTemplateController implements Initializable {
         editCourseInfoButton.setVisible(true);
         showAddCourseButton(false);
         viewCourseInfoButton.setVisible(false);
+    }
+    
+    @FXML
+    void setStageEditCourses(ActionEvent event) throws IOException{
+        App.setRoot("editCourse");
     }
 }
