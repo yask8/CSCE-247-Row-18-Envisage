@@ -38,6 +38,9 @@ public class AdminAddOrRemoveController implements Initializable {
   private AnchorPane AddOrRemoveUser;
 
   @FXML
+  private Label pageNumberLabel;
+
+  @FXML
   private ChoiceBox<String> IAmChoiceBox;
 
   @FXML
@@ -143,6 +146,7 @@ public class AdminAddOrRemoveController implements Initializable {
             addOrRemoveGridPane.add(userLabel, (i - start) % COLUMNS_PER_PAGE, (i - start) / COLUMNS_PER_PAGE);
         }*/
 
+    pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     searchErrorLabel.setText("");
     searchErrorLabel.setVisible(false);
   }
