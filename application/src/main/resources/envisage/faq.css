@@ -1,43 +1,45 @@
+/*Styled by Row 18*/
+
 /* Root styling */
 .root {
-    background-color: #f9f9f9;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9; /*Set background color to a specific white shade*/
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /*Set font family*/
 }
 
 /* Toolbar styling */
 .tool-bar {
-    -fx-background-color: #5f6a9a;
+    -fx-background-color: #5f6a9a; /*Set toolbar background*/
 
 }
 
 .tool-bar .label {
-    -fx-text-fill: #ffffff;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff; /*Set text color*/
+    -fx-font-size: 16px; /*Set font size*/
+    -fx-font-weight: bold; /*Set weight*/
 }
 
 /* Tabs styling */
 .tab-pane {
-    -fx-background-color: #ffffff;
-    -fx-padding: 20px;
-    -fx-border-width: 1px;
-    -fx-border-color: #ddd;
+    -fx-background-color: #ffffff; /*Set background color*/
+    -fx-padding: 20px; /*Set padding*/
+    -fx-border-width: 1px; /*Set border width*/
+    -fx-border-color: #ddd; /*Set boarder color*/
 }
 
 .tab-pane .tab-header-area {
-    -fx-background-color: transparent;
+    -fx-background-color: transparent; /*Set background color*/
 }
 
 .tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: #aab1d2;
+    -fx-background-color: #aab1d2; /*Set background color*/
 }
 
 .tab-pane .tab {
-    -fx-background-color: transparent;
-    -fx-text-fill: #333333;
-    -fx-font-size: 14px;
-    -fx-background-insets: 0;
-    -fx-padding: 10px 20px;
+    -fx-background-color: transparent; /*Set background color*/
+    -fx-text-fill: #333333; /*Set text color*/
+    -fx-font-size: 14px; /*Set font size*/
+    -fx-background-insets: 0; /*set insets*/
+    -fx-padding: 10px 20px; /*Set padding*/
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2,0,0,1);
     -fx-transition: all 0.3s;
@@ -45,42 +47,42 @@
 
 /* Selected tab styling */
 .tab-pane .tab:selected {
-    -fx-border-color: #5F6A9A;
-    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: #5F6A9A; /*Set border color*/
+    -fx-border-width: 0 0 2px 0; /*Set boarder width*/
 }
 
 .tab-pane .tab:selected .tab-label {
-    -fx-font-weight: bold;
+    -fx-font-weight: bold; /*Set wieght*/
 
 }
 
 .tab-pane .tab-area {
-    -fx-padding: 0;
+    -fx-padding: 0; /*Set padding*/
 }
 
 .tab-pane .headers-region {
-    -fx-alignment: center;
+    -fx-alignment: center; /*Set alignment*/
 }
 
 .tab-pane .tab .tab-label {
-    -fx-padding: 0;
-    -fx-background-insets: 0;
+    -fx-padding: 0; /*Set padding*/
+    -fx-background-insets: 0; /*Sets insets*/
 }
 
 /* Toolbar Label Text-Styling*/
 .text.label {
-    -fx-fill:white;
-    -fx-font-size: 14px;
+    -fx-fill:white; /*Set text color*/
+    -fx-font-size: 14px; /*Set font size*/
 }
 
 /*Text-styling*/
 .text{
-    -fx-fill: black;
-    -fx-font-size: 14px;
+    -fx-fill: black; /*Set text color*/
+    -fx-font-size: 14px; /*Set font size*/
 }
 
 /* AnchorPane styling */
 .anchor-pane {
-    -fx-background-color: #f9f9f9;
-    -fx-padding: 20px;
+    -fx-background-color: #f9f9f9; /*Set background color*/
+    -fx-padding: 20px; /*set padding*/
 }

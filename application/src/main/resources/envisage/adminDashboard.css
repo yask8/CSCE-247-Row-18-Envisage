@@ -1,3 +1,5 @@
+/*Styled by Row 18*/
+
 /* AnchorPane styling */
 #adminDashboard {
     -fx-background-color: #ffffff; /* Set background color to white */
@@ -14,8 +16,7 @@
 
 /* Button styling */
 #adminDashboard .button {
-    /*-fx-background-color: #3498db; /* Set button background color to a shade of blue */
-    /*-fx-text-fill: #ffffff; /* Set button text color to white */
+    /*-fx-background-color: #828ab4; /* Set button background color to a shade of purple */
     /*-fx-font-size: 14px; /* Set button font size */
     /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
 
@@ -28,11 +29,12 @@
 }
 
 #adminDashboard .button .text {
+    /*-fx-fill*/ /*Set button text color to white*/
     -fx-fill: #ffffff;
 }
 
 #adminDashboard .button:hover {
-    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+    /*-fx-background-color: #a3baf9; /* Set button hover background color to a slightly lighter shade of purple*/
 
     -fx-background-color: #a3baf9;
     -fx-transition: all 0.3s;
@@ -45,11 +47,11 @@
 }
 
 #adminDashboard #mainEmailTitleLabel .text{
-    -fx-font-weight: bold;
+    -fx-font-weight: bold; /*set text weight to bold*/
 }
 
 #adminDashboard #idTitleLabel .text{
-    -fx-font-weight: bold;
+    -fx-font-weight: bold; /*set text weight to bold*/
 }
 
 /* Label styling */
@@ -60,9 +62,9 @@
 }
 
 /* Welcome label styling */
-#adminDashboard #welcomeLabel {
-    -fx-font-family: "System";
-    -fx-font-style: italic;
-    -fx-font-weight: bold;
+#adminDashboard #welcomeLabel .text {
+    -fx-font-family: "System"; /*Set font family to System*/
+    -fx-font-style: italic; /*Set style to italic*/
+    -fx-font-weight: bold; /*Set weight to bold*/
     -fx-font-size: 24px; /* Set welcome label font size to 24px */
 }
