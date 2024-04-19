@@ -12,7 +12,7 @@
 
 <!-- Designed by Row 18-->
 
-<AnchorPane fx:id="courseList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.CourseListController">
+<AnchorPane fx:id="courseList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" stylesheets="@studentLookup.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.CourseListController">
    <children>
       <Label layoutX="20.0" layoutY="25.0" prefHeight="40.0" prefWidth="600.0" text="Course List">
          <font>

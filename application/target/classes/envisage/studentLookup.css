@@ -1,0 +1,23 @@
+/* Root styling */
+.root {
+    background-color: #f9f9f9;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #828ab4;
+    -fx-text-fill: #ffffff;
+    /*-fx-font-size: 14px;*/
+    -fx-border-radius: 3px;
+    /*-fx-padding: 10px 20px;*/
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2,0,0,1);
+}
+
+.button:hover {
+    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+
+    -fx-background-color: #a3baf9;
+    -fx-transition: all 0.3s;
+}
