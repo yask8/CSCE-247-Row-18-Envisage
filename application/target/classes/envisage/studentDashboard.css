@@ -74,7 +74,9 @@
 }
 
 /* Welcome label styling */
-#studentDashboard #welcomeLabel {
-    -fx-font-family: "System Bold Italic";
+#studentDashboard #welcomeLabel .text {
+    -fx-font-family: "System";
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
     -fx-font-size: 24px; /* Set welcome label font size to 24px */
 }
