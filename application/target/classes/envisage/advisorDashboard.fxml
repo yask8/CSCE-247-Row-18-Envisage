@@ -31,17 +31,17 @@
             </font>
         </Label>
       <PieChart fx:id="progressPieChart" layoutX="20.0" layoutY="80.0" prefHeight="122.0" prefWidth="190.0" title="Advisees Vs Risk of Fail" />
-      <Label layoutX="225.0" layoutY="90.0" prefHeight="20.0" prefWidth="152.0" text="Total Number of Advisees:">
+      <Label fx:id="totalNumberofAdviseesTitleLabel" layoutX="214.0" layoutY="90.0" prefHeight="20.0" prefWidth="166.0" text="Total Number of Advisees:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="225.0" layoutY="120.0" prefHeight="20.0" prefWidth="150.0" text="Risk of Failure Advisees:">
+      <Label fx:id="riskOfFailureAdviseesTitleLabel" layoutX="214.0" layoutY="120.0" prefHeight="20.0" prefWidth="150.0" text="Risk of Failure Advisees:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="totalNumberOfAdviseesLabel" layoutX="385.0" layoutY="90.0" prefHeight="20.0" prefWidth="220.0" />
-      <Label fx:id="riskOfFailureLabel" layoutX="370.0" layoutY="120.0" prefHeight="20.0" prefWidth="240.0" />
+      <Label fx:id="totalNumberOfAdviseesLabel" layoutX="380.0" layoutY="90.0" prefHeight="20.0" prefWidth="220.0" />
+      <Label fx:id="riskOfFailureLabel" layoutX="364.0" layoutY="120.0" prefHeight="20.0" prefWidth="240.0" />
     </children>
 </AnchorPane>
