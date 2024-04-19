@@ -19,7 +19,7 @@
     /*-fx-font-size: 14px; /* Set button font size */
     /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
 
-    -fx-background-color: #5f6a9a;
+    -fx-background-color: #818ab5;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
     -fx-border-radius: 3px;
@@ -37,7 +37,7 @@
 
 /* Text styling */
 #studentDashboard .text {
-    -fx-fill: #ffffff; /* Set text color to a dark grey */
+    -fx-fill: black; /* Set text color to a dark grey */
     -fx-font-size: 13px; /* Set text font size */
 }
 
