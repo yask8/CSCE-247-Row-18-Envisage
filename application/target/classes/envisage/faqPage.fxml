@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.FAQController">
    <children>
-      <ToolBar prefHeight="47.0" prefWidth="640.0" stylesheets="@faq.css">
+      <ToolBar prefHeight="40.0" prefWidth="640.0" stylesheets="@faq.css">
          <items>
             <Label fx:id="loginLabel" onMouseClicked="#setStageLogin" styleClass="tool-bar" stylesheets="@faq.css" text="Login">
                <padding>

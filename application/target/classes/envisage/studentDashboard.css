@@ -14,19 +14,30 @@
 
 /* Button styling */
 #studentDashboard .button {
-    -fx-background-color: #3498db; /* Set button background color to a shade of blue */
-    -fx-text-fill: #ffffff; /* Set button text color to white */
-    -fx-font-size: 14px; /* Set button font size */
-    -fx-border-radius: 3; /* Set border radius to make corners smoother */
+    /*-fx-background-color: #3498db; /* Set button background color to a shade of blue */
+    /*-fx-text-fill: #ffffff; /* Set button text color to white */
+    /*-fx-font-size: 14px; /* Set button font size */
+    /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
+
+    -fx-background-color: #5f6a9a;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-border-radius: 3px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2,0,0,1);
 }
 
 #studentDashboard .button:hover {
-    -fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+
+    -fx-background-color: #a3baf9;
+    -fx-transition: all 0.3s;
 }
 
 /* Text styling */
 #studentDashboard .text {
-    -fx-fill: #333333; /* Set text color to a dark grey */
+    -fx-fill: #ffffff; /* Set text color to a dark grey */
     -fx-font-size: 13px; /* Set text font size */
 }
 
@@ -34,6 +45,7 @@
 #studentDashboard .label {
     -fx-text-fill: #333333; /* Set label text color to a dark grey */
     -fx-font-size: 12px; /* Set label font size */
+    
 }
 
 /* PieChart Data styling */
