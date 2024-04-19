@@ -35,7 +35,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="appAreaTitleLabel" layoutX="225.0" layoutY="120.0" minHeight="20.0" prefWidth="60.0" text="App Area:">
+      <Label fx:id="appAreaTitleLabel" layoutX="225.0" layoutY="120.0" minHeight="20.0" prefHeight="20.0" prefWidth="66.0" text="App Area:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -55,11 +55,11 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="majorLabel" layoutX="265.0" layoutY="90.0" prefHeight="20.0" prefWidth="340.0" />
-      <Label fx:id="appAreaLabel" layoutX="285.0" layoutY="120.0" prefHeight="20.0" prefWidth="320.0" />
-      <Label fx:id="semesterLabel" layoutX="285.0" layoutY="150.0" prefHeight="20.0" prefWidth="320.0" />
-      <Label fx:id="gpaLabel" layoutX="255.0" layoutY="180.0" prefHeight="20.0" prefWidth="350.0" />
-      <Label fx:id="advisingNoteLabel" layoutX="317.0" layoutY="209.0" prefHeight="20.0" prefWidth="290.0" />
+      <Label fx:id="majorLabel" layoutX="267.0" layoutY="90.0" prefHeight="20.0" prefWidth="340.0" />
+      <Label fx:id="appAreaLabel" layoutX="288.0" layoutY="120.0" prefHeight="20.0" prefWidth="320.0" />
+      <Label fx:id="semesterLabel" layoutX="287.0" layoutY="150.0" prefHeight="20.0" prefWidth="320.0" />
+      <Label fx:id="gpaLabel" layoutX="257.0" layoutY="180.0" prefHeight="20.0" prefWidth="350.0" />
+      <Label fx:id="advisingNoteLabel" layoutX="319.0" layoutY="209.0" prefHeight="20.0" prefWidth="290.0" />
       <Label fx:id="welcomeLabel" layoutX="21.0" layoutY="14.0" prefHeight="40.0" prefWidth="591.0">
          <font>
             <Font name="System Bold Italic" size="24.0" />

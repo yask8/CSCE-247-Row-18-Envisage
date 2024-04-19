@@ -1,1 +1,71 @@
-[{"minGradHours":90,"semester 2":["ENGL102","MATH142","CHEM111","CHEM111L","CSCE146","CSCE215"],"semester 3":["CSCE211","CSCE240","MATH374","CHEM112","CHEM112L","SPCH140"],"semester 1":["ENGL101","MATH141","CSCE145","CSCE190","ARTE101"],"semester 6":["CSCE416","CSCE317","STAT509","CLAS220","CSCE522"],"semester 7":["CSCE490","CSCE355","MATH344","MATH344L","CSCE548","CSCE520"],"semester 4":["CSCE212","CSCE247","MATH241","SOCY101","ANTH161","SPAN109"],"semester 5":["CSCE311","CSCE330","CSCE350","CSCE390","ENGL462","CSCE518"],"semester 8":["CSCE492","CSCE513","MUSC110","POLI101","SOST201"],"major":"Computer Science","caroCoreHours":30,"minTotalHours":125,"id":"6bc25f86-1fd3-4136-8703-09c68a84a104","minGPA":2.0}]
+[
+    {
+        "minGradHours": 90,
+        "semester 2": [
+            "ENGL102",
+            "MATH142",
+            "CHEM111",
+            "CHEM111L",
+            "CSCE146",
+            "CSCE215"
+        ],
+        "semester 3": [
+            "CSCE211",
+            "CSCE240",
+            "MATH374",
+            "CHEM112",
+            "CHEM112L",
+            "SPCH140"
+        ],
+        "semester 1": [
+            "ENGL101",
+            "MATH141",
+            "CSCE145",
+            "CSCE190",
+            "ARTE101"
+        ],
+        "semester 6": [
+            "CSCE416",
+            "CSCE317",
+            "STAT509",
+            "CLAS220",
+            "CSCE522"
+        ],
+        "semester 7": [
+            "CSCE490",
+            "CSCE355",
+            "MATH344",
+            "MATH344L",
+            "CSCE548",
+            "CSCE520"
+        ],
+        "semester 4": [
+            "CSCE212",
+            "CSCE247",
+            "MATH241",
+            "SOCY101",
+            "ANTH161",
+            "SPAN109"
+        ],
+        "semester 5": [
+            "CSCE311",
+            "CSCE330",
+            "CSCE350",
+            "CSCE390",
+            "ENGL462",
+            "CSCE518"
+        ],
+        "semester 8": [
+            "CSCE492",
+            "CSCE513",
+            "MUSC110",
+            "POLI101",
+            "SOST201"
+        ],
+        "major": "Computer Science",
+        "caroCoreHours": 30,
+        "minTotalHours": 125,
+        "id": "7c031eef-2d5a-449c-878a-d5f55ded7501",
+        "minGPA": 2.0
+    }
+]
