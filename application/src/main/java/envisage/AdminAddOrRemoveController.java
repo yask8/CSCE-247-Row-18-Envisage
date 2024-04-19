@@ -140,11 +140,6 @@ public class AdminAddOrRemoveController implements Initializable {
         e.printStackTrace();
       }
     }
-    /*for (int i = start; i < end; i++) {
-            User user = users.get(i);
-            Label userLabel = new Label(user.getFirstName() + " " + user.getLastName());
-            addOrRemoveGridPane.add(userLabel, (i - start) % COLUMNS_PER_PAGE, (i - start) / COLUMNS_PER_PAGE);
-        }*/
 
     pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     searchErrorLabel.setText("");
