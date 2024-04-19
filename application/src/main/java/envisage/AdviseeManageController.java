@@ -32,6 +32,7 @@ import javafx.scene.layout.GridPane;
  * Authors: Spillmag, zhaolia9
  */
 public class AdviseeManageController implements Initializable {
+
   // Instance Variables
   private Facade facade;
   private User user;
@@ -87,9 +88,10 @@ public class AdviseeManageController implements Initializable {
     facade = Facade.getInstance();
     user = facade.getUser();
     ObservableList<String> roleOptions = FXCollections.observableArrayList(
-        "First Name",
-        "Last Name",
-        "Risk Of Failure");
+      "First Name",
+      "Last Name",
+      "Risk Of Failure"
+    );
     filterByChoiceBox.setItems(roleOptions);
     populateAdviseeList();
   }
@@ -105,7 +107,8 @@ public class AdviseeManageController implements Initializable {
 
     for (UUID advisee : advisees) {
       students.add(
-          ((Advisor) user).getStudentByAdvisor(advisee, facade.getUserList()));
+        ((Advisor) user).getStudentByAdvisor(advisee, facade.getUserList())
+      );
     }
     return students;
   }
@@ -119,7 +122,8 @@ public class AdviseeManageController implements Initializable {
 
     int totalStudents = students.size();
     int totalPages = (int) Math.ceil(
-        (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+      (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
+    );
 
     currentPage = Math.min(currentPage, totalPages - 1);
     currentPage = Math.max(currentPage, 0);
@@ -132,14 +136,16 @@ public class AdviseeManageController implements Initializable {
     for (int i = start; i < end; i++) {
       Student student = students.get(i);
       FXMLLoader loader = new FXMLLoader(
-          getClass().getResource("StudentTemplate.fxml"));
+        getClass().getResource("StudentTemplate.fxml")
+      );
       try {
         AnchorPane studentTemplate = loader.load();
 
         StudentTemplateController controller = loader.getController();
         controller.setStudentName(
-            student.getFirstName(),
-            student.getLastName());
+          student.getFirstName(),
+          student.getLastName()
+        );
 
         int row = (i - start) / COLUMNS_PER_PAGE;
         int column = (i - start) % COLUMNS_PER_PAGE;
@@ -169,7 +175,8 @@ public class AdviseeManageController implements Initializable {
 
     int totalStudents = xstudents.size();
     int totalPages = (int) Math.ceil(
-        (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+      (double) totalStudents / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
+    );
 
     if (currentPage < totalPages - 1) {
       currentPage++;
@@ -205,10 +212,13 @@ public class AdviseeManageController implements Initializable {
     String filterCriteria = filterByChoiceBox.getValue();
 
     if (searchText.isEmpty()/* || filterCriteria == null */) {
-      if (!filterCriteria.equalsIgnoreCase("Risk of Failure") ||
-          filterCriteria == null) {
+      if (
+        !filterCriteria.equalsIgnoreCase("Risk of Failure") ||
+        filterCriteria == null
+      ) {
         searchErrorLabel.setText(
-            "Please enter search text and select a filter.");
+          "Please enter search text and select a filter."
+        );
         return;
       }
     }
@@ -231,12 +241,15 @@ public class AdviseeManageController implements Initializable {
           break;
         case "Risk Of Failure":
           for (UUID fail : ((Advisor) user).getListOfFailingStudents()) {
-            Student displayedStudent = ((Advisor) user).getStudentByAdvisor(fail, facade.getUserList());
-            String fullName = displayedStudent.getFirstName() +
-                " " +
-                displayedStudent.getLastName();
+            Student displayedStudent =
+              ((Advisor) user).getStudentByAdvisor(fail, facade.getUserList());
+            String fullName =
+              displayedStudent.getFirstName() +
+              " " +
+              displayedStudent.getLastName();
 
-            boolean searchAdvisee = (fullName.toLowerCase().contains(searchText));
+            boolean searchAdvisee =
+              (fullName.toLowerCase().contains(searchText));
 
             if (searchText.isEmpty() || searchText.isBlank() || searchAdvisee) {
               if (!filteredStudents.contains(displayedStudent)) {
@@ -260,7 +273,8 @@ public class AdviseeManageController implements Initializable {
 
       int totalStudents = filteredStudents.size();
       int totalPages = (int) Math.ceil(
-          ((double) totalStudents) / (ROWS_PER_PAGE * COLUMNS_PER_PAGE));
+        ((double) totalStudents) / (ROWS_PER_PAGE * COLUMNS_PER_PAGE)
+      );
       pageNumberLabel.setText("Page " + (currentPage + 1) + " / " + totalPages);
     }
   }
@@ -277,14 +291,16 @@ public class AdviseeManageController implements Initializable {
     for (int i = 0; i < filteredStudents.size(); i++) {
       Student student = filteredStudents.get(i);
       FXMLLoader loader = new FXMLLoader(
-          getClass().getResource("StudentTemplate.fxml"));
+        getClass().getResource("StudentTemplate.fxml")
+      );
       try {
         AnchorPane studentTemplate = loader.load();
 
         StudentTemplateController controller = loader.getController();
         controller.setStudentName(
-            student.getFirstName(),
-            student.getLastName());
+          student.getFirstName(),
+          student.getLastName()
+        );
 
         int row = i / COLUMNS_PER_PAGE;
         int column = i % COLUMNS_PER_PAGE;
@@ -322,7 +338,6 @@ public class AdviseeManageController implements Initializable {
   /**
    * Clears the search criteria and filter, resetting the advisee list to its
    * original state.
-   *
    * @param event The ActionEvent triggered by clicking the clear button.
    */
   @FXML
