@@ -41,6 +41,14 @@
     -fx-font-size: 13px; /* Set text font size */
 }
 
+#advisorDashboard #totalNumberofAdviseesTitleLabel .text{
+    -fx-font-weight: bold;
+}
+
+#advisorDashboard #riskOfFailureAdviseesTitleLabel .text{
+    -fx-font-weight:bold;
+}
+
 /* Label styling */
 #advisorDashboard .label {
     -fx-text-fill: #333333; /* Set label text color to a dark grey */
