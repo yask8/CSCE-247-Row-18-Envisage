@@ -8,6 +8,8 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
@@ -86,5 +88,10 @@
          </padding>
       </TabPane>
       <Text fx:id="signUpLabel" layoutX="247.0" layoutY="376.0" onMouseClicked="#setStageSignIn" strokeType="OUTSIDE" strokeWidth="0.0" text="No Account? Sign Up Here" underline="true" wrappingWidth="146.13671875" />
+      <ImageView fx:id="envisageLogo" fitHeight="115.0" fitWidth="319.0" layoutX="159.0" layoutY="396.0" opacity="0.53" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ImageAssets/darkpurplelogo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
