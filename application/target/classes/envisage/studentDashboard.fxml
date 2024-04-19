@@ -30,27 +30,27 @@
             </title>
         </PieChart>
       <Button fx:id="signOutButton" layoutX="520.0" layoutY="371.0" mnemonicParsing="false" onAction="#signOut" prefHeight="20.0" prefWidth="100.0" text="Sign Out" />
-      <Label layoutX="225.0" layoutY="90.0" minHeight="20.0" prefHeight="20.0" prefWidth="40.0" text="Major:">
+      <Label fx:id="majorTitleLabel" layoutX="225.0" layoutY="90.0" minHeight="20.0" prefHeight="20.0" prefWidth="40.0" text="Major:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="225.0" layoutY="120.0" minHeight="20.0" prefWidth="60.0" text="App Area:">
+      <Label fx:id="appAreaTitleLabel" layoutX="225.0" layoutY="120.0" minHeight="20.0" prefWidth="60.0" text="App Area:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="225.0" layoutY="150.0" minHeight="20.0" prefWidth="60.0" text="Semester:">
+      <Label fx:id="semesterTitleLabel" layoutX="225.0" layoutY="150.0" minHeight="20.0" prefWidth="60.0" text="Semester:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="225.0" layoutY="180.0" minHeight="20.0" prefWidth="30.0" text="GPA:">
+      <Label fx:id="gpaTitleLabel" layoutX="225.0" layoutY="180.0" minHeight="20.0" prefWidth="30.0" text="GPA:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="225.0" layoutY="208.0" minHeight="20.0" prefWidth="90.0" text="Advising Note:">
+      <Label fx:id="advisingNoteTitleLabel" layoutX="225.0" layoutY="208.0" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" text="Advising Note:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -59,7 +59,7 @@
       <Label fx:id="appAreaLabel" layoutX="285.0" layoutY="120.0" prefHeight="20.0" prefWidth="320.0" />
       <Label fx:id="semesterLabel" layoutX="285.0" layoutY="150.0" prefHeight="20.0" prefWidth="320.0" />
       <Label fx:id="gpaLabel" layoutX="255.0" layoutY="180.0" prefHeight="20.0" prefWidth="350.0" />
-      <Label fx:id="advisingNoteLabel" layoutX="315.0" layoutY="208.0" prefHeight="20.0" prefWidth="290.0" />
+      <Label fx:id="advisingNoteLabel" layoutX="317.0" layoutY="209.0" prefHeight="20.0" prefWidth="290.0" />
       <Label fx:id="welcomeLabel" layoutX="21.0" layoutY="14.0" prefHeight="40.0" prefWidth="591.0">
          <font>
             <Font name="System Bold Italic" size="24.0" />
