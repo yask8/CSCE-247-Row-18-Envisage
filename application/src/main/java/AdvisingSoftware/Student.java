@@ -118,7 +118,7 @@ public class Student extends User {
    * @return String of newly updated year/class
    */
   public String updateYear(int creditHours) {
-    if(creditHours <= 29 && creditHours >= 0 ) {
+    if (creditHours <= 29 && creditHours >= 0) {
       setYear("Freshman");
     } else if (creditHours < 60 && creditHours >= 30) {
       setYear("Sophomore");
@@ -231,12 +231,6 @@ public class Student extends User {
     return notes;
   }
 
-  /**
-   * Get the MajorMap object corresponding to the student's major.
-   *
-   * @return The MajorMap object of the student's major if found, or null if not
-   *         found.
-   */
   /**
    * Get the MajorMap object corresponding to the student's major.
    *
