@@ -10,7 +10,7 @@
 
 <!-- Designed by Row 18-->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentProfileController">
+<AnchorPane id="studentProfile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@studentProfile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.StudentProfileController">
    <children>
       <Label fx:id="studentProfileTitleLabel" layoutX="26.0" layoutY="30.0" prefHeight="35.0" prefWidth="578.0">
          <font>
@@ -24,12 +24,12 @@
       </Label>
       <Rectangle fx:id="studentSummaryBox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="94.0" layoutX="24.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="595.0" />
       <Label fx:id="studentsSummaryTitleLabel" layoutX="40.0" layoutY="78.0" prefHeight="18.0" prefWidth="249.0" />
-      <Label layoutX="39.0" layoutY="123.0" text="App Area:">
+      <Label fx:id="appAreaTitleLabel" layoutX="39.0" layoutY="123.0" text="App Area:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="101.0" text="Major:">
+      <Label fx:id="majorTitleLabel" layoutX="39.0" layoutY="101.0" text="Major:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -46,20 +46,19 @@
       <Button fx:id="declareMajorButton" layoutX="24.0" layoutY="429.0" mnemonicParsing="false" onAction="#declareMajor" prefHeight="25.0" prefWidth="125.0" text="Declare a Major" />
       <Button fx:id="declareAppAreaButton" layoutX="159.0" layoutY="429.0" mnemonicParsing="false" onAction="#declareAppArea" text="Declare an Application Area" />
       <Button fx:id="backButton" layoutX="580.0" layoutY="429.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
-      <Label fx:id="lastAdvisingAppointmentDateTitleLabel" layoutX="315.0" layoutY="101.0" text="Last Advising Appt. Date:">
+      <Label fx:id="lastAdvisingAppointmentDateTitleLabel" layoutX="303.0" layoutY="101.0" text="Last Advising Appt. Date:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <Label fx:id="lastAdvisingApptDateLabel" layoutX="458.0" layoutY="101.0" prefHeight="18.0" prefWidth="150.0" />
-      <Button fx:id="addNoteButton" layoutX="336.0" layoutY="390.0" mnemonicParsing="false" onAction="#addNote" prefHeight="25.0" prefWidth="285.0" text="Add Note" />
-      <Label fx:id="creditTitleHours" layoutX="315.0" layoutY="123.0" text="Credit Hours:">
+      <Button fx:id="addNoteButton" layoutX="336.0" layoutY="390.0" mnemonicParsing="false" onAction="#addNote" prefHeight="19.0" prefWidth="286.0" text="Add Note" />
+      <Label fx:id="creditTitleHours" layoutX="303.0" layoutY="123.0" text="Credit Hours:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lastAdvisingApptDateLabel1" layoutX="468.0" layoutY="111.0" prefHeight="18.0" prefWidth="150.0" />
-      <Label fx:id="lastAdvisingApptDateLabel11" layoutX="478.0" layoutY="121.0" prefHeight="18.0" prefWidth="150.0" />
-      <Label fx:id="creditHoursNotTitleLabel" layoutX="393.0" layoutY="123.0" prefHeight="18.0" prefWidth="150.0" />
+      <Label fx:id="lastAdvisingApptDateLabel11" layoutX="458.0" layoutY="101.0" prefHeight="18.0" prefWidth="150.0" />
+      <Label fx:id="creditHoursNotTitleLabel" layoutX="392.0" layoutY="123.0" prefHeight="18.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
