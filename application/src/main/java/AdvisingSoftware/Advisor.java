@@ -27,7 +27,7 @@ public class Advisor extends User {
    * @param userType              String userType
    * @param listOfAdvisees        ArrayList<UUID> List of advisor's advisees
    * @param listOfFailingStudents ArrayList<UUID> List of advisor's advisees at
-   *                              risk of failinG
+   *                              risk of failing
    */
   public Advisor(
     String firstName,
@@ -42,16 +42,6 @@ public class Advisor extends User {
     super(firstName, lastName, email, uscID, password, userType);
     this.listOfAdvisees = listOfAdvisees;
     this.listOfFailingStudents = listOfFailingStudents;
-  }
-
-  /**
-   * Students under the advisor at risk of failing
-   *
-   * @param listOfFailingStudents List of the students
-   * @return ArrayList of the students at risk of failure
-   */
-  public ArrayList<User> riskOfFailure(ArrayList<User> listOfFailingStudents) {
-    return null;
   }
 
   /**
@@ -153,36 +143,6 @@ public class Advisor extends User {
   public Student studentLookUp(String uscID, UserList userList) {
     UUID studentUUID = UUID.fromString(uscID);
     return userList.getStudentById(studentUUID);
-  }
-
-  /**
-   * Allows the advisor to add a note to an advisee
-   *
-   * @param student specific student to add a note to
-   * @param note    note given
-   */
-  public void addNote(Student student, String note) {}
-
-  /**
-   * Allows the advisor to view their list of advisees
-   *
-   * @param listOfAdvisees list of advisees for the advisor
-   * @return List of students
-   */
-  public String viewStudentList(ArrayList<Student> listOfAdvisees) {
-    return "";
-  }
-
-  /**
-   * Allows the advisor to view their list of failing advisees
-   *
-   * @param listOfFailingStudents Advisors list of failing students
-   * @return list of failing students
-   */
-  public String viewFailingStudentList(
-    ArrayList<Student> listOfFailingStudents
-  ) {
-    return "";
   }
 
   /**
