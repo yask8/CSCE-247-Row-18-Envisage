@@ -41,6 +41,26 @@
     -fx-font-size: 13px; /* Set text font size */
 }
 
+#studentDashboard #majorTitleLabel .text{
+    -fx-font-weight: bold;
+}
+
+#studentDashboard #appAreaTitleLabel .text{
+    -fx-font-weight: bold;
+}
+
+#studentDashboard #semesterTitleLabel .text{
+    -fx-font-weight: bold;
+}
+
+#studentDashboard #gpaTitleLabel .text{
+    -fx-font-weight: bold;
+}
+
+#studentDashboard #advisingNoteTitleLabel .text{
+    -fx-font-weight: bold;
+}
+
 /* Label styling */
 #studentDashboard .label {
     -fx-text-fill: #333333; /* Set label text color to a dark grey */
@@ -53,7 +73,7 @@
     -fx-stroke: grey; /* Set label line color to grey */
 }
 
-#studentDashboard .chart-pie-label {
+#studentDashboard .chart-pie-label .text {
     -fx-fill: #333333; /* Set label text color to dark grey */
     -fx-font-size: 6px; /* Set label font size */
     -fx-font-weight: bold; /* Set label font weight */
@@ -71,6 +91,7 @@
 #studentDashboard .default-color2.chart-pie {
     -fx-pie-color: #323853; /* Set third color to darker grey */
 }
+
 
 /* Welcome label styling */
 #studentDashboard #welcomeLabel .text {
