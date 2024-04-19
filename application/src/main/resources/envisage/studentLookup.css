@@ -36,3 +36,7 @@
 #majorMap #minGPATitleLabel .text {
     -fx-font-weight:bold;
 }
+
+#majorMap #courseListTreeView .tree-cell {
+    -fx-background-color: #e6eaf8; /*Set tree background to light purple*/
+}
