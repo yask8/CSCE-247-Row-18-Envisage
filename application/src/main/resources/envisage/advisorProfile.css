@@ -50,14 +50,6 @@
     -fx-font-weight:bold;
 }
 
-#advisorProfile /*#lastAdvisingAppointmentDateTitleLabel*/ .text {
-    /*-fx-font-weight:bold;*/
-}
-
-#advisorProfile /*#creditTitleHours*/ .text {
-    /*-fx-font-weight:bold;*/
-}
-
 #advisorProfile #mostRecentNoteTitleLabel .text {
     -fx-font-weight: bold;
     -fx-font-size: 18px;

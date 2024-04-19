@@ -21,3 +21,19 @@
     -fx-background-color: #a3baf9;
     -fx-transition: all 0.3s;
 }
+
+#majorMap #ccHoursTitleLabel .text {
+    -fx-font-weight:bold;
+}
+
+#majorMap #minGradHoursTitleLabel .text {
+    -fx-font-weight:bold;
+}
+
+#majorMap #minTotalHoursTitleLabel .text {
+    -fx-font-weight:bold;
+}
+
+#majorMap #minGPATitleLabel .text {
+    -fx-font-weight:bold;
+}
