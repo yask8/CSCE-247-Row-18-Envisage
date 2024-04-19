@@ -19,7 +19,7 @@
     /*-fx-font-size: 14px; /* Set button font size */
     /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
 
-    -fx-background-color: #818ab5;
+    -fx-background-color: #828ab4;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
     -fx-border-radius: 3px;
@@ -37,7 +37,7 @@
 
 /* Text styling */
 #studentDashboard .text {
-    -fx-fill: black; /* Set text color to a dark grey */
+    -fx-fill:black; /* Set text color to a dark grey */
     -fx-font-size: 13px; /* Set text font size */
 }
 
@@ -61,16 +61,15 @@
 
 /* PieChart colors */
 #studentDashboard .default-color0.chart-pie {
-    -fx-pie-color: #8adc67; /* Set first color to blue */
+    -fx-pie-color: #4859b8; /* Set first color to blue */
 }
 
 #studentDashboard .default-color1.chart-pie {
-    -fx-pie-color: #4e5dcc; /* Set second color to grey */
-
+    -fx-pie-color: #89cc69; /* Set second color to grey */
 }
 
 #studentDashboard .default-color2.chart-pie {
-    -fx-pie-color: #707fd2; /* Set third color to darker grey */
+    -fx-pie-color: #323853; /* Set third color to darker grey */
 }
 
 /* Welcome label styling */
