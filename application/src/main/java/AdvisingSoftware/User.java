@@ -25,7 +25,14 @@ public class User {
    * @param password  User's password
    * @param userType  User's role
    */
-  public User(String firstName, String lastName, String email, UUID uscID, String password, String userType) {
+  public User(
+    String firstName,
+    String lastName,
+    String email,
+    UUID uscID,
+    String password,
+    String userType
+  ) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -43,7 +50,13 @@ public class User {
    * @param password  User's password
    * @param userType  User's role
    */
-  public User(String firstName, String lastName, String email, String password, String userType) {
+  public User(
+    String firstName,
+    String lastName,
+    String email,
+    String password,
+    String userType
+  ) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
@@ -58,11 +71,10 @@ public class User {
    * @param firstName edited first name
    */
   public void editFirstName(String firstName) {
-    if(firstName==null){
+    if (firstName == null) {
       throw new IllegalArgumentException("First name cannot be null");
-    }
-    else{
-    this.firstName = firstName;
+    } else {
+      this.firstName = firstName;
     }
   }
 
@@ -73,11 +85,11 @@ public class User {
    */
   public void editLastName(String lastName) {
     if (lastName == null) {
-        throw new IllegalArgumentException("Last name cannot be null.");
+      throw new IllegalArgumentException("Last name cannot be null.");
     } else {
-        this.lastName = lastName;
+      this.lastName = lastName;
     }
-}
+  }
 
   /**
    * Allows user to edit given email
@@ -85,11 +97,10 @@ public class User {
    * @param email edited email
    */
   public void editEmail(String email) {
-    if(email==null){
+    if (email == null) {
       throw new IllegalArgumentException("Email cannot be null.");
-    }
-    else{
-    this.email = email;
+    } else {
+      this.email = email;
     }
   }
 
@@ -99,46 +110,39 @@ public class User {
    * @param password edited password
    */
   public void editPassword(String password) {
-    if(password==null){
+    if (password == null) {
       throw new IllegalArgumentException("Password cannot be null.");
+    } else {
+      this.password = password;
     }
-    else{
-    this.password = password;
-    }
-  }
-
-  /**
-   * Allows user to search for a specific course
-   *
-   * @param code course specific code to identify
-   */
-  public void lookUpCourse(String code) {
   }
 
   /**
    * To string to view user details
-   * 
+   *
    * @author @Spillmag
    */
   public String toString() {
-    return ("firstName: " +
-        firstName +
-        '\n' +
-        "lastName: " +
-        lastName +
-        '\n' +
-        "email: " +
-        email +
-        '\n' +
-        "uscID: " +
-        uscID +
-        '\n' +
-        "password: " +
-        password +
-        '\n' +
-        "userType: " +
-        userType +
-        '\n');
+    return (
+      "firstName: " +
+      firstName +
+      '\n' +
+      "lastName: " +
+      lastName +
+      '\n' +
+      "email: " +
+      email +
+      '\n' +
+      "uscID: " +
+      uscID +
+      '\n' +
+      "password: " +
+      password +
+      '\n' +
+      "userType: " +
+      userType +
+      '\n'
+    );
   }
 
   /**
