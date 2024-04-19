@@ -46,11 +46,11 @@
     -fx-font-size: 13px; /* Set text font size */
 }
 
-#adminDashboard #mainEmailTitleLabel .text{
+#adminDashboard #mainEmailTitleLabelLabel .text{
     -fx-font-weight: bold; /*set text weight to bold*/
 }
 
-#adminDashboard #idTitleLabel .text{
+#adminDashboard #idTitleLabelLabel .text{
     -fx-font-weight: bold; /*set text weight to bold*/
 }
 
