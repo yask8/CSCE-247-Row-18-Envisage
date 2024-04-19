@@ -27,7 +27,7 @@ public class Advisor extends User {
    * @param userType              String userType
    * @param listOfAdvisees        ArrayList<UUID> List of advisor's advisees
    * @param listOfFailingStudents ArrayList<UUID> List of advisor's advisees at
-   *                              risk of failinG
+   *                              risk of failing
    */
   public Advisor(
     String firstName,
@@ -50,9 +50,10 @@ public class Advisor extends User {
    * @param listOfFailingStudents List of the students
    * @return ArrayList of the students at risk of failure
    */
-  public ArrayList<User> riskOfFailure(ArrayList<User> listOfFailingStudents) {
+
+  /*  public ArrayList<User> riskOfFailure(ArrayList<User> listOfFailingStudents) {
     return null;
-  }
+  }*/
 
   /**
    * Allows the advisor to view a student's profile
@@ -179,11 +180,12 @@ public class Advisor extends User {
    * @param listOfFailingStudents Advisors list of failing students
    * @return list of failing students
    */
-  public String viewFailingStudentList(
+
+  /*  public String viewFailingStudentList(
     ArrayList<Student> listOfFailingStudents
   ) {
     return "";
-  }
+  }*/
 
   /**
    * Allows advisor to see if a student is failing
