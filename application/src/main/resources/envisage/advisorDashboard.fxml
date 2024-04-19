@@ -10,7 +10,7 @@
 
 <!-- Designed by Row 18-->
 
-<AnchorPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisorDashboardController">
+<AnchorPane id="advisorDashboard" prefHeight="400.0" prefWidth="640.0" stylesheets="@advisorDashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisorDashboardController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
         <Button fx:id="advisorProfileButton" layoutX="20.0" layoutY="260.0" onAction="#setStageAdvisorProfile" prefHeight="40.0" prefWidth="190.0" text="Advisor Profile" />
@@ -24,8 +24,8 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Text>
-        <Button layoutX="540.0" layoutY="365.0" mnemonicParsing="false" onAction="#signOut" prefHeight="20.0" prefWidth="80.0" text="Sign Out" />
-        <Label fx:id="welcomeLabel" layoutX="20.0" layoutY="15.0" prefHeight="40.0" prefWidth="591.0">
+        <Button layoutX="525.0" layoutY="365.0" mnemonicParsing="false" onAction="#signOut" prefHeight="39.0" prefWidth="95.0" text="Sign Out" />
+        <Label id="welcomeLabel" fx:id="welcomeLabel" layoutX="20.0" layoutY="15.0" prefHeight="40.0" prefWidth="591.0">
             <font>
                 <Font name="System Bold Italic" size="24.0" />
             </font>

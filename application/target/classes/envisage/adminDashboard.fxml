@@ -9,7 +9,7 @@
 
 <!-- Designed by Garrett Spillman And Stephon Johnson-->
 
-<AnchorPane fx:id="adminDashboard" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdminDashboardController">
+<AnchorPane id="advisorDashboard" fx:id="adminDashboard" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdminDashboardController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
         <Text layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Dashboard">
