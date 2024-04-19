@@ -1,3 +1,5 @@
+/*Styled by Row 18*/
+
 /* AnchorPane styling */
 #studentDashboard {
     -fx-background-color: #ffffff; /* Set background color to white */
@@ -29,7 +31,7 @@
 }
 
 #studentDashboard .button:hover {
-    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+    /*-fx-background-color: #a3baf9; /* Set button hover background color to a slightly lighter shade of purple */
 
     -fx-background-color: #a3baf9;
     -fx-transition: all 0.3s;
@@ -37,10 +39,12 @@
 
 /* Text styling */
 #studentDashboard .text {
-    -fx-fill:black; /* Set text color to a dark grey */
+    -fx-fill:black; /* Set text color to black */
     -fx-font-size: 13px; /* Set text font size */
 }
 
+/*Text Styling --> This section is setting
+                    the font weight to bold*/
 #studentDashboard #majorTitleLabel .text{
     -fx-font-weight: bold;
 }
@@ -81,22 +85,22 @@
 
 /* PieChart colors */
 #studentDashboard .default-color0.chart-pie {
-    -fx-pie-color: #4859b8; /* Set first color to blue */
+    -fx-pie-color: #4859b8; /* Set first color to purple*/
 }
 
 #studentDashboard .default-color1.chart-pie {
-    -fx-pie-color: #89cc69; /* Set second color to grey */
+    -fx-pie-color: #89cc69; /* Set second color to green */
 }
 
 #studentDashboard .default-color2.chart-pie {
-    -fx-pie-color: #323853; /* Set third color to darker grey */
+    -fx-pie-color: #323853; /* Set third color to darker purple */
 }
 
 
 /* Welcome label styling */
 #studentDashboard #welcomeLabel .text {
-    -fx-font-family: "System";
-    -fx-font-style: italic;
-    -fx-font-weight: bold;
+    -fx-font-family: "System"; /*Set font family*/
+    -fx-font-style: italic; /*Set font style*/
+    -fx-font-weight: bold; /*Set font weight*/
     -fx-font-size: 24px; /* Set welcome label font size to 24px */
 }

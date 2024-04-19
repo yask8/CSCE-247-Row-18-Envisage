@@ -1,3 +1,5 @@
+/*Styled by Row 18*/
+
 /* AnchorPane styling */
 #studentProfile {
     -fx-background-color: #ffffff; /* Set background color to white */
@@ -15,10 +17,7 @@
 /* Button styling */
 #studentProfile .button {
     /*-fx-background-color: #3498db; /* Set button background color to a shade of blue */
-    /*-fx-text-fill: #ffffff; /* Set button text color to white */
     /*-fx-font-size: 14px; /* Set button font size */
-    /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
-
     -fx-background-color: #828ab4;
     -fx-font-size: 14px;
     -fx-cursor: hand;
@@ -26,22 +25,23 @@
 }
 
 #studentProfile .button .text {
-    -fx-fill: white;
+    -fx-fill: white; /*Set text color*/
 }
 
 #studentProfile .button:hover {
-    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
-
-    -fx-background-color: #a3baf9;
+    -fx-background-color: #a3baf9; /* Set background color*/
     -fx-transition: all 0.3s;
 }
 
 /* Text styling */
 #studentProfile .text {
-    -fx-fill:black; /* Set text color to a dark grey */
+    -fx-fill:black; /* Set text color to black*/
     -fx-font-size: 13px; /* Set text font size */
 }
 
+/*Text Styling --> This section is setting
+                    all of the specified labels
+                    font weight to bold*/
 #studentProfile #majorTitleLabel .text{
     -fx-font-weight:bold;
 }
@@ -71,24 +71,24 @@
 }
 
 #studentProfile #advisingStudentProfileLabel .text {
-    -fx-font-family: "System";
-    -fx-font-style: italic;
-    -fx-font-weight: bold;
-    -fx-font-size: 24px; /* Set welcome label font size to 24px */
+    -fx-font-family: "System"; /*Set font family*/
+    -fx-font-style: italic; /*Set font style*/
+    -fx-font-weight: bold; /*Set font weight*/
+    -fx-font-size: 24px; /* Set ont size*/
 }
 
 #studentProfile #studentsSummaryTitleLabel .text {
-    -fx-font-weight: bold;
+    -fx-font-weight: bold; /*Set font weight*/
 }
 
 #studentProfile #studentProfileTitleLabel .text {
-    -fx-font-family: "System";
-    -fx-font-style: italic;
-    -fx-font-weight: bold;
-    -fx-font-size: 24px; /* Set welcome label font size to 24px */
+    -fx-font-family: "System"; /*Set font family*/
+    -fx-font-style: italic; /*Set font style*/
+    -fx-font-weight: bold; /*Set font weight*/
+    -fx-font-size: 24px; /* Set font size */
 }
 
 /* Tree View Styling */
 #studentProfile #studentCompletionTree .tree-cell {
-    -fx-background-color: #e6eaf8;
+    -fx-background-color: #e6eaf8; /*Setting the tree background color*/
 }

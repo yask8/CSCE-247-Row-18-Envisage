@@ -1,3 +1,5 @@
+/*Styled by Row 18*/
+
 /* AnchorPane styling */
 #advisorProfile {
     -fx-background-color: #ffffff; /* Set background color to white */
@@ -15,7 +17,6 @@
 /* Button styling */
 #advisorProfile .button {
     /*-fx-background-color: #3498db; /* Set button background color to a shade of blue */
-    /*-fx-text-fill: #ffffff; /* Set button text color to white */
     /*-fx-font-size: 14px; /* Set button font size */
     /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
 
@@ -26,33 +27,33 @@
 }
 
 #advisorProfile .button .text {
-    -fx-fill: white;
+    /*-fx-text-fill: #ffffff; /* Set button text color to white */
+    -fx-fill: white; 
 }
 
 #advisorProfile .button:hover {
-    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
-
+    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly lighter shade of purple*/
     -fx-background-color: #a3baf9;
     -fx-transition: all 0.3s;
 }
 
 /* Text styling */
 #advisorProfile .text {
-    -fx-fill:black; /* Set text color to a dark grey */
+    -fx-fill:black; /* Set text color to a black*/
     -fx-font-size: 13px; /* Set text font size */
 }
 
 #advisorProfile #mainEmailTitleLabelLabel .text{
-    -fx-font-weight:bold;
+    -fx-font-weight:bold; /*Set weight to bold*/
 }
 
 #advisorProfile #IDTitleLabel .text {
-    -fx-font-weight:bold;
+    -fx-font-weight:bold; /*Set weight to bold*/
 }
 
 #advisorProfile #mostRecentNoteTitleLabel .text {
-    -fx-font-weight: bold;
-    -fx-font-size: 18px;
+    -fx-font-weight: bold; /*Set weight to bold*/
+    -fx-font-size: 18px; /*Set text font size*/
 }
 
 /* Label styling */
@@ -63,24 +64,25 @@
 }
 
 #advisorProfile #advisingStudentProfileLabel .text {
-    -fx-font-family: "System";
-    -fx-font-style: italic;
-    -fx-font-weight: bold;
-    -fx-font-size: 24px; /* Set welcome label font size to 24px */
+    -fx-fill:black; /*Set text color to black*/
+    -fx-font-family: "System"; /*Set font family to System*/
+    -fx-font-style: italic; /*Set font style to italic*/
+    -fx-font-weight: bold; /*Set weight to bold*/
+    -fx-font-size: 24px; /* Set student label font size to 24px */
 }
 
 #advisorProfile #advisorSummaryTitleLabel .text {
-    -fx-font-weight: bold;
+    -fx-font-weight: bold; /*Set weight to bold*/
 }
 
 #advisorProfile #AdvisorProfileTitleLabel .text {
-    -fx-font-family: "System";
-    -fx-font-style: italic;
-    -fx-font-weight: bold;
-    -fx-font-size: 24px; /* Set welcome label font size to 24px */
+    -fx-font-family: "System"; /*Set font family to System*/
+    -fx-font-style: italic; /*Set font style to italic*/
+    -fx-font-weight: bold; /*Set weight to bold */
+    -fx-font-size: 24px; /* Set advisor label font size to 24px */
 }
 
 /* Tree View Styling */
 #advisorProfile #adviseeCompletionTree .tree-cell {
-    -fx-background-color: #b8caff;
+    -fx-background-color: #b8caff; /*Set tree background to light purple*/
 }

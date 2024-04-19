@@ -1,3 +1,5 @@
+/*Styled by Row 18*/
+
 /* AnchorPane styling */
 #advisorDashboard {
     -fx-background-color: #ffffff; /* Set background color to white */
@@ -14,7 +16,7 @@
 
 /* Button styling */
 #advisorDashboard .button {
-    /*-fx-background-color: #3498db; /* Set button background color to a shade of blue */
+    /*-fx-background-color: #828ab4; /* Set button background color to a shade of purple */
     /*-fx-text-fill: #ffffff; /* Set button text color to white */
     /*-fx-font-size: 14px; /* Set button font size */
     /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
@@ -29,7 +31,7 @@
 }
 
 #advisorDashboard .button:hover {
-    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+    /*-fx-background-color: #a3baf9; /* Set button hover background color to a slightly lighter shade of purple */
 
     -fx-background-color: #a3baf9;
     -fx-transition: all 0.3s;
@@ -37,16 +39,16 @@
 
 /* Text styling */
 #advisorDashboard .text {
-    -fx-fill: black; /* Set text color to a dark grey */
+    -fx-fill: black; /* Set text color to black */
     -fx-font-size: 13px; /* Set text font size */
 }
 
 #advisorDashboard #totalNumberofAdviseesTitleLabel .text{
-    -fx-font-weight: bold;
+    -fx-font-weight: bold; /*Set font weight to bold*/
 }
 
 #advisorDashboard #riskOfFailureAdviseesTitleLabel .text{
-    -fx-font-weight:bold;
+    -fx-font-weight:bold; /*Set font weight to bold*/
 }
 
 /* Label styling */
@@ -69,21 +71,21 @@
 
 /* PieChart colors */
 #advisorDashboard .default-color0.chart-pie {
-    -fx-pie-color: #4859B8; /* Set first color to blue */
+    -fx-pie-color: #4859B8; /* Set first color to purple */
 }
 
 #advisorDashboard .default-color1.chart-pie {
-    -fx-pie-color: #89cc69; /* Set second color to grey */
+    -fx-pie-color: #89cc69; /* Set second color to green */
 }
 
 #advisorDashboard .default-color2.chart-pie {
-    -fx-pie-color: #323853; /* Set third color to darker grey */
+    -fx-pie-color: #323853; /* Set third color to darker purple */
 }
 
 /* Welcome label styling */
 #advisorDashboard #welcomeLabel .text {
-    -fx-font-family: "System";
-    -fx-font-style: Italic;
-    -fx-font-weight: bold;
+    -fx-font-family: "System"; /*Set font family to System*/
+    -fx-font-style: Italic; /*Set font style to italic*/
+    -fx-font-weight: bold; /*Set font weight to bold*/
     -fx-font-size: 24px; /* Set welcome label font size to 24px */
 }
