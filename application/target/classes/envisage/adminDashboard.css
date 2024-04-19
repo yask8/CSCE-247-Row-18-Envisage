@@ -20,12 +20,15 @@
     /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
 
     -fx-background-color: #828ab4;
-    -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
     -fx-border-radius: 3px;
     -fx-padding: 10px 20px;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2,0,0,1);
+}
+
+#adminDashboard .button .text {
+    -fx-fill: #ffffff;
 }
 
 #adminDashboard .button:hover {
