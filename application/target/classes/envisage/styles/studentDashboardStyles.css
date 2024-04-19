@@ -64,6 +64,7 @@
 #studentDashboard #welcomeLabel {
     -fx-font-family: "System Bold Italic";
     -fx-font-size: 24px;
+    -fx-text-fill: black;
 }
 
 
