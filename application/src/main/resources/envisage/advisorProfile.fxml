@@ -9,7 +9,7 @@
 
 <!-- Designed by Row 18-->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisorProfileController">
+<AnchorPane id="advisorProfile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@advisorProfile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdvisorProfileController">
    <children>
       <Label fx:id="AdvisorProfileTitleLabel" layoutX="26.0" layoutY="30.0" prefHeight="35.0" prefWidth="578.0">
          <font>
@@ -23,12 +23,12 @@
       </Label>
       <Rectangle fx:id="advisorSummaryBox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="94.0" layoutX="24.0" layoutY="74.0" stroke="BLACK" strokeType="INSIDE" width="595.0" />
       <Label fx:id="advisorSummaryTitleLabel" layoutX="40.0" layoutY="78.0" prefHeight="18.0" prefWidth="249.0" />
-      <Label layoutX="39.0" layoutY="123.0" text="ID:">
+      <Label fx:id="IDTitleLabel" layoutX="39.0" layoutY="123.0" text="ID:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="101.0" text="Main Email:">
+      <Label fx:id="mainEmailTitleLabelLabel" layoutX="39.0" layoutY="101.0" text="Main Email:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

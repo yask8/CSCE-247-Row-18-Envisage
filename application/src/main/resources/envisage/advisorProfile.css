@@ -1,0 +1,94 @@
+/* AnchorPane styling */
+#advisorProfile {
+    -fx-background-color: #ffffff; /* Set background color to white */
+}
+
+/* Rectangle styling */
+#advisorProfile .rectangle {
+    -fx-arc-width: 5.0; /* Set arc width */
+    -fx-arc-height: 5.0; /* Set arc height */
+    -fx-fill: transparent; /* Set fill color to transparent */
+    -fx-stroke: black; /* Set stroke color to black */
+    -fx-stroke-type: inside; /* Set stroke type to inside */
+}
+
+/* Button styling */
+#advisorProfile .button {
+    /*-fx-background-color: #3498db; /* Set button background color to a shade of blue */
+    /*-fx-text-fill: #ffffff; /* Set button text color to white */
+    /*-fx-font-size: 14px; /* Set button font size */
+    /*-fx-border-radius: 3; /* Set border radius to make corners smoother */
+
+    -fx-background-color: #828ab4;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2,0,0,1);
+}
+
+#advisorProfile .button .text {
+    -fx-fill: white;
+}
+
+#advisorProfile .button:hover {
+    /*-fx-background-color: #2980b9; /* Set button hover background color to a slightly darker shade of blue */
+
+    -fx-background-color: #a3baf9;
+    -fx-transition: all 0.3s;
+}
+
+/* Text styling */
+#advisorProfile .text {
+    -fx-fill:black; /* Set text color to a dark grey */
+    -fx-font-size: 13px; /* Set text font size */
+}
+
+#advisorProfile #mainEmailTitleLabelLabel .text{
+    -fx-font-weight:bold;
+}
+
+#advisorProfile #IDTitleLabel .text {
+    -fx-font-weight:bold;
+}
+
+#advisorProfile /*#lastAdvisingAppointmentDateTitleLabel*/ .text {
+    /*-fx-font-weight:bold;*/
+}
+
+#advisorProfile /*#creditTitleHours*/ .text {
+    /*-fx-font-weight:bold;*/
+}
+
+#advisorProfile #mostRecentNoteTitleLabel .text {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+/* Label styling */
+#advisorProfile .label {
+    -fx-text-fill: #333333; /* Set label text color to a dark grey */
+    -fx-font-size: 12px; /* Set label font size */
+    
+}
+
+#advisorProfile #advisingStudentProfileLabel .text {
+    -fx-font-family: "System";
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px; /* Set welcome label font size to 24px */
+}
+
+#advisorProfile #advisorSummaryTitleLabel .text {
+    -fx-font-weight: bold;
+}
+
+#advisorProfile #AdvisorProfileTitleLabel .text {
+    -fx-font-family: "System";
+    -fx-font-style: italic;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px; /* Set welcome label font size to 24px */
+}
+
+/* Tree View Styling */
+#advisorProfile #adviseeCompletionTree .tree-cell {
+    -fx-background-color: #b8caff;
+}
