@@ -61,15 +61,16 @@
 
 /* PieChart colors */
 #studentDashboard .default-color0.chart-pie {
-    -fx-pie-color: #3498db; /* Set first color to blue */
+    -fx-pie-color: #8adc67; /* Set first color to blue */
 }
 
 #studentDashboard .default-color1.chart-pie {
-    -fx-pie-color: #cccccc; /* Set second color to grey */
+    -fx-pie-color: #4e5dcc; /* Set second color to grey */
+
 }
 
 #studentDashboard .default-color2.chart-pie {
-    -fx-pie-color: #666666; /* Set third color to darker grey */
+    -fx-pie-color: #707fd2; /* Set third color to darker grey */
 }
 
 /* Welcome label styling */
