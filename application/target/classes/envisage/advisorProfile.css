@@ -84,5 +84,5 @@
 
 /* Tree View Styling */
 #advisorProfile #adviseeCompletionTree .tree-cell {
-    -fx-background-color: #b8caff; /*Set tree background to light purple*/
+    -fx-background-color: #e6eaf8; /*Set tree background to light purple*/
 }
