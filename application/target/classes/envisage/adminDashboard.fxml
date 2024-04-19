@@ -9,7 +9,7 @@
 
 <!-- Designed by Garrett Spillman And Stephon Johnson-->
 
-<AnchorPane id="advisorDashboard" fx:id="adminDashboard" prefHeight="400.0" prefWidth="640.0" stylesheets="@advisorDashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdminDashboardController">
+<AnchorPane id="adminDashboard" fx:id="adminDashboard" prefHeight="400.0" prefWidth="640.0" stylesheets="@adminDashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="envisage.AdminDashboardController">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="170.0" layoutX="20.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
         <Text layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Dashboard">
@@ -29,12 +29,12 @@
         <Button fx:id="manageCoursesButton" layoutX="225.0" layoutY="310.0" onAction="#setStageManageCourses" prefHeight="40.0" prefWidth="190.0" text="Manage Courses" />
         <Button fx:id="manageAppAreasButton" layoutX="430.0" layoutY="310.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" text="Manage Application Areas" />
         <Button fx:id="signOutButton" layoutX="521.0" layoutY="365.0" mnemonicParsing="false" onAction="#signOut" prefHeight="40.0" prefWidth="99.0" text="Sign Out" />
-      <Label fx:id="IDTitleLabelLabel" layoutX="49.0" layoutY="133.0" text="ID:">
+      <Label fx:id="idTitleLabel" layoutX="49.0" layoutY="133.0" text="ID:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="mainEmailTitleLabelLabel" layoutX="49.0" layoutY="111.0" text="Main Email:">
+      <Label fx:id="mainEmailTitleLabel" layoutX="49.0" layoutY="111.0" text="Main Email:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

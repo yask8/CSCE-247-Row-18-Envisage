@@ -41,6 +41,14 @@
     -fx-font-size: 13px; /* Set text font size */
 }
 
+#adminDashboard #mainEmailTitleLabel .text{
+    -fx-font-weight: bold;
+}
+
+#adminDashboard #idTitleLabel .text{
+    -fx-font-weight: bold;
+}
+
 /* Label styling */
 #adminDashboard .label {
     -fx-text-fill: #333333; /* Set label text color to a dark grey */
