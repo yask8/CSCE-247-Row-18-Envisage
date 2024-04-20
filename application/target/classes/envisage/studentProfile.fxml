@@ -34,8 +34,8 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="appAreaNotTitleLabel" layoutX="100.0" layoutY="123.0" prefHeight="18.0" prefWidth="210.0" />
-      <Label fx:id="majorNotTitleLabel" layoutX="80.0" layoutY="101.0" prefHeight="18.0" prefWidth="223.0" />
+      <Label fx:id="appAreaNotTitleLabel" layoutX="104.0" layoutY="123.0" prefHeight="19.0" prefWidth="206.0" />
+      <Label fx:id="majorNotTitleLabel" layoutX="84.0" layoutY="101.0" prefHeight="19.0" prefWidth="219.0" />
       <TreeView fx:id="studentCompletionTree" layoutX="24.0" layoutY="186.0" prefHeight="229.0" prefWidth="300.0" />
       <Label fx:id="mostRecentNoteTitleLabel" layoutX="336.0" layoutY="186.0" prefHeight="27.0" prefWidth="290.0" text="Advisor Notes" textAlignment="RIGHT">
          <font>
