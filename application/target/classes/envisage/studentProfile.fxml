@@ -58,7 +58,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lastAdvisingApptDateLabel11" layoutX="462.0" layoutY="101.0" prefHeight="18.0" prefWidth="150.0" />
+      <Label fx:id="lastAdvisingApptDateLabel11" layoutX="463.0" layoutY="101.0" prefHeight="18.0" prefWidth="150.0" />
       <Label fx:id="creditHoursNotTitleLabel" layoutX="392.0" layoutY="123.0" prefHeight="18.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

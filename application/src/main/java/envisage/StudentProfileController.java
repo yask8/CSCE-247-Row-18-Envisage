@@ -193,7 +193,7 @@ public class StudentProfileController implements Initializable {
           advisorNote.getNote();
         noteListView.getItems().add(formattedNote);
         String recentDate = dateFormat.format(advisorNote.getDate());
-        lastAdvisingApptDateLabel.setText(" " + recentDate);
+        lastAdvisingApptDateLabel.setText(recentDate);
       }
     } else {
       noteListView.getItems().add("No Notes Given Yet");
@@ -281,6 +281,10 @@ public class StudentProfileController implements Initializable {
       majorNotTitleLabel.setText(
         student.getMajor() != null ? student.getMajor() : "Undeclared"
       );
+      String studentCreditHours = Integer.toString(
+        student.getCreditHours()
+      );
+      creditHoursNotTitleLabel.setText(studentCreditHours);
 
       ArrayList<Note> advisorNotes = student.getAdvisorNotes();
       if (!advisorNotes.isEmpty()) {
@@ -291,9 +295,13 @@ public class StudentProfileController implements Initializable {
             " - " +
             advisorNote.getNote();
           noteListView.getItems().add(formattedNote);
+          String recentDate = dateFormat.format(advisorNote.getDate());
+          lastAdvisingApptDateLabel.setText(recentDate);
+          
         }
       } else {
         noteListView.getItems().add("No Notes Given Yet");
+        lastAdvisingAppointmentDateTitleLabel.setText("No date found, yet.");
       }
 
       boolean isAdvisor = user.getUserType().equals("ADVISOR");
