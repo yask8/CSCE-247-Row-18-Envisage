@@ -183,7 +183,6 @@ public class StudentProfileController implements Initializable {
       facade.getStudentCreditHours()
     );
     creditHoursNotTitleLabel.setText(studentCreditHours);
-
     ArrayList<Note> advisorNotes = facade.getStudentAdvisorNotes();
     if (!advisorNotes.isEmpty()) {
       SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yy");
@@ -193,9 +192,12 @@ public class StudentProfileController implements Initializable {
           " - " +
           advisorNote.getNote();
         noteListView.getItems().add(formattedNote);
+        String recentDate = dateFormat.format(advisorNote.getDate());
+        lastAdvisingApptDateLabel.setText(" " + recentDate);
       }
     } else {
       noteListView.getItems().add("No Notes Given Yet");
+      lastAdvisingApptDateLabel.setText("No date found, yet.");
     }
 
     boolean isAdvisor = user.getUserType().equals("ADVISOR");
