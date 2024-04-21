@@ -125,6 +125,7 @@ public class StudentProfileController implements Initializable {
    * Helper method to initialize a student's completed and incompleted courses
    */
   private void initStudent() {
+    ((Student) (facade.getUser())).updateGPA(facade.getCourses());
     ArrayList<Grades> studentCompletedCourses = facade.getStudentCompletedCourses();
     ArrayList<String> studentIncompletedCourses = facade
       .getStudentDegreeProgress()
