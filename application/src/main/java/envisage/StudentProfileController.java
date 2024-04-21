@@ -130,7 +130,6 @@ public class StudentProfileController implements Initializable {
     ArrayList<String> studentIncompletedCourses = facade
       .getStudentDegreeProgress()
       .getIncompleteCourses();
-
     TreeItem<String> root = new TreeItem<>(
       userFirstName + "'s Completed and Incomplete Courses"
     );
