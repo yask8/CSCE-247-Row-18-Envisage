@@ -105,6 +105,7 @@ public class StudentProfileController implements Initializable {
         initStudent();
       } else {
         initOtherUsers(studentID);
+        System.out.println(studentID);
       }
     }
   }
@@ -225,6 +226,7 @@ public class StudentProfileController implements Initializable {
     user = facade.getUser();
 
     if (student != null) {
+      studentID = student.getID();
       ArrayList<Grades> studentCompletedCourses = student.getCompletedCourses();
       ArrayList<String> studentIncompletedCourses = student
         .getDegreeProgress()
@@ -382,16 +384,15 @@ public class StudentProfileController implements Initializable {
 
   @FXML
   public void addNote(@SuppressWarnings("exports") ActionEvent event) {
-    /*ArrayList<UUID> advisees = facade.getListOfAdvisees();
+    ArrayList<UUID> advisees = facade.getListOfAdvisees();
 
-    
     if (!advisees.contains(studentID)) {
       showAlert(
         "Student Not Assigned",
         "You are not assigned to this student."
       );
       return;
-    }*/
+    }
 
     TextInputDialog dialog = new TextInputDialog();
     dialog.setTitle("Add Note");
