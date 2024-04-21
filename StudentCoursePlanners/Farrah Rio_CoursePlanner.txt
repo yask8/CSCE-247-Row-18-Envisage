@@ -1,0 +1,60 @@
+Course Planner for Student: Farrah Rio
+===============================================
+
+Semester 1:
+ENGL 101 Critical Reading and Composition
+MATH 141 Calculus I
+CSCE 145 Algorithmic Design I
+CSCE 190 Computing in the Modern World
+ARTE 101 Introduction to Art
+
+Semester 2:
+ENGL 102 Rhectoric Composition
+MATH 142 Calculus II
+CHEM 111 General Chemistry I
+CHEM 111L General Chemistry I Lab
+CSCE 146 Algorithmic Design II
+CSCE 215 UNIX or Linux Fundamentals
+
+Semester 3:
+CSCE 211 Digital Logic Design
+CSCE 240 Advanced Programming Techniques
+MATH 374 Discrete Structures
+CHEM 112 General Chemistry II
+CHEM 112L General Chemistry II Lab
+SPCH 140 Public Communication
+
+Semester 4:
+CSCE 247 Software Engineering
+MATH 374 Discrete Structures
+CSCE 212 Introduction to Computer Architecture
+MATH 241 Vector Calculus
+SOCY 101 Introductory Sociology
+ANTH 161 - Human Origins: An Introduction to Biological Anthropology
+SPAN 109 Beginning Spanish I
+
+Semester 5:
+CSCE 311 Operating Systems
+CSCE 330 Programming Language Structures
+CSCE 350 Data Structures and Algorithms
+CSCE 390 Prof. Issues in Computer Science Engr.
+ENGL 462 Technical Writing
+CSCE 518 Ethical Hacking
+
+Semester 6:
+CSCE 416 Introduction to Computer Networks
+STAT 509 Statistics for Engineers
+
+Semester 7:
+CSCE 490 Capstone Computing Project I
+CSCE 355 Foundations of Computation
+MATH 344 Applied Linear Algebra
+MATH 344L Applied Linear Algebra Lab
+CSCE 548 Building Secure Software
+CSCE 520 Database System Design
+
+Semester 8:
+CSCE 492 Capstone Computing Project II
+MUSC 110 Introduction to Music
+POLI 101 Introduction to Global Politics
+SOST 201 Introduction to Southern Studies 1580-1900
