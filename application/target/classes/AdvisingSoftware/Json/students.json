@@ -1,1 +1,427 @@
-[{"lastName":"Rio","completedCourses":[{"courseName":"ENGL101","grade":85.0},{"courseName":"MATH141","grade":90.0},{"courseName":"CSCE145","grade":88.0},{"courseName":"CSCE190","grade":82.0},{"courseName":"ARTE101","grade":91.0},{"courseName":"ENGL102","grade":87.0},{"courseName":"MATH142","grade":89.0},{"courseName":"CHEM111","grade":86.0},{"courseName":"CHEM111L","grade":50.0},{"courseName":"CSCE146","grade":84.0},{"courseName":"CSCE215","grade":83.0},{"courseName":"CSCE211","grade":90.0},{"courseName":"CSCE240","grade":88.0},{"courseName":"CHEM112","grade":87.0},{"courseName":"CHEM112L","grade":91.0},{"courseName":"SPCH140","grade":85.0}],"uscID":"faa91c60-3201-4870-84c8-9473df2b6a1e","creditHours":0,"firstName":"Farrah","password":"Real?dejaneir0","advisorNotes":[{"date":"2024-02-29","note":"Student is doing exceptionally well in CSCE145."},{"date":"2024-02-28","note":"Student may need additional help in HIST101."}],"major":"Computer Science","degreeProgress":{"major":"Computer Science","incompleteCourses":["CHEM111L","MATH374","CSCE212","CSCE247","MATH241","SOCY101","ANTH161","SPAN109","CSCE311","CSCE330","CSCE350","CSCE390","ENGL462","CSCE518","CSCE416","CSCE317","STAT509","CLAS220","CSCE522","CSCE490","CSCE355","MATH344","MATH344L","CSCE548","CSCE520","CSCE492","CSCE513","MUSC110","POLI101","SOST201"],"completeCourses":["ENGL101","MATH141","CSCE145","CSCE190","ARTE101","ENGL102","MATH142","CHEM111","CSCE146","CSCE215","CSCE211","CSCE240","CHEM112","CHEM112L","SPCH140"]},"gpa":3.63,"userType":"STUDENT","class":"Freshman","applicationArea":"Undeclared","email":"rio.farrah2004@gmail.com","coursePlanner":{"semesters":[[],[],[],[],[],[],[],[]]}},{"lastName":"Hill","completedCourses":[],"uscID":"8420ecb4-9f3c-4fc2-8e62-3707a9a4ab3c","creditHours":0,"firstName":"Tawnie","password":"bi117","advisorNotes":[{"date":"2024-03-18","note":"Make Stats Your Application Area"},{"date":"2024-04-16","note":"testing123"}],"major":"Undeclared","degreeProgress":{"major":"Undeclared","incompleteCourses":[],"completeCourses":["STAT301","STAT509"]},"gpa":0.0,"userType":"STUDENT","class":"Freshman","applicationArea":"Undeclared","email":"thill@email.sc.edu","coursePlanner":{"semesters":[[],[],[],[],[],[],[],[]]}},{"lastName":"West","completedCourses":[{"courseName":"ENGL101","grade":85.0},{"courseName":"MATH141","grade":90.0},{"courseName":"CSCE145","grade":88.0},{"courseName":"CSCE190","grade":82.0},{"courseName":"ARTE101","grade":91.0},{"courseName":"ENGL102","grade":87.0},{"courseName":"MATH142","grade":89.0},{"courseName":"CHEM111","grade":86.0},{"courseName":"CHEM111L","grade":90.0},{"courseName":"CSCE146","grade":84.0},{"courseName":"CSCE215","grade":83.0},{"courseName":"CSCE211","grade":90.0},{"courseName":"CSCE240","grade":88.0},{"courseName":"CHEM112","grade":87.0},{"courseName":"CHEM112L","grade":91.0},{"courseName":"SPCH140","grade":85.0},{"courseName":"CSCE212","grade":81.0},{"courseName":"CSCE247","grade":82.0},{"courseName":"MATH241","grade":85.0},{"courseName":"SOCY101","grade":83.0},{"courseName":"ANTH161","grade":84.0},{"courseName":"CSCE311","grade":88.0},{"courseName":"CSCE330","grade":89.0},{"courseName":"CSCE350","grade":87.0},{"courseName":"CSCE390","grade":86.0},{"courseName":"ENGL462","grade":90.0},{"courseName":"CSCE518","grade":85.0}],"uscID":"b1528974-761c-40cf-8b60-2c73d951fbb2","creditHours":0,"firstName":"Brax","password":"bwest060903","advisorNotes":[],"major":"Computer Science","degreeProgress":{"major":"Computer Science","incompleteCourses":["MATH374","CSCE416","CSCE317","STAT509","CLAS220","CSCE522","CSCE490","CSCE355","MATH344","MATH344L","CSCE548","CSCE520","CSCE492","CSCE513","MUSC110","POLI101","SOST201","SPAN109","CSCE552","CSCE564","CSCE565","CSCE567","MART201","MART210","MART371","MART380"],"completeCourses":["ENGL101","MATH141","CSCE145","CSCE190","ARTE101","ENGL102","MATH142","CHEM111","CHEM111L","CSCE146","CSCE215","CSCE211","CSCE240","CHEM112","CHEM112L","SPCH140","CSCE212","CSCE247","MATH241","SOCY101","ANTH161","CSCE311","CSCE330","CSCE350","CSCE390","ENGL462","CSCE518"]},"gpa":3.78,"userType":"STUDENT","class":"Junior","applicationArea":"Digital Design","email":"bwest@email.sc.edu","coursePlanner":{"semesters":[[],[],[],[],[],[],[],[]]}},{"lastName":"Spillman","completedCourses":[],"uscID":"70c05f1a-1c7e-4b1e-9fe2-7ae2c427f815","creditHours":0,"firstName":"Garrett","password":"styletestt","advisorNotes":[],"major":"Undeclared","degreeProgress":{"major":"Undeclared","incompleteCourses":[],"completeCourses":[]},"gpa":0.0,"userType":"STUDENT","class":"Freshman","applicationArea":"Undeclared","email":"g@gmail.com","coursePlanner":{"semesters":[[],[],[],[],[],[],[],[]]}}]
+[
+    {
+        "lastName": "Rio",
+        "completedCourses": [
+            {
+                "courseName": "ENGL101",
+                "grade": 85.0
+            },
+            {
+                "courseName": "MATH141",
+                "grade": 90.0
+            },
+            {
+                "courseName": "CSCE145",
+                "grade": 88.0
+            },
+            {
+                "courseName": "CSCE190",
+                "grade": 82.0
+            },
+            {
+                "courseName": "ARTE101",
+                "grade": 91.0
+            },
+            {
+                "courseName": "ENGL102",
+                "grade": 87.0
+            },
+            {
+                "courseName": "MATH142",
+                "grade": 89.0
+            },
+            {
+                "courseName": "CHEM111",
+                "grade": 86.0
+            },
+            {
+                "courseName": "CHEM111L",
+                "grade": 50.0
+            },
+            {
+                "courseName": "CSCE146",
+                "grade": 84.0
+            },
+            {
+                "courseName": "CSCE215",
+                "grade": 83.0
+            },
+            {
+                "courseName": "CSCE211",
+                "grade": 90.0
+            },
+            {
+                "courseName": "CSCE240",
+                "grade": 88.0
+            },
+            {
+                "courseName": "CHEM112",
+                "grade": 87.0
+            },
+            {
+                "courseName": "CHEM112L",
+                "grade": 91.0
+            },
+            {
+                "courseName": "SPCH140",
+                "grade": 85.0
+            }
+        ],
+        "uscID": "faa91c60-3201-4870-84c8-9473df2b6a1e",
+        "creditHours": 0,
+        "firstName": "Farrah",
+        "password": "Real?dejaneir0",
+        "advisorNotes": [
+            {
+                "date": "2024-02-29",
+                "note": "Student is doing exceptionally well in CSCE145."
+            },
+            {
+                "date": "2024-02-28",
+                "note": "Student may need additional help in HIST101."
+            }
+        ],
+        "major": "Computer Science",
+        "degreeProgress": {
+            "major": "Computer Science",
+            "incompleteCourses": [
+                "CHEM111L",
+                "MATH374",
+                "CSCE212",
+                "CSCE247",
+                "MATH241",
+                "SOCY101",
+                "ANTH161",
+                "SPAN109",
+                "CSCE311",
+                "CSCE330",
+                "CSCE350",
+                "CSCE390",
+                "ENGL462",
+                "CSCE518",
+                "CSCE416",
+                "CSCE317",
+                "STAT509",
+                "CLAS220",
+                "CSCE522",
+                "CSCE490",
+                "CSCE355",
+                "MATH344",
+                "MATH344L",
+                "CSCE548",
+                "CSCE520",
+                "CSCE492",
+                "CSCE513",
+                "MUSC110",
+                "POLI101",
+                "SOST201"
+            ],
+            "completeCourses": [
+                "ENGL101",
+                "MATH141",
+                "CSCE145",
+                "CSCE190",
+                "ARTE101",
+                "ENGL102",
+                "MATH142",
+                "CHEM111",
+                "CSCE146",
+                "CSCE215",
+                "CSCE211",
+                "CSCE240",
+                "CHEM112",
+                "CHEM112L",
+                "SPCH140"
+            ]
+        },
+        "gpa": 3.63,
+        "userType": "STUDENT",
+        "class": "Freshman",
+        "applicationArea": "Undeclared",
+        "email": "rio.farrah2004@gmail.com",
+        "coursePlanner": {
+            "semesters": [
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                []
+            ]
+        }
+    },
+    {
+        "lastName": "Hill",
+        "completedCourses": [],
+        "uscID": "8420ecb4-9f3c-4fc2-8e62-3707a9a4ab3c",
+        "creditHours": 0,
+        "firstName": "Tawnie",
+        "password": "bi117",
+        "advisorNotes": [
+            {
+                "date": "2024-03-18",
+                "note": "Make Stats Your Application Area"
+            },
+            {
+                "date": "2024-04-16",
+                "note": "testing123"
+            }
+        ],
+        "major": "Undeclared",
+        "degreeProgress": {
+            "major": "Undeclared",
+            "incompleteCourses": [],
+            "completeCourses": [
+                "STAT301",
+                "STAT509"
+            ]
+        },
+        "gpa": 0.0,
+        "userType": "STUDENT",
+        "class": "Freshman",
+        "applicationArea": "Undeclared",
+        "email": "thill@email.sc.edu",
+        "coursePlanner": {
+            "semesters": [
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                []
+            ]
+        }
+    },
+    {
+        "lastName": "West",
+        "completedCourses": [
+            {
+                "courseName": "ENGL101",
+                "grade": 85.0
+            },
+            {
+                "courseName": "MATH141",
+                "grade": 90.0
+            },
+            {
+                "courseName": "CSCE145",
+                "grade": 88.0
+            },
+            {
+                "courseName": "CSCE190",
+                "grade": 82.0
+            },
+            {
+                "courseName": "ARTE101",
+                "grade": 91.0
+            },
+            {
+                "courseName": "ENGL102",
+                "grade": 87.0
+            },
+            {
+                "courseName": "MATH142",
+                "grade": 89.0
+            },
+            {
+                "courseName": "CHEM111",
+                "grade": 86.0
+            },
+            {
+                "courseName": "CHEM111L",
+                "grade": 90.0
+            },
+            {
+                "courseName": "CSCE146",
+                "grade": 84.0
+            },
+            {
+                "courseName": "CSCE215",
+                "grade": 83.0
+            },
+            {
+                "courseName": "CSCE211",
+                "grade": 90.0
+            },
+            {
+                "courseName": "CSCE240",
+                "grade": 88.0
+            },
+            {
+                "courseName": "CHEM112",
+                "grade": 87.0
+            },
+            {
+                "courseName": "CHEM112L",
+                "grade": 91.0
+            },
+            {
+                "courseName": "SPCH140",
+                "grade": 85.0
+            },
+            {
+                "courseName": "CSCE212",
+                "grade": 81.0
+            },
+            {
+                "courseName": "CSCE247",
+                "grade": 82.0
+            },
+            {
+                "courseName": "MATH241",
+                "grade": 85.0
+            },
+            {
+                "courseName": "SOCY101",
+                "grade": 83.0
+            },
+            {
+                "courseName": "ANTH161",
+                "grade": 84.0
+            },
+            {
+                "courseName": "CSCE311",
+                "grade": 88.0
+            },
+            {
+                "courseName": "CSCE330",
+                "grade": 89.0
+            },
+            {
+                "courseName": "CSCE350",
+                "grade": 87.0
+            },
+            {
+                "courseName": "CSCE390",
+                "grade": 86.0
+            },
+            {
+                "courseName": "ENGL462",
+                "grade": 90.0
+            },
+            {
+                "courseName": "CSCE518",
+                "grade": 85.0
+            }
+        ],
+        "uscID": "b1528974-761c-40cf-8b60-2c73d951fbb2",
+        "creditHours": 0,
+        "firstName": "Brax",
+        "password": "bwest060903",
+        "advisorNotes": [],
+        "major": "Computer Science",
+        "degreeProgress": {
+            "major": "Computer Science",
+            "incompleteCourses": [
+                "MATH374",
+                "CSCE416",
+                "CSCE317",
+                "STAT509",
+                "CLAS220",
+                "CSCE522",
+                "CSCE490",
+                "CSCE355",
+                "MATH344",
+                "MATH344L",
+                "CSCE548",
+                "CSCE520",
+                "CSCE492",
+                "CSCE513",
+                "MUSC110",
+                "POLI101",
+                "SOST201",
+                "SPAN109",
+                "CSCE552",
+                "CSCE564",
+                "CSCE565",
+                "CSCE567",
+                "MART201",
+                "MART210",
+                "MART371",
+                "MART380"
+            ],
+            "completeCourses": [
+                "ENGL101",
+                "MATH141",
+                "CSCE145",
+                "CSCE190",
+                "ARTE101",
+                "ENGL102",
+                "MATH142",
+                "CHEM111",
+                "CHEM111L",
+                "CSCE146",
+                "CSCE215",
+                "CSCE211",
+                "CSCE240",
+                "CHEM112",
+                "CHEM112L",
+                "SPCH140",
+                "CSCE212",
+                "CSCE247",
+                "MATH241",
+                "SOCY101",
+                "ANTH161",
+                "CSCE311",
+                "CSCE330",
+                "CSCE350",
+                "CSCE390",
+                "ENGL462",
+                "CSCE518"
+            ]
+        },
+        "gpa": 3.78,
+        "userType": "STUDENT",
+        "class": "Junior",
+        "applicationArea": "Digital Design",
+        "email": "bwest@email.sc.edu",
+        "coursePlanner": {
+            "semesters": [
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                []
+            ]
+        }
+    },
+    {
+        "lastName": "Spillman",
+        "completedCourses": [],
+        "uscID": "70c05f1a-1c7e-4b1e-9fe2-7ae2c427f815",
+        "creditHours": 0,
+        "firstName": "Garrett",
+        "password": "styletestt",
+        "advisorNotes": [],
+        "major": "Undeclared",
+        "degreeProgress": {
+            "major": "Undeclared",
+            "incompleteCourses": [],
+            "completeCourses": []
+        },
+        "gpa": 0.0,
+        "userType": "STUDENT",
+        "class": "Freshman",
+        "applicationArea": "Undeclared",
+        "email": "g@gmail.com",
+        "coursePlanner": {
+            "semesters": [
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                [],
+                []
+            ]
+        }
+    }
+]

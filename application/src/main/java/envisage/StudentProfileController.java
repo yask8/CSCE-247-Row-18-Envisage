@@ -281,9 +281,7 @@ public class StudentProfileController implements Initializable {
       majorNotTitleLabel.setText(
         student.getMajor() != null ? student.getMajor() : "Undeclared"
       );
-      String studentCreditHours = Integer.toString(
-        student.getCreditHours()
-      );
+      String studentCreditHours = Integer.toString(student.getCreditHours());
       creditHoursNotTitleLabel.setText(studentCreditHours);
 
       ArrayList<Note> advisorNotes = student.getAdvisorNotes();
@@ -297,7 +295,6 @@ public class StudentProfileController implements Initializable {
           noteListView.getItems().add(formattedNote);
           String recentDate = dateFormat.format(advisorNote.getDate());
           lastAdvisingApptDateLabel.setText(recentDate);
-          
         }
       } else {
         noteListView.getItems().add("No Notes Given Yet");
@@ -385,15 +382,16 @@ public class StudentProfileController implements Initializable {
 
   @FXML
   public void addNote(@SuppressWarnings("exports") ActionEvent event) {
-    ArrayList<UUID> advisees = facade.getListOfAdvisees();
+    /*ArrayList<UUID> advisees = facade.getListOfAdvisees();
 
+    
     if (!advisees.contains(studentID)) {
       showAlert(
         "Student Not Assigned",
         "You are not assigned to this student."
       );
       return;
-    }
+    }*/
 
     TextInputDialog dialog = new TextInputDialog();
     dialog.setTitle("Add Note");
